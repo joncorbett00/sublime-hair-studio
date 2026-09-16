@@ -45,6 +45,16 @@ business:
   sameAs:
     - https://www.facebook.com/ottawasublimehair/
 
+# Several pages read the same collection with different filters (home: featured
+# services, the first 6 photos; colour: colour services, colour photos). In this
+# runtime (0.12.13) the default fetcher applies `where` / `limit` / `sort` to a
+# local file BEFORE caching it, under a key that ignores them — so whichever page
+# loaded first decided what the next page got (the colour menu turned up in the
+# homepage's three cards). Declaring the operators here puts them in the cache
+# key. Local `path:` reads are still filtered in JS, so nothing else changes.
+fetcher:
+  supports: [where, limit, sort]
+
 collections:
   services:
     path: collections/services

@@ -133,6 +133,11 @@ Everything in hair-salon-1's README still applies. In particular:
   dev-server restart.
 - **A section gets one declaratively-bound collection.** `ServiceMenu` binds `services`
   and fetches the gallery by path (`/data/gallery.json`).
+- **`fetcher: supports: [where, limit, sort]` in `site/site.yml` is load-bearing.** Without
+  it this runtime filters a collection before caching it, under a key that ignores the
+  filter. Whichever page loaded first then decided what the next page got: after the Colour
+  page, the homepage's three cards showed the five colour services. Keep it while more than
+  one page filters the same collection.
 - **The house classes live in `@layer components`** (`styles.css`), so a Tailwind utility on
   the same element wins. Unlayered, `.mat`'s `position: relative` beat `absolute` and the
   hero's second photo stopped overlapping the first.
