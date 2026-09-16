@@ -52,15 +52,36 @@
   --ink: #17120F;
   --paper: #F6F0E6;
   --sand: #E6DBCB;
+  /* The one loud colour and the shades cut from it. The names stay
+     "vermilion", but these are the brand colour: the palette switcher
+     (components/PaletteSwitcher.jsx) overrides all of them on <html>. */
   --vermilion: #C8401F;
-  /* Vermilion lifted for text on ink, where the brand red is too dim. */
+  /* Lifted for text on ink, where the brand red is too dim. */
   --vermilion-bright: #E2582F;
+  /* Deepened for text on paper (accent words, eyebrow rules)… */
+  --vermilion-deep: #B5391B;
+  /* …and a touch deeper again for text on sand. */
+  --vermilion-deeper: #A8341A;
+  /* Cards inside a vermilion block, and the hover on ink. */
+  --vermilion-shade: #B4381A;
+  --vermilion-lift: #D9542F;
+  /* Reading text on a vermilion block. */
+  --on-vermilion: #FFF1E8;
+  --on-vermilion-soft: #F8D3C4;
+  /* The accent word on a vermilion block, and its squiggle. */
+  --on-vermilion-accent: var(--ink);
 
   /* The italic accent word: vermilion on paper and sand, the brighter red
      on ink, and ink on vermilion. */
-  --accent-ink: #B5391B;
+  --accent-ink: var(--vermilion-deep);
+
+  /* The accent squiggle is an SVG, which cannot read a variable, so each
+     colour has its own image. */
+  --squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23B5391B' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  --squiggle-bright: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23E2582F' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  --squiggle-ink: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%2317120F' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
 }
-.context-light, .context-medium { --accent-ink: #B5391B; }
+.context-light, .context-medium { --accent-ink: var(--vermilion-deep); }
 .context-dark { --accent-ink: var(--vermilion-bright); }
 
 ::selection { background: var(--vermilion); color: var(--paper); }
@@ -74,16 +95,16 @@
 
 .tone-vermilion {
   --section: var(--vermilion);
-  --card: #B4381A;
-  --muted: #B4381A;
+  --card: var(--vermilion-shade);
+  --muted: var(--vermilion-shade);
   --border: color-mix(in oklch, var(--paper), transparent 70%);
   --heading: var(--paper);
-  --body: #FFF1E8;
-  --subtle: #F8D3C4;
+  --body: var(--on-vermilion);
+  --subtle: var(--on-vermilion-soft);
   --primary: var(--paper);
   --primary-hover: #FFFFFF;
   --primary-foreground: var(--ink);
-  --accent-ink: var(--ink);
+  --accent-ink: var(--on-vermilion-accent);
   --ring: var(--paper);
   -webkit-font-smoothing: antialiased;
 }
@@ -96,7 +117,7 @@
   --body: #D9CEC2;
   --subtle: #A89A8E;
   --primary: var(--vermilion);
-  --primary-hover: #D9542F;
+  --primary-hover: var(--vermilion-lift);
   --primary-foreground: var(--paper);
   --accent-ink: var(--vermilion-bright);
   --ring: var(--vermilion-bright);
@@ -111,9 +132,9 @@
   --body: #3E352F;
   --subtle: #66584D;
   --primary: var(--vermilion);
-  --primary-hover: #B5391B;
+  --primary-hover: var(--vermilion-deep);
   --primary-foreground: var(--paper);
-  --accent-ink: #A8341A;
+  --accent-ink: var(--vermilion-deeper);
   --ring: var(--ink);
 }
 
@@ -185,17 +206,17 @@
   font-style: italic;
   font-weight: 500;
   padding-bottom: 0.04em;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23B5391B' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: var(--squiggle);
   background-repeat: no-repeat;
   background-size: 100% 0.2em;
   background-position: 0 96%;
 }
 .context-dark .font-display [accent], .tone-ink .font-display [accent],
 .context-dark .squiggle, .tone-ink .squiggle {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23E2582F' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: var(--squiggle-bright);
 }
 .tone-vermilion .font-display [accent], .tone-vermilion .squiggle {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%2317120F' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: var(--squiggle-ink);
 }
 
 /* Header nav links: a vermilion hairline drawn in from the left on hover,

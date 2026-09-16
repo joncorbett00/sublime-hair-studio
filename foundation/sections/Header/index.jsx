@@ -1,6 +1,7 @@
 import { Link, Icon, cn, useScrolled, useMobileMenu, useWebsite, useActiveRoute } from '@uniweb/kit'
 import Button from '#components/Button.jsx'
 import Wordmark from '#components/Wordmark.jsx'
+import PaletteSwitcher from '#components/PaletteSwitcher.jsx'
 
 const isExternal = (href = '') => /^https?:\/\//.test(href)
 
@@ -173,6 +174,9 @@ function Header({ content, params }) {
 
       {/* Landing target for the skip link. */}
       <div id="content-start" tabIndex={-1} className="sr-only" />
+
+      {/* Trying other colours. Delete this line when the palette is settled. */}
+      <PaletteSwitcher />
     </>
   )
 }

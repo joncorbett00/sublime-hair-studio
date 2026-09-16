@@ -1,6 +1,6 @@
 ---
 type: Hero
-stamp: One flight up · just off Elgin
+stamp: One flight up · on Elgin St.
 ---
 
 #> Golden Triangle · Ottawa
@@ -17,9 +17,9 @@ fitting a sharp cut into your lunch hour.
 [See services & prices](/services)
 
 ```yaml:facts
-- { value: "Runway", label: "& editorial trained" }
 - { value: "45 min", label: "Lunch-hour cuts" }
-- { value: "2 min", label: "Walk from Elgin St." }
+- { value: "12–6", label: "Tuesday to Saturday" }
+- { value: "20+ yrs", label: "Upstairs on Elgin" }
 ```
 
 ![Warm honey lived-in colour](/images/gallery/honey-lived-in.jpg)
