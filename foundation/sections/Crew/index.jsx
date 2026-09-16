@@ -80,7 +80,7 @@ export default function Crew({ content, params, block }) {
               role="dialog"
               aria-modal="true"
               aria-labelledby="crew-name"
-              className="context-light framed max-h-[88vh] w-full max-w-3xl overflow-y-auto bg-section [--offset:0.75rem] [--offset-color:var(--vermilion)]"
+              className="context-light framed laid max-h-[88vh] w-full max-w-3xl overflow-y-auto bg-section"
             >
               <div className="grid sm:grid-cols-[15rem_1fr]">
                 <img src={open.image} alt="" className="h-60 w-full object-cover sm:h-full" />

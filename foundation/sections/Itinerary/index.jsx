@@ -6,8 +6,8 @@ import { toneClass } from '#components/tone.js'
 /**
  * A timed run-of-show, drawn as the running order pinned up backstage:
  * "12:00 leave the office, 12:05 up the stairs…". Heading and copy on one
- * side, the card on the other — a paper card with the hard offset shadow,
- * whatever colour the section is.
+ * side, the card on the other — a paper card laid on the page at a slight
+ * angle, whatever colour the section is.
  *
  * Each `###` item is one stop: the heading is the time, `####` the step, and
  * the paragraph a line of detail. The last stop is drawn as the finish.
@@ -41,7 +41,7 @@ export default function Itinerary({ content, params, block }) {
           {items.length > 0 && (
             /* The card is always paper and ink, so it carries its own light context. */
             <div className="context-light relative mx-auto w-full max-w-lg bg-transparent lg:rotate-[1.25deg]">
-              <div className="framed [--offset:0.625rem] [--offset-color:var(--ink)]">
+              <div className="framed laid">
                 <div className="flex items-center justify-between gap-4 border-b border-heading px-6 py-4 sm:px-8">
                   <span className="caps text-[0.625rem] text-heading">Running order</span>
                   {cardTitle && <span className="font-display text-lg italic text-accent-ink">{cardTitle}</span>}

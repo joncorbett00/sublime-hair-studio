@@ -3,10 +3,13 @@ import { Link, cn } from '@uniweb/kit'
 /**
  * The house button: square, wide capitals. See `.btn-*` in styles.css.
  *
- *   primary  the booking button — brand fill with the hard offset shadow.
- *            Vermilion on paper, marigold on vermilion, vermilion on ink.
- *   outline  hairline in the heading colour, fills on hover
- *   ink      solid heading colour, turns primary on hover
+ *   primary  the booking button — brand fill with a hairline rule inside the
+ *            edge. Vermilion on paper, marigold on vermilion, vermilion on ink.
+ *   outline  hairline in the heading colour
+ *   ink      solid heading colour
+ *
+ * All of them fill from the left on hover. No shadows, so a pair of buttons
+ * lines up exactly.
  *
  * Renders as a Link when given an href, a button otherwise.
  */

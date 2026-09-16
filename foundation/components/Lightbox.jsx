@@ -33,7 +33,7 @@ export default function Lightbox({ shots, index, onClose, onStep, subtitle }) {
           <img
             src={shot.image}
             alt={shot.title || ''}
-            className="mx-auto max-h-[72vh] w-auto object-contain shadow-[0.625rem_0.625rem_0_0_var(--vermilion)]"
+            className="mx-auto max-h-[72vh] w-auto object-contain"
           />
           <button type="button" onClick={() => onStep(-1)} aria-label="Previous photo" className={`${arrow} left-2`}>
             <Icon name="lu-arrow-left" size="20" />

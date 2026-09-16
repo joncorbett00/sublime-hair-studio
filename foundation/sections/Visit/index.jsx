@@ -18,9 +18,8 @@ function Detail({ label, children }) {
 
 /**
  * Address, hours and the practical details. Heading and ruled detail rows on
- * one side; on the other, the map in a hairline frame with the hard offset
- * and the booking buttons under it. Practical notes run beneath as a
- * numbered index.
+ * one side; on the other, the map in a hairline frame and the booking
+ * buttons under it. Practical notes run beneath as a numbered index.
  *
  * The map is an embedded OpenStreetMap frame — no API key, no tracking script.
  */
@@ -102,7 +101,7 @@ export default function Visit({ content, params, block }) {
 
           <div className="lg:pt-24">
             {mapEmbed && (
-              <div className="framed p-2 [--offset:0.75rem] [--offset-color:var(--vermilion)]">
+              <div className="framed p-2.5">
                 <iframe
                   title="Map to the studio"
                   src={mapEmbed}

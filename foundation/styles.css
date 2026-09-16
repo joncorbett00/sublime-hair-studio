@@ -34,7 +34,7 @@
 
    The salon: vermilion, marigold and bottle green used as whole
    surfaces rather than accents, the marigold squiggle under the italic
-   word, the hard offset shadow on the booking button, arched photos
+   word, the garment-label rule on buttons and cards, arched photos
    with a solid block of colour behind them, and the turning seal.
 
    Everything reads tokens, so it follows the light/medium/dark
@@ -51,11 +51,9 @@
   /* The italic accent word. Vermilion on paper and blush; marigold where
      vermilion would vanish (ink and the colour blocks). */
   --accent-ink: #B5391B;
-  /* The hard shadow on buttons and framed cards. */
-  --offset-color: var(--ink);
 }
-.context-light, .context-medium { --accent-ink: #B5391B; --offset-color: var(--ink); }
-.context-dark { --accent-ink: var(--marigold); --offset-color: var(--marigold); }
+.context-light, .context-medium { --accent-ink: #B5391B; }
+.context-dark { --accent-ink: var(--marigold); }
 
 ::selection { background: var(--marigold); color: var(--ink); }
 
@@ -78,7 +76,6 @@
   --primary-hover: #F5C263;
   --primary-foreground: var(--ink);
   --accent-ink: var(--marigold);
-  --offset-color: var(--ink);
   --ring: var(--marigold);
   -webkit-font-smoothing: antialiased;
 }
@@ -94,7 +91,6 @@
   --primary-hover: #D9542F;
   --primary-foreground: var(--paper);
   --accent-ink: var(--marigold);
-  --offset-color: var(--marigold);
   --ring: var(--marigold);
   -webkit-font-smoothing: antialiased;
 }
@@ -110,7 +106,6 @@
   --primary-hover: #2A211B;
   --primary-foreground: var(--paper);
   --accent-ink: #A8321A;
-  --offset-color: var(--vermilion);
   --ring: var(--ink);
 }
 .tone-ink {
@@ -125,7 +120,6 @@
   --primary-hover: #D9542F;
   --primary-foreground: var(--paper);
   --accent-ink: var(--marigold);
-  --offset-color: var(--marigold);
   --ring: var(--marigold);
   -webkit-font-smoothing: antialiased;
 }
@@ -227,10 +221,16 @@
 /* ---------------------------------------------------------------
    Buttons (components/Button.jsx).
 
-   Square, wide capitals. The booking button keeps the salon's hard offset
-   shadow — it is at rest a flat block and steps off its shadow on hover.
+   Square, wide capitals, no shadow — a set of buttons sits on one clean
+   line. Two details instead: a hairline rule set just inside the edge, like
+   the border on a garment label, and a fill that sweeps in from the left on
+   hover (`--sweep` / `--sweep-ink`, the heading colour by default). The
+   arrow, when there is one, travels with it.
    --------------------------------------------------------------- */
 .btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -243,32 +243,42 @@
   line-height: 1;
   white-space: nowrap;
   border: 1px solid transparent;
-  transition:
-    transform 200ms cubic-bezier(.2,.8,.3,1.2),
-    box-shadow 200ms cubic-bezier(.2,.8,.3,1.2),
-    background-color 200ms, color 200ms, border-color 200ms;
+  transition: color 380ms cubic-bezier(.2,.7,.2,1), border-color 380ms;
 }
-.btn-primary {
-  background: var(--primary);
-  color: var(--primary-foreground);
-  box-shadow: var(--offset) var(--offset) 0 0 var(--offset-color);
+/* The sweep. */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--sweep, var(--heading));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 420ms cubic-bezier(.7,0,.2,1);
 }
-.btn-primary:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: calc(var(--offset) + 2px) calc(var(--offset) + 2px) 0 0 var(--offset-color);
+.btn:hover::before { transform: scaleX(1); }
+.btn:hover { color: var(--sweep-ink, var(--section)); }
+/* Icons must not make a button taller than its text-only neighbour. */
+.btn > svg { margin-block: -0.5em; transition: transform 380ms cubic-bezier(.2,.7,.2,1); }
+.btn:hover > svg:last-child { transform: translateX(3px); }
+
+.btn-primary { background: var(--primary); color: var(--primary-foreground); }
+/* The label rule, just inside the edge. */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid color-mix(in oklch, currentColor, transparent 62%);
+  pointer-events: none;
+  transition: border-color 380ms;
 }
-.btn-primary:active {
-  transform: translate(var(--offset), var(--offset));
-  box-shadow: 0 0 0 0 var(--offset-color);
-}
-.btn-outline {
-  border-color: var(--heading);
-  color: var(--heading);
-  background: transparent;
-}
-.btn-outline:hover { background: var(--heading); color: var(--section); }
-.btn-ink { background: var(--heading); color: var(--section); }
-.btn-ink:hover { background: var(--primary); color: var(--primary-foreground); }
+
+.btn-outline { border-color: var(--heading); color: var(--heading); background: transparent; }
+
+.btn-ink { background: var(--heading); color: var(--section); --sweep: var(--primary); --sweep-ink: var(--primary-foreground); }
+
+/* On marigold the primary button is already ink, so it sweeps to vermilion. */
+.tone-marigold .btn-primary { --sweep: var(--vermilion); --sweep-ink: var(--paper); }
 
 /* The small "Book →" text link. */
 .text-cta {
@@ -315,18 +325,28 @@
   transform: translate(calc(var(--block-offset) * -1.4), calc(var(--block-offset) * 1.4));
 }
 
-/* A hairline card with the hard offset. */
+/* A hairline card, with the same label rule set inside its edge as the
+   primary button. */
 .framed {
+  position: relative;
   border: 1px solid var(--heading);
   background: var(--card);
-  box-shadow: var(--offset) var(--offset) 0 0 var(--offset-color);
 }
+.framed::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid color-mix(in oklch, var(--heading), transparent 82%);
+  pointer-events: none;
+}
+/* A card laid on the page: a long, soft shadow, never a hard edge. */
+.laid { box-shadow: 0 2px 4px rgb(23 18 15 / 0.08), 0 32px 60px -28px rgb(23 18 15 / 0.55); }
 .lift {
-  transition: transform 260ms cubic-bezier(.2,.7,.2,1), box-shadow 260ms cubic-bezier(.2,.7,.2,1);
+  transition: transform 360ms cubic-bezier(.2,.7,.2,1), box-shadow 360ms cubic-bezier(.2,.7,.2,1);
 }
 .lift:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: calc(var(--offset) + 3px) calc(var(--offset) + 3px) 0 0 var(--offset-color);
+  transform: translateY(-6px);
+  box-shadow: 0 2px 4px rgb(23 18 15 / 0.06), 0 30px 50px -30px rgb(23 18 15 / 0.45);
 }
 
 /* Figure caption: "Fig. 2 — Sonia, owner". */
@@ -388,7 +408,8 @@ section[id] { scroll-margin-top: calc(var(--header-height) + 5px); }
 
 @media (prefers-reduced-motion: reduce) {
   .ticker-track, .spin-slow, .rise { animation: none !important; }
-  .btn-primary:hover, .lift:hover { transform: none; }
+  .lift:hover { transform: none; }
+  .btn::before, .btn > svg { transition: none; }
   .blocked::before { transition: none; }
 }
 
