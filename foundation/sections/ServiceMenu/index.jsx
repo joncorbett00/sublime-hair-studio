@@ -44,7 +44,7 @@ function Cards({ services, highlight, highlightLabel, bookHref, enquireHref }) {
               <div className="flex items-center justify-between gap-4">
                 <span className="font-display text-lg italic text-accent-ink" aria-hidden="true">No.&thinsp;{pad(i + 1)}</span>
                 {featured && highlightLabel ? (
-                  <span className="caps bg-marigold px-2.5 py-1.5 text-[0.5625rem] text-ink">{highlightLabel}</span>
+                  <span className="caps bg-heading px-2.5 py-1.5 text-[0.5625rem] text-section">{highlightLabel}</span>
                 ) : (
                   <Icon name={iconName(s.icon)} size="20" className="text-subtle" />
                 )}
@@ -180,7 +180,7 @@ export default function ServiceMenu({ content, params, block }) {
                         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                           <h3 className="font-display text-3xl font-medium leading-tight tracking-tight text-heading sm:text-[2.25rem]">{s.title}</h3>
                           {s.featured && (
-                            <span className="caps bg-marigold px-2.5 py-1.5 text-[0.5625rem] text-ink">Signature</span>
+                            <span className="caps bg-heading px-2.5 py-1.5 text-[0.5625rem] text-section">Signature</span>
                           )}
                         </div>
                         {s.tagline && <p className="font-display mt-2 text-lg italic text-accent-ink">{s.tagline}</p>}

@@ -1,6 +1,7 @@
 ---
 type: Footer
 theme: dark
+credit: Created by Proximify Studios
 ---
 
 # Sublime Hair Studio
@@ -23,8 +24,8 @@ Runway-trained hair in a warm little studio upstairs.
 
 - Studio
   - [Services & work](/services)
+  - [Colour](/colour)
   - [The crew](/crew)
-  - [Weddings & events](/weddings)
   - [Book an appointment](/book)
   - [Visit us](/visit)
 

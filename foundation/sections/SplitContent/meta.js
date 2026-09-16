@@ -2,7 +2,7 @@ import { toneParam } from '#components/tone.js'
 
 export default {
   title: 'Split Content',
-  description: 'Prose, buttons and a numbered list on one side; on the other a photo set on a solid block of colour with a hairline frame. The general-purpose section for story, policy and explainer content.',
+  description: 'Prose, buttons and a numbered list on one side; on the other a matted photo with a hairline around the mount. The general-purpose section for story, policy and explainer content.',
   category: 'content',
   purpose: 'Explain',
 
@@ -17,16 +17,6 @@ export default {
 
   params: {
     flipped: { type: 'boolean', label: 'Photo on the left', default: false },
-    shadow: {
-      type: 'select', label: 'Colour block behind the photo',
-      options: [
-        { value: 'primary', label: 'Vermilion' },
-        { value: 'accent', label: 'Marigold' },
-        { value: 'secondary', label: 'Bottle green' },
-        { value: 'heading', label: 'Ink' },
-      ],
-      default: 'primary',
-    },
     frame: {
       type: 'select', label: 'Photo frame',
       options: [{ value: 'rounded', label: 'Square' }, { value: 'arch', label: 'Arched window' }],
@@ -37,6 +27,6 @@ export default {
 
   presets: {
     default: { label: 'Photo right', params: { flipped: false } },
-    flipped: { label: 'Photo left', params: { flipped: true, shadow: 'accent' } },
+    flipped: { label: 'Photo left', params: { flipped: true } },
   },
 }

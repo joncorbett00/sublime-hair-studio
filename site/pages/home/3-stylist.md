@@ -2,7 +2,6 @@
 type: SplitContent
 flipped: true
 frame: arch
-shadow: accent
 ---
 
 #> Behind the chair

@@ -23,47 +23,60 @@ pnpm build        # foundation + site → site/dist (static, prerendered)
 | | hair-salon-1 "one flight up" | hair-salon-2 "Golden Triangle" | **"Front Row"** |
 |---|---|---|---|
 | Mood | Warm, lamp-lit, a bit funky | Upscale, urban, editorial | A fashion magazine that runs a colourful salon |
-| Palette | Cream, espresso, vermilion, marigold | Gallery white, near-black, gold | Bone paper, ink, and vermilion, marigold, bottle green **as whole sections** |
+| Palette | Cream, espresso, vermilion, marigold | Gallery white, near-black, gold | **One colour, vermilion**, set as whole sections, on paper, sand, taupe and ink |
 | Headings | Fraunces (soft serif) | Playfair Display | Bodoni Moda (Didone) at poster sizes, over Archivo |
 | Labels | Small bold caps | Tracked uppercase | Wide (125%) tracked Archivo capitals |
-| Accent word | Italic + marigold squiggle | Italic, softened | Bodoni italic in vermilion + marigold squiggle |
-| Shapes | Rounded, arches, ink wink | Square, gold bracket | Square corners, arches on solid colour blocks, hard offset shadows |
+| Accent word | Italic + marigold squiggle | Italic, softened | Bodoni italic in vermilion + a fine squiggle |
+| Shapes | Rounded, arches, ink wink | Square, gold bracket | Square corners, matted photos and arches, no hard shadows |
 
 **Where the clash is:** the magazine side is the Didone type, wide capitals, numbered
-sections ("No. 03"), figure captions ("Fig. / Look 01"), hairline rules, crop marks on the
-closing CTA, and the wordmark set across the full width of the footer. The salon side is the
-colour-block sections, the squiggle, the hard offset shadow on the booking button, arched
-photos with a solid block of colour behind them, the turning marigold seal and the
-three-colour stripe along the top of every page.
+sections ("No. 03"), figure captions ("Fig. / Look 01"), matted photographs with a second
+hairline around the mount, crop marks on the closing CTA, and the wordmark set across the
+full width of the footer. The salon side is vermilion as whole sections, the squiggle, the
+overlapping hero photos, the turning vermilion seal, and the coupon-style promo band.
+
+### Pages
+
+Home, Services, **Colour**, The Crew, Visit, and Book (a redirect). Colour replaced
+hair-salon-1's Weddings page: an intro, how a colour day runs, the colour menu with photos,
+colour work, colour reviews, colour FAQ and a CTA. The crew page adds **Sonia's career
+timeline** (`Timeline` section) between the team and the hiring note.
 
 ### House vocabulary (`foundation/styles.css`)
 
-- `tone: vermilion | green | marigold | ink` in a section's frontmatter sets the whole
-  section in that colour (`.tone-*` redefines every token, so buttons, text and the accent
-  word all adapt). Supported by CTA, SplitContent, Itinerary, ServiceMenu, Gallery,
+- `tone: vermilion | ink | sand` in a section's frontmatter sets the whole section in that
+  colour (`.tone-*` redefines every token, so buttons, text and the accent word all adapt).
+  Supported by CTA, Promo, SplitContent, Itinerary, Timeline, ServiceMenu, Gallery,
   Testimonials, FAQ, Crew and Visit. `theme: light | medium | dark` still works as usual;
-  medium is powder blush.
-- `[words]{accent}` in a heading: Bodoni italic, vermilion, with the marigold squiggle
-  (vermilion squiggle on marigold, none on vermilion).
+  medium is sand.
+- `[words]{accent}` in a heading: Bodoni italic with a fine squiggle. Vermilion on paper and
+  sand, a brighter vermilion on ink, ink on vermilion.
 - `.eyebrow` is the section number, a rule and the label. The number is the section's
   position on its page (`components/Shout.jsx`).
-- `.btn .btn-primary | outline | ink`: square wide-caps buttons. `primary` carries the hard
-  offset shadow (`--offset`, `--offset-color`).
-- `.blocked` (+ `.block-left`, `--block`): a solid colour block set out behind a photo.
-- `.framed` (+ `.lift`): hairline card with the hard offset.
-- `.caps`, `.figcap`, `.running` (vertical caption), `.selvedge` (the colour stripe),
+- `.btn .btn-primary | outline | ink`: square wide-caps buttons with no shadow. `primary`
+  has a hairline rule just inside its edge. All of them fill from the left on hover
+  (`--sweep`, `--sweep-ink`). Icons are held to the text height, so pairs line up.
+- `.mat` (+ `.arch`): a matted photograph with a long soft shadow. `.halo`: the second
+  hairline drawn around a mount on the same centre.
+- `.framed` (+ `.laid`, `.lift`): hairline card with the label rule inside. `.laid` is a long
+  soft shadow, `.lift` rises on hover.
+- `.caps`, `.figcap`, `.running` (vertical caption), `.selvedge` (the vermilion stripe),
   `.nav-line`, `.text-cta`, `.arch`.
 
-**Contrast:** marigold is never small text on paper. Accent words on paper and blush use
-`--accent-ink` (`#B5391B`, a deeper vermilion). On ink and colour blocks they turn marigold.
+**Contrast:** accent words on paper and sand use `--accent-ink` (`#B5391B`, a deeper
+vermilion). On ink they use `--vermilion-bright` (`#E2582F`).
 
 ### Content changes from hair-salon-1
 
-Frontmatter only, no copy. Ticker `tone: vermilion`. Lunch hour `tone: green`. Home services
-`layout: cards` with the first card in vermilion. Shop teaser `tone: marigold`. CTAs are
-`tone: vermilion` (home, weddings), `green` (services) and `ink` (visit). The wedding morning
-is `tone: marigold`, and the wedding prices use `layout: cards`.
-`layout/header.md` lost the `# Sublime` title because the wordmark is set in the component.
+Beyond the new Colour page and timeline, frontmatter only:
+
+- **Home:** the ticker became a Promo band (back to school, 10% off). Lunch hour is
+  `tone: ink`. Services use `layout: cards` with the first card in vermilion. The CTA is
+  `tone: vermilion`.
+- **Other CTAs:** services `ink`, visit `ink`.
+- **Header:** `layout/header.md` lost the `# Sublime` title, because the wordmark is set in
+  the component. Weddings became Colour in the nav and footer.
+- **Footer:** `credit:` in `layout/footer.md` is the "Created by Proximify Studios" line.
 
 ---
 
@@ -81,20 +94,29 @@ Everything in hair-salon-1's README still applies. In particular:
   `site/theme.yml` and `font-display` in `foundation/main.js`.
 - **Shop links** in the header and footer point at `shop.sublimehair.ca`, the separate
   shop site in hair-salon-1. It has not been restyled.
-- The wedding morning's times are still placeholders (see the comment in
-  `pages/weddings/2-morning.md`).
+- **Sonia's timeline is a placeholder**: every year, headline and photo in
+  `site/pages/crew/2-sonia.md`. The photos are stock shots of the kind of work, not of Sonia.
+  Replace them with her real history and photos from her career.
+- **Colour page placeholders:** the colour-day running order (`pages/colour/2-day.md`), and
+  the aftercare and deposit answers (`pages/colour/6-faq.md`).
+- **Promo terms:** confirm which services the 10% covers, when it ends and how it is
+  redeemed (`pages/home/2-promo.md`). Add `note:` for an end date, and delete the file when
+  the offer is over.
 
 ## Editing
 
 | To change | Where |
 |---|---|
 | Colours, fonts | `site/theme.yml`, plus the `:root` and `.tone-*` blocks in `foundation/styles.css` |
-| Offset shadow, colour-block offset, widths | `foundation/main.js` vars |
+| Header height, widths, section rhythm | `foundation/main.js` vars |
 | Which sections are colour blocks | `tone:` in each `site/pages/<page>/*.md` |
 | Header nav | `site/layout/header.md` |
 | Footer blurb, hours, link columns | `site/layout/footer.md` |
 | Opening hours | `yaml:hours` in `site/layout/footer.md` and `site/pages/visit/1-visit.md`, plus `business.hours` in `site/site.yml` |
-| Hero seal text | `stamp:` in `site/pages/home/1-hero.md` and `site/pages/weddings/1-intro.md` |
+| Hero seal text | `stamp:` in `site/pages/home/1-hero.md` and `site/pages/colour/1-intro.md` |
+| The current offer | `site/pages/home/2-promo.md` |
+| Sonia's career | `site/pages/crew/2-sonia.md` |
+| Footer credit | `credit:` in `site/layout/footer.md` |
 | Services, crew, gallery, reviews | `site/collections/*` |
 | Page copy | `site/pages/<page>/*.md` |
 

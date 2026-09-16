@@ -4,12 +4,9 @@ import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
 
-/** Each portrait stands on its own block of colour, in turn. */
-const BLOCKS = ['var(--vermilion)', 'var(--marigold)', 'var(--bottle)']
-
 /**
- * The team, cast like a show. Arched portraits on blocks of house colour, the
- * name in Bodoni, the role in wide capitals. Cards open a detail dialog rather
+ * The team, cast like a show. Matted arched portraits in black and white that
+ * come into colour on hover, the name in Bodoni, the role in wide capitals. Cards open a detail dialog rather
  * than navigating away, so someone comparing stylists never loses their place.
  */
 export default function Crew({ content, params, block }) {
@@ -41,15 +38,13 @@ export default function Crew({ content, params, block }) {
                 className="group block w-full text-left"
                 aria-label={`Read more about ${person.title}`}
               >
-                <div className="pr-5">
-                  <div className="blocked arch" style={{ '--block': BLOCKS[i % BLOCKS.length], '--block-offset': '1rem' }}>
-                    <img
-                      src={person.image}
-                      alt=""
-                      className="arch aspect-[4/5] w-full object-cover grayscale-[35%] transition-[filter] duration-500 group-hover:grayscale-0"
-                      loading="lazy"
-                    />
-                  </div>
+                <div className="mat arch transition-transform duration-500 group-hover:-translate-y-1.5">
+                  <img
+                    src={person.image}
+                    alt=""
+                    className="aspect-[4/5] w-full object-cover grayscale transition-[filter] duration-700 group-hover:grayscale-0"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="mt-9">
                   <p className="font-display text-sm italic text-accent-ink" aria-hidden="true">No.&thinsp;{String(i + 1).padStart(2, '0')}</p>

@@ -8,8 +8,8 @@ bookHref: /book
      rest right. The link to /book is drawn as the booking button. The wordmark
      is the home link, so there is no Home here. -->
 [Services](/services)
+[Colour](/colour)
 [The Crew](/crew)
-[Weddings](/weddings)
 [Visit](/visit)
 [Shop](https://shop.sublimehair.ca)
 [Book now](/book)

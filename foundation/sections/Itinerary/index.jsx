@@ -57,7 +57,7 @@ export default function Itinerary({ content, params, block }) {
                             aria-hidden="true"
                             className={cn(
                               'absolute -left-[5px] top-1.5 size-[9px] rotate-45',
-                              last ? 'bg-marigold ring-1 ring-ink' : 'bg-vermilion'
+                              last ? 'bg-section ring-1 ring-vermilion' : 'bg-vermilion'
                             )}
                           />
                           {item.subtitle && <strong className="caps block text-[0.6875rem] text-heading">{item.subtitle}</strong>}

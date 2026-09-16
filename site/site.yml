@@ -6,9 +6,9 @@ index: home
 
 # `book` redirects to Square Appointments (pages/book/page.yml). The shop is its
 # own site — linked from the header and footer, not a page here.
-pages: [home, services, crew, weddings, book, visit]
+pages: [home, services, colour, crew, book, visit]
 
-keywords: [hair studio ottawa, hair salon ottawa, elgin street hair salon, golden triangle salon, lunch hour haircut ottawa, balayage ottawa, creative colour, centretown hair, curly cuts ottawa, bridal hair ottawa, wedding hair ottawa, vivid hair colour]
+keywords: [hair studio ottawa, hair salon ottawa, elgin street hair salon, golden triangle salon, lunch hour haircut ottawa, balayage ottawa, creative colour, centretown hair, curly cuts ottawa, vivid hair colour ottawa, colour correction ottawa, pastel hair colour]
 
 seo:
   # Also set in vite.config.js — the build reads it from there, not here.

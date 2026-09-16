@@ -1,7 +1,7 @@
 import { cn } from '@uniweb/kit'
 
 /**
- * The turning seal: a marigold disc with a line of wide capitals running round
+ * The turning seal: a vermilion disc with a line of wide capitals running round
  * its edge and the Bodoni "S" in the middle. The words are decoration — they
  * also appear in the page's own copy — so the whole thing is aria-hidden.
  */
@@ -12,7 +12,7 @@ export default function Seal({ text, className }) {
   return (
     <div
       aria-hidden="true"
-      className={cn('relative grid size-28 place-items-center rounded-full bg-marigold text-ink sm:size-36', className)}
+      className={cn('relative grid size-28 place-items-center rounded-full bg-vermilion text-paper sm:size-36', className)}
     >
       <svg viewBox="0 0 120 120" className="spin-slow absolute inset-0 size-full">
         <defs>
@@ -22,7 +22,7 @@ export default function Seal({ text, className }) {
           <textPath href={`#${id}`} textLength="272">{ring}</textPath>
         </text>
       </svg>
-      <span className="size-[58%] rounded-full border border-ink/40" />
+      <span className="size-[58%] rounded-full border border-paper/45" />
       <span className="font-display absolute text-4xl font-medium italic leading-none sm:text-5xl">S</span>
     </div>
   )

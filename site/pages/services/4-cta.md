@@ -1,6 +1,6 @@
 ---
 type: CTA
-tone: green
+tone: ink
 ---
 
 #> Bring us a photo

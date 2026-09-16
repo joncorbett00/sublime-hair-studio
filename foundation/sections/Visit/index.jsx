@@ -71,13 +71,13 @@ export default function Visit({ content, params, block }) {
                           key={i}
                           className={cn(
                             'flex justify-between gap-4 px-2 py-1',
-                            isToday && '-mx-0 bg-marigold font-semibold text-ink'
+                            isToday && 'bg-vermilion font-semibold text-paper'
                           )}
                         >
-                          <dt className={isToday ? 'text-ink' : 'text-body'}>
+                          <dt className={isToday ? 'text-paper' : 'text-body'}>
                             {row.day}{isToday && <span className="caps ml-2 text-[0.5rem]">Today</span>}
                           </dt>
-                          <dd className={isToday ? 'text-ink' : closed ? 'text-subtle' : 'text-heading'}>{row.open}</dd>
+                          <dd className={isToday ? 'text-paper' : closed ? 'text-subtle' : 'text-heading'}>{row.open}</dd>
                         </div>
                       )
                     })}

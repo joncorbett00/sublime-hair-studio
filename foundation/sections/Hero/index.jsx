@@ -6,10 +6,9 @@ import { Eyebrow } from '#components/Shout.jsx'
 /**
  * Front-door hero, set like a magazine cover. A poster-sized Bodoni headline,
  * intro and buttons on the left, and a row of headline numbers under a ruled
- * line. On the right, the upstairs-window arch: the first photo in the arch
- * with a solid vermilion block behind it and an ink hairline arch offset the
- * other way; the second photo tucked against its foot on a bottle-green
- * block; the turning seal on top; and a running caption up the side.
+ * line. On the right, the upstairs-window arch: the first photo matted in the
+ * arch with a second hairline arch around it, the second photo laid over its
+ * foot, the turning seal on top, and a running caption up the side.
  */
 export default function Hero({ content, params, block }) {
   const { pretitle, title, paragraphs, links, images, data } = content
@@ -61,39 +60,40 @@ export default function Hero({ content, params, block }) {
         </div>
 
         {split && (
-          <div className="relative mx-auto w-full max-w-[26rem] pb-12 pr-6 sm:pr-10 lg:mr-0 lg:max-w-[31rem]">
-            <figure className="relative ml-10 sm:ml-16">
-              {/* Hairline arch thrown up and left, the colour block down and right. */}
-              <span aria-hidden="true" className="arch absolute inset-0 -translate-x-4 -translate-y-4 border border-heading" />
-              <div className="blocked arch [--block:var(--vermilion)]">
+          <div className="relative mx-auto w-full max-w-[26rem] pb-20 lg:mr-0 lg:max-w-[31rem]">
+            <figure className="relative ml-14 mr-8 sm:ml-24 sm:mr-10">
+              <div className="mat arch">
+                <span aria-hidden="true" className="halo" />
                 <img
                   src={main.url || main.src}
                   alt={main.alt || ''}
-                  className="arch aspect-[4/5] w-full object-cover"
+                  className="aspect-[4/5] w-full object-cover"
                   loading="eager"
                   fetchPriority="high"
                 />
               </div>
               {main.alt && (
-                <figcaption className="figcap running absolute -right-8 bottom-0 whitespace-nowrap sm:-right-10">
+                <figcaption className="figcap running absolute -right-9 bottom-0 whitespace-nowrap sm:-right-10">
                   <b>Look 01</b>&ensp;—&ensp;{main.alt}
                 </figcaption>
               )}
             </figure>
 
+            {/* The second photo is laid over the foot of the arch, the way
+                prints get pinned over each other on a mood board. */}
             {inset && (
-              <figure className="blocked block-left absolute bottom-0 left-0 w-[44%] [--block:var(--bottle)] [--block-offset:0.75rem]">
+              <figure className="mat absolute bottom-0 left-0 w-[48%] p-2">
                 <img
                   src={inset.url || inset.src}
                   alt={inset.alt || ''}
-                  className="aspect-square w-full border-[6px] border-section object-cover"
+                  className="aspect-square w-full object-cover"
                   loading="eager"
                 />
               </figure>
             )}
 
             {stamp && (
-              <div className="absolute -top-6 right-0 sm:-top-8">
+              <div className="absolute -top-8 right-0">
                 <Seal text={stamp} />
               </div>
             )}

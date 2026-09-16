@@ -1,6 +1,5 @@
 ---
 type: SplitContent
-shadow: primary
 ---
 
 #> The studio

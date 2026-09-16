@@ -24,7 +24,7 @@ export default function Lightbox({ shots, index, onClose, onStep, subtitle }) {
   if (!shot) return null
 
   const pad = (n) => String(n).padStart(2, '0')
-  const arrow = 'absolute top-1/2 grid size-12 -translate-y-1/2 place-items-center border border-ink bg-paper text-ink transition-colors hover:bg-marigold'
+  const arrow = 'absolute top-1/2 grid size-12 -translate-y-1/2 place-items-center border border-ink bg-paper text-ink transition-colors hover:bg-vermilion hover:text-paper'
 
   return (
     <Overlay onClose={onClose} className="items-center bg-ink/95 p-4 sm:p-8">
@@ -45,7 +45,7 @@ export default function Lightbox({ shots, index, onClose, onStep, subtitle }) {
 
         <div className="mt-8 max-w-2xl text-center">
           <p className="font-display text-xl italic text-paper sm:text-2xl">{shot.caption || shot.title}</p>
-          <p className="caps mt-3 text-[0.625rem] text-marigold">
+          <p className="caps mt-3 text-[0.625rem] text-[var(--vermilion-bright)]">
             {subtitle ? `${subtitle} · ` : ''}{pad(index + 1)} / {pad(shots.length)}
           </p>
         </div>

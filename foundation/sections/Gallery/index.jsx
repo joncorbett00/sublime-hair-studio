@@ -5,8 +5,8 @@ import Button from '#components/Button.jsx'
 import Lightbox from '#components/Lightbox.jsx'
 import { toneClass } from '#components/tone.js'
 
-/** Hover bands cycle through the house colours, like swatches pinned to a board. */
-const BANDS = ['tone-vermilion', 'tone-marigold', 'tone-green']
+/** Hover bands alternate vermilion and ink. */
+const BANDS = ['tone-vermilion', 'tone-ink']
 
 /**
  * The photo wall, laid out like a lookbook: an even grid of 4:5 frames, each

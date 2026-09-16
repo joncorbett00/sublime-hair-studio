@@ -12,5 +12,7 @@ export default {
     data: 'A `yaml:hours` block — a list of { day, open }',
   },
 
-  params: {},
+  params: {
+    credit: { type: 'string', label: 'Credit line', description: 'Small print at the very end of the footer, e.g. who built the site', default: '' },
+  },
 }

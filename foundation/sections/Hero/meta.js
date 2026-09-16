@@ -1,6 +1,6 @@
 export default {
   title: 'Hero',
-  description: 'Front-door hero set like a magazine cover — a poster-sized headline, intro copy, buttons and a row of headline numbers beside an arched photo on a vermilion block, with a second photo tucked against it and an optional turning seal.',
+  description: 'Front-door hero set like a magazine cover — a poster-sized headline, intro copy, buttons and a row of headline numbers beside a matted arched photo with a second photo laid over it and an optional turning seal.',
   category: 'impact',
   purpose: 'Introduce',
 

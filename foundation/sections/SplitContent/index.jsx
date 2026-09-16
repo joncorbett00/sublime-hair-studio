@@ -3,13 +3,6 @@ import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
 
-const BLOCKS = {
-  primary: 'var(--vermilion)',
-  accent: 'var(--marigold)',
-  secondary: 'var(--bottle)',
-  heading: 'var(--ink)',
-}
-
 const iconName = (item) => (item.icons?.[0] ? `${item.icons[0].library}-${item.icons[0].name}` : 'lu-check')
 
 /**
@@ -20,7 +13,7 @@ const iconName = (item) => (item.icons?.[0] ? `${item.icons[0].library}-${item.i
  */
 export default function SplitContent({ content, params, block }) {
   const { pretitle, title, paragraphs, links, images, items } = content
-  const { flipped = false, shadow = 'primary', frame = 'rounded', tone = '' } = params
+  const { flipped = false, frame = 'rounded', tone = '' } = params
   const image = images[0]
   const arch = frame === 'arch'
 
@@ -65,27 +58,17 @@ export default function SplitContent({ content, params, block }) {
 
           {image && (
             <figure className={cn('relative mx-auto w-full max-w-md lg:max-w-[30rem]', flipped ? 'lg:mr-auto lg:ml-4' : 'lg:ml-auto lg:mr-4')}>
-              <span
-                aria-hidden="true"
-                className={cn(
-                  'absolute inset-x-0 top-0 aspect-[4/5] -translate-y-4 border border-heading',
-                  arch && 'arch',
-                  flipped ? 'translate-x-4' : '-translate-x-4'
-                )}
-              />
-              <div
-                className={cn('blocked', arch && 'arch', flipped && 'block-left')}
-                style={{ '--block': BLOCKS[shadow] || BLOCKS.primary }}
-              >
+              <div className={cn('mat', arch && 'arch')}>
+                <span aria-hidden="true" className="halo" />
                 <img
                   src={image.url || image.src}
                   alt={image.alt || ''}
-                  className={cn('aspect-[4/5] w-full object-cover', arch && 'arch')}
+                  className="aspect-[4/5] w-full object-cover"
                   loading="lazy"
                 />
               </div>
               {image.alt && (
-                <figcaption className={cn('figcap mt-9', flipped ? 'text-right' : 'text-left')}>
+                <figcaption className={cn('figcap mt-8', flipped ? 'text-right' : 'text-left')}>
                   <b>Fig.</b>&ensp;{image.alt}
                 </figcaption>
               )}

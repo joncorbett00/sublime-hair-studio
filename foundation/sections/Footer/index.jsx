@@ -8,12 +8,13 @@ import Wordmark from '#components/Wordmark.jsx'
  * way a label signs off. Takes the hours and columns as authored markdown so
  * the salon can change them without anyone opening this file.
  */
-function Footer({ content }) {
+function Footer({ content, params }) {
   const { website } = useWebsite()
   const { title, paragraphs, links, lists, data } = content
   const social = filterSocialLinks(links)
   const plain = links.filter((l) => !social.includes(l))
   const hours = data?.hours || []
+  const { credit = '' } = params
 
   /* Each link column is a labelled group: a markdown list item whose text is
      the heading and whose nested list holds the links. */
@@ -41,7 +42,7 @@ function Footer({ content }) {
                     key={i}
                     href={l.href}
                     aria-label={l.label}
-                    className="grid size-11 place-items-center border border-border text-heading transition-colors hover:border-marigold hover:bg-marigold hover:text-ink"
+                    className="grid size-11 place-items-center border border-border text-heading transition-colors hover:border-vermilion hover:bg-vermilion hover:text-paper"
                   >
                     <SocialIcon url={l.href} size={18} />
                   </Link>
@@ -52,7 +53,7 @@ function Footer({ content }) {
 
           {hours.length > 0 && (
             <div>
-              <H3 text="Hours" className="caps text-[0.625rem] text-marigold" />
+              <H3 text="Hours" className="caps text-[0.625rem] text-accent-ink" />
               <dl className="mt-5">
                 {hours.map((row, i) => (
                   <div key={i} className="flex justify-between gap-4 border-b border-border py-2 text-sm">
@@ -66,7 +67,7 @@ function Footer({ content }) {
 
           {columns.map((column, ci) => (
             <div key={ci}>
-              <H3 text={column.label} className="caps text-[0.625rem] text-marigold" />
+              <H3 text={column.label} className="caps text-[0.625rem] text-accent-ink" />
               <ul className="mt-5 space-y-3">
                 {column.links.map((link, i) => (
                   <li key={i}>
@@ -84,12 +85,13 @@ function Footer({ content }) {
           <p className="caps text-[0.5625rem] text-subtle">
             © {new Date().getFullYear()} {title || website.name} — one flight up, just off Elgin
           </p>
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap items-center gap-6">
             {plain.map((l, i) => (
               <Link key={i} href={l.href} className="caps text-[0.5625rem] text-subtle transition-colors hover:text-heading">
                 {l.label}
               </Link>
             ))}
+            {credit && <span className="text-[0.6875rem] text-subtle/70">{credit}</span>}
           </div>
         </div>
       </div>

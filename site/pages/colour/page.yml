@@ -1,0 +1,10 @@
+# `title` is the Google result and browser tab — the site name is added after it
+# ("… | Sublime Hair Studio"), so leave it out here. `label` is the nav link.
+title: "Hair Colour in Ottawa — Vivids, Balayage & Correction"
+label: Colour
+description: >-
+  Creative colour, vivids, balayage, glosses and colour correction at Sublime Hair Studio
+  in Ottawa's Golden Triangle — how a colour day works, what it costs, and the work.
+
+seo:
+  canonical: https://sublimehair.ca/colour

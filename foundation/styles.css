@@ -16,51 +16,51 @@
   --font-display: var(--font-display);
   --color-ink: var(--ink);
   --color-paper: var(--paper);
+  --color-sand: var(--sand);
   --color-vermilion: var(--vermilion);
-  --color-marigold: var(--marigold);
-  --color-bottle: var(--bottle);
   --color-accent-ink: var(--accent-ink);
 }
 
 /* ---------------------------------------------------------------
    House vocabulary — "Front Row".
 
-   The studio's colour, dressed by a fashion editor. Two voices on
-   every page and they are meant to clash a little:
+   One colour, dressed by a fashion editor. Vermilion is the only loud
+   thing in the house; everything else is paper, sand, taupe and ink, so
+   wherever the red lands it is the point of the page. Two voices:
 
    The magazine: bone paper and ink, Bodoni Moda at poster sizes, wide
    capitals for labels, square corners, hairline rules, numbered
-   sections and figure captions.
+   sections, figure captions and matted photographs.
 
-   The salon: vermilion, marigold and bottle green used as whole
-   surfaces rather than accents, the marigold squiggle under the italic
-   word, the garment-label rule on buttons and cards, arched photos
-   with a solid block of colour behind them, and the turning seal.
+   The salon: whole sections set in vermilion, the squiggle under the
+   italic word, the garment-label rule on buttons and cards, arched
+   photos like the upstairs windows, and the turning seal.
 
    Everything reads tokens, so it follows the light/medium/dark
-   contexts and the `tone-*` colour blocks below.
+   contexts and the `tone-*` blocks below.
    --------------------------------------------------------------- */
 
 :root {
   --ink: #17120F;
   --paper: #F6F0E6;
+  --sand: #E6DBCB;
   --vermilion: #C8401F;
-  --marigold: #EDAE3A;
-  --bottle: #24493D;
+  /* Vermilion lifted for text on ink, where the brand red is too dim. */
+  --vermilion-bright: #E2582F;
 
-  /* The italic accent word. Vermilion on paper and blush; marigold where
-     vermilion would vanish (ink and the colour blocks). */
+  /* The italic accent word: vermilion on paper and sand, the brighter red
+     on ink, and ink on vermilion. */
   --accent-ink: #B5391B;
 }
 .context-light, .context-medium { --accent-ink: #B5391B; }
-.context-dark { --accent-ink: var(--marigold); }
+.context-dark { --accent-ink: var(--vermilion-bright); }
 
-::selection { background: var(--marigold); color: var(--ink); }
+::selection { background: var(--vermilion); color: var(--paper); }
 
 /* ---------------------------------------------------------------
-   Colour blocks. A section with `tone: vermilion | green | marigold | ink`
-   is set entirely in that colour: the component puts `tone-*` on its
-   outer element, and every token below it follows.
+   Colour blocks. A section with `tone: vermilion | ink | sand` is set
+   entirely in that colour: the component puts `tone-*` on its outer
+   element, and every token below it follows.
    --------------------------------------------------------------- */
 .tone { background: var(--section); color: var(--body); }
 
@@ -72,41 +72,12 @@
   --heading: var(--paper);
   --body: #FFF1E8;
   --subtle: #F8D3C4;
-  --primary: var(--marigold);
-  --primary-hover: #F5C263;
+  --primary: var(--paper);
+  --primary-hover: #FFFFFF;
   --primary-foreground: var(--ink);
-  --accent-ink: var(--marigold);
-  --ring: var(--marigold);
+  --accent-ink: var(--ink);
+  --ring: var(--paper);
   -webkit-font-smoothing: antialiased;
-}
-.tone-green {
-  --section: var(--bottle);
-  --card: #1C3B31;
-  --muted: #1C3B31;
-  --border: color-mix(in oklch, var(--paper), transparent 78%);
-  --heading: var(--paper);
-  --body: #E3EAE3;
-  --subtle: #B3C6BB;
-  --primary: var(--vermilion);
-  --primary-hover: #D9542F;
-  --primary-foreground: var(--paper);
-  --accent-ink: var(--marigold);
-  --ring: var(--marigold);
-  -webkit-font-smoothing: antialiased;
-}
-.tone-marigold {
-  --section: var(--marigold);
-  --card: #F4C46A;
-  --muted: #E29F28;
-  --border: color-mix(in oklch, var(--ink), transparent 75%);
-  --heading: var(--ink);
-  --body: #2A211B;
-  --subtle: #4D3B25;
-  --primary: var(--ink);
-  --primary-hover: #2A211B;
-  --primary-foreground: var(--paper);
-  --accent-ink: #A8321A;
-  --ring: var(--ink);
 }
 .tone-ink {
   --section: var(--ink);
@@ -119,9 +90,23 @@
   --primary: var(--vermilion);
   --primary-hover: #D9542F;
   --primary-foreground: var(--paper);
-  --accent-ink: var(--marigold);
-  --ring: var(--marigold);
+  --accent-ink: var(--vermilion-bright);
+  --ring: var(--vermilion-bright);
   -webkit-font-smoothing: antialiased;
+}
+.tone-sand {
+  --section: var(--sand);
+  --card: #EFE7DB;
+  --muted: #DDD0BE;
+  --border: #CDBEAA;
+  --heading: var(--ink);
+  --body: #3E352F;
+  --subtle: #66584D;
+  --primary: var(--vermilion);
+  --primary-hover: #B5391B;
+  --primary-foreground: var(--paper);
+  --accent-ink: #A8341A;
+  --ring: var(--ink);
 }
 
 /* ---------------------------------------------------------------
@@ -178,25 +163,28 @@
 }
 .eyebrow > .eyebrow-label { order: 2; }
 
-/* Accent words in display headings: Bodoni italic, with the marigold
-   squiggle drawn under them — the salon's handwriting on the magazine page.
+/* Accent words in display headings: Bodoni italic, with a fine squiggle
+   drawn under them in the accent colour — the salon's handwriting on the
+   magazine page. A background image rather than a pseudo-element, so it
+   follows the word when it wraps onto a second line.
    The runtime renders `[word]{accent}` as <span accent="true">. */
 .font-display [accent],
 .squiggle {
   font-style: italic;
   font-weight: 500;
   padding-bottom: 0.04em;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23EDAE3A' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23B5391B' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-size: 100% 0.24em;
+  background-size: 100% 0.2em;
   background-position: 0 96%;
 }
-/* On marigold the marigold squiggle disappears; draw it in vermilion there. */
-.tone-marigold .font-display [accent],
-.tone-marigold .squiggle {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23C8401F' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+.context-dark .font-display [accent], .tone-ink .font-display [accent],
+.context-dark .squiggle, .tone-ink .squiggle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23E2582F' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
 }
-.tone-vermilion .font-display [accent] { background-image: none; }
+.tone-vermilion .font-display [accent], .tone-vermilion .squiggle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%2317120F' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
 
 /* Header nav links: a vermilion hairline drawn in from the left on hover,
    kept on the current page. */
@@ -209,14 +197,8 @@
 }
 .nav-line:hover, .nav-line.is-active { background-size: 100% 1px; }
 
-/* The top-of-page stripe: the three house colours, like a label's selvedge. */
-.selvedge {
-  height: 5px;
-  background: linear-gradient(to right,
-    var(--vermilion) 0 50%,
-    var(--marigold) 50% 75%,
-    var(--bottle) 75% 100%);
-}
+/* The top-of-page stripe: a single band of vermilion, like a label's selvedge. */
+.selvedge { height: 4px; background: var(--vermilion); }
 
 /* ---------------------------------------------------------------
    Buttons (components/Button.jsx).
@@ -277,8 +259,8 @@
 
 .btn-ink { background: var(--heading); color: var(--section); --sweep: var(--primary); --sweep-ink: var(--primary-foreground); }
 
-/* On marigold the primary button is already ink, so it sweeps to vermilion. */
-.tone-marigold .btn-primary { --sweep: var(--vermilion); --sweep-ink: var(--paper); }
+/* On vermilion the primary button is paper; it sweeps to ink. */
+.tone-vermilion .btn-primary { --sweep: var(--ink); --sweep-ink: var(--paper); }
 
 /* The small "Book →" text link. */
 .text-cta {
@@ -304,25 +286,25 @@
 /* Arched frame — the studio's upstairs windows, with square feet. */
 .arch { border-radius: 999px 999px 0 0; }
 
-/* A photo with a solid colour block set out behind it. Put `--block` on
-   the element (a colour var) and `block-left` to throw it the other way. */
-.blocked { position: relative; isolation: isolate; }
-.blocked::before {
-  content: '';
+/* A matted photograph: the print sits in a paper mount with a hairline
+   edge, laid on the page with a long soft shadow. */
+.mat {
+  position: relative;
+  background: var(--card);
+  padding: 0.625rem;
+  border: 1px solid color-mix(in oklch, var(--heading), transparent 82%);
+  box-shadow: 0 2px 4px rgb(23 18 15 / 0.06), 0 34px 60px -32px rgb(23 18 15 / 0.45);
+}
+.mat.arch > img { border-radius: 999px 999px 0 0; }
+
+/* A second, larger hairline drawn around a frame on the same centre — the
+   double rule of a mount, not a shadow. */
+.halo {
   position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--block, var(--vermilion));
+  inset: -0.875rem;
+  border: 1px solid color-mix(in oklch, var(--heading), transparent 45%);
   border-radius: inherit;
-  transform: translate(var(--block-offset), var(--block-offset));
-  transition: transform 500ms cubic-bezier(.2,.7,.2,1);
-}
-.blocked.block-left::before { transform: translate(calc(var(--block-offset) * -1), var(--block-offset)); }
-.group:hover .blocked::before, .blocked:hover::before {
-  transform: translate(calc(var(--block-offset) * 1.4), calc(var(--block-offset) * 1.4));
-}
-.group:hover .blocked.block-left::before, .blocked.block-left:hover::before {
-  transform: translate(calc(var(--block-offset) * -1.4), calc(var(--block-offset) * 1.4));
+  pointer-events: none;
 }
 
 /* A hairline card, with the same label rule set inside its edge as the
@@ -410,7 +392,6 @@ section[id] { scroll-margin-top: calc(var(--header-height) + 5px); }
   .ticker-track, .spin-slow, .rise { animation: none !important; }
   .lift:hover { transform: none; }
   .btn::before, .btn > svg { transition: none; }
-  .blocked::before { transition: none; }
 }
 
 /* Light text on ink blooms; thin the strokes on dark surfaces only. */

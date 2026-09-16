@@ -2,7 +2,7 @@ import { toneParam } from '#components/tone.js'
 
 export default {
   title: 'The Crew',
-  description: 'Arched stylist portraits on blocks of house colour, from the `crew` collection. Each card opens a dialog with the full bio and a link to the booking page.',
+  description: 'Matted arched stylist portraits, from the `crew` collection. Each card opens a dialog with the full bio and a link to the booking page.',
   category: 'showcase',
   purpose: 'Introduce',
 

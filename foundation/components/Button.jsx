@@ -4,7 +4,7 @@ import { Link, cn } from '@uniweb/kit'
  * The house button: square, wide capitals. See `.btn-*` in styles.css.
  *
  *   primary  the booking button — brand fill with a hairline rule inside the
- *            edge. Vermilion on paper, marigold on vermilion, vermilion on ink.
+ *            edge. Vermilion on paper and ink, paper on vermilion.
  *   outline  hairline in the heading colour
  *   ink      solid heading colour
  *

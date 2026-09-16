@@ -1,7 +1,6 @@
 ---
 type: SplitContent
 flipped: true
-shadow: secondary
 theme: medium
 ---
 
