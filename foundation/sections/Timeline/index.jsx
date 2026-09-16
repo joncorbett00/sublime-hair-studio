@@ -5,7 +5,7 @@ import { toneClass } from '#components/tone.js'
 
 /**
  * A career in chapters: a hairline running down the page with a vermilion
- * diamond at each stop, the year in poster-sized Bodoni, and a matted photo
+ * diamond at each stop, the year at poster size, and a matted photo
  * from that part of the story. Photos alternate sides on wide screens, like
  * the spreads of a retrospective; on phones everything runs down one side of
  * the line.

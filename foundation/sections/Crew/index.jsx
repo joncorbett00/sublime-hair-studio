@@ -6,7 +6,7 @@ import { toneClass } from '#components/tone.js'
 
 /**
  * The team, cast like a show. Matted arched portraits in black and white that
- * come into colour on hover, the name in Bodoni, the role in wide capitals. Cards open a detail dialog rather
+ * come into colour on hover, the name large, the role in wide capitals. Cards open a detail dialog rather
  * than navigating away, so someone comparing stylists never loses their place.
  */
 export default function Crew({ content, params, block }) {

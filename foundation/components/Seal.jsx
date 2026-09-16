@@ -23,7 +23,7 @@ export default function Seal({ text, className }) {
         </text>
       </svg>
       <span className="size-[58%] rounded-full border border-paper/45" />
-      <span className="font-display absolute text-4xl font-medium italic leading-none sm:text-5xl">S</span>
+      <span className="font-logo absolute text-4xl font-medium italic leading-none sm:text-5xl">S</span>
     </div>
   )
 }

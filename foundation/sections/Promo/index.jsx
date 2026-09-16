@@ -4,7 +4,7 @@ import { toneClass } from '#components/tone.js'
 
 /**
  * A seasonal offer, set as a coupon across the page: a dashed tear-off edge
- * with the scissors on it, the offer figure in poster-sized Bodoni ("10%" with
+ * with the scissors on it, the offer figure at poster size ("10%" with
  * an italic "off"), the headline and a line of terms, and the booking button.
  *
  * A short band rather than a full section, so it can sit straight under the

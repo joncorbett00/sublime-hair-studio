@@ -1,7 +1,7 @@
 import { H1, H2, cn } from '@uniweb/kit'
 
 /**
- * Section headline: the numbered eyebrow and the Bodoni heading. Used by most
+ * Section headline: the numbered eyebrow and the poster-sized heading. Used by most
  * sections so the rhythm is identical site-wide.
  *
  * The number is the section's place on its page — "No. 03" — the way a

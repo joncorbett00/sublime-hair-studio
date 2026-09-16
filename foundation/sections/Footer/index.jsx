@@ -14,7 +14,7 @@ function Footer({ content, params }) {
   const social = filterSocialLinks(links)
   const plain = links.filter((l) => !social.includes(l))
   const hours = data?.hours || []
-  const { credit = '' } = params
+  const { credit = '', creditHref = '' } = params
 
   /* Each link column is a labelled group: a markdown list item whose text is
      the heading and whose nested list holds the links. */
@@ -91,7 +91,11 @@ function Footer({ content, params }) {
                 {l.label}
               </Link>
             ))}
-            {credit && <span className="text-[0.6875rem] text-subtle/70">{credit}</span>}
+            {credit && (creditHref ? (
+              <Link href={creditHref} className="text-[0.6875rem] text-subtle/70 transition-colors hover:text-heading">{credit}</Link>
+            ) : (
+              <span className="text-[0.6875rem] text-subtle/70">{credit}</span>
+            ))}
           </div>
         </div>
       </div>

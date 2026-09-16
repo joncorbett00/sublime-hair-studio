@@ -24,12 +24,12 @@ pnpm build        # foundation + site → site/dist (static, prerendered)
 |---|---|---|---|
 | Mood | Warm, lamp-lit, a bit funky | Upscale, urban, editorial | A fashion magazine that runs a colourful salon |
 | Palette | Cream, espresso, vermilion, marigold | Gallery white, near-black, gold | **One colour, vermilion**, set as whole sections, on paper, sand, taupe and ink |
-| Headings | Fraunces (soft serif) | Playfair Display | Bodoni Moda (Didone) at poster sizes, over Archivo |
+| Headings | Fraunces (soft serif) | Playfair Display | Archivo at poster sizes; Bodoni Moda italic for the wordmark only |
 | Labels | Small bold caps | Tracked uppercase | Wide (125%) tracked Archivo capitals |
-| Accent word | Italic + marigold squiggle | Italic, softened | Bodoni italic in vermilion + a fine squiggle |
+| Accent word | Italic + marigold squiggle | Italic, softened | Archivo italic in vermilion + a fine squiggle |
 | Shapes | Rounded, arches, ink wink | Square, gold bracket | Square corners, matted photos and arches, no hard shadows |
 
-**Where the clash is:** the magazine side is the Didone type, wide capitals, numbered
+**Where the clash is:** the magazine side is the Bodoni wordmark, poster-sized headlines, wide capitals, numbered
 sections ("No. 03"), figure captions ("Fig. / Look 01"), matted photographs with a second
 hairline around the mount, crop marks on the closing CTA, and the wordmark set across the
 full width of the footer. The salon side is vermilion as whole sections, the squiggle, the
@@ -49,7 +49,7 @@ timeline** (`Timeline` section) between the team and the hiring note.
   Supported by CTA, Promo, SplitContent, Itinerary, Timeline, ServiceMenu, Gallery,
   Testimonials, FAQ, Crew and Visit. `theme: light | medium | dark` still works as usual;
   medium is sand.
-- `[words]{accent}` in a heading: Bodoni italic with a fine squiggle. Vermilion on paper and
+- `[words]{accent}` in a heading: italic with a fine squiggle. Vermilion on paper and
   sand, a brighter vermilion on ink, ink on vermilion.
 - `.eyebrow` is the section number, a rule and the label. The number is the section's
   position on its page (`components/Shout.jsx`).
@@ -71,12 +71,13 @@ vermilion). On ink they use `--vermilion-bright` (`#E2582F`).
 Beyond the new Colour page and timeline, frontmatter only:
 
 - **Home:** the ticker became a Promo band (back to school, 10% off). Lunch hour is
-  `tone: ink`. Services use `layout: cards` with the first card in vermilion. The CTA is
+  `theme: medium` (sand), with its card on paper rather than white. Services use `layout: cards` with the first card in vermilion. The CTA is
   `tone: vermilion`.
 - **Other CTAs:** services `ink`, visit `ink`.
 - **Header:** `layout/header.md` lost the `# Sublime` title, because the wordmark is set in
   the component. Weddings became Colour in the nav and footer.
-- **Footer:** `credit:` in `layout/footer.md` is the "Created by Proximify Studios" line.
+- **Footer:** `credit:` and `creditHref:` in `layout/footer.md` are the "Created by Proximify Studios"
+  line and its link to proximify.ca.
 
 ---
 
@@ -90,8 +91,10 @@ Everything in hair-salon-1's README still applies. In particular:
 - **Photos:** most gallery, crew and section photos are hot-linked Unsplash stand-ins. Only
   the four `.jpg` files in `site/public/images/gallery/` are local.
 - **`site/public/images/og-default.png` and `logo.png`** are still the hair-salon-1 look.
-- **Fonts** are Google Fonts. To change the display face, edit both `fonts:` in
-  `site/theme.yml` and `font-display` in `foundation/main.js`.
+- **Fonts** are Google Fonts: Archivo for everything you read, and Bodoni Moda (italic, one
+  weight) for the wordmark and seal only (`.font-logo`, `--font-logo` in `styles.css`). To
+  change the headline face, edit both `fonts:` in `site/theme.yml` and `font-display` in
+  `foundation/main.js`.
 - **Shop links** in the header and footer point at `shop.sublimehair.ca`, the separate
   shop site in hair-salon-1. It has not been restyled.
 - **Sonia's timeline is a placeholder**: every year, headline and photo in
@@ -116,7 +119,7 @@ Everything in hair-salon-1's README still applies. In particular:
 | Hero seal text | `stamp:` in `site/pages/home/1-hero.md` and `site/pages/colour/1-intro.md` |
 | The current offer | `site/pages/home/2-promo.md` |
 | Sonia's career | `site/pages/crew/2-sonia.md` |
-| Footer credit | `credit:` in `site/layout/footer.md` |
+| Footer credit | `credit:` / `creditHref:` in `site/layout/footer.md` |
 | Services, crew, gallery, reviews | `site/collections/*` |
 | Page copy | `site/pages/<page>/*.md` |
 
@@ -130,5 +133,8 @@ Everything in hair-salon-1's README still applies. In particular:
   dev-server restart.
 - **A section gets one declaratively-bound collection.** `ServiceMenu` binds `services`
   and fetches the gallery by path (`/data/gallery.json`).
+- **The house classes live in `@layer components`** (`styles.css`), so a Tailwind utility on
+  the same element wins. Unlayered, `.mat`'s `position: relative` beat `absolute` and the
+  hero's second photo stopped overlapping the first.
 - **tailwind-merge drops a `leading-*` that comes before a `text-[size]`** in the same
   `cn()`. Put the size first (see `components/Shout.jsx`).

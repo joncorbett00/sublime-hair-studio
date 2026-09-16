@@ -1,7 +1,7 @@
 ---
 type: Itinerary
 cardTitle: A Tuesday, downtown
-tone: ink
+theme: medium
 ---
 
 #> Work downtown?

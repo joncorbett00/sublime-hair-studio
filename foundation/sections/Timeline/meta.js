@@ -2,7 +2,7 @@ import { toneParam } from '#components/tone.js'
 
 export default {
   title: 'Timeline',
-  description: 'A career or a history in chapters: the year in poster-sized serif, a headline, a line of story and a matted photo, hung from a hairline down the page with photos alternating sides.',
+  description: 'A career or a history in chapters: the year at poster size, a headline, a line of story and a matted photo, hung from a hairline down the page with photos alternating sides.',
   category: 'content',
   purpose: 'Introduce',
 

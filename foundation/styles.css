@@ -14,12 +14,17 @@
 
 @theme inline {
   --font-display: var(--font-display);
+  --font-logo: var(--font-logo);
   --color-ink: var(--ink);
   --color-paper: var(--paper);
   --color-sand: var(--sand);
   --color-vermilion: var(--vermilion);
   --color-accent-ink: var(--accent-ink);
 }
+
+/* The house vocabulary sits in the components layer, so a Tailwind utility on
+   the same element (`absolute`, `p-0`, `hidden`…) always wins over it. */
+@layer components {
 
 /* ---------------------------------------------------------------
    House vocabulary — "Front Row".
@@ -28,8 +33,8 @@
    thing in the house; everything else is paper, sand, taupe and ink, so
    wherever the red lands it is the point of the page. Two voices:
 
-   The magazine: bone paper and ink, Bodoni Moda at poster sizes, wide
-   capitals for labels, square corners, hairline rules, numbered
+   The magazine: bone paper and ink, Archivo at poster sizes, wide
+   capitals for labels, a Bodoni wordmark, square corners, hairline rules, numbered
    sections, figure captions and matted photographs.
 
    The salon: whole sections set in vermilion, the squiggle under the
@@ -41,6 +46,9 @@
    --------------------------------------------------------------- */
 
 :root {
+  /* Bodoni Moda is the logo's face only: the wordmark and the seal. */
+  --font-logo: 'Bodoni Moda', 'Didot', ui-serif, Georgia, serif;
+
   --ink: #17120F;
   --paper: #F6F0E6;
   --sand: #E6DBCB;
@@ -113,10 +121,14 @@
    Type.
    --------------------------------------------------------------- */
 
-/* Bodoni Moda at poster sizes: optical size up, tracking in. */
-.font-display {
+/* Headlines, numbers and prices: Archivo at poster sizes, tracked in.
+   (The class keeps its name; the face is set by `font-display` in main.js.) */
+.font-display { font-feature-settings: 'kern', 'liga'; }
+
+/* The logo's Didone — never for reading text. */
+.font-logo {
+  font-family: var(--font-logo);
   font-optical-sizing: auto;
-  font-feature-settings: 'kern', 'liga', 'dlig';
 }
 
 /* The magazine's second voice: wide, tracked capitals in Archivo. */
@@ -163,7 +175,7 @@
 }
 .eyebrow > .eyebrow-label { order: 2; }
 
-/* Accent words in display headings: Bodoni italic, with a fine squiggle
+/* Accent words in display headings: italic, with a fine squiggle
    drawn under them in the accent colour — the salon's handwriting on the
    magazine page. A background image rather than a pseudo-element, so it
    follows the word when it wraps onto a second line.
@@ -399,3 +411,5 @@ section[id] { scroll-margin-top: calc(var(--header-height) + 5px); }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+} /* @layer components */

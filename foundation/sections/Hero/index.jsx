@@ -4,7 +4,7 @@ import Seal from '#components/Seal.jsx'
 import { Eyebrow } from '#components/Shout.jsx'
 
 /**
- * Front-door hero, set like a magazine cover. A poster-sized Bodoni headline,
+ * Front-door hero, set like a magazine cover. A poster-sized headline,
  * intro and buttons on the left, and a row of headline numbers under a ruled
  * line. On the right, the upstairs-window arch: the first photo matted in the
  * arch with a second hairline arch around it, the second photo laid over its

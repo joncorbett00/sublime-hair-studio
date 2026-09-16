@@ -2,6 +2,7 @@
 type: Footer
 theme: dark
 credit: Created by Proximify Studios
+creditHref: https://proximify.ca
 ---
 
 # Sublime Hair Studio

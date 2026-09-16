@@ -1,8 +1,8 @@
 # Sublime Hair Studio — "Front Row"
 # One loud colour and a wardrobe of neutrals. Vermilion, the studio's red, is
 # the only colour in the house, and whole sections are set in it; everything
-# else is bone paper, sand, taupe and near-black ink, with a high-contrast
-# Didone for the headlines and wide capitals for the labels.
+# else is bone paper, sand, taupe and near-black ink, with Archivo for
+# headlines and text, and a Bodoni wordmark.
 
 colors:
   primary: '#C8401F'      # vermilion — the brand red, booking buttons, colour-block sections
@@ -41,14 +41,16 @@ appearance:
   allowToggle: false
   respectSystemPreference: false
 
-# To change the display face, change `font-display` in foundation/main.js too.
+# One reading family, Archivo, for headings and text. Bodoni Moda is loaded
+# for the wordmark and seal only (italic, one weight). To change the headline
+# face, change `font-display` in foundation/main.js too.
 fonts:
-  heading: "'Bodoni Moda', 'Didot', ui-serif, Georgia, serif"
+  heading: "'Archivo', ui-sans-serif, system-ui, sans-serif"
   body: "'Archivo', ui-sans-serif, system-ui, sans-serif"
   import:
-    - url: "https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap"
+    - url: "https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@1,6..96,500&display=swap"
 
-# `[words]{accent}` in a heading: Bodoni italic in vermilion with a squiggle
+# `[words]{accent}` in a heading: italic in vermilion with a squiggle
 # under it (styles.css). Brighter red on ink, and ink on vermilion sections.
 inline:
   accent: { color: 'var(--accent-ink)', font-style: 'italic' }

@@ -12,8 +12,8 @@ export const vars = {
   'section-padding-x': { default: '1.5rem', description: 'Horizontal section padding' },
 
   'font-display': {
-    default: "'Bodoni Moda', 'Didot', ui-serif, Georgia, serif",
-    description: 'High-contrast display serif for the wordmark, headlines and prices',
+    default: "'Archivo', ui-sans-serif, system-ui, sans-serif",
+    description: 'Face for headlines, numbers and prices. The wordmark keeps Bodoni Moda (--font-logo in styles.css).',
   },
 }
 

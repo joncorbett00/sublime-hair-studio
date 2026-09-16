@@ -41,7 +41,7 @@ export default function Itinerary({ content, params, block }) {
           {items.length > 0 && (
             /* The card is always paper and ink, so it carries its own light context. */
             <div className="context-light relative mx-auto w-full max-w-lg bg-transparent lg:rotate-[1.25deg]">
-              <div className="framed laid">
+              <div className="framed laid [--card:var(--paper)]">
                 <div className="flex items-center justify-between gap-4 border-b border-heading px-6 py-4 sm:px-8">
                   <span className="caps text-[0.625rem] text-heading">Running order</span>
                   {cardTitle && <span className="font-display text-lg italic text-accent-ink">{cardTitle}</span>}

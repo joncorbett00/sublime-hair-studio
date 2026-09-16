@@ -34,8 +34,8 @@ function shuffle(list) {
 }
 
 /**
- * Review cards, set like pull quotes: an oversized Bodoni quotation mark, the
- * words in serif, and the reviewer in wide capitals. Cards are staggered, and
+ * Review cards, set like pull quotes: an oversized quotation mark, the
+ * words large, and the reviewer in wide capitals. Cards are staggered, and
  * the middle one is set in vermilion.
  *
  * Two sources, in order of preference:

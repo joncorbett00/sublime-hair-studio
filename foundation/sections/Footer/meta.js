@@ -14,5 +14,6 @@ export default {
 
   params: {
     credit: { type: 'string', label: 'Credit line', description: 'Small print at the very end of the footer, e.g. who built the site', default: '' },
+    creditHref: { type: 'string', label: 'Credit link', default: '' },
   },
 }
