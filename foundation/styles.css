@@ -1,0 +1,399 @@
+@import "tailwindcss";
+@import "@uniweb/kit/theme-tokens.css";
+@import "@uniweb/kit/prose-tokens.css";
+
+@source "./sections/**/*.{js,jsx}";
+@source "./components/**/*.{js,jsx}";
+@source "./node_modules/@uniweb/kit/src/**/*.{js,jsx}";
+
+@custom-variant dark (&:where(.scheme-dark, .scheme-dark *));
+
+@theme {
+  --breakpoint-xs: 30rem;
+}
+
+@theme inline {
+  --font-display: var(--font-display);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-vermilion: var(--vermilion);
+  --color-marigold: var(--marigold);
+  --color-bottle: var(--bottle);
+  --color-accent-ink: var(--accent-ink);
+}
+
+/* ---------------------------------------------------------------
+   House vocabulary — "Front Row".
+
+   The studio's colour, dressed by a fashion editor. Two voices on
+   every page and they are meant to clash a little:
+
+   The magazine: bone paper and ink, Bodoni Moda at poster sizes, wide
+   capitals for labels, square corners, hairline rules, numbered
+   sections and figure captions.
+
+   The salon: vermilion, marigold and bottle green used as whole
+   surfaces rather than accents, the marigold squiggle under the italic
+   word, the hard offset shadow on the booking button, arched photos
+   with a solid block of colour behind them, and the turning seal.
+
+   Everything reads tokens, so it follows the light/medium/dark
+   contexts and the `tone-*` colour blocks below.
+   --------------------------------------------------------------- */
+
+:root {
+  --ink: #17120F;
+  --paper: #F6F0E6;
+  --vermilion: #C8401F;
+  --marigold: #EDAE3A;
+  --bottle: #24493D;
+
+  /* The italic accent word. Vermilion on paper and blush; marigold where
+     vermilion would vanish (ink and the colour blocks). */
+  --accent-ink: #B5391B;
+  /* The hard shadow on buttons and framed cards. */
+  --offset-color: var(--ink);
+}
+.context-light, .context-medium { --accent-ink: #B5391B; --offset-color: var(--ink); }
+.context-dark { --accent-ink: var(--marigold); --offset-color: var(--marigold); }
+
+::selection { background: var(--marigold); color: var(--ink); }
+
+/* ---------------------------------------------------------------
+   Colour blocks. A section with `tone: vermilion | green | marigold | ink`
+   is set entirely in that colour: the component puts `tone-*` on its
+   outer element, and every token below it follows.
+   --------------------------------------------------------------- */
+.tone { background: var(--section); color: var(--body); }
+
+.tone-vermilion {
+  --section: var(--vermilion);
+  --card: #B4381A;
+  --muted: #B4381A;
+  --border: color-mix(in oklch, var(--paper), transparent 70%);
+  --heading: var(--paper);
+  --body: #FFF1E8;
+  --subtle: #F8D3C4;
+  --primary: var(--marigold);
+  --primary-hover: #F5C263;
+  --primary-foreground: var(--ink);
+  --accent-ink: var(--marigold);
+  --offset-color: var(--ink);
+  --ring: var(--marigold);
+  -webkit-font-smoothing: antialiased;
+}
+.tone-green {
+  --section: var(--bottle);
+  --card: #1C3B31;
+  --muted: #1C3B31;
+  --border: color-mix(in oklch, var(--paper), transparent 78%);
+  --heading: var(--paper);
+  --body: #E3EAE3;
+  --subtle: #B3C6BB;
+  --primary: var(--vermilion);
+  --primary-hover: #D9542F;
+  --primary-foreground: var(--paper);
+  --accent-ink: var(--marigold);
+  --offset-color: var(--marigold);
+  --ring: var(--marigold);
+  -webkit-font-smoothing: antialiased;
+}
+.tone-marigold {
+  --section: var(--marigold);
+  --card: #F4C46A;
+  --muted: #E29F28;
+  --border: color-mix(in oklch, var(--ink), transparent 75%);
+  --heading: var(--ink);
+  --body: #2A211B;
+  --subtle: #4D3B25;
+  --primary: var(--ink);
+  --primary-hover: #2A211B;
+  --primary-foreground: var(--paper);
+  --accent-ink: #A8321A;
+  --offset-color: var(--vermilion);
+  --ring: var(--ink);
+}
+.tone-ink {
+  --section: var(--ink);
+  --card: #231C18;
+  --muted: #2E2520;
+  --border: #3B312B;
+  --heading: var(--paper);
+  --body: #D9CEC2;
+  --subtle: #A89A8E;
+  --primary: var(--vermilion);
+  --primary-hover: #D9542F;
+  --primary-foreground: var(--paper);
+  --accent-ink: var(--marigold);
+  --offset-color: var(--marigold);
+  --ring: var(--marigold);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------------------------------------------
+   Type.
+   --------------------------------------------------------------- */
+
+/* Bodoni Moda at poster sizes: optical size up, tracking in. */
+.font-display {
+  font-optical-sizing: auto;
+  font-feature-settings: 'kern', 'liga', 'dlig';
+}
+
+/* The magazine's second voice: wide, tracked capitals in Archivo. */
+.caps {
+  font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
+  font-stretch: 125%;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Eyebrow above headings: section number, a short vermilion rule, the label. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
+  font-stretch: 125%;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--heading);
+}
+.eyebrow::before {
+  content: '';
+  flex-shrink: 0;
+  order: 1;
+  width: 2.25rem;
+  height: 1px;
+  background: var(--accent-ink);
+}
+.eyebrow > .eyebrow-no {
+  order: 0;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-stretch: normal;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--accent-ink);
+}
+.eyebrow > .eyebrow-label { order: 2; }
+
+/* Accent words in display headings: Bodoni italic, with the marigold
+   squiggle drawn under them — the salon's handwriting on the magazine page.
+   The runtime renders `[word]{accent}` as <span accent="true">. */
+.font-display [accent],
+.squiggle {
+  font-style: italic;
+  font-weight: 500;
+  padding-bottom: 0.04em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23EDAE3A' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 0.24em;
+  background-position: 0 96%;
+}
+/* On marigold the marigold squiggle disappears; draw it in vermilion there. */
+.tone-marigold .font-display [accent],
+.tone-marigold .squiggle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23C8401F' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+.tone-vermilion .font-display [accent] { background-image: none; }
+
+/* Header nav links: a vermilion hairline drawn in from the left on hover,
+   kept on the current page. */
+.nav-line {
+  background-image: linear-gradient(var(--accent-ink), var(--accent-ink));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 320ms cubic-bezier(.2,.7,.2,1), color 200ms;
+}
+.nav-line:hover, .nav-line.is-active { background-size: 100% 1px; }
+
+/* The top-of-page stripe: the three house colours, like a label's selvedge. */
+.selvedge {
+  height: 5px;
+  background: linear-gradient(to right,
+    var(--vermilion) 0 50%,
+    var(--marigold) 50% 75%,
+    var(--bottle) 75% 100%);
+}
+
+/* ---------------------------------------------------------------
+   Buttons (components/Button.jsx).
+
+   Square, wide capitals. The booking button keeps the salon's hard offset
+   shadow — it is at rest a flat block and steps off its shadow on hover.
+   --------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
+  font-stretch: 125%;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  transition:
+    transform 200ms cubic-bezier(.2,.8,.3,1.2),
+    box-shadow 200ms cubic-bezier(.2,.8,.3,1.2),
+    background-color 200ms, color 200ms, border-color 200ms;
+}
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: var(--offset) var(--offset) 0 0 var(--offset-color);
+}
+.btn-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: calc(var(--offset) + 2px) calc(var(--offset) + 2px) 0 0 var(--offset-color);
+}
+.btn-primary:active {
+  transform: translate(var(--offset), var(--offset));
+  box-shadow: 0 0 0 0 var(--offset-color);
+}
+.btn-outline {
+  border-color: var(--heading);
+  color: var(--heading);
+  background: transparent;
+}
+.btn-outline:hover { background: var(--heading); color: var(--section); }
+.btn-ink { background: var(--heading); color: var(--section); }
+.btn-ink:hover { background: var(--primary); color: var(--primary-foreground); }
+
+/* The small "Book →" text link. */
+.text-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-stretch: 125%;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--heading);
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid currentColor;
+  transition: color 200ms, gap 200ms;
+}
+.text-cta:hover { color: var(--accent-ink); gap: 0.7rem; }
+
+/* ---------------------------------------------------------------
+   Frames.
+   --------------------------------------------------------------- */
+
+/* Arched frame — the studio's upstairs windows, with square feet. */
+.arch { border-radius: 999px 999px 0 0; }
+
+/* A photo with a solid colour block set out behind it. Put `--block` on
+   the element (a colour var) and `block-left` to throw it the other way. */
+.blocked { position: relative; isolation: isolate; }
+.blocked::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--block, var(--vermilion));
+  border-radius: inherit;
+  transform: translate(var(--block-offset), var(--block-offset));
+  transition: transform 500ms cubic-bezier(.2,.7,.2,1);
+}
+.blocked.block-left::before { transform: translate(calc(var(--block-offset) * -1), var(--block-offset)); }
+.group:hover .blocked::before, .blocked:hover::before {
+  transform: translate(calc(var(--block-offset) * 1.4), calc(var(--block-offset) * 1.4));
+}
+.group:hover .blocked.block-left::before, .blocked.block-left:hover::before {
+  transform: translate(calc(var(--block-offset) * -1.4), calc(var(--block-offset) * 1.4));
+}
+
+/* A hairline card with the hard offset. */
+.framed {
+  border: 1px solid var(--heading);
+  background: var(--card);
+  box-shadow: var(--offset) var(--offset) 0 0 var(--offset-color);
+}
+.lift {
+  transition: transform 260ms cubic-bezier(.2,.7,.2,1), box-shadow 260ms cubic-bezier(.2,.7,.2,1);
+}
+.lift:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: calc(var(--offset) + 3px) calc(var(--offset) + 3px) 0 0 var(--offset-color);
+}
+
+/* Figure caption: "Fig. 2 — Sonia, owner". */
+.figcap {
+  font-stretch: 125%;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+.figcap b { font-family: var(--font-display); font-stretch: normal; font-size: 0.8125rem; font-style: italic; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--accent-ink); }
+
+/* Vertical running text up the side of a photo. */
+.running {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* The header is fixed, so in-page jumps stop short of it. */
+section[id] { scroll-margin-top: calc(var(--header-height) + 5px); }
+
+/* ---------------------------------------------------------------
+   Motion.
+   --------------------------------------------------------------- */
+
+/* Ticker used by the Marquee section. Duplicated track, translate one half. */
+@keyframes sublime-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: sublime-scroll var(--ticker-duration, 30s) linear infinite;
+}
+.ticker-reverse { animation-direction: reverse; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+
+/* The seal turns, very slowly. */
+@keyframes sublime-spin { to { transform: rotate(360deg); } }
+.spin-slow { animation: sublime-spin 30s linear infinite; }
+
+/* Hero copy arrives like a page turning. */
+@keyframes sublime-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: sublime-rise 900ms cubic-bezier(.2,.7,.2,1) both; }
+
+/* ---------------------------------------------------------------
+   Keyboard focus, stated once for every control in the foundation.
+   `:where()` keeps specificity at 0 so a component can override it.
+   --------------------------------------------------------------- */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track, .spin-slow, .rise { animation: none !important; }
+  .btn-primary:hover, .lift:hover { transform: none; }
+  .blocked::before { transition: none; }
+}
+
+/* Light text on ink blooms; thin the strokes on dark surfaces only. */
+.context-dark {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

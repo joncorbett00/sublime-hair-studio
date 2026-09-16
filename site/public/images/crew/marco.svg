@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" width="900" height="1100" role="img">
+<defs><filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter></defs>
+<rect width="900" height="1100" fill="#E4ECE6"/>
+<circle cx="843" cy="696" r="22" fill="#A8452E" opacity="0.45"/><path d="M 710 797 l 28 0" stroke="#C8401F" stroke-width="5" stroke-linecap="round" opacity="0.5"/><rect x="392" y="732" width="15" height="15" rx="4" fill="#4F6E8A" opacity="0.4" transform="rotate(21 392 732)"/>
+<path d="M 255.0 429.5
+      c 45.8 121.7, -45.8 219.1, 0 486.9"
+      stroke="#111111" stroke-width="29.0" fill="none" stroke-linecap="round"/><path d="M 292.3 429.5
+      c 31.0 105.2, -31.0 189.4, 0 420.8"
+      stroke="#111111" stroke-width="37.7" fill="none" stroke-linecap="round"/><path d="M 329.6 429.5
+      c 30.8 97.6, -30.8 175.8, 0 390.6"
+      stroke="#111111" stroke-width="41.2" fill="none" stroke-linecap="round"/><path d="M 366.9 429.5
+      c 48.8 78.7, -48.8 141.6, 0 314.8"
+      stroke="#111111" stroke-width="39.7" fill="none" stroke-linecap="round"/><path d="M 404.3 429.5
+      c 46.0 100.8, -46.0 181.5, 0 403.4"
+      stroke="#111111" stroke-width="33.4" fill="none" stroke-linecap="round"/><path d="M 441.6 429.5
+      c 28.7 105.3, -28.7 189.6, 0 421.3"
+      stroke="#111111" stroke-width="42.7" fill="none" stroke-linecap="round"/><path d="M 478.9 429.5
+      c 58.9 117.6, -58.9 211.7, 0 470.5"
+      stroke="#111111" stroke-width="27.6" fill="none" stroke-linecap="round"/><path d="M 516.2 429.5
+      c 42.3 87.0, -42.3 156.6, 0 347.9"
+      stroke="#111111" stroke-width="43.1" fill="none" stroke-linecap="round"/><path d="M 553.5 429.5
+      c 40.7 112.9, -40.7 203.3, 0 451.7"
+      stroke="#111111" stroke-width="26.8" fill="none" stroke-linecap="round"/><path d="M 590.8 429.5
+      c 39.2 115.9, -39.2 208.6, 0 463.6"
+      stroke="#111111" stroke-width="35.2" fill="none" stroke-linecap="round"/><path d="M 628.1 429.5
+      c 43.5 117.0, -43.5 210.6, 0 468.1"
+      stroke="#111111" stroke-width="42.4" fill="none" stroke-linecap="round"/>
+<rect x="364.0" y="586.2" width="155.2" height="164.2" fill="#4A2C17"/>
+<ellipse cx="441.6" cy="504.1" rx="149.2" ry="173.1" fill="#4A2C17"/>
+<path d="M 292.3 466.8 a 149.2 164.2 0 0 1 298.5 0 Z" fill="#111111"/>
+<circle cx="387.8" cy="511.6" r="11.2" fill="#241A16"/>
+<circle cx="495.3" cy="511.6" r="11.2" fill="#241A16"/>
+<path d="M 405.7 572.7 q 35.8 29.8, 71.6 0"
+  stroke="#241A16" stroke-width="10.4" fill="none" stroke-linecap="round"/>
+<rect width="900" height="1100" filter="url(#g)" opacity="0.13" style="mix-blend-mode:multiply"/>
+</svg>

@@ -1,0 +1,20 @@
+{
+  "name": "sublime-hair-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter site dev",
+    "build": "pnpm --filter foundation build && pnpm --filter site build",
+    "preview": "pnpm --filter site preview"
+  },
+  "workspaces": [
+    "foundation",
+    "site"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "uniweb": "^0.28.1",
+    "yaml": "^2.9.0"
+  }
+}

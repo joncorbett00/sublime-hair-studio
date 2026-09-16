@@ -1,0 +1,12 @@
+# `title` is the Google result and browser tab — the site name is added after it
+# ("… | Sublime Hair Studio"), so leave it out here. `label` is the nav link.
+title: "Hair Services & Prices in Ottawa"
+label: Services & Work
+description: >-
+  Cuts, creative colour, balayage, colour correction, blowouts, up-dos and treatments —
+  the full price list for Sublime Hair Studio in Centretown Ottawa, with photos of the
+  work for every service.
+data: services
+
+seo:
+  canonical: https://sublimehair.ca/services

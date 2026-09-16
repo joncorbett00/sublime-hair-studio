@@ -1,0 +1,10 @@
+# `title` is the Google result and browser tab — the site name is added after it
+# ("… | Sublime Hair Studio"), so leave it out here. `label` is the nav link.
+title: "Hours & Directions, 190 MacLaren St"
+label: Visit
+description: >-
+  Sublime Hair Studio — 190 MacLaren Street, Centretown Ottawa. Hours, parking,
+  accessibility and how to reach us.
+
+seo:
+  canonical: https://sublimehair.ca/visit

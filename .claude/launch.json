@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "site", "dev", "--port", "5200", "--strictPort"],
+      "port": 5200
+    },
+    {
+      "name": "option-1",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--dir", "/Users/proximify/dev/clients/hair-salon-1", "--filter", "salon", "dev", "--port", "5173", "--strictPort"],
+      "port": 5173
+    },
+    {
+      "name": "option-2",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--dir", "/Users/proximify/dev/clients/hair-salon-2", "--filter", "site", "dev", "--port", "5190", "--strictPort"],
+      "port": 5190
+    }
+  ]
+}

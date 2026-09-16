@@ -1,0 +1,51 @@
+{
+  "name": "foundation",
+  "version": "0.1.0",
+  "description": "Sublime Hair Studio foundation — the Front Row look — fashion-magazine polish on a colourful salon",
+  "type": "module",
+  "main": "./_entry.generated.js",
+  "exports": {
+    ".": "./_entry.generated.js",
+    "./styles": "./styles.css",
+    "./dist": "./dist/entry.js",
+    "./dist/styles": "./dist/assets/style.css"
+  },
+  "imports": {
+    "#components/*": "./components/*",
+    "#utils/*": "./utils/*"
+  },
+  "files": [
+    "dist",
+    "sections",
+    "components",
+    "layouts",
+    "utils",
+    "main.js",
+    "styles.css",
+    "_entry.generated.js"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "uniweb build",
+    "build:vite": "vite build",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@uniweb/core": "^0.11.2",
+    "@uniweb/kit": "^0.13.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@uniweb/build": "^0.25.2",
+    "@vitejs/plugin-react": "^5.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0",
+    "vite": "^7.0.0",
+    "vite-plugin-svgr": "^4.2.0"
+  }
+}

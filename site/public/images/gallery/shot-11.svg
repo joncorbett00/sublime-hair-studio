@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1350" width="900" height="1350" role="img">
+<defs><filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter></defs>
+<rect width="900" height="1350" fill="#EDE2E4"/>
+<rect x="122" y="1346" width="32" height="32" rx="4" fill="#9DAA7A" opacity="0.4" transform="rotate(58 122 1346)"/><path d="M 415 478 l 18 0" stroke="#4F6E8A" stroke-width="5" stroke-linecap="round" opacity="0.5"/><path d="M 694 1314 l 29 0" stroke="#EDAE3A" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+<path d="M 304.39227073593065 1092.6909407656356
+    q 21.888605698593892 -307.99949886228615, 14.592403799062595 -431.1992984072006
+    a 167.81264368921984 175.10884558875114 0 0 1 291.8480759812519 0
+    q -7.296201899531297 123.19979954491446, 14.592403799062595 431.1992984072006
+    q -175.10884558875114 65.66581709578168, -321.0328835793771 0 Z" fill="#C8401F"/><path d="M 289.8 979.3 l -3.9 42.4"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/><path d="M 319.0 977.4 l 6.4 21.6"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/><path d="M 348.2 1091.0 l 11.6 34.7"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/><path d="M 377.4 971.9 l -9.3 43.5"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/><path d="M 406.5 1059.6 l -5.0 36.1"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/><path d="M 435.7 977.3 l 0.4 24.2"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/><path d="M 464.9 1087.6 l 6.7 26.5"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/><path d="M 494.1 907.2 l 10.1 40.2"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/><path d="M 523.3 959.1 l 5.9 36.8"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/><path d="M 552.5 922.7 l 7.3 23.1"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/><path d="M 581.6 928.1 l 10.3 31.5"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/><path d="M 610.8 907.8 l 0.7 44.4"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/><path d="M 640.0 1051.1 l -5.4 31.5"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/><path d="M 669.2 983.5 l -6.7 24.4"
+      stroke="#C8401F" stroke-width="19.0" stroke-linecap="round" fill="none"/>
+<rect x="403.6" y="762.3" width="151.8" height="160.5" fill="#6E4326"/>
+<ellipse cx="479.5" cy="682.0" rx="145.9" ry="169.3" fill="#6E4326"/>
+<path d="M 333.6 645.5 a 145.9 160.5 0 0 1 291.8 0 Z" fill="#C8401F"/>
+<circle cx="427.0" cy="689.3" r="10.9" fill="#241A16"/>
+<circle cx="532.0" cy="689.3" r="10.9" fill="#241A16"/>
+<path d="M 444.5 749.1 q 35.0 29.2, 70.0 0"
+  stroke="#241A16" stroke-width="10.2" fill="none" stroke-linecap="round"/>
+<rect width="900" height="1350" filter="url(#g)" opacity="0.13" style="mix-blend-mode:multiply"/>
+</svg>

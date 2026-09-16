@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img">
+<defs><filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter></defs>
+<rect width="1200" height="900" fill="#241A16"/>
+<rect x="1009" y="574" width="22" height="22" rx="4" fill="#EDAE3A" opacity="0.4" transform="rotate(9 1009 574)"/><path d="M 434 593 l 31 0" stroke="#EDAE3A" stroke-width="5" stroke-linecap="round" opacity="0.5"/><rect x="484" y="816" width="35" height="35" rx="4" fill="#2F5A4C" opacity="0.4" transform="rotate(53 484 816)"/><path d="M 951 161 l 42 0" stroke="#8A5A6B" stroke-width="5" stroke-linecap="round" opacity="0.5"/><circle cx="307" cy="479" r="8" fill="#2F5A4C" opacity="0.45"/>
+<path d="M 358.80343844799785 476.6771229490405 a 195.75571962946566 204.65370688535043 0 0 1 391.5114392589313 0 Z" fill="#8A5A6B"/><circle cx="545.0" cy="193.5" r="117.2" fill="#8A5A6B"/><circle cx="473.8" cy="238.0" r="60.5" fill="#8A5A6B"/>
+<rect x="462.0" y="521.2" width="185.1" height="195.8" fill="#C68642"/>
+<ellipse cx="554.6" cy="423.3" rx="178.0" ry="206.4" fill="#C68642"/>
+
+<circle cx="490.5" cy="432.2" r="13.3" fill="#241A16"/>
+<circle cx="618.6" cy="432.2" r="13.3" fill="#241A16"/>
+<path d="M 511.8 505.2 q 42.7 35.6, 85.4 0"
+  stroke="#241A16" stroke-width="12.5" fill="none" stroke-linecap="round"/>
+<rect width="1200" height="900" filter="url(#g)" opacity="0.13" style="mix-blend-mode:multiply"/>
+</svg>

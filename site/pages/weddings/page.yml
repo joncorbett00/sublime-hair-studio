@@ -1,0 +1,10 @@
+# `title` is the Google result and browser tab — the site name is added after it
+# ("… | Sublime Hair Studio"), so leave it out here. `label` is the nav link.
+title: "Bridal & Wedding Hair in Ottawa"
+label: Weddings
+description: >-
+  Bridal hair and event up-dos at Sublime Hair Studio in Ottawa's Golden Triangle — trials,
+  whole bridal parties in the studio on the morning, and up-dos built to last the night.
+
+seo:
+  canonical: https://sublimehair.ca/weddings

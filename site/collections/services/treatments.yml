@@ -1,0 +1,40 @@
+- slug: bond-treatment
+  title: Bond Repair Treatment
+  category: Treatments
+  tagline: For hair that has been through some things.
+  description: >-
+    An in-salon bond builder that rebuilds the internal structure lightening takes apart. Add it
+    to any colour service, or book it on its own after a rough winter.
+  duration: 30
+  price: 45
+  priceNote: add-on
+  order: 30
+  icon: lu:shield
+  bookable: true
+- slug: scalp-ritual
+  title: Scalp Ritual
+  category: Treatments
+  tagline: Twenty minutes that fix more than your hair.
+  description: >-
+    Exfoliation, a tonic, and a scalp massage long enough that people regularly fall asleep in
+    the chair. Helps with flaking, tightness, and the general condition of being a person in
+    an Ottawa February.
+  duration: 30
+  price: 40
+  priceNote: add-on
+  order: 31
+  icon: lu:hand
+  bookable: true
+- slug: deep-conditioning
+  title: Deep Conditioning Mask
+  category: Treatments
+  tagline: Steam, mask, silence.
+  description: >-
+    A heat-activated mask for dry, coarse or over-processed hair. Pairs well with a blowout and
+    with having absolutely nothing else scheduled.
+  duration: 25
+  price: 35
+  priceNote: add-on
+  order: 32
+  icon: lu:flower
+  bookable: true

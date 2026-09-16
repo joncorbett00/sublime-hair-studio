@@ -1,0 +1,63 @@
+name: Sublime Hair Studio
+defaultLanguage: en
+
+foundation: foundation
+index: home
+
+# `book` redirects to Square Appointments (pages/book/page.yml). The shop is its
+# own site — linked from the header and footer, not a page here.
+pages: [home, services, crew, weddings, book, visit]
+
+keywords: [hair studio ottawa, hair salon ottawa, elgin street hair salon, golden triangle salon, lunch hour haircut ottawa, balayage ottawa, creative colour, centretown hair, curly cuts ottawa, bridal hair ottawa, wedding hair ottawa, vivid hair colour]
+
+seo:
+  # Also set in vite.config.js — the build reads it from there, not here.
+  baseUrl: https://sublimehair.ca
+  description: >-
+    Sublime Hair Studio — a warm, second-floor hair studio just off Elgin Street in Ottawa's
+    Golden Triangle. Runway-trained cuts, colour, blowouts and up-dos, plus 45-minute
+    lunch-hour cuts for downtown professionals.
+  # Absolute, and a PNG: Facebook, iMessage and Slack will not show an SVG card.
+  image: https://sublimehair.ca/images/og-default.png
+
+# The business as Google should see it. The footer turns this into HairSalon
+# structured data on every page, so it must match the Google Business Profile
+# exactly — same name, address, phone and hours. The visible hours are in
+# layout/footer.md and pages/visit/1-visit.md; change all three together.
+business:
+  name: Sublime Hair Studio
+  url: https://sublimehair.ca
+  telephone: "+1-613-567-7400"
+  email: hello@sublimehair.ca
+  image: https://sublimehair.ca/images/logo.png
+  address:
+    street: 190 MacLaren Street
+    city: Ottawa
+    region: ON
+    postalCode: K2P 0L6
+    country: CA
+  geo: { lat: 45.4157, lng: -75.6928 }
+  # 24-hour times. Days not listed are closed.
+  hours:
+    - { days: [Tuesday, Wednesday, Thursday, Friday, Saturday], opens: "12:00", closes: "18:00" }
+  # Every profile that is this business. Add the Google Business Profile link
+  # (GBP → Share → copy link) and the real Instagram when there is one.
+  sameAs:
+    - https://www.facebook.com/ottawasublimehair/
+
+collections:
+  services:
+    path: collections/services
+    sort: order asc
+  crew:
+    path: collections/crew
+    sort: order asc
+  gallery:
+    path: collections/gallery
+    sort: order asc
+  reviews:
+    path: collections/reviews
+    sort: date desc
+
+build:
+  prerender: true

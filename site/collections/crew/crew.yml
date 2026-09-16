@@ -1,0 +1,105 @@
+# PLACEHOLDER CREW — apart from Sonia, names, bios, specialties and pricing tiers are invented.
+# Portraits are royalty-free Unsplash stock photos standing in for real headshots.
+# Replace with the real team before this goes anywhere near the public.
+- slug: sonia
+  title: Sonia
+  role: Owner & Senior Stylist
+  pronouns: she/her
+  image: https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&crop=faces&w=900&h=1125&q=80
+  tagline: Runway and editorial trained. Still happiest behind her own chair.
+  bio: >-
+    Sonia is a certified stylist who has done hair for runway shows, models and editorial shoots —
+    work she describes as "mostly hairspray and waiting". She brought that precision back to a
+    warm little studio upstairs off Elgin.
+    She takes the hardest colour corrections in the shop and genuinely enjoys them.
+  specialties: [Colour correction, Creative colour, Curly cutting]
+  favouriteThing: The exact moment someone sees the back of their head in the mirror.
+  worstHaircut: Self-administered, 2009, kitchen scissors, still discussed at family dinners.
+  level: Senior
+  levelSurcharge: 20
+  order: 1
+  instagram: "#"
+- slug: jules
+  title: Jules Tremblay
+  role: Senior Stylist & Colourist
+  pronouns: they/them
+  image: https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&crop=faces&w=900&h=1125&q=80
+  tagline: Will talk you out of a bad idea, then execute a better one.
+  bio: >-
+    Jules is the person you book when you want something vivid and want it to still look good in
+    six weeks. Obsessive about placement, allergic to a flat root, and the reason half the
+    studio's Instagram exists.
+  specialties: [Vivids, Balayage, Shadow roots]
+  favouriteThing: Watching a pastel fade into something better than it started as.
+  worstHaircut: A 2016 undercut with a lightning bolt. No regrets, no photos surviving.
+  level: Senior
+  levelSurcharge: 20
+  order: 2
+  instagram: "#"
+- slug: marco
+  title: Marco Ferreira
+  role: Stylist
+  pronouns: he/him
+  image: https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&crop=faces&w=900&h=1125&q=80
+  tagline: Precision cutting and an unreasonable number of opinions about fringe.
+  bio: >-
+    Marco does the sharpest bob in Centretown and a clipper blend you could set a watch by. He
+    came up through barbering, crossed over, and kept the discipline. Ask him about scissor
+    steel only if you have twenty minutes.
+  specialties: [Precision cutting, Bobs, Clipper work]
+  favouriteThing: A blunt line that sits perfectly without being touched.
+  worstHaircut: Let his brother "just tidy the back" in 2011.
+  level: Standard
+  levelSurcharge: 0
+  order: 3
+  instagram: "#"
+- slug: priya
+  title: Priya Raghunathan
+  role: Stylist & Texture Specialist
+  pronouns: she/her
+  image: https://images.unsplash.com/photo-1611432579699-484f7990b127?auto=format&fit=crop&crop=faces&w=900&h=1125&q=80
+  tagline: Curls, coils, waves, and the long game of growing them out.
+  bio: >-
+    Priya cuts curly hair dry, one curl at a time, and will happily spend the first twenty
+    minutes teaching you what your own hair is actually doing. Many of her clients arrive
+    convinced their hair "doesn't do anything". It does.
+  specialties: [Curly cutting, Coily textures, Scalp health]
+  favouriteThing: The client who says "I've never liked my curls" and then does.
+  worstHaircut: A salon that brushed her hair out dry. We do not name names.
+  level: Standard
+  levelSurcharge: 0
+  order: 4
+  instagram: "#"
+- slug: devon
+  title: Devon Clarke
+  role: Stylist
+  pronouns: he/him
+  image: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&crop=faces&w=900&h=1125&q=80
+  tagline: Blowouts, up-dos, and a hand steady enough for wedding mornings.
+  bio: >-
+    Devon runs most of our bridal work, which means he is very good at staying calm while
+    somebody's aunt has opinions. Outside of event season he does the best blowout in the
+    building and he knows it.
+  specialties: [Up-dos, Bridal, Blowouts]
+  favouriteThing: A wedding party that arrives nervous and leaves loud.
+  worstHaircut: Frosted tips. Early 2000s. He brings it up himself.
+  level: Standard
+  levelSurcharge: 0
+  order: 5
+  instagram: "#"
+- slug: rosalie
+  title: Rosalie Bouchard
+  role: Junior Stylist
+  pronouns: she/her
+  image: https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&crop=faces&w=900&h=1125&q=80
+  tagline: Two years in, already booked further out than she expects.
+  bio: >-
+    Rosalie finished her apprenticeship with Sonia and took to colour immediately. Her chair is
+    the best value in the studio and that will not be true for very much longer.
+  specialties: [Single process colour, Blowouts, Cuts]
+  favouriteThing: Gloss days. Fast, satisfying, instantly shinier.
+  worstHaircut: Cut her own fringe on a webcam during a lockdown.
+  level: Junior
+  levelSurcharge: -20
+  order: 6
+  instagram: "#"

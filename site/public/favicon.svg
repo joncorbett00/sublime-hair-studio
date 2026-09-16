@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Vermilion square, marigold offset, an italic serif "s" in paper. -->
+  <rect x="4" y="4" width="26" height="26" fill="#EDAE3A"/>
+  <rect x="1" y="1" width="26" height="26" fill="#C8401F"/>
+  <text x="14" y="22" text-anchor="middle" font-family="'Bodoni Moda', Didot, Georgia, serif" font-style="italic" font-size="22" fill="#F6F0E6">s</text>
+</svg>

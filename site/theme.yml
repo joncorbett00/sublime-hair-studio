@@ -1,0 +1,58 @@
+# Sublime Hair Studio — "Front Row"
+# The colour of the studio upstairs (vermilion, marigold, bottle green) cut
+# with the discipline of a fashion magazine: bone paper, near-black ink, a
+# high-contrast Didone for the headlines and wide capitals for the labels.
+# The colour is not an accent here — whole sections are set in it.
+
+colors:
+  primary: '#C8401F'      # vermilion — the brand red, booking buttons, colour-block sections
+  secondary: '#24493D'    # bottle green, deepened — a colour-block section
+  accent: '#EDAE3A'       # marigold — the seal, the squiggle, rules; never small text on paper
+  neutral: stone          # warm greys
+
+contexts:
+  light:
+    section: '#F6F0E6'    # bone paper
+    card: '#FFFCF6'
+    border: '#DDD0BE'
+    heading: '#17120F'
+    body: '#3E352F'
+    subtle: '#6F6259'
+  medium:
+    section: '#F1DCD0'    # powder blush — the pink that sits next to the red on purpose
+    card: '#FBF1EB'
+    border: '#DEBFB0'
+    heading: '#17120F'
+    body: '#43352F'
+    subtle: '#6A564D'
+  dark:
+    section: '#17120F'    # ink
+    card: '#231C18'
+    border: '#3B312B'
+    heading: '#F6F0E6'
+    body: '#D9CEC2'
+    subtle: '#A89A8E'
+    primary: primary-500
+    primary-hover: primary-400
+
+# One look, chosen on purpose.
+appearance:
+  default: light
+  allowToggle: false
+  respectSystemPreference: false
+
+# To change the display face, change `font-display` in foundation/main.js too.
+fonts:
+  heading: "'Bodoni Moda', 'Didot', ui-serif, Georgia, serif"
+  body: "'Archivo', ui-sans-serif, system-ui, sans-serif"
+  import:
+    - url: "https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap"
+
+# `[words]{accent}` in a heading: Bodoni italic in vermilion with the marigold
+# squiggle under it (styles.css). On ink and colour-block sections it turns marigold.
+inline:
+  accent: { color: 'var(--accent-ink)', font-style: 'italic' }
+  callout: { color: 'var(--primary)', font-weight: '600' }
+
+vars:
+  radius: 0rem

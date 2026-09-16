@@ -1,0 +1,89 @@
+# PLACEHOLDER REVIEWS — invented, NOT real Google reviews. Do not publish as-is.
+#
+# Stands in for a feed of the studio's Google reviews. The eventual plan is a
+# scheduled job (Google Business Profile API) that rewrites this collection with
+# the same fields. The Testimonials section filters by `rating` and `date` and
+# picks a random few on every page load, so the pool can hold everything.
+#
+# A few entries are deliberately older than a year or under 4 stars so the
+# filter has something to exclude.
+- slug: r-01
+  author: Amélie T.
+  rating: 5
+  date: 2026-08-29
+  text: "Priya is the first person who has ever cut my curls dry and it changed everything. I walked out and did not touch my hair for three days because I did not want to ruin it."
+- slug: r-02
+  author: Kwame O.
+  rating: 5
+  date: 2026-08-10
+  text: "Went in for a fade and a beard tidy. Marco was quick, precise and genuinely funny. Booked the next one before I left."
+- slug: r-03
+  author: Hannah L.
+  rating: 5
+  date: 2026-07-22
+  text: "I brought a Pinterest photo that was never going to work on my hair and Jules told me so, nicely, then did something better. Colour still looks great two months later."
+- slug: r-04
+  author: Daniel P.
+  rating: 4
+  date: 2026-07-03
+  text: "Great cut and a relaxed studio. Running about fifteen minutes behind when I arrived, but they told me up front and the result was worth it."
+- slug: r-05
+  author: Sofia M.
+  rating: 5
+  date: 2026-06-14
+  text: "Devon did hair for my whole bridal party and was the calmest person in the building. Everyone's style lasted through the ceremony, photos and a very sweaty dance floor."
+- slug: r-06
+  author: Liam C.
+  rating: 3
+  date: 2026-05-30
+  text: "Cut was fine but not quite what I asked for. Staff were friendly and offered to fix it."
+- slug: r-07
+  author: Grace W.
+  rating: 5
+  date: 2026-05-18
+  text: "Grey blending with Sonia. I was nervous about going lighter instead of covering it and she walked me through every step. I have never felt better about my hair."
+- slug: r-08
+  author: Maya R.
+  rating: 5
+  date: 2026-04-02
+  text: "Rosalie's gloss appointment is the best forty-five minutes of my month. Shiny hair, good music, zero pressure to buy anything."
+- slug: r-09
+  author: Olivier B.
+  rating: 4
+  date: 2026-02-21
+  text: "Solid haircut, fair price, and they actually listened. Parking on MacLaren is a pain but that is not their fault."
+- slug: r-10
+  author: Jess K.
+  rating: 5
+  date: 2026-01-09
+  text: "Fixed a box dye disaster with no judgement whatsoever. Took two visits and they were honest about that from the first consult."
+- slug: r-11
+  author: Nora S.
+  rating: 5
+  date: 2025-12-12
+  text: "Came in for a holiday party up-do and got stopped by three strangers on the way home. Worth every penny."
+- slug: r-12
+  author: Ben A.
+  rating: 5
+  date: 2025-11-04
+  text: "Twelve inches off for donation. Sonia made it feel like an event and the bob she cut afterwards is the best haircut I have had."
+- slug: r-13
+  author: Chloé D.
+  rating: 4
+  date: 2025-10-15
+  text: "Lovely balayage and a very welcoming team. Booking online was easy. Would go back."
+- slug: r-14
+  author: Ravi N.
+  rating: 3
+  date: 2025-09-28
+  text: "Nice people but my appointment was pushed back twice. The cut itself was good."
+- slug: r-15
+  author: Tessa G.
+  rating: 5
+  date: 2025-06-20
+  text: "Best vivid colour in Ottawa, full stop. Jules is an artist."
+- slug: r-16
+  author: Marc-André L.
+  rating: 5
+  date: 2025-03-07
+  text: "Been coming for years. Consistently great, consistently fun."

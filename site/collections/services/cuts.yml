@@ -1,0 +1,68 @@
+- slug: lunch-hour-cut
+  title: The Lunch-Hour Cut
+  category: Cutting
+  tagline: In at noon, back at your desk by one.
+  description: >-
+    A quick check-in, a cut and a clean finish in 45 minutes, for a repeat of a shape you already
+    love. Book to the minute online, come up the stairs, and be back on Elgin with time to grab
+    lunch. For a new look, book The Sublime Cut instead so there is time to talk it through.
+  duration: 45
+  price: 70
+  priceNote: from
+  order: 0
+  icon: lu:timer
+  bookable: true
+- slug: the-sublime-cut
+  title: The Sublime Cut
+  category: Cutting
+  tagline: Consult, wash, cut, style. The whole ritual.
+  description: >-
+    We start with fifteen minutes of talking about your hair before anyone picks up scissors —
+    what it does in July, what it refuses to do in February, what you actually do to it on a
+    Tuesday morning. Then a wash, a cut built around your growth pattern, and a finish you can
+    repeat at home without a second pair of hands.
+  duration: 75
+  price: 95
+  priceNote: from
+  order: 1
+  icon: lu:scissors
+  bookable: true
+- slug: dry-cut
+  title: Dry Cut
+  category: Cutting
+  tagline: For curls, coils and anyone who knows what they want.
+  description: >-
+    Cut dry, in its natural state, curl by curl. No guessing at spring factor, no surprises when
+    it dries. Come in with your hair as you normally wear it — clean, dry, and detangled.
+  duration: 90
+  price: 120
+  priceNote: from
+  order: 2
+  icon: lu:waves
+  bookable: true
+- slug: fringe-trim
+  title: Fringe Trim
+  category: Cutting
+  tagline: Fifteen minutes. Free between cuts.
+  description: >-
+    Bangs grow into your eyeline roughly three weeks before you are due back. Book a trim,
+    take a seat, be out before your parking expires. Complimentary within six weeks of a cut with us.
+  duration: 15
+  price: 0
+  priceNote: free between cuts
+  order: 3
+  icon: lu:ruler
+  bookable: true
+- slug: clipper-cut
+  title: Clipper & Scissor Cut
+  category: Cutting
+  tagline: Short back and sides, done properly.
+  description: >-
+    Graduated clipper work blended into scissor detail on top. Includes a neck shave and a
+    finish. The kind of short haircut that still looks deliberate in week five.
+  duration: 45
+  price: 60
+  priceNote: from
+  order: 4
+  icon: lu:zap
+  bookable: true
