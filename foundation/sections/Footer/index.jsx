@@ -92,9 +92,9 @@ function Footer({ content, params }) {
               </Link>
             ))}
             {credit && (creditHref ? (
-              <Link href={creditHref} className="text-[0.6875rem] text-subtle/70 transition-colors hover:text-heading">{credit}</Link>
+              <Link href={creditHref} className="caps text-[0.5625rem] text-subtle transition-colors hover:text-heading">{credit}</Link>
             ) : (
-              <span className="text-[0.6875rem] text-subtle/70">{credit}</span>
+              <span className="caps text-[0.5625rem] text-subtle">{credit}</span>
             ))}
           </div>
         </div>
