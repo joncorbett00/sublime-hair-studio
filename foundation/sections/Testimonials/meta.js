@@ -2,7 +2,7 @@ import { toneParam } from '#components/tone.js'
 
 export default {
   title: 'Reviews',
-  description: 'Staggered pull-quote cards, the middle one in vermilion. Fed by the `reviews` collection (a random few, filtered by rating and age, reshuffled per visit); the authored `###` items are the fallback when that is empty.',
+  description: 'Compact review cards in a row, the middle one in vermilion, with the heading and an all-reviews link above. Fed by the `reviews` collection (a random few, filtered by rating and age, reshuffled per visit); the authored `###` items are the fallback when that is empty.',
   category: 'showcase',
   purpose: 'Reassure',
 
@@ -18,7 +18,7 @@ export default {
   content: {
     pretitle: 'Eyebrow label [0-1]',
     title: 'Section heading [0-1]',
-    links: 'Optional button under the cards — e.g. "Read all our reviews on Google" [0-1]',
+    links: 'Optional button beside the heading — e.g. "Read all our reviews on Google" [0-1]',
     items: 'Fallback reviews — `###` reviewer name, `####` context, then the quote. Add a ```yaml:review``` block with `rating: 4` to show fewer than five stars.',
   },
 

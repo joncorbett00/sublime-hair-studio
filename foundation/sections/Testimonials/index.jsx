@@ -34,9 +34,10 @@ function shuffle(list) {
 }
 
 /**
- * Review cards, set like pull quotes: an oversized quotation mark, the
- * words large, and the reviewer in wide capitals. Cards are staggered, and
- * the middle one is set in vermilion.
+ * Review cards, kept compact: the heading and the "all reviews" link share a
+ * row, and each card is stars, the words (clamped to four lines), and the
+ * reviewer in wide capitals. The middle card is set in vermilion. On phones
+ * the cards sit in one row to swipe through.
  *
  * Two sources, in order of preference:
  *
@@ -93,55 +94,50 @@ export default function Testimonials({ content, params, block }) {
 
   return (
     <div className={toneClass(tone)}>
-      <div className="mx-auto max-w-[var(--max-content-width)] px-6 py-[var(--section-padding-y)]">
-        <Shout pretitle={pretitle} title={title} block={block} align="center" />
+      <div className="mx-auto max-w-[var(--max-content-width)] px-6 py-[calc(var(--section-padding-y)*0.75)]">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <Shout pretitle={pretitle} title={title} block={block} size="md" />
+          {links.map((l, i) => (
+            <Button key={i} href={l.href} tone="outline">
+              {l.label} <Icon name="lu-arrow-up-right" size="14" />
+            </Button>
+          ))}
+        </div>
 
-        <ul className={cn('mt-16 grid grid-cols-1 items-start gap-8 lg:gap-10', cols[columns] || cols[3])}>
+        {/* Phones: one row to swipe through, so three reviews do not stack into a tower. */}
+        <ul className={cn('no-scrollbar -mx-6 mt-10 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 md:mx-0 md:grid md:gap-5 md:overflow-visible md:px-0', cols[columns] || cols[3])}>
           {shown.map((card, i) => {
             const rating = Math.max(0, Math.min(5, card.rating || 0))
             const loud = shown.length >= 3 && i === 1
             return (
-              <li key={card.key} className={cn(loud && 'lg:mt-12')}>
-                <figure className={cn('framed flex h-full flex-col p-8 sm:p-9', loud && 'tone tone-vermilion')}>
-                  <div className="flex items-start justify-between gap-4">
-                    <span aria-hidden="true" className="font-display -mb-14 -mt-3 text-[8rem] leading-none text-accent-ink">“</span>
-                    <div className="flex gap-0.5 pt-2 text-accent-ink" aria-label={`${rating} out of 5`}>
-                      {Array.from({ length: 5 }, (_, s) => (
-                        <Icon
-                          key={s}
-                          name="lu-star"
-                          size="14"
-                          /* Lucide ships outline stars (fill="none"); CSS beats the
-                             presentation attribute, so this fills the earned ones. */
-                          className={s < rating ? 'fill-current' : 'opacity-30'}
-                        />
-                      ))}
-                    </div>
+              <li key={card.key} className="w-[82%] shrink-0 snap-start md:w-auto">
+                <figure className={cn('framed flex h-full flex-col p-6 sm:p-7', loud && 'tone tone-vermilion')}>
+                  <div className="flex gap-0.5 text-accent-ink" aria-label={`${rating} out of 5`}>
+                    {Array.from({ length: 5 }, (_, s) => (
+                      <Icon
+                        key={s}
+                        name="lu-star"
+                        size="13"
+                        /* Lucide ships outline stars (fill="none"); CSS beats the
+                           presentation attribute, so this fills the earned ones. */
+                        className={s < rating ? 'fill-current' : 'opacity-30'}
+                      />
+                    ))}
                   </div>
-                  <blockquote className="mt-8 flex-1">
+                  <blockquote className="mt-4 flex-1">
                     {card.quote.map((p, j) => (
-                      <P key={j} text={p} className="font-display text-xl leading-snug text-heading" />
+                      <P key={j} text={p} className="line-clamp-4 leading-relaxed text-heading" />
                     ))}
                   </blockquote>
-                  <figcaption className="mt-8 border-t border-heading/25 pt-5">
-                    <span className="caps block text-[0.6875rem] text-heading">{card.name}</span>
-                    {card.meta && <span className="mt-1 block text-sm text-subtle">{card.meta}</span>}
+                  <figcaption className="mt-5 flex flex-wrap items-baseline gap-x-2 border-t border-heading/20 pt-4">
+                    <span className="caps text-[0.625rem] text-heading">{card.name}</span>
+                    {card.meta && <span className="text-xs text-subtle">{card.meta}</span>}
                   </figcaption>
                 </figure>
               </li>
             )
           })}
         </ul>
-
-        {links.length > 0 && (
-          <div className="mt-16 flex justify-center gap-4">
-            {links.map((l, i) => (
-              <Button key={i} href={l.href} tone="outline">
-                {l.label} <Icon name="lu-arrow-up-right" size="14" />
-              </Button>
-            ))}
-          </div>
-        )}
       </div>
     </div>
   )

@@ -71,7 +71,9 @@ vermilion). On ink they use `--vermilion-bright` (`#E2582F`).
 Beyond the new Colour page and timeline, frontmatter only:
 
 - **Home:** the ticker became a Promo band (back to school, 10% off). Lunch hour is
-  `theme: medium` (sand), with its card on paper rather than white. Services use `layout: cards` with the first card in vermilion. The CTA is
+  `theme: medium` (sand), with its card on paper rather than white.
+  The gallery is `layout: carousel` (one scrolling row of 10), and the reviews heading is
+  one line. Services use `layout: cards` with the first card in vermilion. The CTA is
   `tone: vermilion`.
 - **Other CTAs:** services `ink`, visit `ink`.
 - **Header:** `layout/header.md` lost the `# Sublime` title, because the wordmark is set in

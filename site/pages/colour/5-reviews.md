@@ -9,5 +9,4 @@ fetch: { collection: reviews, where: { or: [{ text: { like: '*olour*' } }, { tex
 
 #> Kind words
 
-# From the people
-# who went brighter
+# Gone [brighter]{accent}

@@ -10,8 +10,7 @@ maxAgeMonths: 12
 
 #> Kind words
 
-# From the neighbourhood,
-# and the office down the street
+# Word from the [neighbourhood]{accent}
 
 [Read all our reviews on Google](https://www.google.com/maps/search/?api=1&query=Sublime+Hair+Studio+190+MacLaren+St+Ottawa)
 

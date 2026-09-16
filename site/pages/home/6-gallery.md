@@ -1,15 +1,13 @@
 ---
 type: Gallery
-limit: 6
-fetch: { collection: gallery, limit: 6 }
-showFilter: false
-columns: 3
+layout: carousel
+limit: 10
+fetch: { collection: gallery, limit: 10 }
 theme: medium
 ---
 
 #> Recent work
 
-# Hair that left
-# the studio this season
+# Hair that left the [studio]{accent}
 
-[See the work by service](/services)
+[All the work](/services)

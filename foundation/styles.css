@@ -354,6 +354,10 @@
 }
 .figcap b { font-family: var(--font-display); font-stretch: normal; font-size: 0.8125rem; font-style: italic; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--accent-ink); }
 
+/* A sideways-scrolling row (the gallery carousel): swipe or the arrows, no bar. */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
 /* Vertical running text up the side of a photo. */
 .running {
   writing-mode: vertical-rl;
