@@ -5,8 +5,7 @@ hideIn: [header]
 description: >-
   Book an appointment at Sublime Hair Studio.
 
-# Bookings, deposits and no-show fees are all Square Appointments. Every "Book"
-# link on the site points at /book, so this is the ONE place the Square address
-# lives. Replace it with the studio's booking page: Square Dashboard →
-# Appointments → Online booking → copy the booking site link.
-redirect: https://book.squareup.com/appointments/REPLACE-WITH-SQUARE-BOOKING-ID
+# Bookings are Square Appointments (no deposits). Every "Book" link on the site
+# points at /book, so this is the ONE place the Square address lives. It comes
+# from Square Dashboard → Appointments → Online booking → booking site link.
+redirect: https://book.squareup.com/appointments/oht393d65ci9ue/location/LKMKJ3HW3C5XP/services
