@@ -3,8 +3,9 @@ type: FAQ
 theme: medium
 ---
 
-<!-- PLACEHOLDER ANSWERS: the aftercare and deposit answers need the studio's
-     real advice and Square Appointments settings before publishing. -->
+<!-- PLACEHOLDER ANSWER: the aftercare advice needs the studio's real routine
+     before publishing. The deposit and cancellation answers are confirmed: no
+     deposits, 24 hours' notice, no fee. Same wording on /services and /visit. -->
 
 #> Before you book colour
 
@@ -25,8 +26,9 @@ Yes. Tell us when you book so we can put enough time aside, and bring the box if
 still have it. The ingredients list genuinely helps.
 
 ### How long will vivids last?
-Pastels soften in a few weeks; deeper jewel tones hold longer. Wash cool, wash less, use the
-colour-safe shampoo we recommend, and book a gloss between bigger appointments to keep it bright.
+Pastels soften in a few weeks; deeper jewel tones hold longer. Wash cool, wash less, use a
+colour-safe shampoo — we keep Keune and René Furterer on the shelf, which almost nowhere else
+in Ottawa does — and book a gloss between bigger appointments to keep it bright.
 
 ### Balayage or highlights?
 Balayage is painted by hand and grows out softly, so you come back in months, not weeks.
@@ -34,5 +36,5 @@ Foils give a brighter, more even result that needs a closer eye on the regrowth.
 you which suits your hair at the consult.
 
 ### Is there a deposit?
-Yes, for creative colour and balayage: it holds a long appointment, comes back with 24 hours'
-notice, and comes off the final bill.
+No — not even for creative colour or balayage. We hold the chair on trust and just ask for
+twenty-four hours' notice if you need to move a long appointment.

@@ -22,9 +22,14 @@ Yes. Tell us when you book so we can put enough time aside, and bring the box if
 still have it. The ingredients list genuinely helps.
 
 ### What is your cancellation policy?
-Twenty-four hours' notice, no charge, and any deposit comes back. Under that, or a
-no-show, and we keep the deposit. We're a small studio — a lost four-hour slot is
-a real loss. Emergencies are emergencies; just tell us.
+There's no deposit and no cancellation fee. All we ask is twenty-four hours' notice when
+you can manage it — we're a small studio, and a four-hour slot that goes empty is a real
+loss. Life happens, though, so if it's shorter notice than that, just tell us.
+
+### What products do you use, and can I buy them?
+We work with René Furterer and Keune — salon-only lines that are hard to find anywhere
+else in Ottawa. Whatever we use on you in the chair is on the shelf on your way out, and
+we will tell you the two things worth buying rather than the whole range.
 
 ### Can I bring a photo?
 Please do. Bring several, including ones you dislike — knowing what you do not want is

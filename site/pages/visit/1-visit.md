@@ -56,6 +56,12 @@ There are bike rings on MacLaren near the door. Lock up on the street and come o
 ![](lu-timer)
 Book a 45-minute slot from noon. We keep to the clock so you get back on time.
 
+### On the shelf
+![](lu-shopping-bag)
+We carry René Furterer and Keune, which almost no one else in Ottawa does. Worth the climb
+even if you are not booked in — come up and ask.
+
 ### Cancellations
 ![](lu-calendar-x)
-Twenty-four hours' notice and there is no charge. Under that, we keep the deposit taken when you booked.
+No deposits, and nothing to pay if you cancel. Twenty-four hours' notice is all we ask so
+the chair doesn't sit empty — and if life happens, just tell us.

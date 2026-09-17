@@ -9,7 +9,6 @@
   duration: 240
   price: 260
   priceNote: from — quoted at consult
-  deposit: 50
   order: 10
   icon: lu:palette
   featured: true
@@ -24,7 +23,6 @@
   duration: 210
   price: 235
   priceNote: from
-  deposit: 50
   order: 11
   icon: lu:paintbrush
   featured: true

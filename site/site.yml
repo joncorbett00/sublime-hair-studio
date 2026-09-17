@@ -68,6 +68,9 @@ collections:
   reviews:
     path: collections/reviews
     sort: date desc
+  products:
+    path: collections/products
+    sort: order asc
 
 build:
   prerender: true

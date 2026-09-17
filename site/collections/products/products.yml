@@ -1,0 +1,77 @@
+# PLACEHOLDER PRODUCTS — the brands are real and the studio carries them, but the
+# individual products, prices, sizes and `href`s below are stand-ins chosen from
+# each brand's best-known lines. Before this goes public, confirm with the studio:
+#   1. which products they actually stock (and which they want featured here),
+#   2. the shelf price and size of each,
+#   3. the real store URL — `href` follows the footer's `/products` convention and
+#      the shop is not live yet, so every link here is a guess.
+#
+# `image:` is optional. With no image the card is text-only, which is deliberate:
+# a wrong product photo is worse than none. Add a photo of the studio's own shelf
+# stock (public/images/products/) and the card picks it up.
+#
+# `order` sets the position; the homepage takes the first few by `featured: true`.
+
+- slug: keune-care-vital-nutrition-shampoo
+  title: Care Vital Nutrition Shampoo
+  brand: Keune
+  category: Care
+  tagline: The everyday one. Softens without going limp.
+  size: 300 ml
+  price: 32
+  href: https://shop.sublimehair.ca/products/keune-vital-nutrition-shampoo
+  featured: true
+  order: 1
+
+- slug: keune-color-brillianz-mask
+  title: Colour Brillianz Mask
+  brand: Keune
+  category: Colour care
+  tagline: What we hand colour clients on the way out. Keeps a fresh tone honest.
+  size: 200 ml
+  price: 38
+  href: https://shop.sublimehair.ca/products/keune-color-brillianz-mask
+  featured: true
+  order: 2
+
+- slug: furterer-karite-nutri-mask
+  title: Karité Nutri Nourishing Mask
+  brand: René Furterer
+  category: Treatment
+  tagline: Shea butter, for hair that drinks everything and asks for more.
+  size: 200 ml
+  price: 46
+  href: https://shop.sublimehair.ca/products/furterer-karite-nutri-mask
+  featured: true
+  order: 3
+
+- slug: furterer-triphasic-serum
+  title: Triphasic Thinning Hair Serum
+  brand: René Furterer
+  category: Scalp
+  tagline: The scalp treatment people come back for, and the reason we stock the line.
+  size: 8 x 5.5 ml
+  price: 78
+  href: https://shop.sublimehair.ca/products/furterer-triphasic-serum
+  featured: true
+  order: 4
+
+- slug: furterer-astera-fresh-serum
+  title: Astera Fresh Soothing Serum
+  brand: René Furterer
+  category: Scalp
+  tagline: Cooling, for a scalp that objects to everything.
+  size: 75 ml
+  price: 42
+  href: https://shop.sublimehair.ca/products/furterer-astera-fresh-serum
+  order: 5
+
+- slug: keune-style-dry-texture-spray
+  title: Style Dry Texture Spray
+  brand: Keune
+  category: Styling
+  tagline: The can behind every chair. Grit without the crunch.
+  size: 300 ml
+  price: 34
+  href: https://shop.sublimehair.ca/products/keune-style-dry-texture-spray
+  order: 6
