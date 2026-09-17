@@ -22,4 +22,4 @@ needs to apologise for.
 ```
 
 ![Lavender, soft-blended](https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?auto=format&fit=crop&w=1000&h=1250&q=80)
-![Hot pink, bright on purpose](https://images.unsplash.com/photo-1470259078422-826894b933aa?auto=format&fit=crop&w=800&h=800&q=80)
+![Teal, bright on purpose](https://images.unsplash.com/photo-1562205254-cb9bc6a27213?auto=format&fit=crop&w=800&h=800&q=80)

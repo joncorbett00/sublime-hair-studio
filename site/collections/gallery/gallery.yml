@@ -1,4 +1,4 @@
-# GALLERY — the first entries are real photos (.jpg); the rest are royalty-free
+# GALLERY — the .jpg entries are real photos; the rest are royalty-free
 # stock photos from Unsplash (images.unsplash.com) standing in for the studio's own work.
 # Swap `image:` for a real file in public/images/gallery/ and keep everything else.
 #
@@ -16,168 +16,6 @@
   orientation: portrait
   stylist: rosalie
   order: 1
-- slug: shot-01
-  service: creative-colour
-  title: "Full vivid rainbow, done in one very long Saturday"
-  category: Colour
-  caption: "Full vivid rainbow, done in one very long and very loud Saturday."
-  image: https://images.unsplash.com/photo-1554519515-242161756769?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: jules
-  order: 2
-- slug: shot-02
-  service: creative-colour
-  title: "Pastel pink over a level 9"
-  category: Colour
-  caption: "Pastel pink over a level 9. It faded into something we liked even more."
-  image: https://images.unsplash.com/photo-1621784563330-caee0b138a00?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: jules
-  order: 3
-- slug: shot-21
-  service: the-sublime-cut
-  title: "A pixie grown out and reshaped rather than started over"
-  category: Cuts
-  caption: "A pixie grown out and reshaped rather than started over."
-  image: /images/gallery/pixie-reshaped.jpg
-  orientation: square
-  stylist: marco
-  order: 4
-- slug: shot-03
-  service: balayage
-  title: "Soft blonde balayage with a shadow root"
-  category: Colour
-  caption: "Soft blonde balayage, a shadow root, and a gloss to knock the edge off."
-  image: https://images.unsplash.com/photo-1504703395950-b89145a5425b?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: sonia
-  order: 5
-- slug: shot-04
-  service: creative-colour
-  title: "Lavender, blended with no visible line anywhere"
-  category: Colour
-  caption: "Lavender over pre-lightened ends, blended so there is no visible line anywhere."
-  image: https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: jules
-  order: 6
-- slug: shot-24
-  service: dry-cut
-  title: "Coils shaped to grow out evenly instead of into a triangle"
-  category: Curls
-  caption: "Coils shaped to grow out evenly instead of into a triangle."
-  image: /images/gallery/coils-shaped.jpg
-  orientation: wide
-  stylist: priya
-  order: 7
-- slug: shot-05
-  service: balayage
-  title: "Balayage grown out four months and still doing its job"
-  category: Colour
-  caption: "Balayage grown out four months and still doing its job."
-  image: https://images.unsplash.com/photo-1485875437342-9b39470b3d95?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: sonia
-  order: 8
-- slug: shot-29
-  service: bridal-party
-  title: "Bridal trial"
-  category: Up-dos
-  caption: "Bridal trial. The real morning was, as intended, deeply boring."
-  image: /images/gallery/bridal-half-up.jpg
-  orientation: portrait
-  stylist: devon
-  order: 9
-- slug: shot-06
-  service: single-process
-  title: "Copper on a natural level 5 without a trace of brass"
-  category: Colour
-  caption: "Copper on a natural level 5 without a single trace of brass."
-  image: https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: sonia
-  order: 10
-- slug: shot-07
-  service: creative-colour
-  title: "Hot pink, bright on purpose"
-  category: Colour
-  caption: "Hot pink, lifted evenly first so it stays bright on purpose."
-  image: https://images.unsplash.com/photo-1470259078422-826894b933aa?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: jules
-  order: 11
-- slug: shot-09
-  service: colour-correction
-  title: "Silver that took three sittings and held its tone for eleven weeks"
-  category: Colour
-  caption: "Silver that took three sittings and held its tone for eleven weeks."
-  image: https://images.unsplash.com/photo-1605980625600-88b46abafa8d?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: sonia
-  order: 12
-- slug: shot-08
-  service: colour-correction
-  title: "Box dye on Tuesday, this on Saturday"
-  category: Colour
-  caption: "Box dye on Tuesday, this on Saturday. No judgement, ever."
-  image: https://images.unsplash.com/photo-1604004555489-723a93d6ce74?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: sonia
-  order: 13
-- slug: shot-11
-  service: gloss-toner
-  title: "A gloss appointment"
-  category: Colour
-  caption: "A gloss appointment. Forty-five minutes. Look at the shine."
-  image: https://images.unsplash.com/photo-1496440737103-cd596325d314?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: rosalie
-  order: 14
-- slug: shot-13
-  service: creative-colour
-  title: "Icy platinum, lifted and toned clean"
-  category: Colour
-  caption: "Icy platinum, lifted in stages and toned clean."
-  image: https://images.unsplash.com/photo-1596815064285-45ed8a9c0463?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: jules
-  order: 15
-- slug: shot-14
-  service: single-process
-  title: "Grey blending rather than grey covering"
-  category: Colour
-  caption: "Grey blending rather than grey covering. Growing it out on purpose."
-  image: https://images.unsplash.com/photo-1566616213894-2d4e1baee5d8?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: sonia
-  order: 16
-- slug: shot-15
-  service: the-sublime-cut
-  title: "A blunt bob that sits without being touched"
-  category: Cuts
-  caption: "A blunt bob that sits without being touched. Marco is quietly proud."
-  image: https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: marco
-  order: 17
-- slug: shot-16
-  service: fringe-trim
-  title: "A heavy fringe, cut to sit right at the brow"
-  category: Cuts
-  caption: "A heavy fringe, cut to sit right at the brow. She booked the next trim before leaving."
-  image: https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: marco
-  order: 18
-- slug: shot-17
-  service: the-sublime-cut
-  title: "Shag with curtain bangs, cut into a natural wave"
-  category: Cuts
-  caption: "Shag with curtain bangs, cut into a natural wave."
-  image: https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: marco
-  order: 19
 - slug: shot-18
   service: clipper-cut
   title: "Clipper blend into scissor detail"
@@ -186,7 +24,178 @@
   image: https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?auto=format&fit=crop&w=900&h=1125&q=80
   orientation: portrait
   stylist: marco
+  order: 2
+- slug: shot-01
+  service: creative-colour
+  title: "Full vivid rainbow, done in one very long Saturday"
+  category: Colour
+  caption: "Full vivid rainbow, done in one very long and very loud Saturday."
+  image: https://images.unsplash.com/photo-1554519515-242161756769?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: jules
+  order: 3
+- slug: shot-23
+  service: dry-cut
+  title: "Cut curl by curl, dry, over ninety minutes"
+  category: Curls
+  caption: "Cut curl by curl, dry, over ninety minutes. Nothing was brushed."
+  image: https://images.unsplash.com/photo-1676025911719-32ff252572e9?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: priya
+  order: 4
+- slug: shot-21
+  service: the-sublime-cut
+  title: "A pixie grown out and reshaped rather than started over"
+  category: Cuts
+  caption: "A pixie grown out and reshaped rather than started over."
+  image: /images/gallery/pixie-reshaped.jpg
+  orientation: square
+  stylist: marco
+  order: 5
+- slug: shot-02
+  service: creative-colour
+  title: "Electric blue on a short textured top"
+  category: Colour
+  caption: "Electric blue on a short textured top, lifted first so the colour reads bright, not murky."
+  image: https://images.unsplash.com/photo-1637708653394-e4b51eaeb28e?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: jules
+  order: 6
+- slug: shot-03
+  service: balayage
+  title: "Soft blonde balayage with a shadow root"
+  category: Colour
+  caption: "Soft blonde balayage, a shadow root, and a gloss to knock the edge off."
+  image: https://images.unsplash.com/photo-1504703395950-b89145a5425b?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: sonia
+  order: 7
+- slug: shot-14
+  service: single-process
+  title: "Grey blending rather than grey covering"
+  category: Colour
+  caption: "Grey blending rather than grey covering. Growing it out on purpose."
+  image: https://images.unsplash.com/photo-1608649672519-e8797a9560cf?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: sonia
+  order: 8
+- slug: shot-24
+  service: dry-cut
+  title: "Coils shaped to grow out evenly instead of into a triangle"
+  category: Curls
+  caption: "Coils shaped to grow out evenly instead of into a triangle."
+  image: /images/gallery/coils-shaped.jpg
+  orientation: wide
+  stylist: priya
+  order: 9
+- slug: shot-17
+  service: the-sublime-cut
+  title: "Curtains grown out to the jaw, cut to fall on their own"
+  category: Cuts
+  caption: "Curtains grown out to the jaw, cut to fall on their own without a blow-dry."
+  image: https://images.unsplash.com/photo-1611695434398-4f4b330623e6?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: marco
+  order: 10
+- slug: shot-04
+  service: creative-colour
+  title: "Lavender, blended with no visible line anywhere"
+  category: Colour
+  caption: "Lavender over pre-lightened ends, blended so there is no visible line anywhere."
+  image: https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: jules
+  order: 11
+- slug: shot-05
+  service: balayage
+  title: "Balayage grown out four months and still doing its job"
+  category: Colour
+  caption: "Balayage grown out four months and still doing its job."
+  image: https://images.unsplash.com/photo-1485875437342-9b39470b3d95?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: sonia
+  order: 12
+- slug: shot-29
+  service: bridal-party
+  title: "Bridal trial"
+  category: Up-dos
+  caption: "Bridal trial. The real morning was, as intended, deeply boring."
+  image: /images/gallery/bridal-half-up.jpg
+  orientation: portrait
+  stylist: devon
+  order: 13
+- slug: shot-06
+  service: single-process
+  title: "Copper on a natural level 5 without a trace of brass"
+  category: Colour
+  caption: "Copper on a natural level 5 without a single trace of brass."
+  image: https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: sonia
+  order: 14
+- slug: shot-07
+  service: creative-colour
+  title: "Hot pink, bright on purpose"
+  category: Colour
+  caption: "Hot pink, lifted evenly first so it stays bright on purpose."
+  image: https://images.unsplash.com/photo-1470259078422-826894b933aa?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: jules
+  order: 15
+- slug: shot-09
+  service: colour-correction
+  title: "Silver that took three sittings and held its tone for eleven weeks"
+  category: Colour
+  caption: "Silver that took three sittings and held its tone for eleven weeks."
+  image: https://images.unsplash.com/photo-1605980625600-88b46abafa8d?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: sonia
+  order: 16
+- slug: shot-08
+  service: colour-correction
+  title: "Box dye on Tuesday, this on Saturday"
+  category: Colour
+  caption: "Box dye on Tuesday, this on Saturday. No judgement, ever."
+  image: https://images.unsplash.com/photo-1604004555489-723a93d6ce74?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: sonia
+  order: 17
+- slug: shot-11
+  service: gloss-toner
+  title: "A gloss appointment"
+  category: Colour
+  caption: "A gloss appointment. Forty-five minutes. Look at the shine."
+  image: https://images.unsplash.com/photo-1496440737103-cd596325d314?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: rosalie
+  order: 18
+- slug: shot-13
+  service: creative-colour
+  title: "Bright blonde, lifted in stages and toned warm"
+  category: Colour
+  caption: "Bright blonde, lifted in stages and toned warm instead of brassy."
+  image: https://images.unsplash.com/photo-1705247815016-fb23ebf07a44?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: jules
+  order: 19
+- slug: shot-15
+  service: the-sublime-cut
+  title: "A blunt bob that sits without being touched"
+  category: Cuts
+  caption: "A blunt bob that sits without being touched. Marco is quietly proud."
+  image: https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: marco
   order: 20
+- slug: shot-16
+  service: fringe-trim
+  title: "A heavy fringe, cut to sit right at the brow"
+  category: Cuts
+  caption: "A heavy fringe, cut to sit right at the brow. She booked the next trim before leaving."
+  image: https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=900&h=1125&q=80
+  orientation: portrait
+  stylist: marco
+  order: 21
 - slug: shot-22
   service: clipper-cut
   title: "Textured crop, scissor-cut on top"
@@ -195,24 +204,15 @@
   image: https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&h=1125&q=80
   orientation: portrait
   stylist: marco
-  order: 21
+  order: 22
 - slug: shot-20
   service: the-sublime-cut
   title: "Long layers that actually move"
   category: Cuts
   caption: "Long layers that actually move instead of sitting there in a sheet."
-  image: https://images.unsplash.com/photo-1518577915332-c2a19f149a75?auto=format&fit=crop&w=900&h=1125&q=80
+  image: https://images.unsplash.com/photo-1635567818469-e28cdf45c1f5?auto=format&fit=crop&w=900&h=1125&q=80
   orientation: portrait
   stylist: devon
-  order: 22
-- slug: shot-23
-  service: dry-cut
-  title: "Cut curl by curl, dry, over ninety minutes"
-  category: Curls
-  caption: "Cut curl by curl, dry, over ninety minutes. Nothing was brushed."
-  image: https://images.unsplash.com/photo-1535295972055-1c762f4483e5?auto=format&fit=crop&w=900&h=1125&q=80
-  orientation: portrait
-  stylist: priya
   order: 23
 - slug: shot-25
   service: dry-cut
@@ -228,7 +228,7 @@
   title: "Curls with the weight taken out of the middle, not the ends"
   category: Curls
   caption: "Curls with the weight taken out of the middle, not the ends."
-  image: https://images.unsplash.com/photo-1500336624523-d727130c3328?auto=format&fit=crop&w=900&h=1125&q=80
+  image: https://images.unsplash.com/photo-1648600076524-06f310f0e489?auto=format&fit=crop&w=900&h=1125&q=80
   orientation: portrait
   stylist: priya
   order: 25
@@ -294,10 +294,10 @@
   orientation: wide
   order: 32
 - slug: shot-35
-  title: "Mid-Saturday, blow-dryers going"
+  title: "Mid-Saturday, every chair going"
   category: Studio
-  caption: "Mid-Saturday, blow-dryers going."
-  image: https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1200&h=800&q=80
+  caption: "Mid-Saturday, every chair going."
+  image: https://images.unsplash.com/photo-1553519420-c78a0a7082b7?auto=format&fit=crop&w=1200&h=800&q=80
   orientation: wide
   order: 33
 - slug: shot-36
