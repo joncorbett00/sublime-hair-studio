@@ -1,0 +1,21 @@
+# deploy.yml — written by `uniweb deploy` / `uniweb publish`.
+
+# You do not create this file. The first successful deploy does, recording the
+# target you picked and what happened. Later deploys rewrite only `lastDeploy:`
+# and leave the rest — including your comments — alone.
+
+# Safe to commit; no credentials live here. Host credentials come from the
+# environment.
+
+#   default:     which target is used when none is named
+#   targets:     where this site ships. Edit to change the destination, or add
+#                a target and pick it with `--target <name>`
+#   autoSave:    `lastDeploy` to keep the record below, `off` to stop writing it
+#   lastDeploy:  what the last deploy did. A record, not a setting — nothing
+#                reads it back, so a stale one is safe to delete
+
+default: github-pages
+targets:
+  github-pages:
+    host: github-pages
+autoSave: lastDeploy
