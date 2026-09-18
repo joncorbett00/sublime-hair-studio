@@ -8,4 +8,5 @@ description: >-
 # Bookings are Square Appointments (no deposits). Every "Book" link on the site
 # points at /book, so this is the ONE place the Square address lives. It comes
 # from Square Dashboard → Appointments → Online booking → booking site link.
+# `booking.services` in site.yml is the same address, used for per-service links.
 redirect: https://book.squareup.com/appointments/oht393d65ci9ue/location/LKMKJ3HW3C5XP/services

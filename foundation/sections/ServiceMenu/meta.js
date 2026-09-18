@@ -18,6 +18,7 @@ export default {
       icon: { type: 'string', default: 'lu-scissors' },
       featured: { type: 'boolean', default: false },
       bookable: { type: 'boolean', default: true },
+      square: { type: 'string', default: '' },
     },
   },
 
@@ -37,7 +38,7 @@ export default {
     highlight: { type: 'number', label: 'Cards: which card is set in vermilion (1, 2, 3…; 0 for none)', default: 0 },
     highlightLabel: { type: 'string', label: 'Cards: badge on the vermilion card', default: 'Signature' },
     note: { type: 'string', label: 'Small italic line under the services', default: '' },
-    bookHref: { type: 'string', label: 'Booking page', default: '/book' },
+    bookHref: { type: 'string', label: 'Booking page, for services with no `square:` ID', default: '/book' },
     enquireHref: { type: 'string', label: 'Where "Enquire" goes for services that are not booked online', default: '/visit' },
     showFilter: { type: 'boolean', label: 'List: show category filter', default: true },
     photosSource: {

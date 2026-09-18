@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback } from 'react'
-import { P, Icon, Link, DataPlaceholder, useFetched, cn } from '@uniweb/kit'
+import { P, Icon, Link, DataPlaceholder, useFetched, useWebsite, cn } from '@uniweb/kit'
 import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import Lightbox from '#components/Lightbox.jsx'
@@ -59,16 +59,26 @@ function Price({ service, className }) {
 }
 
 /**
+ * Where a service's Book button goes: straight to that service on the Square
+ * booking site when it has a `square:` ID, the full list (`bookHref`) when it
+ * doesn't, and `enquireHref` for services that aren't booked online.
+ */
+function bookingLink(service, { squareBase, bookHref, enquireHref }) {
+  if (service.bookable === false) return enquireHref
+  return service.square && squareBase ? `${squareBase}/${service.square}` : bookHref
+}
+
+/**
  * The homepage teaser: three offering cards. `highlight` sets one of them in
  * vermilion — the colour block in a row of paper.
  */
-function Cards({ services, highlight, highlightLabel, bookHref, enquireHref }) {
+function Cards({ services, highlight, highlightLabel, links }) {
   const cols = services.length >= 3 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2'
   return (
     <ul className={cn('mt-16 grid grid-cols-1 gap-8 lg:gap-10', cols)}>
       {services.map((s, i) => {
         const featured = i + 1 === Number(highlight)
-        const href = s.bookable === false ? enquireHref : bookHref
+        const href = bookingLink(s, links)
         return (
           <li key={s.slug} className={cn(featured && 'lg:-translate-y-6')}>
             <article className={cn('framed lift flex h-full flex-col p-8 sm:p-9', featured && 'tone tone-vermilion')}>
@@ -126,6 +136,8 @@ export default function ServiceMenu({ content, params, block }) {
     tone = '',
   } = params
   const cards = layout === 'cards'
+  const { website } = useWebsite()
+  const links = { squareBase: website.config?.booking?.services, bookHref, enquireHref }
 
   const { data: fetchedPhotos } = useFetched(!cards && photosSource ? { path: photosSource } : null)
   const photosByService = useMemo(() => {
@@ -176,7 +188,7 @@ export default function ServiceMenu({ content, params, block }) {
         </div>
 
         {cards ? (
-          <Cards services={services} highlight={highlight} highlightLabel={highlightLabel} bookHref={bookHref} enquireHref={enquireHref} />
+          <Cards services={services} highlight={highlight} highlightLabel={highlightLabel} links={links} />
         ) : (
           <>
             {showFilter && categories.length > 1 && (
@@ -240,7 +252,7 @@ export default function ServiceMenu({ content, params, block }) {
 
                             <div className="flex items-center justify-between gap-6 md:flex-col md:items-end md:justify-start">
                               <Price service={s} className="md:text-right" />
-                              <Button href={s.bookable === false ? enquireHref : bookHref} size="sm" tone={s.bookable === false ? 'outline' : 'primary'}>
+                              <Button href={bookingLink(s, links)} size="sm" tone={s.bookable === false ? 'outline' : 'primary'}>
                                 {s.bookable === false ? 'Enquire' : 'Book'}
                               </Button>
                             </div>

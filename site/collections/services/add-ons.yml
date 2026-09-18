@@ -1,6 +1,7 @@
 # See cuts.yml for how the menu files fit together. Add-ons go on top of a haircut.
 
 - slug: add-on-hair-mask
+  square: EDEFJSLW3O63WTXP2ITFQARS
   title: Hair Mask
   category: Add-ons
   price: 15
@@ -9,6 +10,7 @@
   icon: lu:flower
   bookable: true
 - slug: add-on-treatment
+  square: MBZQZS5W7HWYKH2BAIZP75XL
   title: Treatment
   category: Add-ons
   price: 20
@@ -17,6 +19,7 @@
   icon: lu:shield
   bookable: true
 - slug: add-on-blowout
+  square: K7V2P3TTQWFMSBKVDNW5DG4Q
   title: Blowout
   category: Add-ons
   price: 30

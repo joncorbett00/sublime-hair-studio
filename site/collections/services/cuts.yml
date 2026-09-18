@@ -6,8 +6,17 @@
 # The files are split by category for editing only — the site reads them as one
 # collection. Gallery photos point here by `slug` (collections/gallery/), so
 # rename a slug there too.
+#
+# `square:` is the service's ID on the Square booking site, so its Book button
+# opens that service with nothing else to pick. It's the last part of the
+# service's link on the booking site (…/services/<ID>). Square has one entry
+# for all colour work, so every colour service shares it. A service with no
+# `square:` (youth cut, scalp massages, the combined toner/gloss add-on) books
+# from the full list. Deleting and re-creating a service in Square changes its
+# ID — update it here when that happens.
 
 - slug: classic-haircut
+  square: 2UZOWFATYZWT5EFT7TOO5DOQ
   title: Classic Haircut
   category: Cut & Style
   tagline: Consult, wash, scalp massage, cut and style.
@@ -17,6 +26,7 @@
   icon: lu:scissors
   bookable: true
 - slug: technical-haircut
+  square: QD5ZADHNEPJCLXJT64PNCGU6
   title: Technical Haircut
   category: Cut & Style
   tagline: A big change, a precise shape, or curls cut to their pattern.
@@ -26,6 +36,7 @@
   icon: lu:ruler
   bookable: true
 - slug: barber-scissor-cut
+  square: CWHWEYKXE5UI2574K5CHCZU6
   title: Barber / Scissor Cut
   category: Cut & Style
   price: 50
@@ -42,6 +53,7 @@
   icon: lu:scissors
   bookable: true
 - slug: children-cut
+  square: PHUN6XA4ZNR5ZJ55B7RCQGHN
   title: Children's Cut (under 10)
   category: Cut & Style
   price: 35

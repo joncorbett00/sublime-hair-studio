@@ -2,6 +2,7 @@
 # top of every colour price (the note is in pages/services/1-menu.md).
 
 - slug: colour-touch-up
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Colour Touch Up
   category: Colour
   price: 95
@@ -10,6 +11,7 @@
   icon: lu:droplet
   bookable: true
 - slug: full-solid-colour
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Full Solid Hair Colour
   category: Colour
   tagline: Root to tip, one shade, no drama.
@@ -19,6 +21,7 @@
   icon: lu:droplet
   bookable: true
 - slug: hair-colour-shine-gloss
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Hair Colour Shine Gloss
   category: Colour
   price: 175
@@ -27,6 +30,7 @@
   icon: lu:sparkles
   bookable: true
 - slug: hair-colour-filler
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Hair Colour Filler
   category: Colour
   price: 85
@@ -35,6 +39,7 @@
   icon: lu:droplet
   bookable: true
 - slug: full-highlights
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Full Highlights
   category: Colour
   price: 180
@@ -43,6 +48,7 @@
   icon: lu:sun
   bookable: true
 - slug: full-highlights-colour
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Full Highlights & Colour
   category: Colour
   price: 285
@@ -51,6 +57,7 @@
   icon: lu:sun
   bookable: true
 - slug: partial-highlights
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Partial Highlights
   category: Colour
   price: 155
@@ -59,6 +66,7 @@
   icon: lu:sun
   bookable: true
 - slug: partial-highlights-colour
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Partial Highlights & Colour
   category: Colour
   price: 300
@@ -67,6 +75,7 @@
   icon: lu:sun
   bookable: true
 - slug: babylights-full
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Babylights, Full
   category: Colour
   price: 300
@@ -75,6 +84,7 @@
   icon: lu:sparkles
   bookable: true
 - slug: babylights-partial
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Babylights, Partial
   category: Colour
   price: 200
@@ -83,6 +93,7 @@
   icon: lu:sparkles
   bookable: true
 - slug: accent-balayage
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Accent Balayage
   category: Colour
   price: 200
@@ -91,6 +102,7 @@
   icon: lu:paintbrush
   bookable: true
 - slug: full-balayage
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Full Balayage
   category: Colour
   tagline: Grown-out on purpose. Maintenance measured in months.
@@ -104,6 +116,7 @@
   featured: true
   bookable: true
 - slug: reverse-balayage
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Reverse Balayage
   category: Colour
   price: 300
@@ -112,6 +125,7 @@
   icon: lu:paintbrush
   bookable: true
 - slug: ombre
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Ombré
   category: Colour
   price: 275
@@ -120,6 +134,7 @@
   icon: lu:paintbrush
   bookable: true
 - slug: shadow-root
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Shadow Root
   category: Colour
   price: 110
@@ -128,6 +143,7 @@
   icon: lu:droplet
   bookable: true
 - slug: halo
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Halo
   category: Colour
   price: 175
@@ -136,6 +152,7 @@
   icon: lu:sun
   bookable: true
 - slug: lightening-root-retouch
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Lightening Root Re-Touch
   category: Colour
   price: 100
@@ -144,6 +161,7 @@
   icon: lu:droplet
   bookable: true
 - slug: full-length-lightening
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Full Length Lightening
   category: Colour
   price: 200
@@ -152,6 +170,7 @@
   icon: lu:sun
   bookable: true
 - slug: creative-colour
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Creative Colour
   category: Colour
   tagline: Vivids, placement work, the stuff people ask about on the bus.
@@ -166,6 +185,7 @@
   featured: true
   bookable: true
 - slug: colour-correction
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: 1-Hour Colour Correction
   category: Colour
   tagline: Box dye. Bad Tuesday. We have seen worse.
@@ -175,6 +195,7 @@
   icon: lu:life-buoy
   bookable: true
 - slug: premium-toner-gloss
+  square: 2TG63YUUJLTDWLFNIIA4U2DZ
   title: Premium Stand-Alone Toner or Glossy Treatment
   category: Colour
   price: 100
