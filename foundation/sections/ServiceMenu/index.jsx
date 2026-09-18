@@ -14,15 +14,46 @@ const pad = (n) => String(n).padStart(2, '0')
 /** "lu:palette" (collection) and "lu-palette" (markdown) both work. */
 const iconName = (icon) => (icon || 'lu-scissors').replace(':', '-')
 
+/**
+ * A price note either reads ahead of the number ("from $70") or after it
+ * ("$45, add-on"). Only the openers below move in front; the separator that
+ * followed one goes with it, so "from — quoted at consult" splits cleanly.
+ */
+const OPENER = /^(from|starting at|starts at)\b[\s,.—–-]*/i
+
+const splitNote = (note = '') => {
+  const lead = note.match(OPENER)
+  return lead ? [lead[1], note.slice(lead[0].length)] : ['', note]
+}
+
 /** The price as the menu shows it. A service priced 0 is quoted, not free. */
 function Price({ service, className }) {
-  const priced = Number(service.price) > 0
+  const [lead, rest] = splitNote(service.priceNote)
+
+  /* No number to quote: the note *is* the price ("Quoted at consult"), so it
+     takes the number's place in the display face rather than hanging under a
+     dash that says nothing. */
+  if (!(Number(service.price) > 0)) {
+    return (
+      <p className={className}>
+        <span className="font-display block text-2xl font-medium leading-tight tracking-tight text-heading first-letter:uppercase">
+          {service.priceNote || '—'}
+        </span>
+      </p>
+    )
+  }
+
   return (
     <p className={className}>
-      <span className="font-display block text-4xl font-medium leading-none tracking-tight text-heading">
-        {priced ? money(service.price) : '—'}
+      {/* Inline, not flex: the opener and the number share a baseline, and the
+          caller's text-right keeps working. */}
+      <span className="block">
+        {lead && <span className="caps mr-2.5 text-[0.625rem] text-subtle">{lead}</span>}
+        <span className="font-display text-4xl font-medium leading-none tracking-tight text-heading">
+          {money(service.price)}
+        </span>
       </span>
-      {service.priceNote && <span className="caps mt-2 block text-[0.5625rem] text-subtle">{service.priceNote}</span>}
+      {rest && <span className="caps mt-2 block text-[0.5625rem] text-subtle">{rest}</span>}
     </p>
   )
 }
