@@ -1,41 +1,48 @@
+# See cuts.yml for how the menu files fit together.
+
 - slug: blowout
   title: Blowout
   category: Styling
   tagline: Wash, dry, and an hour of feeling expensive.
-  description: >-
-    A proper round-brush blowout with body that survives a walk down Bank Street in a headwind.
-    Book it before a wedding, a portrait, or a Wednesday that needs help.
-  duration: 45
   price: 55
   priceNote: from
   order: 20
   icon: lu:wind
   bookable: true
-- slug: updo
-  title: Up-Do & Event Styling
+- slug: perm
+  title: Perm
+  category: Styling
+  price: 200
+  priceNote: from
+  order: 21
+  icon: lu:waves
+  bookable: true
+- slug: curl-partial-updo
+  title: Curl & Partial Updo
+  category: Styling
+  price: 85
+  priceNote: from
+  order: 22
+  icon: lu:sparkles
+  bookable: true
+- slug: formal-updo
+  title: Formal Updo
   category: Styling
   tagline: Pins, patience, and hairspray with real conviction.
   description: >-
     Braided, sculpted, twisted, or artfully undone. We build it to survive a receiving line,
-    a dance floor, and the photos afterward. Trial appointments available and strongly advised
-    for weddings.
-  duration: 75
-  price: 110
+    a dance floor, and the photos afterward.
+  price: 150
   priceNote: from
-  order: 21
+  order: 23
   icon: lu:crown
   featured: true
   bookable: true
-- slug: bridal-party
-  title: Bridal Party
+- slug: partial-updo
+  title: Partial Updo
   category: Styling
-  tagline: The whole crowd, one morning, zero panic.
-  description: >-
-    We take over the studio for your party — hair for up to six, coffee on, music yours. Book the
-    trial first so the morning itself is boring in the best way. Enquire for a quote.
-  duration: 300
-  price: 0
-  priceNote: quoted per party
-  order: 22
-  icon: lu:heart
-  bookable: false
+  price: 125
+  priceNote: from
+  order: 24
+  icon: lu:crown
+  bookable: true

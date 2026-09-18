@@ -19,7 +19,7 @@ than at hour five.
 
 ### Do I need a patch test?
 Yes, for any colour service, and it has to be at least 48 hours before. It takes two
-minutes at the front desk — swing by, or book it alongside a fringe trim.
+minutes at the front desk — swing by, or do it at the end of another appointment.
 
 ### I used box dye. Will you still see me?
 Yes. Tell us when you book so we can put enough time aside, and bring the box if you

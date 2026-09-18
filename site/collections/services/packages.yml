@@ -1,0 +1,45 @@
+# See cuts.yml for how the menu files fit together. Packages are bought at the
+# studio, so they read "Enquire" rather than "Book".
+
+- slug: blowout-package-3
+  title: 3 Blowouts
+  category: Packages
+  price: 145
+  priceNote: save $20
+  order: 90
+  icon: lu:wind
+  bookable: false
+- slug: blowout-package-6
+  title: 6 Blowouts
+  category: Packages
+  price: 280
+  priceNote: save $50
+  order: 91
+  icon: lu:wind
+  bookable: false
+- slug: blowout-package-9
+  title: 9 Blowouts
+  category: Packages
+  price: 385
+  priceNote: save $110
+  order: 92
+  icon: lu:wind
+  bookable: false
+- slug: treatment-packages
+  title: Custom Treatment Packages
+  category: Packages
+  tagline: Built around your hair. Contact us directly for pricing.
+  price: 0
+  priceNote: priced for you
+  order: 93
+  icon: lu:shield
+  bookable: false
+- slug: bridal
+  title: Bridal
+  category: Packages
+  tagline: Individually catered to fit the needs of the bride.
+  price: 0
+  priceNote: contact us
+  order: 94
+  icon: lu:heart
+  bookable: false

@@ -1,69 +1,184 @@
+# See cuts.yml for how the menu files fit together. Materials are charged on
+# top of every colour price (the note is in pages/services/1-menu.md).
+
+- slug: colour-touch-up
+  title: Colour Touch Up
+  category: Colour
+  price: 95
+  priceNote: from
+  order: 40
+  icon: lu:droplet
+  bookable: true
+- slug: full-solid-colour
+  title: Full Solid Hair Colour
+  category: Colour
+  tagline: Root to tip, one shade, no drama.
+  price: 135
+  priceNote: from
+  order: 41
+  icon: lu:droplet
+  bookable: true
+- slug: hair-colour-shine-gloss
+  title: Hair Colour Shine Gloss
+  category: Colour
+  price: 175
+  priceNote: from
+  order: 42
+  icon: lu:sparkles
+  bookable: true
+- slug: hair-colour-filler
+  title: Hair Colour Filler
+  category: Colour
+  price: 85
+  priceNote: from
+  order: 43
+  icon: lu:droplet
+  bookable: true
+- slug: full-highlights
+  title: Full Highlights
+  category: Colour
+  price: 180
+  priceNote: from
+  order: 44
+  icon: lu:sun
+  bookable: true
+- slug: full-highlights-colour
+  title: Full Highlights & Colour
+  category: Colour
+  price: 285
+  priceNote: from
+  order: 45
+  icon: lu:sun
+  bookable: true
+- slug: partial-highlights
+  title: Partial Highlights
+  category: Colour
+  price: 155
+  priceNote: from
+  order: 46
+  icon: lu:sun
+  bookable: true
+- slug: partial-highlights-colour
+  title: Partial Highlights & Colour
+  category: Colour
+  price: 300
+  priceNote: from
+  order: 47
+  icon: lu:sun
+  bookable: true
+- slug: babylights-full
+  title: Babylights, Full
+  category: Colour
+  price: 300
+  priceNote: from
+  order: 48
+  icon: lu:sparkles
+  bookable: true
+- slug: babylights-partial
+  title: Babylights, Partial
+  category: Colour
+  price: 200
+  priceNote: from
+  order: 49
+  icon: lu:sparkles
+  bookable: true
+- slug: accent-balayage
+  title: Accent Balayage
+  category: Colour
+  price: 200
+  priceNote: from
+  order: 50
+  icon: lu:paintbrush
+  bookable: true
+- slug: full-balayage
+  title: Full Balayage
+  category: Colour
+  tagline: Grown-out on purpose. Maintenance measured in months.
+  description: >-
+    Hand-painted, soft at the root, bright where the light hits. Built so the regrowth line is a
+    feature rather than a countdown.
+  price: 300
+  priceNote: from
+  order: 51
+  icon: lu:paintbrush
+  featured: true
+  bookable: true
+- slug: reverse-balayage
+  title: Reverse Balayage
+  category: Colour
+  price: 300
+  priceNote: from
+  order: 52
+  icon: lu:paintbrush
+  bookable: true
+- slug: ombre
+  title: Ombré
+  category: Colour
+  price: 275
+  priceNote: from
+  order: 53
+  icon: lu:paintbrush
+  bookable: true
+- slug: shadow-root
+  title: Shadow Root
+  category: Colour
+  price: 110
+  priceNote: from
+  order: 54
+  icon: lu:droplet
+  bookable: true
+- slug: halo
+  title: Halo
+  category: Colour
+  price: 175
+  priceNote: from
+  order: 55
+  icon: lu:sun
+  bookable: true
+- slug: lightening-root-retouch
+  title: Lightening Root Re-Touch
+  category: Colour
+  price: 100
+  priceNote: from
+  order: 56
+  icon: lu:droplet
+  bookable: true
+- slug: full-length-lightening
+  title: Full Length Lightening
+  category: Colour
+  price: 200
+  priceNote: from
+  order: 57
+  icon: lu:sun
+  bookable: true
 - slug: creative-colour
   title: Creative Colour
   category: Colour
   tagline: Vivids, placement work, the stuff people ask about on the bus.
   description: >-
     This is the one we are known for. Pastels, jewel tones, shadow roots, split dye, panels
-    that only show when you move. Every creative colour starts with a free consult because the
+    that only show when you move. Every creative colour starts with a consult, because the
     honest answer sometimes involves two appointments and a lightening plan.
-  duration: 240
-  price: 260
-  priceNote: from — quoted at consult
-  order: 10
+  price: 155
+  priceNote: from
+  order: 58
   icon: lu:palette
   featured: true
   bookable: true
-- slug: balayage
-  title: Balayage & Lived-In Colour
-  category: Colour
-  tagline: Grown-out on purpose. Maintenance measured in months.
-  description: >-
-    Hand-painted, soft at the root, bright where the light hits. Built so the regrowth line is a
-    feature rather than a countdown. Includes a gloss and a cut finish.
-  duration: 210
-  price: 235
-  priceNote: from
-  order: 11
-  icon: lu:paintbrush
-  featured: true
-  bookable: true
-- slug: single-process
-  title: Single Process Colour
-  category: Colour
-  tagline: Root to tip, one shade, no drama.
-  description: >-
-    All-over permanent or demi-permanent colour. Grey coverage, a shade shift, or a return to
-    your own depth after a long experiment. Add a gloss to keep it from going flat.
-  duration: 105
-  price: 115
-  priceNote: from
-  order: 12
-  icon: lu:droplet
-  bookable: true
-- slug: gloss-toner
-  title: Gloss & Toner
-  category: Colour
-  tagline: The thirty-minute personality transplant.
-  description: >-
-    Knocks brass out, puts shine in. Sits between your bigger appointments and makes the colour
-    you already paid for look like you paid for it yesterday.
-  duration: 45
-  price: 65
-  priceNote: from
-  order: 13
-  icon: lu:sparkles
-  bookable: true
 - slug: colour-correction
-  title: Colour Correction
+  title: 1-Hour Colour Correction
   category: Colour
   tagline: Box dye. Bad Tuesday. We have seen worse.
-  description: >-
-    No judgement, ever — half of us have done it to our own hair. Correction is quoted only
-    after an in-person consult and often runs across two or three sittings. Bring photos of
-    where it went wrong and where you want to land.
-  duration: 300
-  price: 0
-  priceNote: quoted at consult
-  order: 14
+  price: 135
+  priceNote: from
+  order: 59
   icon: lu:life-buoy
-  bookable: false
+  bookable: true
+- slug: premium-toner-gloss
+  title: Premium Stand-Alone Toner or Glossy Treatment
+  category: Colour
+  price: 100
+  priceNote: from
+  order: 60
+  icon: lu:sparkles
+  bookable: true

@@ -1,0 +1,32 @@
+# See cuts.yml for how the menu files fit together. Add-ons go on top of a haircut.
+
+- slug: add-on-hair-mask
+  title: Hair Mask
+  category: Add-ons
+  price: 15
+  priceNote: from
+  order: 30
+  icon: lu:flower
+  bookable: true
+- slug: add-on-treatment
+  title: Treatment
+  category: Add-ons
+  price: 20
+  priceNote: from
+  order: 31
+  icon: lu:shield
+  bookable: true
+- slug: add-on-blowout
+  title: Blowout
+  category: Add-ons
+  price: 30
+  order: 32
+  icon: lu:wind
+  bookable: true
+- slug: add-on-toner-gloss
+  title: Toner / Colour Shine Gloss
+  category: Add-ons
+  price: 30
+  order: 33
+  icon: lu:sparkles
+  bookable: true

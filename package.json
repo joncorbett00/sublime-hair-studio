@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "pnpm --filter site dev",
     "build": "pnpm --filter foundation build && pnpm --filter site build",
-    "preview": "pnpm --filter site preview"
+    "preview": "pnpm --filter site preview",
+    "menu": "node print/service-menu.mjs"
   },
   "workspaces": [
     "foundation",

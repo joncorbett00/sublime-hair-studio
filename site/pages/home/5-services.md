@@ -2,7 +2,8 @@
 type: ServiceMenu
 # The gallery follows straight after; the photo strips live on /services.
 photosSource: ''
-fetch: { collection: services, where: { featured: true }, limit: 3 }
+# Highest `order` first, so Creative Colour leads, then Balayage, then the updo.
+fetch: { collection: services, where: { featured: true }, sort: order desc, limit: 3 }
 layout: cards
 highlight: 1
 note: Prices move with length and density — you get a firm quote at the consult, before anything starts.

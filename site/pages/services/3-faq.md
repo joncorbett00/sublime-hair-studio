@@ -36,8 +36,9 @@ Please do. Bring several, including ones you dislike — knowing what you do not
 often more useful than knowing what you do.
 
 ### Do you cut kids' hair?
-Yes, from about age five, and we charge less for it. Under five is usually better at a
-place set up for it, and we will happily point you at one.
+Yes, from about age five. A children's cut (under 10) is $35, and a youth cut (10–18)
+starts at $55. Under five is usually better at a place set up for it, and we will
+happily point you at one.
 
 ### Can I really get a cut on my lunch break?
 Yes. Book The Lunch-Hour Cut: 45 minutes, starting from noon, for a repeat of a shape

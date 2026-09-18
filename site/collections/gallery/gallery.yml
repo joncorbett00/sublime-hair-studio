@@ -8,7 +8,7 @@
 # homepage wall.
 
 - slug: shot-12
-  service: balayage
+  service: full-balayage
   title: "Warm honey lived-in colour for someone who wanted low maintenance"
   category: Colour
   caption: "Warm honey lived-in colour for someone who wanted low maintenance."
@@ -17,7 +17,7 @@
   stylist: rosalie
   order: 1
 - slug: shot-18
-  service: clipper-cut
+  service: barber-scissor-cut
   title: "Clipper blend into scissor detail"
   category: Cuts
   caption: "Clipper blend into scissor detail. Still sharp in week five."
@@ -35,7 +35,7 @@
   stylist: jules
   order: 3
 - slug: shot-23
-  service: dry-cut
+  service: technical-haircut
   title: "Cut curl by curl, dry, over ninety minutes"
   category: Curls
   caption: "Cut curl by curl, dry, over ninety minutes. Nothing was brushed."
@@ -44,7 +44,7 @@
   stylist: priya
   order: 4
 - slug: shot-21
-  service: the-sublime-cut
+  service: classic-haircut
   title: "A pixie grown out and reshaped rather than started over"
   category: Cuts
   caption: "A pixie grown out and reshaped rather than started over."
@@ -62,7 +62,7 @@
   stylist: jules
   order: 6
 - slug: shot-03
-  service: balayage
+  service: full-balayage
   title: "Soft blonde balayage with a shadow root"
   category: Colour
   caption: "Soft blonde balayage, a shadow root, and a gloss to knock the edge off."
@@ -71,7 +71,7 @@
   stylist: sonia
   order: 7
 - slug: shot-14
-  service: single-process
+  service: full-solid-colour
   title: "Grey blending rather than grey covering"
   category: Colour
   caption: "Grey blending rather than grey covering. Growing it out on purpose."
@@ -80,7 +80,7 @@
   stylist: sonia
   order: 8
 - slug: shot-24
-  service: dry-cut
+  service: technical-haircut
   title: "Coils shaped to grow out evenly instead of into a triangle"
   category: Curls
   caption: "Coils shaped to grow out evenly instead of into a triangle."
@@ -89,7 +89,7 @@
   stylist: priya
   order: 9
 - slug: shot-17
-  service: the-sublime-cut
+  service: classic-haircut
   title: "Curtains grown out to the jaw, cut to fall on their own"
   category: Cuts
   caption: "Curtains grown out to the jaw, cut to fall on their own without a blow-dry."
@@ -107,7 +107,7 @@
   stylist: jules
   order: 11
 - slug: shot-05
-  service: balayage
+  service: full-balayage
   title: "Balayage grown out four months and still doing its job"
   category: Colour
   caption: "Balayage grown out four months and still doing its job."
@@ -116,7 +116,7 @@
   stylist: sonia
   order: 12
 - slug: shot-29
-  service: bridal-party
+  service: bridal
   title: "Bridal trial"
   category: Up-dos
   caption: "Bridal trial. The real morning was, as intended, deeply boring."
@@ -125,7 +125,7 @@
   stylist: devon
   order: 13
 - slug: shot-06
-  service: single-process
+  service: full-solid-colour
   title: "Copper on a natural level 5 without a trace of brass"
   category: Colour
   caption: "Copper on a natural level 5 without a single trace of brass."
@@ -161,7 +161,7 @@
   stylist: sonia
   order: 17
 - slug: shot-11
-  service: gloss-toner
+  service: hair-colour-shine-gloss
   title: "A gloss appointment"
   category: Colour
   caption: "A gloss appointment. Forty-five minutes. Look at the shine."
@@ -179,7 +179,7 @@
   stylist: jules
   order: 19
 - slug: shot-15
-  service: the-sublime-cut
+  service: classic-haircut
   title: "A blunt bob that sits without being touched"
   category: Cuts
   caption: "A blunt bob that sits without being touched. Marco is quietly proud."
@@ -188,7 +188,7 @@
   stylist: marco
   order: 20
 - slug: shot-16
-  service: fringe-trim
+  service: classic-haircut
   title: "A heavy fringe, cut to sit right at the brow"
   category: Cuts
   caption: "A heavy fringe, cut to sit right at the brow. She booked the next trim before leaving."
@@ -197,7 +197,7 @@
   stylist: marco
   order: 21
 - slug: shot-22
-  service: clipper-cut
+  service: barber-scissor-cut
   title: "Textured crop, scissor-cut on top"
   category: Cuts
   caption: "Textured crop, scissor-cut on top so it moves instead of sitting flat."
@@ -206,7 +206,7 @@
   stylist: marco
   order: 22
 - slug: shot-20
-  service: the-sublime-cut
+  service: classic-haircut
   title: "Long layers that actually move"
   category: Cuts
   caption: "Long layers that actually move instead of sitting there in a sheet."
@@ -215,7 +215,7 @@
   stylist: devon
   order: 23
 - slug: shot-25
-  service: dry-cut
+  service: technical-haircut
   title: "First dry cut after years of being cut wet"
   category: Curls
   caption: "First dry cut after years of being cut wet. The difference is the point."
@@ -224,7 +224,7 @@
   stylist: priya
   order: 24
 - slug: shot-26
-  service: dry-cut
+  service: technical-haircut
   title: "Curls with the weight taken out of the middle, not the ends"
   category: Curls
   caption: "Curls with the weight taken out of the middle, not the ends."
@@ -233,7 +233,7 @@
   stylist: priya
   order: 25
 - slug: shot-27
-  service: dry-cut
+  service: technical-haircut
   title: "Wash-and-go, diffused, zero product other than the jelly"
   category: Curls
   caption: "Wash-and-go, diffused, zero product other than the jelly."
@@ -242,7 +242,7 @@
   stylist: priya
   order: 26
 - slug: shot-30
-  service: updo
+  service: formal-updo
   title: "A low knot that survived a receiving line and a dance floor"
   category: Up-dos
   caption: "A low knot that survived a receiving line and a dance floor."
@@ -251,7 +251,7 @@
   stylist: devon
   order: 27
 - slug: shot-31
-  service: updo
+  service: formal-updo
   title: "Pinned and set to last the night"
   category: Up-dos
   caption: "Mid-build: every pin placed where it will still be holding at midnight."
@@ -260,7 +260,7 @@
   stylist: devon
   order: 28
 - slug: shot-32
-  service: bridal-party
+  service: bridal
   title: "Wedding morning, and not a nerve showing"
   category: Up-dos
   caption: "Wedding morning, coffee on, music theirs, and not a nerve showing."
@@ -269,7 +269,7 @@
   stylist: devon
   order: 29
 - slug: shot-33
-  service: updo
+  service: formal-updo
   title: "A high knot for a gala, pinned to last"
   category: Up-dos
   caption: "A high knot for a gala, with enough pins to set off a metal detector."
@@ -278,7 +278,7 @@
   stylist: devon
   order: 30
 - slug: shot-28
-  service: updo
+  service: formal-updo
   title: "Braids pinned up, with pieces left out on purpose"
   category: Up-dos
   caption: "Braids pinned up, with pieces left out, because perfect is a bit much."

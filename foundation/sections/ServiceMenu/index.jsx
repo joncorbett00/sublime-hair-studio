@@ -110,6 +110,9 @@ function Cards({ services, highlight, highlightLabel, bookHref, enquireHref }) {
  */
 export default function ServiceMenu({ content, params, block }) {
   const services = content.data?.services || []
+  /* Optional `yaml:categories` block: [{ name, note }]. A note prints under
+     that category's heading ("materials extra", "add on to your haircut"). */
+  const notes = new Map((content.data?.categories || []).map((c) => [c.name, c.note]))
   const { pretitle, title, paragraphs } = content
   const {
     layout = 'list',
@@ -197,74 +200,88 @@ export default function ServiceMenu({ content, params, block }) {
               </div>
             )}
 
-            <ul className="mt-10 border-t border-heading">
-              {visible.map((s) => {
-                const photos = photosByService.get(s.slug) || []
-                const number = services.indexOf(s) + 1
-                return (
-                  <li key={s.slug} className="border-b border-heading/25 py-10">
-                    <article className="grid gap-6 md:grid-cols-[4rem_1fr_auto] md:gap-10">
-                      <span className="font-display hidden text-2xl italic leading-none text-accent-ink md:block" aria-hidden="true">
-                        {pad(number)}
-                      </span>
-                      <div className="min-w-0">
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                          <h3 className="font-display text-3xl font-medium leading-tight tracking-tight text-heading sm:text-[2.25rem]">{s.title}</h3>
-                          {s.featured && (
-                            <span className="caps bg-heading px-2.5 py-1.5 text-[0.5625rem] text-section">Signature</span>
-                          )}
-                        </div>
-                        {s.tagline && <p className="font-display mt-2 text-lg italic text-accent-ink">{s.tagline}</p>}
-                        {s.description && <p className="mt-4 max-w-2xl leading-relaxed text-body">{s.description}</p>}
-                        <p className="caps mt-5 flex flex-wrap gap-x-6 gap-y-1 text-[0.5625rem] text-subtle">
-                          <span className="inline-flex items-center gap-1.5">
-                            <Icon name="lu-clock" size="12" /> {duration(s.duration)}
-                          </span>
-                          <span>{s.category}</span>
-                        </p>
-                      </div>
-
-                      <div className="flex items-center justify-between gap-6 md:flex-col md:items-end md:justify-start">
-                        <Price service={s} className="md:text-right" />
-                        <Button href={s.bookable === false ? enquireHref : bookHref} size="sm" tone={s.bookable === false ? 'outline' : 'primary'}>
-                          {s.bookable === false ? 'Enquire' : 'Book'}
-                        </Button>
-                      </div>
-                    </article>
-
-                    {photos.length > 0 && (
-                      <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 md:ml-[6.5rem] md:max-w-3xl" aria-label={`Photos of ${s.title}`}>
-                        {photos.slice(0, STRIP).map((photo, i) => {
-                          const more = i === STRIP - 1 ? photos.length - STRIP : 0
-                          return (
-                            <li key={photo.slug}>
-                              <button
-                                type="button"
-                                onClick={() => setViewing({ service: s, index: i })}
-                                aria-label={more > 0 ? `Open photos of ${s.title} — ${more} more` : `Open photo: ${photo.title}`}
-                                className="group/photo relative block w-full overflow-hidden bg-muted"
-                              >
-                                <img
-                                  src={photo.image}
-                                  alt=""
-                                  loading="lazy"
-                                  className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover/photo:scale-105"
-                                />
-                                {more > 0 && (
-                                  <span className="font-display absolute inset-0 grid place-items-center bg-vermilion/85 text-3xl italic text-paper">
-                                    +{more}
-                                  </span>
+            <div className="mt-10">
+              {[...new Set(visible.map((s) => s.category))].map((category) => (
+                <section key={category || 'all'} className="mt-16 first:mt-0" aria-label={category || undefined}>
+                  {category && (
+                    <header className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 border-b border-heading pb-4">
+                      <h3 className="font-display text-[1.75rem] font-semibold leading-none tracking-tight text-heading sm:text-4xl">{category}</h3>
+                      {notes.get(category) && <p className="font-display text-base italic text-accent-ink">{notes.get(category)}</p>}
+                    </header>
+                  )}
+                  <ul>
+                    {visible.filter((s) => s.category === category).map((s) => {
+                      const photos = photosByService.get(s.slug) || []
+                      const number = services.indexOf(s) + 1
+                      /* A bare line on the menu (name and price) sits tight; one with
+                         copy or photos gets room to breathe. */
+                      const roomy = s.description || photos.length > 0
+                      return (
+                        <li key={s.slug} className={cn('border-b border-heading/25', roomy ? 'py-10' : 'py-6')}>
+                          <article className="grid gap-6 md:grid-cols-[4rem_1fr_auto] md:gap-10">
+                            <span className="font-display hidden text-2xl italic leading-none text-accent-ink md:block" aria-hidden="true">
+                              {pad(number)}
+                            </span>
+                            <div className="min-w-0">
+                              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                                <h4 className={cn('font-display font-medium leading-tight tracking-tight text-heading', roomy ? 'text-3xl sm:text-[2.25rem]' : 'text-2xl sm:text-[1.75rem]')}>{s.title}</h4>
+                                {s.featured && (
+                                  <span className="caps bg-heading px-2.5 py-1.5 text-[0.5625rem] text-section">Signature</span>
                                 )}
-                              </button>
-                            </li>
-                          )
-                        })}
-                      </ul>
-                    )}
-                  </li>
-                )
-              })}
-            </ul>
+                              </div>
+                              {s.tagline && <p className="font-display mt-2 text-lg italic text-accent-ink">{s.tagline}</p>}
+                              {s.description && <p className="mt-4 max-w-2xl leading-relaxed text-body">{s.description}</p>}
+                              {Number(s.duration) > 0 && (
+                                <p className="caps mt-5 inline-flex items-center gap-1.5 text-[0.5625rem] text-subtle">
+                                  <Icon name="lu-clock" size="12" /> {duration(s.duration)}
+                                </p>
+                              )}
+                            </div>
+
+                            <div className="flex items-center justify-between gap-6 md:flex-col md:items-end md:justify-start">
+                              <Price service={s} className="md:text-right" />
+                              <Button href={s.bookable === false ? enquireHref : bookHref} size="sm" tone={s.bookable === false ? 'outline' : 'primary'}>
+                                {s.bookable === false ? 'Enquire' : 'Book'}
+                              </Button>
+                            </div>
+                          </article>
+
+                          {photos.length > 0 && (
+                            <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 md:ml-[6.5rem] md:max-w-3xl" aria-label={`Photos of ${s.title}`}>
+                              {photos.slice(0, STRIP).map((photo, i) => {
+                                const more = i === STRIP - 1 ? photos.length - STRIP : 0
+                                return (
+                                  <li key={photo.slug}>
+                                    <button
+                                      type="button"
+                                      onClick={() => setViewing({ service: s, index: i })}
+                                      aria-label={more > 0 ? `Open photos of ${s.title} — ${more} more` : `Open photo: ${photo.title}`}
+                                      className="group/photo relative block w-full overflow-hidden bg-muted"
+                                    >
+                                      <img
+                                        src={photo.image}
+                                        alt=""
+                                        loading="lazy"
+                                        className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover/photo:scale-105"
+                                      />
+                                      {more > 0 && (
+                                        <span className="font-display absolute inset-0 grid place-items-center bg-vermilion/85 text-3xl italic text-paper">
+                                          +{more}
+                                        </span>
+                                      )}
+                                    </button>
+                                  </li>
+                                )
+                              })}
+                            </ul>
+                          )}
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </section>
+              ))}
+            </div>
 
             {visible.length === 0 && <p className="mt-10 text-center text-subtle">Nothing in that category yet.</p>}
           </>

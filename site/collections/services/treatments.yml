@@ -1,40 +1,62 @@
-- slug: bond-treatment
-  title: Bond Repair Treatment
+# See cuts.yml for how the menu files fit together. "Rejuvenation & Relaxation"
+# on the printed menu: in-salon treatments, then longer scalp massages.
+
+- slug: olaplex
+  title: Olaplex
   category: Treatments
-  tagline: For hair that has been through some things.
-  description: >-
-    An in-salon bond builder that rebuilds the internal structure lightening takes apart. Add it
-    to any colour service, or book it on its own after a rough winter.
-  duration: 30
-  price: 45
-  priceNote: add-on
-  order: 30
+  tagline: "Shampoo, conditioner and the All-In-One #3."
+  price: 55
+  order: 70
   icon: lu:shield
   bookable: true
-- slug: scalp-ritual
-  title: Scalp Ritual
+- slug: hair-masks
+  title: Hair Mask
   category: Treatments
-  tagline: Twenty minutes that fix more than your hair.
+  tagline: Repair, Hydrate or Refresh.
+  price: 25
+  order: 71
+  icon: lu:flower
+  bookable: true
+- slug: rene-furterer-hair-loss
+  title: René Furterer Hair Loss Prevention
+  category: Treatments
+  tagline: For thinning hair, seasonal shedding and weakened roots.
   description: >-
-    Exfoliation, a tonic, and a scalp massage long enough that people regularly fall asleep in
-    the chair. Helps with flaking, tightness, and the general condition of being a person in
-    an Ottawa February.
-  duration: 30
-  price: 40
-  priceNote: add-on
-  order: 31
+    A targeted in-salon therapy that revitalizes the scalp and strengthens thinning hair. René
+    Furterer's botanical formulas, rich in essential oils and plant extracts, stimulate
+    micro-circulation, nourish the scalp and help reduce hair fall — leaving hair feeling fuller,
+    balanced and visibly healthier.
+  price: 85
+  priceNote: from
+  order: 72
+  icon: lu:leaf
+  bookable: true
+
+- slug: scalp-massage-5
+  title: 5-Minute Scalp Massage
+  category: Scalp Massage
+  price: 10
+  order: 80
   icon: lu:hand
   bookable: true
-- slug: deep-conditioning
-  title: Deep Conditioning Mask
-  category: Treatments
-  tagline: Steam, mask, silence.
-  description: >-
-    A heat-activated mask for dry, coarse or over-processed hair. Pairs well with a blowout and
-    with having absolutely nothing else scheduled.
-  duration: 25
+- slug: scalp-massage-10
+  title: 10-Minute Scalp Massage
+  category: Scalp Massage
+  price: 20
+  order: 81
+  icon: lu:hand
+  bookable: true
+- slug: scalp-massage-20
+  title: 20-Minute Scalp Massage
+  category: Scalp Massage
   price: 35
-  priceNote: add-on
-  order: 32
-  icon: lu:flower
+  order: 82
+  icon: lu:hand
+  bookable: true
+- slug: scalp-massage-30
+  title: 30-Minute Scalp Massage
+  category: Scalp Massage
+  price: 50
+  order: 83
+  icon: lu:hand
   bookable: true

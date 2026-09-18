@@ -12,7 +12,7 @@ export default {
       category: { type: 'string', default: '' },
       tagline: { type: 'string', default: '' },
       description: { type: 'string', default: '' },
-      duration: { type: 'number', default: 60 },
+      duration: { type: 'number', default: 0 },
       price: { type: 'number', default: 0 },
       priceNote: { type: 'string', default: '' },
       icon: { type: 'string', default: 'lu-scissors' },
@@ -25,6 +25,7 @@ export default {
     pretitle: 'Eyebrow label [0-1]',
     title: 'Section heading [0-1]',
     paragraphs: 'Intro copy [0-3]',
+    data: 'An optional `yaml:categories` block — a list of { name, note }; the note prints beside that category heading',
   },
 
   params: {
