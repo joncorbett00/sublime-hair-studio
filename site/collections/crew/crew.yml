@@ -18,7 +18,6 @@
   level: Senior
   levelSurcharge: 20
   order: 1
-  instagram: "#"
 - slug: jules
   title: Jules Tremblay
   role: Senior Stylist & Colourist
@@ -35,7 +34,6 @@
   level: Senior
   levelSurcharge: 20
   order: 2
-  instagram: "#"
 - slug: marco
   title: Marco Ferreira
   role: Stylist
@@ -52,7 +50,6 @@
   level: Standard
   levelSurcharge: 0
   order: 3
-  instagram: "#"
 - slug: priya
   title: Priya Raghunathan
   role: Stylist & Texture Specialist
@@ -69,7 +66,6 @@
   level: Standard
   levelSurcharge: 0
   order: 4
-  instagram: "#"
 - slug: devon
   title: Devon Clarke
   role: Stylist
@@ -86,7 +82,6 @@
   level: Standard
   levelSurcharge: 0
   order: 5
-  instagram: "#"
 - slug: rosalie
   title: Rosalie Bouchard
   role: Junior Stylist
@@ -102,4 +97,3 @@
   level: Junior
   levelSurcharge: -20
   order: 6
-  instagram: "#"

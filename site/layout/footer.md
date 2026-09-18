@@ -10,7 +10,6 @@ creditHref: https://proximify.ca
 190 MacLaren Street, second floor — just off Elgin in Ottawa's Golden Triangle.
 Runway-trained hair in a warm little studio upstairs.
 
-[Instagram](https://instagram.com)
 [Facebook](https://www.facebook.com/ottawasublimehair/)
 
 ```yaml:hours

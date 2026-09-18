@@ -140,7 +140,7 @@ export default function Gallery({ content, params, block }) {
             <div className="flex flex-wrap items-end justify-between gap-8">
               {heading}
               {shots.length > 0 && (
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   {buttons}
                   <button type="button" onClick={() => row.move(-1)} disabled={row.start} aria-label="Previous photos" className={cn(arrow, 'ml-3')}>
                     <Icon name="lu-arrow-left" size="18" />

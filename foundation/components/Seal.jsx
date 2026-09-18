@@ -12,7 +12,7 @@ export default function Seal({ text, className }) {
   return (
     <div
       aria-hidden="true"
-      className={cn('relative grid size-28 place-items-center rounded-full bg-vermilion text-paper sm:size-36', className)}
+      className={cn('relative grid size-28 place-items-center overflow-hidden rounded-full bg-vermilion text-paper sm:size-36', className)}
     >
       <svg viewBox="0 0 120 120" className="spin-slow absolute inset-0 size-full">
         <defs>

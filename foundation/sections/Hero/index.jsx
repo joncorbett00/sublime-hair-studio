@@ -19,7 +19,7 @@ export default function Hero({ content, params, block }) {
 
   return (
     <div className="relative mx-auto max-w-[var(--max-content-width)] px-6 pb-20 pt-10 lg:pb-28 lg:pt-14">
-      <div className={cn('grid items-center gap-16 lg:gap-12', split && 'lg:grid-cols-[1.25fr_1fr]')}>
+      <div className={cn('grid grid-cols-[minmax(0,1fr)] items-center gap-16 lg:gap-12', split && 'lg:grid-cols-[1.25fr_1fr]')}>
         <div className="rise">
           {pretitle && <Eyebrow block={block} className="mb-8">{pretitle}</Eyebrow>}
 
@@ -73,7 +73,7 @@ export default function Hero({ content, params, block }) {
                 />
               </div>
               {main.alt && (
-                <figcaption className="figcap running absolute -right-9 bottom-0 whitespace-nowrap sm:-right-10">
+                <figcaption className="figcap running absolute -right-8 bottom-0 whitespace-nowrap sm:-right-10">
                   <b>Look 01</b>&ensp;—&ensp;{main.alt}
                 </figcaption>
               )}
