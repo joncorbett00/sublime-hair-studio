@@ -27,3 +27,6 @@ Thumbs.db
 *.log
 npm-debug.log*
 pnpm-debug.log*
+
+# Flyer PDFs from `pnpm flyers` — regenerated, not source
+print/out/
