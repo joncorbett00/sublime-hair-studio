@@ -1,0 +1,30 @@
+# A find: one garment or accessory from the boutique, worn on a film or series
+# shot in Montréal, picked to show on the website. The shop holds far more
+# than the site shows. Records live in site/records/piece/, one markdown file
+# each — these fields in the frontmatter, and the story of the piece as the body.
+name: piece
+label: Piece
+description: A piece of screen-worn clothing picked from the boutique to show online.
+
+# The website shows the newest finds first, and this is the date it runs on.
+sort_date: added
+
+fields:
+  title:       { type: string, required: true, description: 'What it is — "Camel wrap coat"' }
+  added:       { type: date, required: true, description: 'The day it went on the website. The newest finds show first; the site keeps a set number, so adding one takes the oldest find off the website (not out of the shop).' }
+  production:  { type: string, description: 'The film or series it was worn in' }
+  year:        { type: integer, description: 'Year the production was shot or released' }
+  worn:        { type: string, description: 'Who wore it and when — "The lead, arriving at the station"' }
+  scene:       { type: string, description: 'Scene reference from the wardrobe tag, if there was one — "Sc. 14"' }
+  doubled:     { type: string, description: 'The city Montréal stood in for, if any — "1970s Boston"' }
+  category:
+    type: string
+    enum: [Outerwear, Dresses, Suiting, Tops, Knitwear, Accessories]
+  era:         { type: string, description: 'Period of the piece or its cut — "1970s", "Contemporary"' }
+  material:    { type: string, description: 'Label or fabric — "Italian wool and cashmere"' }
+  size:        { type: string, description: 'As it fits — "Women’s M (6–10)"' }
+  price:       { type: number, description: 'In Canadian dollars. Leave empty to show "Ask".' }
+  condition:   { type: string }
+  image:       { type: image, required: true, description: 'The main photo, portrait (4:5)' }
+  photos:      { type: image, many: true, description: 'More photos for the piece page' }
+  description: { type: string, description: 'One line for cards and search results' }

@@ -1,4 +1,4 @@
-<!-- uniweb-agents v0.28.1 -->
+<!-- uniweb-agents v0.62.0 -->
 # AGENTS.md
 
 ## Part 0 — Read this first
@@ -85,9 +85,9 @@ Documentation paths in this guide are given bare — `development/creating-compo
 |------|------|
 | Writing page content | `authoring/writing-content.md` |
 | Theming and styling | `authoring/theming.md` |
-| Authoring collections | `authoring/collections.md` |
+| Working with records and queries | `authoring/collections.md` |
 | Where-object predicate format | `authoring/predicates.md` |
-| Connecting a backend / custom transports | `development/connecting-a-backend.md` |
+| Data sources / custom transports | `development/data-sources.md` |
 | Building components | `development/creating-components.md` |
 | Schemas in practice | `development/schemas-in-practice.md` |
 | Workspace layouts and their wiring | `development/project-structures.md` |
@@ -97,6 +97,7 @@ Documentation paths in this guide are given bare — `development/creating-compo
 | Content shape reference | `reference/content-structure.md` |
 | Component metadata (`meta.js`) | `reference/component-metadata.md` |
 | Site configuration | `reference/site-configuration.md` |
+| Queries — everything a query can say | `reference/queries.md` |
 | Data fetching model | `reference/data-fetching.md` |
 | Navigation patterns | `reference/navigation-patterns.md` |
 
@@ -116,7 +117,7 @@ uniweb dev
 
 **Choosing a template.** `--template <name>` gives you a working site plus a foundation you can study and edit. `--template none` gives you the same two packages with no content — the right choice when you're building a foundation from scratch or porting a design. `--blank` gives you an empty workspace and assumes you'll add packages with `uniweb add`; use it only if you already know the framework.
 
-Official templates: `marketing` (tokens, insets, grids, multi-line headings), `docs` (sidebar nav, code highlighting), `dynamic` (live API data, loading states), `international` (i18n, collections, multi-locale routing), `store` (product grids, e-commerce), `academic` (publications, timeline, math), `extensions` (multi-foundation, runtime loading).
+Official templates include `marketing` (tokens, insets, grids, multi-line headings), `docs` (sidebar nav, code highlighting), `blog` (records of the standard `@std/article` schema, a query, a parametric `[slug]` page), `dynamic` (live API data, loading states), `international` (i18n, records, multi-locale routing), `store` (product grids, e-commerce), `academic` (publications, timeline, math), `extensions` (multi-foundation, runtime loading). `uniweb template list` shows them all.
 
 **npm or pnpm.** Projects include both `pnpm-workspace.yaml` and npm workspaces. Replace `pnpm` with `npm` in any command in this guide.
 
@@ -129,10 +130,10 @@ my-project/
 └── pnpm-workspace.yaml
 ```
 
-A site is pure content. A foundation is the site's source code — that's why it lives in `src/`. The foundation's `package.json::name` is `src`, symmetric with `site`.
+A site is pure content. A foundation is the site's source code — that's why it lives in `src/`. The foundation's `package.json::name` is `src`, symmetric with `site` — a **workspace** name, how the site depends on it. What the foundation **registers as** (`@org/<name>`, the name sites pin) is `name` in its `main.js`, which `uniweb create` sets to the project's name. **`src` and `foundation` are never a foundation's name** — `uniweb register` refuses them, because every project in an org would register the same one.
 
 - **Foundation** (`src/`): React components. Those in `sections/` and `layouts/` are *section types* — selectable by authors via `type:`, or used for layout areas. Everything in `components/` and `utils/` is ordinary React and JS: the developer's workbench, not visible to authors.
-- **Site** (`site/`): markdown content and configuration, plus optional collections of structured content and references to external data sources.
+- **Site** (`site/`): markdown content and configuration, plus optional records of structured content and the queries that reach them or an external data source.
 
 **The composition boundary.** Authors compose pages from finished section types — choosing types, writing content, setting params. Developers compose section types from building blocks — importing helpers, using libraries, writing JSX. Two different levels of composition, and the section type is the boundary between them. Don't expose building-block composition to authors; build complete, self-contained section types that handle their own internal structure.
 
@@ -236,9 +237,31 @@ cat <foundation>/sections/Hero/meta.js       # what one expects and accepts
 
 > **A site-relative URL (`/effects/entry.js`) only works where the site serves its own files** — `uniweb export` and `uniweb deploy --host=<adapter>`. A site published to Uniweb hosting ships no JS, so nothing serves that path, and `uniweb publish` rejects it with a pointer to the catalog-ref form. Register the extension (`uniweb register` in its directory) and reference it like any other foundation. When you reference a workspace-local extension, `uniweb publish` brings it along exactly as it does the primary — releasing it if its code changed, and pinning the released version on the published site.
 
-Each `meta.js` is a catalog entry: `description` (what the type is for), `content:` (what markdown it expects), `params:` (what frontmatter it accepts, with defaults), `presets:` (named param bundles). Read them as a menu — that is what they are. There is no CLI command that lists them; reading the folder *is* the discovery step.
+Each `meta.js` is a catalog entry: `description` (what the type is for), `content:` (what markdown it expects), `params:` (what frontmatter it accepts, with defaults), `presets:` (named param bundles), and optionally `family:` (the standard section family it belongs to). Read them as a menu — that is what they are. There is no CLI command that lists them; reading the folder *is* the discovery step.
 
 > **Never write a `type:` or a param you haven't confirmed exists.** Both failures are silent (Part 0) — invisible from the terminal, visible only on the page.
+
+#### `family:` — so an editor can draw your section
+
+An editor showing an author a section picker has to know what each section type
+**is**, to pick its illustration and a label it can translate. Two ways to tell
+it, in this order:
+
+1. **Name the component for its family.** Run `uniweb families`, and use one of
+   those names when it fits — `Hero`, `Footer`, `Pricing`, `FAQ`, `CardGrid`.
+   Then there is nothing to declare: the name resolves on its own.
+2. **Declare `family:`** when the name is yours — a variant, or your own
+   vocabulary:
+   ```js
+   // sections/ProfileHero/meta.js
+   export default { title: 'Researcher Profile', family: 'profile' }
+   ```
+   One value, the dominant shape: a `HeroWithEstimate` is `family: 'hero'`.
+
+**Leave it off when nothing fits.** A section that is genuinely specific to this
+site gets a generic illustration, and that is the right outcome — do not force it
+into the nearest family. `uniweb doctor` shows what each of your sections
+resolved to, and suggests a family for any it recognises by another name.
 
 ### 3. Find your lane
 
@@ -288,7 +311,7 @@ Paths are relative to the site package you identified in step 1 — `site/` in t
 
 **Change a nav item.** First check how nav is produced. If `<site>/layout/header.md` lists the links (a markdown list, or a `yaml:nav` block), edit it there. If it doesn't, the Header is generating nav from the page hierarchy — change page titles and order in `site.yml` / `page.yml` instead.
 
-**Update the project's Uniweb dependencies — and this file.** `uniweb update`. One command aligns every `@uniweb/*` dependency *and* refreshes this AGENTS.md together, to the version matrix of the CLI that runs it. Preview with `--dry-run`. **Don't reach for `npm update` / `pnpm update`** — see *Staying current* in Part 5 for why that breaks things quietly.
+**Update the project's Uniweb dependencies — and this file.** `npx uniweb@latest update`. One command aligns every `@uniweb/*` dependency *and* refreshes this AGENTS.md together. Preview with `--dry-run`. ⛔ **The `@latest` is doing the work** — a bare `uniweb update` runs the CLI this project already pins, which aligns you to the matrix you already have and correctly reports nothing to do. **Don't reach for `npm update` / `pnpm update`** — see *Staying current* in Part 5 for why that breaks things quietly.
 
 **Change one section's columns / spacing / variant.** Check that type's `meta.js` `params:` first. If the knob exists, set it in that section's frontmatter and you're done, in the content lane. If it doesn't, it's a foundation change — see the warning in step 3.
 
@@ -319,7 +342,7 @@ Description paragraph.
 ![Image](./image.jpg)
 ```
 
-Heading levels set *structure* (pretitle, title, subtitle), not font size — the component controls visual sizing. The `#>` label line marks a pretitle explicitly (any number of leading `#`s spells the same label); a smaller ordinary heading directly above the title also becomes the pretitle.
+Heading levels set *structure* (pretitle, title, subtitle), not font size — the component controls visual sizing. Write a pretitle as a `#>` label line — any number of leading `#`s spells the same label, so match the heading you are labelling. A smaller ordinary heading directly above the title is *also* read as a pretitle, which is how files written before label lines keep working; prefer `#>`, because it says what it is wherever it lands rather than depending on what follows it.
 
 **A section with no `type:` renders through the foundation's default section type — a component named `Section`, unless the foundation's `main.js` sets `defaultSection` to something else.** This is what lets a folder of plain markdown with no frontmatter at all become pages: mounted documentation, an imported wiki, anything written before it met this framework. If such content renders blank, the foundation has no `Section` — that, not the markdown, is what to fix.
 
@@ -334,8 +357,9 @@ The semantic parser produces a flat, guaranteed structure. No null checks needed
 ```js
 content = {
   title: '',        // Main heading (string or string[] for multi-line)
-  pretitle: '',     // `#>` label line(s), or smaller headings stacked above
-                    //   the title (string or string[])
+  pretitle: '',     // `#>` label line(s) — also filled by smaller headings
+                    //   stacked above the title, for older content
+                    //   (string or string[])
   subtitle: '',     // Line(s) one step below the title — each further
                     //   one-step descent is another line (string or string[])
   paragraphs: [],   // Text blocks
@@ -379,7 +403,7 @@ Lightning quick.               │  content.items[0].paragraphs[0] = "Lightning 
 Enterprise-grade security.     │  content.items[1].paragraphs[0] = "Enterprise-grade…"
 ```
 
-The staircase rule produces this — each heading relates to the one before it: the same size adds another line to the same part; **one step smaller** joins the headline as the next part down (the subtitle, then further subtitle lines); **two steps smaller** starts an item; and once body content has begun, *any* heading starts an item. `#>` label lines, and smaller headings stacked above the title, become `pretitle`.
+The staircase rule produces this — each heading relates to the one before it: the same size adds another line to the same part; **one step smaller** joins the headline as the next part down (the subtitle, then further subtitle lines); **two steps smaller** starts an item; and once body content has begun, *any* heading starts an item. `#>` label lines become `pretitle`; so do smaller headings stacked above the title, which is the older spelling.
 
 ### Items have the full content shape
 
@@ -459,6 +483,29 @@ Read the markdown out loud. If an author would understand what every line does, 
 
 **Parameter naming matters.** Would an author understand it without reading code? `columns: 3` yes, `gridCols: 3` no. `variant: centered` yes, `renderMode: flex-center` no. `align: left` yes, `contentAlignment: flex-start` no.
 
+### Repeated values — `placeholders:`
+
+A value that appears on many pages goes in `site.yml` once, not in a dozen markdown files:
+
+```yaml
+placeholders:
+  product: Uniweb
+  vendor:
+    email: billing@acme.example
+```
+
+Any page then references it by name — `Write to {vendor.email}.` Dot paths work, and a record's own field of the same name always wins, so `{title}` on an article page is that article's title regardless of what the site declares.
+
+⛔ **Resolution is a foundation capability, not a framework one.** `{…}` is resolved by the foundation's `handlers.content` hook — normally `createLoomHandlers` from `@uniweb/loom`. Under a foundation without one, `placeholders:` is inert and pages render the literal `{vendor.email}`, which reads as a typo. The build warns when a site declares the key and the foundation has no content handler.
+
+```js
+// main.js — a foundation opts in
+import { createLoomHandlers } from '@uniweb/loom'
+export default { handlers: createLoomHandlers({ vars: (data) => data?.profile?.[0] }) }
+```
+
+Placeholders are the simplest case of a larger language: the same expressions filter, sort, count and format live data (`{COUNT OF publications WHERE refereed}`). Reach for one when a value repeats; reach for the rest when content is genuinely derived from records.
+
 ### Icons
 
 Image syntax with a library prefix — **two interchangeable spellings, the same everywhere** (markdown, and Kit's `<Icon name>`):
@@ -516,7 +563,7 @@ Sites can adjust these or add named styles in `theme.yml`'s `inline:` section. O
 
 Fenced code serves three purposes depending on its info string: `yaml:`/`json:` for data, `md:` for a named kind of prose (see *Concept blocks*), and a bare language for a code sample.
 
-**Tagged data blocks** — structured data parsed into JS objects. The tag is the key in `content.data`; the format (`yaml`/`yml`/`json`) is a serialization format, not a display language.
+**Tagged data blocks** — structured data parsed into JS objects. The tag is the key in `content.data` — for a section whose component declares that key in `meta.js` `data:`; the format (`yaml`/`yml`/`json`) is a serialization format, not a display language.
 
 ````markdown
 ```yaml:form
@@ -527,7 +574,7 @@ submitLabel: Send
 ```
 ````
 
-→ `content.data?.form` = `{ fields: [...], submitLabel: "Send" }`
+→ `content.data?.form` = `{ fields: [...], submitLabel: "Send" }`, when the component declares `data: { form: … }`. A block under a key the component does not declare stays out of `content.data` (the dev console says so) and is still in `content.sequence`.
 
 **Code snippets** — display content with a language for syntax highlighting, collected in `content.snippets` as `[{ language, code }]`. Filter with `content.snippets.filter(s => s.language === 'css')`.
 
@@ -577,7 +624,7 @@ Markdown lists model nav, menus, and grouped links. Each list item is a full con
 ```
 ````
 
-Access: `content.data?.nav` — an array of `{ label, href, icon, text, children, target }`. Components can support both modes: use `content.data?.nav` when provided, fall back to `website.getPageHierarchy()`. Full pattern: `reference/navigation-patterns.md`.
+Access: `content.data?.nav`, with `data: { nav: {} }` in the component's `meta.js` — an array of `{ label, href, icon, text, children, target }`. Components can support both modes: use `content.data?.nav` when provided, fall back to `website.getPageHierarchy()`. Full pattern: `reference/navigation-patterns.md`.
 
 ### Section backgrounds
 
@@ -615,21 +662,40 @@ Decimals insert between: `2.5-testimonials.md` goes between `2-` and `3-`. **Ign
 title: About Us
 id: about                   # Stable identity (for page: links, survives moves)
 order: 2                    # Navigation sort position
-pages: [team, history, ...] # Child page order (... = rest). Without ... = strict (hides unlisted)
+sections: [hero, team, ...] # Section order within this page (same ... rule)
+pages: [team, history, ...] # Child page order, when this page has child folders
 redirect: academic          # Redirect to a child page (relative/absolute path, or URL)
 slug: { fr: a-propos }      # Localized URL segment per language
 
+# folder.yml  — a folder OF PAGES, where page.yml means a page built from sections
+title: Getting Started
+pages: [quickstart, app-tour, ...]  # Child page order (... = rest)
+
 # site.yml
 index: home                 # Just set the homepage
-pages: [home, about, ...]   # Order pages (... = rest, first = homepage); without ... = strict
+pages: [home, about, ...]   # Order pages (... = rest, first = homepage)
 foundation: '@acme/ui@1.2.0'  # The component system (see Part 2, step 1)
 extensions: ['@acme/fx@0.3.1'] # Secondary foundations — same shapes as foundation:
-runtime: 0.9.6              # Optional runtime pin; omit and the host chooses
 ```
+
+**The trailing `...` is not decoration — dropping it changes behaviour.** `pages:`
+in `folder.yml` and `site.yml`, and `sections:` in `page.yml`, all read it the same way:
+
+| written | means |
+|---|---|
+| `[a, b, ...]` | **inclusive** — `a` and `b` pinned in that order, **everything else follows** |
+| `['...']` | identical to omitting the key |
+| `[a, b]` — no `...` | **strict** — and every unlisted sibling is dropped from **every** menu |
+
+⚠️ **Strict is a navigation filter, not a delete, which is what makes it easy to
+miss.** Unlisted pages stay routed, stay in `dist/`, stay in `llms.txt` and still
+resolve by URL — only the links to them disappear. Your route count does not
+change and nothing warns. **If you list pages in order and mean "these first",
+end the list with `...`.**
 
 **Configuration cascades: `page.yml` → `folder.yml` → `site.yml` → foundation defaults.** Each level inherits from the one above and overrides specific values, the way CSS specificity works. This is what makes bulk assignment natural — put `layout: marketing` in a `folder.yml` and every page in that folder inherits it, while one page can still override with its own `page.yml`. Reach for `folder.yml` before editing the same key into a dozen `page.yml` files.
 
-**Route mapping:** folder structure maps 1:1 to routes. Every folder keeps its natural route — `pages:` controls **order only**, not which child "becomes" the parent. The only exception is the site root, where `index:` (or first in `pages:`) sets `/`.
+**Route mapping:** folder structure maps 1:1 to routes. Every folder keeps its natural route — `pages:` controls **order only**, not which child "becomes" the parent. The only exception is the site root, where `index:` (or first in `pages:`) sets `/` — declared in `site.yml`, or in the pages directory's own `folder.yml` / `page.yml` (how a content repo carries its order), with `site.yml` winning.
 
 **Content-less containers:** folders with `page.yml` but no markdown are structural groups (`hasContent: false`). Visiting one auto-redirects to the first descendant with content — this is what supports courses → modules → lessons at any depth.
 
@@ -675,7 +741,7 @@ What can actually *read* it depends on where you deploy, because reading it need
 
 The artifacts **your build emits** to describe the public site never name them — `llms.txt`, the per-page `.md` projections, and the search index all describe pages a visitor reads, and a knowledge page's prose was written for the assistant instead. Two settings **outrank** `knowledge:`, so a contradiction resolves toward the narrower reach: `agents.exclude` in `site.yml`, and any `_`-prefixed route segment. *(A host that derives these artifacts itself, rather than serving the ones your build produced, applies its own rules — ask your host what it does with `knowledge:` before relying on it there.)*
 
-Don't confuse it with the visibility flags: `hidden: true` is a **draft** (not published at all), `hideIn` only controls **nav placement** (still reachable by URL), and `knowledge: true` is a **different audience** (never rendered for anyone).
+Don't confuse it with the visibility flags: `hidden: true` is a **draft** (not published at all), `hideIn` only controls **nav placement** (still reachable by URL), and `knowledge: true` is a **different audience** (never rendered for anyone). ⛔ `hidden: true` on `pages/404/` means a **draft 404** — it is not published and the site falls back to the generic `404.html`; an authored 404 needs no flag, since it is never listed in navigation anyway.
 
 **A site can be nothing but knowledge — that is a real and useful shape.** A site is a set of routes; it does not have to have HTML pages. Mark the root `knowledge: true` and every page inherits it, so the site renders nothing at all and exists to *be* an agent: a `/_agent/chat` URL that a web app, a mobile app, or someone else's backend sends requests to.
 
@@ -694,7 +760,7 @@ Measured on exactly that shape: **the agent corpus holds every page; the public 
 - **A static host** (`uniweb export`, `deploy --host`) drops every page — they have no reader there — and you get an empty SPA shell. The build still says *"complete"*, because 0 pages is not an error: it reports `Collected 0 pages` and pre-renders none.
 - **A backend-hosted deployment that does not offer the service.** Whether an agent endpoint exists is the host's to decide, per site — it is not implied by deploying successfully.
 
-⇒ **The way to know is to ask, at render:** `resolveService(website, 'assistant')` returns a `url` only where the host declared one. On a site that is *only* knowledge there is no component to ask — so confirm with your host that the agent is enabled for that site before you build an integration against it. If you meant to build an agent endpoint and got silence, this is where to look.
+⇒ **The way to know is to ask, at render:** `isAssistantEnabled()` from `@uniweb/kit` is true only where an agent endpoint is declared. On a site that is *only* knowledge there is no component to ask — so confirm with your host that the agent is enabled for that site before you build an integration against it. If you meant to build an agent endpoint and got silence, this is where to look.
 
 ### Your site is readable by agents, automatically
 
@@ -755,7 +821,7 @@ Server-to-server callers are authenticated by other means, arranged with your ho
 
 **Set `seo.baseUrl` if you want absolute links** in the index — without it the links are root-relative, which still works for an agent that arrived via the index. `uniweb doctor` warns when it's unset.
 
-**What's excluded, and it's deliberate:** `seo.noindex` pages, `hidden` pages, `_`-prefixed drafts, and dynamic route templates. An index *describes* pages rather than merely listing them, so an unlinked page would become both discoverable and summarized — which is why these exclusions are load-bearing rather than tidy-up. `noindex` or `hidden` on a **folder** takes the whole branch with it.
+**What's excluded, and it's deliberate:** `seo.noindex` pages, `hidden` pages, `_`-prefixed drafts, and a parametric page's URL pattern (`/blog/:slug`). An index *describes* pages rather than merely listing them, so an unlinked page would become both discoverable and summarized — which is why these exclusions are load-bearing rather than tidy-up. `noindex` or `hidden` on a **folder** takes the whole branch with it.
 
 **Declaring how your content may be used** is a separate axis from whether it may be fetched, and it goes in `seo.robots`:
 
@@ -771,23 +837,35 @@ seo:
 
 That emits a `Content-Signal:` line in `robots.txt`. Declare only what you mean — an omitted signal says nothing, which is not the same as saying no.
 
-### Collections and dynamic routes
+### Records, queries and parametric pages
 
-Most content lives in `pages/` — a fixed composition of sections on a fixed set of pages. **Collections are the other kind: repeating content managed as a set of files**, one item per file, that pages pull from. Blog posts, team members, products, case studies, bibliographies.
+Most content lives in `pages/` — a fixed composition of sections on a fixed set of pages. **The other kind is a set of records: repeating content managed as one file per item**, that pages pull from. Blog posts, team members, products, case studies, bibliographies.
 
-They're delivered through the **same data pipeline as remote APIs**, so from a component's point of view a locally-authored collection and a backend-served one look identical. Whether the records live in files or behind an endpoint is a transport concern (see *Fetching from other sources* in Part 4).
+It is a small database, not a page tree. Three things, deliberately separate:
 
 ```
 site/
 ├── pages/
-├── collections/
-│   ├── articles/
+├── records/           # your site's records — every file in a schema folder is one
+│   ├── article/       # the folder names their data schema
 │   │   ├── getting-started.md
 │   │   └── design-tips.md
-│   └── team/
-│       └── alice.yml
+│   ├── person/
+│   │   └── alice.yml
+│   └── folder.yml     # optional: sorts records into folders
+├── queries.yml        # how content is REACHED
 └── site.yml
 ```
+
+**`records/{schema}/` — the site's records.** Putting a file here is what makes it a record; nothing else lists it. The folder names the data schema and nothing else:
+
+| on disk | schema |
+|---|---|
+| `records/article/…` | `@/article` — your foundation's own |
+| `records/std/person/…` | `@std/person` — the shared standard set |
+| `records/acme/project/…` | `@acme/project` — an org's |
+
+Keep those folders flat: `records/article/design-tips.md` works; `records/article/2025/design-tips.md` is read as the `2025` schema of an `article` org, which is not what you meant. Organise in `records/folder.yml` instead. A file whose name starts with `_` is not a record — somewhere to keep work in progress.
 
 **Four formats, one shape.** All of these produce the same records at runtime:
 
@@ -800,67 +878,92 @@ site/
 
 **One record per file, or many.** A single mapping at the top of a file makes one record and the filename stem becomes its `slug`. A top-level array (YAML/JSON) or a multi-entry `.bib` makes many, each carrying its own `slug`. You can mix both in one folder — an exported `refs.bib` beside a hand-written `extras.yml`.
 
-**Keep collection folders flat.** `collections/articles/design-tips.md` works; `collections/articles/2025/design-tips.md` does not.
+Item frontmatter conventionally uses `title`, `date`, `tags`, `image`, `description`, `author` — plus any fields your content needs (`price`, `role`, `order`). Images can sit beside the item file and be referenced with `./`. **`draft: true` keeps a record off the live site without deleting it**: it is still a record, in `records/`, and `pnpm dev` shows it so you can preview it, but a build for hosting leaves it out, and a backend you `uniweb push` it to keeps it in the site's folder without delivering it. (`published: false`, an older spelling, is refused.)
 
-Item frontmatter conventionally uses `title`, `date`, `tags`, `image`, `description`, `published`, `author` — plus any fields your content needs (`price`, `role`, `order`). Images can sit beside the item file and be referenced with `./`. `published: false` hides an item without deleting it; items with no `published` field are included.
-
-**Declare each collection in `site.yml`:**
+**`records/folder.yml` — optional, and only for folders.** It is the one file in `records/` that is not a record, it moves with the directory (`paths.records`), and like a pages folder's `folder.yml` it describes the folder it sits in. Every record sits at the top of the site's records folder unless `folder.yml` places it in a sub-folder. Add one only when a query needs to ask for a *slice* of the records rather than all of them — most sites never do:
 
 ```yaml
-collections:
-  articles: collections/articles         # simple form — just point at the folder
-
-  team:                                  # extended form
-    path: collections/team               # or `url:` for a remote source
-    sort: order asc                       # `date desc`, `title asc`, …
-    where: { published: { ne: false } }   # a predicate — see authoring/predicates.md
-    limit: 100
+- folder: archive
+  label: The Archive
+  records:
+    - article/2025-*.md
 ```
 
-**Show a collection on a page** with `data:` in `page.yml` (the whole collection), or `fetch:` in a section's frontmatter (a subset):
+A path under a folder is relative to `records/`, naming one file or matching many. A query reads one folder with `scope: archive` — the folder and everything inside it. A record sits in one folder; if you want a computed subset, that is a query, not a second placement. Structure is for querying, not for navigation — and `folder.yml` never lists a record at the top level (the build refuses it: every file in `records/` is a record already).
+
+⚠️ **With a backend, `records/` is what `uniweb push` sends** — every record in it. A site with no `records/` at all leaves the backend's records alone; an *empty* `records/` removes them, and the CLI asks before it does. Records pushed to a backend are served once the site is published.
+
+**`queries.yml` — how content is reached.** A bare map of name → query. A query names a schema and the site's records of that schema are its rows:
+
+```yaml
+recent:
+  schema: '@/article'
+  sort: date desc                        # `date desc`, `title asc`, …
+  limit: 10
+
+team:
+  schema: '@std/person'
+  where: { active: true }                # a predicate — see authoring/predicates.md
+```
+
+You can keep the same declarations under `queries:` in `site.yml` instead, if you would rather have one file.
+
+**Show a query on a page** with `query:` in `page.yml` or a section's frontmatter (the whole result), or `fetch:` for anything more — a `limit`, a `where`. A list — `query: [team, articles]` — declares several, each filling its own key in the sections whose components declare it. `query:` takes names only; `data:`, its old name, is now an error.
+
+**Who receives it:** a section's own declaration reaches that section; a page's, every section on the page; a parent page's, the sections of the pages directly under it. **The site is the root page:** `query:` in `site.yml` reaches the layout areas (header, footer, …) and the sections of top-level pages — the homepage included — and no page further down. A section on `/docs/setup` that needs site-wide data names the query itself.
+
+**A fetch always names a query.** A string in `fetch:` is a query name: `fetch: team` is `fetch: { query: team }`, and `fetch: [team, articles]` is a list of those. A fetch never names a file — `/data/<query>.json` is what the build generates from a query for a site with no backend, and writing that path in a `fetch:` stops the build. That is what keeps a site portable: name the query, debug locally against the generated data, publish, and the same page reads live records from the host with nothing changed.
+
+**A query selects a set of records; a `fetch:` takes from that set, never adding to it.** The query's `scope`, `where`, `sort` and `limit` decide which records it selects — its `limit` included: `recent` above is the 10 newest articles. A fetch's `where` keeps the ones that also match, its `sort` re-orders them, and its `limit` takes the first N — never more than the query selects. That is the whole list — `scope` belongs to the query, and the build stops on a `fetch:` that carries one; for another folder branch, declare another query. **Which records get a page is the query's to decide, never a fetch's:** each record `recent` selects gets its page, an 11th-newest article gets none, and a list's `limit: 3` still leaves all 10 their pages — so a condition or count that should decide which pages exist belongs on the query. Two fetches under one key at one level: the first is used, and the build warns.
 
 ```yaml
 # pages/blog/page.yml          |   # a section on the homepage
 title: Blog                    |   ---
-data: articles                 |   type: ArticleTeaser
-                               |   fetch: { collection: articles, limit: 3, sort: date desc }
+query: recent                  |   type: ArticleTeaser
+                               |   fetch: { query: recent, limit: 3 }
                                |   ---
 ```
 
-**Give each item its own page with a `[slug]/` folder** under the list page:
+**Give each record its own page with a `[slug]/` folder** — a *parametric page*, what other frameworks call a dynamic route — inside the page that names the query:
 
 ```
 pages/blog/
-├── page.yml          # title: Blog / data: articles
+├── page.yml          # title: Blog / query: recent
 ├── list.md
 └── [slug]/
     ├── page.yml
-    └── article.md    # just `type: Article` — the item arrives automatically
+    └── article.md    # just `type: Article` — the record arrives automatically
 ```
 
-`collections/articles/design-tips.md` becomes `/blog/design-tips`. The section inside `[slug]/` needs no special markdown — the matched record is delivered to it. Generated pages are excluded from navigation menus.
+`records/article/design-tips.md` becomes `/blog/design-tips`. The section inside `[slug]/` needs no special markdown — the matched record is delivered to it. Generated pages are excluded from navigation menus.
 
-> **The record arrives as a single-element array under the collection key** — `content.data.articles[0]`, not `content.data.article`. The runtime never coerces it to an object and never synthesizes a singular key. See *Data* in Part 4.
+**Link a card with `item.$route` — never compose the URL.** Every record a query delivers carries `$route`, the URL of the parametric page whose route query is that query (`/blog/design-tips`), wherever the list appears — the query's own page, the homepage, a sidebar. No page for the query, or no value for the field its URL is built from, means no `$route`, never a broken one. `detailPage: page:<id>` on a fetch links the records to another page instead. `$` marks a field the framework fills, so a record's own `route` field is left alone. ⛔ `route:` on a query is retired and stops the build.
 
-**Two options for bigger collections:**
+**Which query the URL narrows — the page's route query:** the `[slug]` page's own `query:`, else its parent page's (the usual shape, above), else `site.yml`'s (for a top-level `pages/[slug]/` only — the site's reaches no deeper page); if none declares one, the query its sections all declare. The first query of that level wins. Every section the route query reaches gets the one record; a section declaring a *different* query of its own gets that query as declared. The folder name says what the URL segment matches: `[slug]` the record's handle (`$name`, which compiled records carry — equal to their `slug`), `[uuid]` its `$uuid`, any other `[name]` the record's own field of that name — and when that field holds several values, **any member** matches (the record's own link is its first value). Routing by a field that is not unique picks one record and which one is not guaranteed; the build warns. A folder inside `[slug]/` (`[slug]/cv/` → `/blog/:slug/cv`) is a parametric page too, about the same record: its route query is the `[slug]` page's, wherever that is declared, and a query `cv/` declares itself arrives under its own key. **A section chooses how it uses the page's record with `current:`** on its own `fetch:` — `only` (the default: the record, as a list of one), `exclude` (the others: "related"), `include` (all of them: a pager) — e.g. `fetch: { query: articles, as: related, current: exclude, limit: 3 }`, where `limit` counts the others, all from the query's set. **`current:` follows the query, not the key:** a fetch of the route query gets the record unless it says otherwise, whatever its `as`; a fetch of another query gets that query's records and reads `current:` only when written (`exclude` drops the page's record, `only` keeps just it). `refine: true` / `detail: false` are retired and stop the build. `[dir]` and `[path]` are refused as folder names, and so is any folder inside `[...path]/`.
 
-`deferred: [body]` strips heavy fields from the list payload — cards stay light, while a `[slug]` page still receives the full record automatically and other components fetch on demand via `useEntityDetail`. For a remote collection, add `detailUrl: /api/articles/{slug}` so the framework knows how to fetch one full record; file-based collections emit per-record files at `/data/<name>/<slug>.json` and need no configuration.
+> **The record arrives as a single-element array under the key the component declares** — `content.data.recent[0]` for a component declaring `recent`, `content.data.article[0]` for one declaring `article: '@std/article'` over an `@std/article` query. The runtime never coerces it to an object. See *Data* in Part 4.
+
+**Records with URLs of their own shape — `[...path]/`.** A folder named exactly `[...path]` (one fixed spelling) captures the rest of the URL: `/blog/my-post` and `/blog/rust/2025/my-post` both reach it. The capture yields three standard variables — `:path` (the whole capture), `:dir` (everything before the last segment), `:slug` (the last segment, the record's handle) — and the record is still delivered by its handle, so the section reads `content.data.recent[0]` as before. The same three variables exist under every parametric page: under `[slug]`, `:slug` and `:path` are the segment and `:dir` is empty. A record's URL is its folder placement plus its slug (`- folder: rust/2025` in `records/folder.yml` → `/blog/rust/2025/my-post`). A query may bind a part — `scope: :dir` exposes the folder branch, `where: { tag: :dir }` keeps it private — and an unbound or empty variable drops its clause, so one saved query serves the query's page and its parametric page, on a static site and a hosted one alike. Without `scope: :dir` the directory is decoration: the record is found by its handle wherever it sits. Reference: `reference/dynamic-routes.md`.
+
+**Two options for bigger sets:**
+
+`deferred: [body]` strips heavy fields from the list payload — cards stay light, while a `[slug]` page still receives the full record automatically and other components fetch the whole record on demand with `useWholeRecord`. File-based records emit per-record files at `/data/<name>/<slug>.json` and need no configuration; an external query names its one-record request with `record:` instead (*Fetching from other sources* in Part 4).
 
 `queryable:` declares which fields a reader may filter on, with enough metadata for the foundation to render controls:
 
 ```yaml
-collections:
-  members:
-    path: collections/members
-    queryable:
-      department: { type: enum, label: Department, options: [biology, physics, chemistry] }
-      tenured:    { type: boolean, label: Tenured }
-      start_year: { type: range, label: Start year, min: 1800, max: 2025 }
+# queries.yml
+members:
+  schema: '@std/person'
+  queryable:
+    department: { type: enum, label: Department, options: [biology, physics, chemistry] }
+    tenured:    { type: boolean, label: Tenured }
+    start_year: { type: range, label: Start year, min: 1800, max: 2025 }
 ```
 
 The site declares the *surface*; the foundation reads the metadata, renders matching controls (dropdown, toggle, slider), and composes the predicate when the reader picks values.
 
-Full author guide: `authoring/collections.md`. Predicate operators: `authoring/predicates.md`.
+Full author guide: `authoring/collections.md`. Every key a query takes: `reference/queries.md`. Predicate operators: `authoring/predicates.md`.
 
 ---
 
@@ -904,7 +1007,7 @@ import LessonHeader from '../../components/LessonHeader' // ❌ breaks if you re
 
 Within the same directory, use normal relative imports (`./AIFeedbackCard`).
 
-**Foundation entry (`main.js`).** A single `export default { … }` whose top-level keys are the capabilities the foundation provides — `name`, `description`, `defaultLayout`, `defaultSection`, `viewTransitions`, `props`, `defaultInsets`, `xref`, `outputs`, `handlers` — plus an optional named `vars` export. Section types and layouts are auto-discovered and merged in by `@uniweb/build`. The build wraps your default export under `default.capabilities` in `dist/entry.js`; you never write that wrapper. The one place it matters: when you import your **own** `main.js` from a component (e.g. a download button calling `compileDocument(website, { foundation })`), you get the bare default object — pass it through directly, Press handles both shapes.
+**Foundation entry (`main.js`).** A single `export default { … }` whose top-level keys are the foundation's identity — `name` (what it registers as, `@org/<name>`) and `description` — and the capabilities it provides — `defaultLayout`, `defaultSection`, `viewTransitions`, `props`, `defaultInsets`, `xref`, `outputs`, `handlers` — plus an optional named `vars` export. The capabilities are read at render; the one thing a foundation declares that *isn't* — which host services it supports — lives in `package.json` instead (see [Declaring what your foundation supports](#declaring-what-your-foundation-supports)). Section types and layouts are auto-discovered and merged in by `@uniweb/build`. The build wraps your default export under `default.capabilities` in `dist/entry.js`; you never write that wrapper. The one place it matters: when you import your **own** `main.js` from a component (e.g. a download button calling `compileDocument(website, { foundation })`), you get the bare default object — pass it through directly, Press handles both shapes.
 
 ### Props interface
 
@@ -916,7 +1019,7 @@ function MyComponent({ content, params, block }) {
 }
 ```
 
-Frontmatter becomes `params`, minus the keys the framework consumes outright: `type` (and its legacy alias `component`), `preset`, `input`, `props`, `fetch`, `data`, `id`. `props:` is the one that isn't dropped but merged *into* params.
+Frontmatter becomes `params`, minus the keys the framework consumes outright: `type`, `preset`, `input`, `props`, `query`, `fetch`, `id` (a `data:` key is refused — it was `query:`'s old name). `props:` is the one that isn't dropped but merged *into* params.
 
 **Framework fields you'd expect to be stripped are not.** `background`, `theme`, `source`, `where`, and `vars` are acted on by the runtime *and* passed through — so `params.theme` is readable when a component needs logic beyond CSS tokens (a light vs. dark logo, say). Components ignore the keys they don't use, the same way they ignore unused `content.data` keys.
 
@@ -970,7 +1073,7 @@ Nothing to install — the import brings the plugin with it. **Skip the import a
 **Documentation shells:** `useHeadings()` (the page's headings + the one being read, derived from content so it prerenders), `website.getBranchHierarchy({ route, for })` (the page tree for one branch). Kit ships no ready-made layout — a layout is your foundation's design; write it in `src/layouts/` and use these for the behaviour.
 **Layout helpers:** `useGridLayout(columns, { gap })`, `useAccordion({ multiple, defaultOpen })`
 **Theming data:** `useThemeData()`, `useColorContext(block)`
-**Data fetching:** `useFetched`, `useCacheEntry`, `useEntityDetail`
+**Data fetching:** `useFetched`, `useCacheEntry`, `useWholeRecord`
 **Forms:** `useFormValues` (an author-designed form's state), `valueAt(values, path)`, `useFormSubmit`, `submitForm`, `resolveSubmitTarget` — see *Forms* below
 **Utilities:** `cn()`, `SafeHtml`, `SocialIcon`, `filterSocialLinks(links)`, `getSocialPlatform(url)`, `getLocaleLabel(locale)`
 **Other styled:** `Code`, `Alert`, `Table`, `Details`, `Divider`, `Disclaimer`
@@ -1232,6 +1335,16 @@ Components use **semantic CSS tokens** instead of hardcoded colors. The runtime 
 
 **Palette shades** are also available — `text-primary-600`, `bg-neutral-100`, `border-accent-300` — 11 shades (50–950) per palette color (primary, secondary, accent, neutral). See `theme-tokens.css` for the complete mapping.
 
+> **Debugging a token that "does nothing": don't probe it in the browser.** Tailwind v4 is JIT — it emits only the classes it finds in *scanned source*. So a class you assign from JavaScript, to a `<div>` you created in the console, **has never been scanned and can never resolve**, whatever the token. A comparison against a deliberately bogus class agrees with you either way, because both are ungenerated, and classes that happen to appear in source elsewhere look like they "pass" — so the probe confirms whichever answer you started with.
+>
+> **Ask the build instead.** The one command that splits the question:
+>
+> ```bash
+> grep -o '\.text-link{[^}]*}' dist/assets/*.css
+> ```
+>
+> A rule prints → the utility exists, and something at runtime is overriding it. Nothing prints → Tailwind never generated it, and there are only two reasons: your `styles.css` doesn't `@import "@uniweb/kit/theme-tokens.css"` (or declares its own `@theme inline` that omits the token), or your `@source` globs don't cover the file the class is written in. Either way, write the class into a real source file first — a token that's only ever composed at runtime is invisible to the scanner by design.
+
 **Authors control context** via `theme: dark` in frontmatter, alternating `light` (default), `medium`, and `dark` across sections for visual rhythm. **The three presets aren't the limit** — the object form overrides any token per section:
 
 ```yaml
@@ -1465,11 +1578,11 @@ Back up your database **before** running this. It is not reversible.
 
 **Why this instead of a component reference.** ` ```@Alert ` names *which component renders this*, which is a rendering decision sitting in content. `md:warning` names *what the content is* and leaves rendering to the foundation — so the same content works under a different foundation, and an editor can recognize the concept and offer a surface built for it.
 
-**A data block whose value is itself a schema.** An author can design a form in the visual editor; it lands as a ` ```yaml:form ` block at `content.data.form`. A component that renders one is the inverse of every other component: it doesn't declare the fields, it *receives* them and draws whatever it's given — the field names are the author's and aren't knowable when you write `meta.js`.
+**A data block whose value is itself a schema.** An author can design a form in the visual editor; it lands as a ` ```yaml:form ` block at `content.data.form`. A component that renders one is the inverse of every other component: it declares the key (`data: { form: … }`) but not the fields — it *receives* them and draws whatever it's given, since the field names are the author's and aren't knowable when you write `meta.js`.
 
-That makes one distinction worth holding onto. You **may** declare a schema describing the form *definition's envelope* — `title`, `description`, `fields` as a map — and get build-time validation that an authored form is well-formed. What you can't declare is a schema whose fields are *the form's* fields (`name`, `email`, …); that's describing the visitor's answers, which arrive at runtime and belong to a form you've never seen. A tag is a binding, not a gate, so the value reaches you either way — declare a schema only if you want it checked, and only of the envelope.
+That makes one distinction worth holding onto. You **may** declare a schema describing the form *definition's envelope* — `title`, `description`, `fields` as a map — and get build-time validation that an authored form is well-formed. What you can't declare is a schema whose fields are *the form's* fields (`name`, `email`, …); that's describing the visitor's answers, which arrive at runtime and belong to a form you've never seen. Declare the key either way — it is what delivers the block — and give it a schema only if you want it checked, and only of the envelope (`{}` declares the key with none).
 
-**Reading one in a component.** `content.data[tag]` gives you both views: `items` for anything row-shaped (an accordion, a step list), `sequence` when you don't recognize the tag and want to render it faithfully in document order. Both are derived, so nothing is stored twice.
+**Reading one in a component.** Declare the tag as a key (`data: { faq: {} }`), and `content.data[tag]` gives you both views: `items` for anything row-shaped (an accordion, a step list), `sequence` when you don't recognize the tag and want to render it faithfully in document order. Both are derived, so nothing is stored twice.
 
 ```jsx
 function Faq({ content }) {
@@ -1547,7 +1660,7 @@ export default function Grid({ block, params }) {
 
 Each child is a regular section with its own type, params, and content — and you're in the middle: wrap each child, filter by type, reorder, add container classes. The author decides *what* goes in the grid; your component decides *how* it renders. Tomorrow the author can swap a child for a different section type with no code change, and your components stay reusable wherever child sections are accepted.
 
-**Data and child blocks:** page-level `data:` is available to all blocks including children, and each child resolves data independently through the page → site hierarchy. If a child needs data, declare it in the child's `meta.js` or its frontmatter (`data: articles`).
+**Data and child blocks:** page-level `query:` (or `fetch:`) is available to all blocks including children, and each child resolves data independently through the page → parent page → site hierarchy (the site's only on a top-level page). If a child needs data no ancestor declares, give it its own in its frontmatter (`query: articles`, or `fetch:`). Its `meta.js` `data:` declares the keys it receives and their shapes, never where the data comes from — it fetches nothing.
 
 **SSG:** insets, `<ChildBlocks>`, and `<Visual>` all render correctly during prerender. Inset components using React hooks internally trigger prerender warnings — expected and harmless; the page renders correctly client-side.
 
@@ -1606,7 +1719,7 @@ Layouts are full components with their own `params` in `meta.js`, not just struc
 
 Two optional keys tune how areas behave across a navigation. `transitions` renames or opts regions out of per-area view transitions (`{ left: null }`, or `false` for the whole layout). `layers` sets which area paints on top — every area is stacked above the body by default, so a fixed header works without declaring anything, but areas are equal to each other, so a layout whose chrome overlaps says which wins: `layers: { header: 2, left: 1 }`. Both take an object to override per region, or `false` to opt out. **A `z-index` inside an area cannot lift it past another area** — each area is its own stacking context — so reach for `layers` rather than a bigger number, and for `<Overlay>` when a modal needs to escape the area entirely.
 
-**Layout content** lives in `site/layout/` — `header.md`, `footer.md` for the default layout, or a named subdirectory (`site/layout/marketing/`) for named layouts. Named subdirectories are self-contained — no inheritance. Cascade: `page.yml` → `folder.yml` → `site.yml` → foundation `defaultLayout` → `"default"`.
+**Layout content** lives in `site/layout/` — `header.md`, `footer.md` for the default layout, or a named subdirectory (`site/layout/marketing/`) for named layouts. Named subdirectories are self-contained — no inheritance. Cascade: `page.yml` → `folder.yml` → `site.yml` → foundation `defaultLayout` → `"default"`. The structure alone decides what an entry is: every folder directly under `layout/` is a named layout (its name matched regardless of case and of a trailing `Layout` — `site/layout/docs/` serves the foundation's `DocsLayout`), and an area with several sections is a folder inside a layout's folder — `site/layout/default/header/1-topbar.md` for the default layout. An area has no `page.yml`; its sections render in filename order.
 
 Layout sections are regular section types — they support the full content shape, including tagged data blocks, lists, links, and items. The only difference is they render on every page. Each content category takes a different role:
 
@@ -1631,7 +1744,7 @@ function Header({ content }) {
   const logo = content.title
   const navItems = content.lists[0] || []
   const cta = content.links[0]
-  const config = content.data?.config
+  const config = content.data?.config        // with `data: { config: {} }` in Header's meta.js
 }
 
 function Footer({ content }) {
@@ -1688,6 +1801,7 @@ const page = website.activePage
 | `block.stableId` / `block.key` | Stable ID from filename or `id:` / unique key across pages — use as React key |
 | `block.path` | Page route this block belongs to |
 | `block.dataLoading` | True while declared data is still resolving |
+| `block.dataError` | `{ <key>: message }` when the fetch filling a declared key FAILED, else `null`. A failed key is `null` in `content.data` — never `[]`, which means "no records" |
 
 ```jsx
 // getPageHierarchy(options) →
@@ -1711,22 +1825,23 @@ Content-less containers appear as group nodes (`hasContent: false`) — use `nav
 
 ### Data
 
-A component on a page with a `data:` or `fetch:` declaration automatically receives that data in `content.data.{key}` — no opt-in in `meta.js`.
+**A section receives the keys its component declares in `meta.js` `data:` — and nothing else** (plus any its foundation declares in `main.js` `data:`). A component that reads `content.data.articles` declares `articles`. Each declared key is filled by, in order: a tagged data block in the section; else the fetch that fills it, level by level from the section's own to the site's — a fetch whose `as` (its query's name by default) is the key, or else, **automatic `as`**, the first fetch under an undeclared key whose query's schema is the key's (`@/x` matches any scope's `x`); else `null`. So `data: { related: '@std/article' }` receives an `articles` query under `related`. `as:` on a fetch picks the key when two keys or two fetches share a schema. A fetch that fills none of a section's keys is not requested for it.
 
-**Bound collections always arrive as arrays.** On a list page, `content.data.articles` is the full collection. On a template page (`[slug]/`), the matched record is delivered under the *same* key as a single-element array — the detail section reads `content.data.articles[0]`. When nothing matches, the key is `[]`. The runtime never coerces to a single object and never synthesizes a singular key.
+**A query's records always arrive as an array.** On the query's own page, `content.data.articles` holds every record the fetch takes. On a parametric page (`[slug]/`), the record the URL names is delivered as a single-element array under the key the component declares — the section showing it reads `content.data.articles[0]` (or `content.data.article[0]` with `data: { article: '@std/article' }`). When nothing matches, the key is `[]`; when nothing fills it, `null`. The runtime never coerces to a single object.
 
 ```jsx
 function Article({ content, block }) {
   if (block.dataLoading) return <DataPlaceholder />
+  if (block.dataError?.articles) return <LoadFailed />   // the request failed — not "no records"
   const article = content.data.articles?.[0]   // focused record on a [slug] page
   if (!article) return <NotFound />
   return <ArticleView article={article} />
 }
 ```
 
-Components can ignore keys in `content.data` they don't need, the same way unused `params` are ignored. When a record genuinely needs to be a single object, that's the foundation's job — read `[0]`, or reshape once with a `handlers.data` hook.
+When a record genuinely needs to be a single object, that's the foundation's job — read `[0]`, or reshape once with a `handlers.data` hook.
 
-**Declaring schemas.** `meta.js` declares the schema for each `content.data` key with a single `data:` field — there is no separate `schemas:` key. Each value is a **named ref**, an **inline field map**, or an **inline rich-form** (`{ fields: [...] }`, an editor form). Refs resolve on disk at build time, never fetched: `@/name` (this foundation's `schemas/`), `@std/name` (shared standards, from `@uniweb/schemas`), `@org/name` (an org's own `@org/schemas` package). The schema is a hint — it supplies field defaults and drives the editor, not delivery, which is default-on. For an explicit opt-out (rare), set `data: false`.
+**Declaring keys and schemas.** `meta.js` declares each `content.data` key the component receives, with its schema, in a single `data:` field — there is no separate `schemas:` key. Each value is a **named ref**, an **inline field map**, an **inline rich-form** (`{ fields: [...] }`, an editor form), or `{}` for a key with no schema (an external API's records). Refs resolve on disk at build time, never fetched: `@/name` (this foundation's `schemas/`), `@std/name` (shared standards, from `@uniweb/schemas`), `@org/name` (an org's own `@org/schemas` package). A schema supplies field defaults, drives the editor, and lets a fetch of another name fill the key. ⛔ **Delivery was default-on until this change** — every fetched key reached every component, and `data:` was a hint; a component that reads a key it does not declare now receives nothing under it. `data: false` declares nothing, like no `data:`. Keys a foundation's handlers (or a shared hook) read go in `main.js` `data:`, in the same form, and every section receives them.
 
 ```js
 // meta.js
@@ -1741,52 +1856,61 @@ export default {
 
 A foundation can route a scope to a plain folder of schema files instead of a package via an optional `schemas.config.js` at its root — `export default { '@acme': '../shared/acme-schemas' }`. A routed scope wins over the package convention; `@/` and `@uniweb` are never routable; a routed scope has no package fallback for a missing schema (it errors rather than silently loading a different definition). Per-schema keys override single entries (most-specific wins: file › directory › package). Worked examples: `development/schemas-in-practice.md`.
 
-**Authoring queries.** Fetch declarations accept `where:` (a where-object predicate), `sort:` (e.g. `date desc`), and `limit:`. Whether the source evaluates them or the framework applies them as a runtime fallback is a transport detail controlled by the site's `fetcher.supports:` declaration.
+**Authoring queries.** Queries and fetch declarations accept `where:` (a where-object predicate), `sort:` (ONE key, e.g. `date desc` — text sorts in the page's language, and a record with no value for the key sorts last either way), and `limit:` — on a query they select its records, on a fetch they take from those. The framework evaluates them in the browser over the records it fetched, the query's first; a host that answers queries evaluates the same language at the source; a foundation transport decides for itself — it receives the query's fields and the fetch's own under `narrow`. The declaration is identical in every case.
 
 ```yaml
 # pages/blog/page.yml
 fetch:
-  collection: articles
-  where: { published: true, tags: featured }
+  query: recent
+  where: { tags: featured }
   sort: date desc
   limit: 3
 ```
 
-**Lean lists with `deferred:`.** Collections with heavy fields (article bodies, large nested arrays) can declare `deferred: [body]` in `site.yml`. The cascade payload omits those fields; per-record full files are emitted at `/data/<name>/<slug>.json` (file-based collections) or fetched from an author-declared `detailUrl:` (API-backed). On dynamic-route pages the focused record's full data is delivered automatically; elsewhere components fetch on demand via `useEntityDetail`.
+**Lean lists with `deferred:`.** A query over records with heavy fields (article bodies, large nested arrays) can declare `deferred: [body]`. The list payload omits those fields; per-record full files are emitted at `/data/<name>/<slug>.json`. (An external query declares no `deferred:` — its whole record comes from `record:`, below.) On a parametric page the record's full data is delivered automatically; elsewhere components fetch the whole record on demand with `useWholeRecord(record, { query })`. The hook is safe to call on any query: when the query has no separate source for the whole record it returns the record you passed in, because nothing was stripped from it.
 
-**Component-side fetching.** When a component genuinely needs to fetch on its own (a search box, "load more", a lazy popover), use the kit hooks — `useFetched`, `useCacheEntry`, `useEntityDetail`. They share the framework's cache and dispatcher with declarative fetches; same-key requests dedupe automatically.
+**Component-side fetching.** When a component genuinely needs to fetch on its own (a search box, "load more", a lazy popover), use the kit hooks — `useFetched`, `useCacheEntry`, `useWholeRecord`. They share the framework's cache and dispatcher with declarative fetches; same-key requests dedupe automatically.
 
-**Validate before shipping.** `uniweb validate` checks file-based data against your declared schemas — missing required fields, type/enum/format mismatches, nested fields. Warns by default; `--strict` for a non-zero CI exit. Distinct from `uniweb doctor` (project structure): `validate` checks your *data* against the schemas you *declared*. Remote (`url:`), `ref`/`options`, and rich `sections`-form inputs are reported deferred.
+**Validate before shipping.** `uniweb validate` checks file-based data against your declared schemas — missing required fields, type/enum/format mismatches, nested fields. Warns by default; `--strict` for a non-zero CI exit. Distinct from `uniweb doctor` (project structure): `validate` checks your *data* against the schemas you *declared*. External queries (`url:`), `ref`/`options`, and rich `sections`-form inputs are reported deferred.
 
 ### Fetching from other sources (`fetcher:`)
 
-A site isn't limited to file-based collections. The `fetcher:` block in `site.yml` tunes the framework's default fetcher and opts into foundation-provided **named transports** per schema:
+A site isn't limited to its own records. A public, keyless JSON API is an **external query** — a query with `url:`, declared beside the others and named by pages the same way (`query: posts`):
+
+```yaml
+# queries.yml
+posts:
+  url: https://api.example.com/posts
+  transform: data.items                    # dot-path to the records in the response
+  record:                                  # one whole post, for a [id] page
+    url: https://api.example.com/posts/{id}
+```
+
+It also takes `method: POST` with a `body`, `where` / `sort` / `limit` (evaluated over what arrived, after `transform`) and `queryable`. `record:` takes `url`, `method`, `body` and `transform`: `url` and `method` default to the query's, `body` and `transform` never carry over, and a placeholder named by the page's folder (`{id}` for `[id]`, `{slug}` for `[slug]`) is its URL segment. `schema`, `scope`, `deferred`, `excerpt` and `path` are refused beside `url:` — they describe the site's own records. The visitor's browser fetches an external query (a `fetch:` with `prerender: true` makes the build fetch it instead); it is never asked of a host's records service and compiles no `/data` file. On a `[id]` page the list still decides which records exist — `record:` fetches the one it found, whole. A site published to a Uniweb host reads the host's records with no configuration at all.
+
+⛔ A `fetch:` never carries a source: `path`, `url`, `method`, `body`, `transform`, `detail` and `scope` on a fetch stop the build. The `detail:` forms (`rest`, `query`, a URL pattern) are now an external query's `record:`, and `detailUrl:` is `record.url`.
+
+A backend that needs a key, headers, paging, its own wire or query language is a **transport**: a named `{ resolve, cacheKey? }` exported by the foundation (or an extension), which the site selects per data key in `fetcher:` — the only thing that block is for:
 
 ```yaml
 # site.yml
 fetcher:
-  baseUrl: https://api.example.com
-  headers: { X-Tenant: acme }
-  envelope: { collection: data.items, item: data.article, error: errors.0.message }
-
-  supports: [where, limit, sort]     # which operators the source evaluates natively
-
   transports:
-    articles: uniweb                 # a foundation-registered transport handles `data: articles`
+    articles: acme                   # a foundation-registered transport handles `query: articles`
     events: default                  # explicitly route back to the default fetcher
-  uniweb:                            # binding config that transport reads
-    siteFolder: abc-123-def
+  acme:                              # binding config that transport reads
+    apiKey: pk_public_123
 ```
 
-**`supports:` is a capability declaration, not a switch.** With `supports: []` (the default) the source is treated as static: the whole collection is fetched and the framework applies `where` / `sort` / `limit` in JS afterward, so two pages with different predicates share one cache entry. With `supports: [where]` the predicate ships in the request and the cache splits per predicate. With `[where, limit, sort]` the source returns the final result and the framework passes it through. Pushdown applies only to remote `url:` sources — local `path:` reads are static files and always evaluate operators as a runtime fallback.
+**Selection is explicit and site-owned.** For each request: `fetcher.transports[as]` wins if set; otherwise `fetcher.transports.default` if set; otherwise the framework's default fetcher. No route-walking, no `match()` predicates, no silent foundation-owned routing — the site picks.
 
-**Selection is explicit and site-owned.** For each request: `fetcher.transports[schema]` wins if set; otherwise `fetcher.transports.default` if set; otherwise the framework's default fetcher applies `baseUrl` / `headers` / `envelope`. No route-walking, no `match()` predicates, no silent foundation-owned routing — the site picks.
+⛔ `fetcher.baseUrl`, `headers`, `envelope`, `supports` and `request.*` are **retired**: a third party's conventions belong in a transport, not in the runtime every site loads. The build warns once and ignores them.
 
-> **Never put secrets in `site.yml`** — every value in it is public to the browser. Sites needing private credentials proxy through the same origin at the deployment layer, so the site fetches `/api/…` and the proxy attaches the credential server-side.
+> **Never put secrets in `site.yml` or `queries.yml`** — every value in them is public to the browser. Sites needing private credentials proxy through the same origin at the deployment layer, so the site fetches `/api/…` and the proxy attaches the credential server-side.
 
-**Failures degrade rather than break:** a failed fetch falls back to `[]`, logs a build warning, and the page still renders. Components should handle the empty case — which the guaranteed content shape already encourages.
+**Failures are visible, not empty:** a fetch that failed leaves its key `null` in `content.data` and names the message on `block.dataError[key]`; it is never delivered as `[]`, which means "no records". The page still renders — a section reads `dataError` to tell the two apart.
 
-Recipes for staying on the default fetcher, and for writing a custom transport: `development/connecting-a-backend.md`.
+When an external query is enough and when a transport is the answer: `development/data-sources.md`.
 
 Full model: `reference/data-fetching.md`. Where-object format with examples: `authoring/predicates.md`.
 
@@ -1803,19 +1927,19 @@ search:
 
 | Provider | Answers with | Trade-off |
 |---|---|---|
-| `index` (default) | `search-index.json` + Fuse.js in the browser | Free, works on **any** host including a plain static one, tolerates typos. Contains only what existed at build time. |
+| `index` (default) | `search-index.json`, ranked in the browser | Free, works on **any** host including a plain static one, tolerates typos. Contains only what existed at build time. |
 | `endpoint` | A server-side search API | Can cover records fetched from an API, and can be re-indexed without rebuilding the site. Requires a host that serves one. |
 | *any other name* | A foundation-supplied search transport | Fully open — Typesense, Meilisearch, Pagefind, a vendor API |
 
 ```yaml
 search:
   provider: endpoint
-  endpoint: _search      # optional; base-RELATIVE, so one spelling works everywhere
+  endpoint: _search      # REQUIRED — there is no default
 ```
 
-`endpoint:` resolves against the site's base path — `/` → `/_search`, `base: /docs/` → `/docs/_search`, a subpath-served site follows its subpath. An absolute `https://…` URL points at another origin.
+`endpoint:` is **required** with `provider: endpoint`; omit it and the provider refuses the query rather than guessing a path. It resolves against the site's base path — `/` → `/_search`, `base: /docs/` → `/docs/_search`, a subpath-served site follows its subpath. An absolute `https://…` URL points at another origin. A host that serves the site may offer search itself, supplying the address so the site declares none.
 
-**Results have one shape, whatever the provider.** Always present: `id`, `type`, `route`, `href`, `title`, `pageTitle`, `excerpt`, `snippetHtml`. Provider-optional (`null` when absent): `sectionId`, `anchor`, `description`, `component`, `snippetText`, `matches`, `collection`, `item`. Whether an optional field arrives is a deployment fact, not a content fact — the same site yields `item` from a server provider and `null` from the local index — so guard them: `result.item?.image`.
+**Results have one shape, whatever the provider.** Always present: `id`, `type`, `route`, `href`, `title`, `pageTitle`, `excerpt`, `snippetHtml`. Provider-optional (`null` when absent): `sectionId`, `anchor`, `description`, `component`, `snippetText`, `matches`, `group`, `item`. `type` is `page`, `section` or `record`; on a record hit, `item` holds the record's fields and `group` names the set it came from. Whether an optional field arrives is a deployment fact, not a content fact — the same site yields `item` from a server provider and `null` from the local index — so guard them: `result.item?.image`.
 
 `snippetHtml` is HTML with `<mark>`. Render it through `SafeHtml`, never as text.
 
@@ -1838,26 +1962,48 @@ section type, same arrangement as `fetcher:` and `search:`.
 
 A form gets its destination from the first of these that applies:
 
-1. **`submit:` in `site.yml`** — an endpoint you name yourself.
-2. **One the host supplies** — `services.submit` in the served payload. A site
-   published to Uniweb Cloud gets submission handling from the platform, so it
-   normally needs **no `submit:` at all**.
+1. **One the host supplies** — `services.submit` in the served payload. Where the
+   host handles submissions, that is the destination and nothing in `site.yml`
+   overrides it — so a site published to Uniweb Cloud normally needs **no
+   `submit:` at all**.
+2. **`submit:` in `site.yml`** — an endpoint you name yourself, for a host that
+   does not handle submissions, or a static site.
 3. **Neither** — there is no destination, and the form says so instead of
    guessing at one.
 
 That is the general arrangement, not a forms-only one. A host declares
 everything it offers under `services`, keyed by name, and every service resolves
-by the same rule — your declaration, then the host's, then neither:
+by the same rule — the host's offer, then your declaration, then neither.
+
+⭐ **Before you render UI for a service, ask whether the site has it** — one predicate per service,
+no arguments: `isSearchEnabled()`, `isSubmitEnabled()`, `isApiEnabled()`, `isAssistantEnabled()`,
+`isTrackingEnabled()`.
+
+```jsx
+import { isSearchEnabled } from '@uniweb/kit'
+
+if (!isSearchEnabled()) return null   // false ⇒ draw nothing
+```
+
+Each answers the same question — *would UI for this service work on this site?* — and `false`
+always means the same thing: **draw nothing.** `isSearchEnabled()` is true whenever *any* provider
+answers, including the prebuilt index a static site ships, so a search box gated on it appears
+wherever search works. The hooks that draw a feature hand you the same answer as a field
+(`useSearch().isEnabled`, `useFormSubmit().canSubmit`), so a component already using one needs
+nothing extra.
+
+When you need the **address** itself, not just whether one exists, ask for it:
 
 ```jsx
 import { resolveService } from '@uniweb/kit'
 
-const { url, reason } = resolveService(website, 'assistant')   // or 'search', or your own
+const { url, source } = resolveService(website, 'assistant')   // or 'search', or your own
 ```
 
 **The name is open**: the framework ships clients for what it implements and
 resolution for anything, so a foundation can define a service the framework has
-never heard of and a host can fill it. Same escalation `fetcher.transports`
+never heard of and a host can fill it — ask for it with
+`website.isServiceEnabled('booking')`. Same escalation `fetcher.transports`
 offers for data.
 
 **Building an "Ask AI" component?** The service name is `assistant`, and a host that runs an agent for a site typically serves it at the conventional path `/_agent`. **You should never need to write that path** — ask the runtime instead:
@@ -1871,9 +2017,55 @@ if (!url) return null          // this site has no agent — render nothing, or 
 
 ⛔ **Absent is the answer, not a lookup that failed.** No `url` means the site has no agent — never enabled, or this host runs none. Render for that case; don't retry it. And don't hardcode `/_agent/chat` when nothing was declared: on a static host that turns "no agent here" into a 404 your component can't tell from a broken endpoint. The path is named above so you recognize the shape, not so you can construct it.
 
-⛔ **And don't tell the visitor.** `resolveService` also returns a `reason`, and it is **not visitor copy** — a visitor has no stake in which services the operator provisioned, and "this site has no assistant configured" reports someone's billing state to the public while reading like a breakage. It is neither. **Absence is a rendering decision, not a message**: a generic component is expected to be smart about it. No assistant → no Ask-AI affordance. No submit endpoint → no form, or degrade to a `mailto:` the site already carries in its content. The `reason` string is there for *you*, while you wire a site up.
+⛔ **And don't tell the visitor.** `resolveService` returns `{ url, source }` and **deliberately nothing else** — there is no explanatory string and there was one, removed because it was a mistake. A visitor has no stake in which services the operator provisioned, and "this site has no assistant configured" reports someone's billing state to the public while reading like a breakage. It is neither. Worse, it is unfixably the wrong language: sites here are multilingual, or unilingual and not English, and a canned constant bypasses the site's whole localization pipeline. **Absence is a rendering decision, not a message**, and a generic component is expected to be smart about it. No assistant → no Ask-AI affordance. No submit endpoint → no form, or degrade to a `mailto:` the site already carries in its content. Any text a visitor should read is *site content* — authored and localized.
+
+`source` is `'site'`, `'host'` or `null`, and it is a **diagnostic for you** while you wire a site up: it says which tier answered, which is the thing to check when a host's value appears not to be taking effect. `'host'` with a null `url` means the host answered and offered no address.
 
 *(A live agent that errors mid-conversation is a different problem — that's ordinary request failure, handled where you make the request.)*
+
+### Declaring what your foundation supports
+
+The predicates above, and `resolveService`, are how you ask at render time. The other direction — telling a
+host, *before* anything renders, which services your foundation is built to use —
+is one line in the foundation's `package.json`:
+
+```json
+{
+  "uniweb": { "supports": ["search", "submit", "tracking"] }
+}
+```
+
+Service names, the same ones you pass to `resolveService`. It reaches a host when
+the foundation is registered, and it answers a question a host cannot otherwise
+answer: **a service only does something if the foundation renders something
+against it.** A host that offers search has no way to know whether your sections
+draw a search box, so without this it either offers a site something its code
+will ignore, or withholds something it would have used.
+
+**What a host receives is one of three answers:**
+
+| | |
+|---|---|
+| a list — `["search"]` | the services this foundation renders against, and only these |
+| `[]` | none — proven by the build, not assumed |
+| absent | *unknown* — the build could not tell, and nothing was declared |
+
+⭐ **The build reads the set off your code.** When the foundation is built, `supports` is derived
+from what the bundle actually reaches — `resolveService(website, 'search')`, or a predicate like
+`isSearchEnabled()` — so a foundation that never writes the key still publishes an accurate set.
+What you write in `package.json` is a **supplement**: the build publishes the union, so a
+declaration can add a service but never remove one the code reaches.
+
+**Declare only what the build cannot see.** A service reached through a *computed* name —
+`resolveService(website, name)` where `name` is a variable — is invisible to it, and the build
+warns when that happens. List those. `uniweb doctor` compares what you declared with what the build
+found.
+
+⚖️ **Baseline behaviour is not yours to declare.** Some services do something for
+a site whether or not a foundation cooperates — the runtime reports page views
+wherever tracking is configured, with no help from your components. List
+`tracking` when you go *beyond* that (your own events on your own components);
+leaving it out does not switch the baseline off.
 
 ```yaml
 # site.yml — only when YOU are providing the endpoint. Publishing to Uniweb
@@ -1974,7 +2166,7 @@ tracking:
 ```
 
 A host may also supply one under `services.tracking`, and the usual precedence
-applies: yours wins, then the host's, then neither.
+applies: the host's, then yours, then neither.
 
 ⚠️ **The endpoint has to accept the framework's own format** — a batched
 `{ "events": [ … ] }` POST, documented in `reference/site-configuration.md`. It
@@ -2025,8 +2217,9 @@ collector's event dimension into a cardinality problem.
 
 ### Choosing what a site sends
 
-By default a site sends `page_view`, `outbound_click` and `section_view`. Narrow
-or widen that with `emit`:
+By default a site sends `page_view`, `outbound_click` and `section_view` — or,
+where a host supplies the collector, whatever that host declares it collects.
+Narrow or widen that with `emit`:
 
 ```yaml
 # site.yml — your own collector
@@ -2042,13 +2235,23 @@ tracking:
 ⭐ **`emit` needs no endpoint of its own.** Where a host provides one, the site
 declares only what it wants sent and the address comes from the host. The two
 are read key by key, so naming `emit` alone overrides nothing else the host
-declared. And declaring your own `endpoint:` always wins, so a site pointing at
-its own collector keeps working on any host, including none.
+declared. An `endpoint:` of your own is used wherever the host supplies no
+collector — on a host without one, and on none — and where the host supplies
+one, the host's is used.
 
-`minimal` is `page_view` alone. `standard` is the default. `all` is a standing
-yes, so an event added in a later framework release is included without you
-changing anything — which is exactly why `standard` exists as well: it is a
-curated set that a release cannot grow behind your back.
+`minimal` is `page_view` alone. `standard` is the default when the collector is
+your own. `all` is a standing yes, so an event added in a later framework
+release is included without you changing anything — which is exactly why
+`standard` exists as well: it is a curated set that a release cannot grow behind
+your back.
+
+⭐ **Saying nothing means two different things, and which one depends on who
+supplies the address.** A site sending to its own `endpoint:` gets `standard`. A site
+on a **host-supplied** collector gets **whatever that host declares it
+collects** — it has no address of its own, so the arrangement is that the host
+does analytics for it, and the set grows when the host starts collecting
+something new. **Naming `emit` always wins**, so pin it if you would rather not
+follow your host.
 
 A site can also set **`flushIntervalMs`** to widen the batching window (default
 5000, milliseconds — `30` is thirty *milliseconds*). A host that supplies your
@@ -2129,16 +2332,20 @@ happened into a journey.
 > or tabs, and **nothing is written to the visitor's device** — no cookie, no
 > local storage. The `visit` key lives in memory and dies with the document, so
 > it identifies one page load rather than a person. A `page_view` carries the
-> path, and — captured once when the page first loads, then replayed on each view
-> — the external referrer and any `utm_*` the visitor arrived with. Nothing else.
+> path; two booleans about the page load — `first_of_load` on the view that
+> opened the document, and `continues` when the load came from one of your own
+> pages; and — captured once when the page first loads, then replayed on each
+> view — the external referrer and any `utm_*` the visitor arrived with. Nothing
+> else. **Both booleans describe the load, never the visitor**, and neither links
+> two loads to each other.
 
 ### ⛔ Use kit. Never touch the `uniweb` global
 
 Everything above reaches the runtime through `@uniweb/kit` or through something
 handed to your component as a prop. That is the rule, not a stylistic preference:
 
-- ✅ `useWebsite()`, `useTracker()`, `resolveService(website, …)` — kit hooks and
-  utilities.
+- ✅ `useWebsite()`, `useTracker()`, `isSearchEnabled()` and the other service
+  predicates, `resolveService(website, …)` — kit hooks and utilities.
 - ✅ `block.track(…)`, `block.page`, `block.website` — the block **arrives in your
   props**, so calling methods on it is not reaching for a global.
 - ⛔ `globalThis.uniweb`, `window.uniweb` — never, in a foundation.
@@ -2159,7 +2366,7 @@ Content handlers are a transform layer between data assembly and the component, 
 | `content` | After the data handler | `(data, block)` | ProseMirror document, or null | Transform raw content (Loom instantiation, template expansion) |
 | `props` | After parsing, defaults, and guarantees | `(content, params, block)` | `{ content, params }`, or null | Post-process the final shape before the component sees it |
 
-The `content` handler receives `block.parsedContent.data` and reads raw ProseMirror from `block.rawContent`, returning a new ProseMirror document that the framework re-parses through the semantic parser. Returning `null` — or the same reference as `block.rawContent` — signals no change.
+The `content` handler receives `block.parsedContent.data` — the section's declared keys, its foundation's `main.js` `data:` included, so **declare there every key a handler reads** — and reads raw ProseMirror from `block.rawContent`, returning a new ProseMirror document that the framework re-parses through the semantic parser. Returning `null` — or the same reference as `block.rawContent` — signals no change.
 
 > **`block.rawContent` may or may not be wrapped.** Unwrap it defensively — `const doc = block.rawContent?.doc ?? block.rawContent` — before passing it to `instantiateContent` / `instantiateRepeated`. This is the first thing a hand-written handler gets wrong.
 
@@ -2184,6 +2391,113 @@ For cases the factory doesn't cover, write handlers directly using `Loom`, `inst
 
 ---
 
+## Part 4b — When the site is also an app
+
+Everything above is a site: content the author writes, built into pages. Some sites
+also have **an `api` service** — accounts, per-visitor data, records their members
+create and edit. `@uniweb/api` is its client.
+
+⛔ **Only reach for this when the site actually has one.** A site without one is
+the normal case, and a foundation that assumes one breaks on every other site it is
+used with.
+
+```bash
+npm install @uniweb/api      # in the FOUNDATION, beside @uniweb/kit
+```
+
+### Ask before you draw
+
+```jsx
+import { isApiEnabled } from '@uniweb/kit'
+import { useSession, SignedIn, SignedOut } from '@uniweb/api'
+
+if (!isApiEnabled()) return <StaticVersion />   // synchronous — nothing to await
+```
+
+⛔ **When the site has no `api` service, draw nothing** — not a disabled control, and not an
+explanation. Same rule as `services` in Part 4: which capabilities a site's operator
+set up is none of a visitor's business, and "sign-in unavailable" reads as breakage
+when it is simply a feature this site does not have. Render the version of your
+component that never needed one.
+
+### Reading
+
+```jsx
+const { status, records } = useRecords({ schema: '@/session' })
+```
+
+⭐ **`absent` and an empty `ready` are different answers, and confusing them is the
+mistake to avoid.** `absent` = there is no live source (no `api` service, or nobody signed
+in) → render the site's authored content. `ready` with `records: []` = the service
+answered and there is nothing there → render your empty state. Showing "nothing yet"
+for the first tells a visitor their content is gone when it was never requested.
+
+### Writing
+
+```jsx
+const writer = useEntityWriter({ schema: '@/track', uuid: track.uuid })
+
+await writer.create({ title: 'Keynote' }, { section: 'sessions', position: 'last' })
+await writer.update(itemId, { ...item.data, room: 'Hall A' })   // whole-data replace
+await writer.move(itemId, { after: previousItemId })            // never an index
+await writer.remove(itemId)
+```
+
+- **`section` is required on `create`.** An entity has several, and a rule declared on
+  one — insert-only, say — does not reach an item that landed in another. Getting it
+  wrong stores the item happily and quietly voids the rule.
+- **`update` replaces the item's data whole.** Spread what you are not editing.
+- **Ordering is the server's.** Say `'first'`, `'last'` or `{ after }` — never compute
+  an order number, or two people arranging one list will produce an order neither
+  chose.
+- ⛔ **`writer.conflict` is reported, not retried.** Someone else changed the item
+  first; a retry would succeed by overwriting a change nobody looked at. Tell the
+  person.
+
+### ⛔ Permissions are the SERVER'S, and your UI is only a courtesy
+
+Gate your controls on what the viewer may do — `viewer.actingUnitId`, `viewer.roles` —
+but **never rely on that for safety**. A foundation runs with exactly the viewer's
+own authority, so hiding a button hides a button. The rule belongs in the data
+schema, where the store enforces it:
+
+```yaml
+# foundation/schemas/session.yml
+creatable_by: unit_members     # only members of the owning unit may create these
+
+sections:
+  checkins:
+    many: true
+    append_only: true          # may be added; never edited or removed, by anyone
+```
+
+`append_only` holds against the item's own author. That is the difference between a
+permission model and a CSS one.
+
+### A backend on your machine
+
+You do not need a live backend to build against one. In `site.yml`:
+
+```yaml
+api: /_api                 # where it answers — the same value in production
+$devApi: ./mock/api.js     # what answers it locally; `$` keys are never published
+```
+
+```js
+// site/mock/api.js
+import { createMockBackend } from '@uniweb/api/mock'
+export default createMockBackend({ seed }).fetch
+```
+
+`uniweb dev` mounts it at your `api:` address, same-origin, so cookies and your
+site's configuration behave exactly as they will in production. It **enforces**
+`creatable_by` and `append_only`, so a permission you are relying on fails on your
+machine rather than in front of a user. State is in memory; restart to reset.
+
+`uniweb create my-event --template conference` is a worked example of all of this.
+
+---
+
 ## Part 5 — Commands, shipping, and migration
 
 ```bash
@@ -2200,9 +2514,10 @@ uniweb add ci --target foundation # Publish a foundation for free at permanent v
                                   # (GitHub Pages → foundations/<name>/<version>/entry.js)
 
 uniweb push / pull / clone / status   # Git-style content sync with the Uniweb backend
+uniweb refresh / sync                 # Catch up (git + backend, never pushes) / catch up, then push
 uniweb push --org @acme               # First push/publish of a site: who owns it (see below)
 uniweb register [--scope @org]        # Register a foundation + its data schemas to the registry
-uniweb login / logout                 # Start or clear the backend session the verbs above reuse
+uniweb login / logout                 # One backend at a time: log in (--backend <url>) or out
 uniweb org list / create <handle>     # Publish orgs you belong to — the @org in a scoped ref
 uniweb content export [dir]           # Package a site (or a built foundation's schema) as .uwx
 
@@ -2213,8 +2528,12 @@ uniweb i18n init-freeform / update-hash / move / rename / prune --freeform
 uniweb -v                         # Installed CLI version — and whether a newer one exists
 uniweb doctor                     # Diagnose project configuration (--fix to auto-repair)
 uniweb validate                   # Check file-based data against declared schemas (--strict for CI)
-uniweb update                     # Align @uniweb/* deps + AGENTS.md to the CLI (--dry-run, --yes)
+npx uniweb@latest update          # Align @uniweb/* deps + AGENTS.md (--dry-run, --yes)
+                                  #   bare `uniweb update` aligns to the CLI you ALREADY have
 uniweb inspect <path>             # Show parsed content for a section or page (--raw for the AST)
+uniweb snapshot                   # Compose site/public/preview.webp from the site; sets preview: if unset
+                                  #   needs `pnpm add -D -w @uniweb/snapshot` and Chrome or Edge
+uniweb snapshot --compare         # Several looks on one sheet; take one with its flags + --save (site/snapshot.yml)
 
 uniweb <command> --help           # Per-command flags — no side effects. Prefer this over guessing.
 ```
@@ -2232,7 +2551,7 @@ uniweb <command> --help           # Per-command flags — no side effects. Prefe
 | Any static host at all | `uniweb export` | full control; no Uniweb account needed |
 | Uniweb Cloud | `uniweb publish` | teams with non-technical content authors, or client work |
 
-`uniweb deploy` never assumes a host: with nothing configured it opens a picker listing only destinations it can act on, and records the choice in `deploy.yml` so later runs go straight there. On Cloudflare Pages / Netlify / Vercel, `add ci` also adds per-PR previews that comment the URL. Adapters: `github-pages`, `cloudflare-pages`, `netlify`, `vercel`, plus `s3-cloudfront` for `deploy`. That record is `deploy.yml`, beside `site.yml` — **the CLI writes it, you don't create it**: the first successful deploy scaffolds the whole file, and later deploys rewrite only its `lastDeploy:` block. Edit `targets:` when you want to change where a site ships. Host credentials come from the environment, never from that committed file.
+`uniweb deploy` never assumes a host: with nothing configured it opens a picker listing only destinations it can act on, and records the choice in `deploy.yml` so later runs go straight there. On Cloudflare Pages / Netlify / Vercel, `add ci` also adds per-PR previews that comment the URL. Adapters: `github-pages`, `cloudflare-pages`, `netlify`, `vercel`, plus `s3-cloudfront` for `deploy`. That record is `deploy.yml`, beside `site.yml` — **the CLI writes it, you don't create it**: the first successful deploy scaffolds the whole file, and later deploys rewrite only its `deploys:` block. Edit `targets:` when you want to change where a site ships. Host credentials come from the environment, never from that committed file.
 
 Foundations have their own free path too: `uniweb add ci --target foundation` publishes to permanent versioned URLs on GitHub Pages.
 
@@ -2254,7 +2573,7 @@ Foundations have their own free path too: `uniweb add ci --target foundation` pu
 > uniweb publish --personal      # your personal account, deliberately
 > ```
 >
-> The answer is recorded in `site.yml::$org` and committed, so it is a one-time choice per site,
+> The answer is recorded in `sync.json` and committed, so it is a one-time choice per site,
 > not per machine. **Ask the human which one to use** rather than picking for them — a site in
 > the wrong org cannot be moved from here. Sites that already exist are unaffected: their
 > ownership is settled, so nothing is asked.
@@ -2268,28 +2587,43 @@ Foundations have their own free path too: `uniweb add ci --target foundation` pu
 - **Git is the reviewed, durable record** — you `pull` content back, read it with `git diff`, and commit.
 - **Authors never push or pull.** For them, content simply updates, whether the change came from another author or from a developer's CLI.
 
-**Conflicts behave like a collaborative document, not like git.** A developer's push arrives the way a live collaborator's edit would. Different sections never conflict, and different params of the same section never conflict — last edit wins. The app warns only when two content edits target the same section at the same time.
+**Nobody's work is overwritten without asking.** `uniweb push` is refused if the site changed on the backend since your last pull — usually an author editing in the app — and reports what changed; nothing is written. Edits to different sections never collide. `uniweb pull` overwrites rather than merges, so it refuses while you have uncommitted changes. The recovery for both is `uniweb pull --merge` (or `uniweb refresh`, which runs `git pull` first): changes to different parts of a file combine silently, and a genuine overlap leaves conflict markers and a non-zero exit — so `uniweb pull --merge && uniweb push` never ships markers. `--force` is the deliberate overwrite (on `push` it replaces the backend's changes, on `pull` it discards yours); don't use it to get past a refusal. `uniweb sync` is `refresh` then `push`; neither publishes.
+
+**`sync.json` says which site this is, on each backend.** The first push to a backend records what that backend assigned — the site's id and owner, the ids of its records and uploaded files — in `sync.json` beside `site.yml`. Commit it; never edit it. **To make a new site from a copy of a project, run `uniweb forget --all` in the copy before its first push** — the copy carries the original's `sync.json`, so otherwise its push updates the original's site. When two projects in one workspace hold the same site, a push or publish from either is refused until that is done. `uniweb forget --backend <url>` removes just one backend's records, such as a scratch server's. A record file's `$uuid` is its own id and stays in both cases. **`push`, `pull` and `publish` go to the backend you are logged in to** — the last `uniweb login --backend <url>` — and never to one you are not logged in to. A bare `uniweb login` logs in to https://uniweb.app; for any other backend, name it — logging in is how you switch, and the backend commands take no `--backend` of their own. When the project has no site on that backend but has one elsewhere, a push says so before creating a new one.
 
 **The Cloud also provides a real backend for structured data:** a database for every registered data schema, and a CMS that edits both static page content and dynamic data entities typed by those schemas. That's the piece that makes it viable for teams and client work — the client manages records, not markdown files.
 
 Either side can publish. Nothing about this changes how you build: the same foundation and the same site run under `uniweb dev`, `uniweb export`, or a CI deploy with no account at all.
 
-**Publishing vs registering.** Foundations on Uniweb Cloud live in the catalog as `@org/name@version`. When a foundation powers a single site, **don't run `uniweb register` yourself** — `uniweb publish` from the site directory releases the local foundation to the catalog (when its code changed) and goes live in one step. Register deliberately only when the foundation is a product meant for multiple sites; consuming sites then pin `foundation: '@org/name@1.2.3'`. **The catalog is private and access-segregated, not a public package registry** — people see only the foundations licensed to sites they own or edit. The *site* carries the license, and it rides along with site ownership when a developer hands a site to a client. Don't describe publishing as making a foundation publicly discoverable. Schemas can also be registered on their own from a schemas-only package (`@uniweb/schemas`, any `@org/schemas`, or a bare folder of `schemas/*.{yml,json,js}`) — that's how `@std` schemas are published. Auth via `uniweb login`, `--token`, or `UNIWEB_TOKEN`; preview with `--dry-run`.
+**Publishing vs registering.** Foundations on Uniweb Cloud live in the catalog as `@org/name@version` — `name` from the foundation's `main.js`. When a foundation powers a single site, **don't run `uniweb register` yourself** — `uniweb publish` from the site directory releases the local foundation to the catalog (when its code changed) and goes live in one step. Register deliberately only when the foundation is a product meant for multiple sites; consuming sites then pin `foundation: '@org/name@1.2.3'`. **The catalog is private and access-segregated, not a public package registry** — people see only the foundations licensed to sites they own or edit. The *site* carries the license, and it rides along with site ownership when a developer hands a site to a client. Don't describe publishing as making a foundation publicly discoverable. Schemas can also be registered on their own from a schemas-only package (`@uniweb/schemas`, any `@org/schemas`, or a bare folder of `schemas/*.{yml,json,js}`) — that's how `@std` schemas are published. Auth via `uniweb login` (`uniweb login --backend <url> --token <bearer>` without a terminal) or `UNIWEB_TOKEN`; preview with `--dry-run`.
 
 ### Staying current
 
 ```bash
 uniweb -v                  # installed CLI version, and whether a newer one is available
 uniweb doctor              # report drift in this project, changing nothing
-uniweb update --dry-run    # preview exactly what update would change
-uniweb update              # apply: align @uniweb/* deps AND refresh AGENTS.md
+npx uniweb@latest update --dry-run   # preview exactly what update would change
+npx uniweb@latest update             # apply: align @uniweb/* deps AND refresh AGENTS.md
 ```
 
-**`uniweb update` is the command for bringing a project up to date.** It aligns the project's `@uniweb/*` dependencies *and* this AGENTS.md to the version matrix of the CLI that runs it. Deps and documentation move together — that's the whole point of the verb.
+**`npx uniweb@latest update` is the command for bringing a project up to date.** It aligns the project's `@uniweb/*` dependencies *and* this AGENTS.md to the version matrix of the CLI that runs it. Deps and documentation move together — that's the whole point of the verb.
+
+> ### ⛔ WRITE `@latest`. A BARE `uniweb update` IS USUALLY A NO-OP, AND IT SAYS SO CONVINCINGLY
+>
+> `update` reconciles this project against **the matrix of the CLI that runs it** — and in a project,
+> `uniweb` resolves to the copy in your own `node_modules`, pinned by your own `package.json`. That
+> copy has no way to know a newer release exists.
+>
+> ⇒ **It reports everything aligned and changes nothing — correctly.** It answered the question it
+> was asked, which is why the output looks like success rather than a mistake. The same applies to
+> `pnpm uniweb update` and to a stale global install.
+>
+> ⭐ **`@latest` is what makes it a question about the newest release** rather than about the one you
+> already have. It also bumps the pin, so the next bare invocation is no longer stale.
 
 > **Don't run `npm update` or `pnpm update` on the `@uniweb/*` packages.** They're a matched set resolved by the CLI's version matrix, not independently versioned libraries you upgrade one at a time. Updating them directly gets you a combination nobody tested, and it won't refresh AGENTS.md — so this guide silently drifts out of sync with the code it describes, which is worse than being out of date, because nothing looks wrong.
 
-Two ordering rules: `update` won't refresh AGENTS.md while declared deps still lag the CLI, or while edited deps haven't been installed — either would put the doc ahead of the code. And updating the CLI itself is your package manager's job (`npm i -g uniweb@latest`, `pnpm add -g uniweb@latest`); `uniweb update` does not do that. To pin a project to the newest published release with no global install: `npx uniweb@latest update --yes`.
+Two ordering rules: `update` won't refresh AGENTS.md while declared deps still lag the CLI, or while edited deps haven't been installed — either would put the doc ahead of the code. And updating the CLI itself is your package manager's job (`npm i -g uniweb@latest`, `pnpm add -g uniweb@latest`); `uniweb update` does not do that.
 
 ### `package.json` `uniweb` block
 
@@ -2297,9 +2631,10 @@ Platform-specific configuration that doesn't belong in npm-standard fields. All 
 
 | Field | Where used | Default | Purpose |
 |---|---|---|---|
-| `id` | `uniweb register` | bare segment of a scoped `name` | The foundation's registered id — the bare name in `@org/<id>`. Decoupled from `package.json::name` (a workspace concern), so renaming on the registry doesn't ripple through site dependencies. |
-| `namespace` | `uniweb register` | none | Legacy explicit org-namespace override; equivalent to a scoped `package.json::name`. Rarely needed. |
+| `scope` | `uniweb register` | derived from your login, then saved here | The org the foundation registers under (`@acme`, or `acme`): a bare `main.js` name `marketing` registers as `@acme/marketing`. `--scope @org` overrides it for one run. |
 | `runtimePolicy` | `dist/runtime-pin.json` | unset | Declares how far past the recorded runtime version a host may move a site. |
+
+**The foundation's name is not here — it is `name` in `main.js`** (else `package.json`'s `name`). ⛔ `uniweb.id` is no longer read: `uniweb register` refuses it and prints the `main.js` line to write instead.
 
 **Runtime updates — handled for you.** Your foundation's code links against the runtime: it externalizes `react`, `react-dom`, `react-dom/server`, both JSX runtimes and `@uniweb/core`, and the runtime supplies all of them at load time. So a build is bound to *that* React and *that* core API.
 
@@ -2354,12 +2689,12 @@ Running `extract` before a build is the usual first mistake — it reads the com
 
 ```
 locales/freeform/es/pages/about/hero.md        # by page route
-locales/freeform/es/collections/articles/x.md  # collections work too
+locales/freeform/es/records/article/x.md       # records work too
 ```
 
 These are **body only — no frontmatter**; params and config still come from the source section. `uniweb i18n init-freeform es pages/about hero` creates one pre-filled and records a source hash, so `uniweb i18n status --freeform` can tell you when the original moved on (`update-hash` to acknowledge). `move`, `rename`, and `prune --freeform` keep them aligned when pages get reorganized.
 
-**Collections translate in the same `extract` run**, into their own manifest at `locales/collections/manifest.json`.
+**Records translate in the same `extract` run**, into their own manifest at `locales/records/manifest.json` — keyed by the RECORD, so a record translated once is found by every query that returns it.
 
 **Component side.** Nothing to do: `content.title` arrives in the active language. The one thing a foundation builds is a switcher.
 
@@ -2454,8 +2789,8 @@ Source repo (public, cloneable): **https://github.com/uniweb/docs** · any page 
 |---------|--------|
 | `architecture/` | Component Content Architecture — the why behind the patterns in this file |
 | `getting-started/` | What is Uniweb, quickstart, templates |
-| `authoring/` | Writing content, site setup, collections, theming, translations, predicates |
+| `authoring/` | Writing content, site setup, records, theming, translations, predicates |
 | `development/` | Foundations, component patterns, project structures, data, layouts, i18n, migration, schemas |
-| `reference/` | site.yml, page.yml, content structure, meta.js, kit API, navigation, data fetching, CLI, deployment |
+| `reference/` | site.yml, page.yml, content structure, meta.js, kit API, navigation, records, queries, data fetching, parametric pages, CLI, deployment |
 
 The by-task table is in Part 0. For CLI flags, prefer `uniweb <command> --help` over this file — it's always current.

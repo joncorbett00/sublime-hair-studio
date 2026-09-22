@@ -4,9 +4,10 @@ import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import Lightbox from '#components/Lightbox.jsx'
 import { toneClass } from '#components/tone.js'
+import { buttonLinks, linkProps } from '#utils/links.js'
 
-/** Hover bands alternate vermilion and ink. */
-const BANDS = ['tone-vermilion', 'tone-ink']
+/** Hover bands alternate the brand colour and ink. */
+const BANDS = ['tone-brand', 'tone-ink']
 
 /** One photo: numbered as a look, its caption on a band of colour that rises on hover. */
 function Look({ shot, index, onOpen }) {
@@ -89,7 +90,8 @@ function useRow(trackRef, count) {
  */
 export default function Gallery({ content, params, block }) {
   const all = content.data?.gallery || []
-  const { pretitle, title, paragraphs, links } = content
+  const { pretitle, title, paragraphs } = content
+  const links = buttonLinks(content)
   const { layout = 'grid', columns = 3, limit = 0, showFilter = true, tone = '' } = params
   const carousel = layout === 'carousel'
 
@@ -125,7 +127,7 @@ export default function Gallery({ content, params, block }) {
   const buttons = links.length > 0 && (
     <div className={cn('flex gap-4', !carousel && 'mt-14 justify-center')}>
       {links.map((l, i) => (
-        <Button key={i} href={l.href} tone={i === 0 ? (carousel ? 'outline' : 'primary') : 'outline'} size={carousel ? 'md' : 'lg'}>
+        <Button key={i} {...linkProps(l)} tone={i === 0 ? (carousel ? 'outline' : 'primary') : 'outline'} size={carousel ? 'md' : 'lg'}>
           {l.label} <Icon name="lu-arrow-right" size="15" />
         </Button>
       ))}

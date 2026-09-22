@@ -1,7 +1,7 @@
 {
   "name": "foundation",
   "version": "0.1.0",
-  "description": "Sublime Hair Studio foundation — the Front Row look — fashion-magazine polish on a colourful salon",
+  "description": "Sublime foundation \u2014 section types for Sublime Hair Studio (\"Front Row\") and Bijou Boutique (\"Wardrobe Department\"); each site picks its look through settings",
   "type": "module",
   "main": "./_entry.generated.js",
   "exports": {
@@ -35,17 +35,22 @@
     "react-dom": "^19.0.0"
   },
   "dependencies": {
-    "@uniweb/core": "^0.11.2",
-    "@uniweb/kit": "^0.13.3"
+    "@uniweb/core": "^0.29.8",
+    "@uniweb/kit": "^0.19.4"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
-    "@uniweb/build": "^0.25.2",
+    "@uniweb/build": "^0.58.0",
     "@vitejs/plugin-react": "^5.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwindcss": "^4.0.0",
     "vite": "^7.0.0",
     "vite-plugin-svgr": "^4.2.0"
+  },
+  "uniweb": {
+    "supports": [
+      "records"
+    ]
   }
 }

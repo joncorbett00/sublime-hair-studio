@@ -1,5 +1,6 @@
 import { H1, H2, P, cn } from '@uniweb/kit'
 import Button from '#components/Button.jsx'
+import { buttonLinks, linkProps } from '#utils/links.js'
 
 /**
  * Section Component
@@ -8,7 +9,8 @@ import Button from '#components/Button.jsx'
  * Uses semantic tokens so it adapts to any theme context automatically.
  */
 export default function Section({ content, params }) {
-  const { title, pretitle, subtitle, paragraphs = [], links = [], images = [] } = content || {}
+  const { title, pretitle, subtitle, paragraphs = [], images = [] } = content || {}
+  const links = buttonLinks(content || {})
 
   const {
     align = 'center',
@@ -62,7 +64,7 @@ export default function Section({ content, params }) {
         {links.length > 0 && (
           <div className={cn('mt-8 flex gap-4 flex-wrap', align === 'center' && 'justify-center')}>
             {links.map((link, index) => (
-              <Button key={index} href={link.href} tone={index === 0 ? 'primary' : 'outline'}>
+              <Button key={index} {...linkProps(link)} tone={index === 0 ? 'primary' : 'outline'}>
                 {link.label}
               </Button>
             ))}

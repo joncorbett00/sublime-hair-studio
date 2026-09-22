@@ -3,64 +3,31 @@
  *
  *   pnpm menu
  *
- * Reads the same `services` collection the website shows (site/collections/
+ * Reads the same `services` records the website shows (sites/sublime/records/
  * services/), the category notes from the services page, and the address and
  * hours from site.yml, so a price changed for the website is changed here by
- * running this again. Writes site/public/downloads/sublime-service-menu.pdf,
+ * running this again. Writes sites/sublime/public/downloads/sublime-service-menu.pdf,
  * which the services page links to.
  *
  * Needs Google Chrome (set CHROME to its binary if it isn't in the usual place)
  * and a network connection for the Archivo and Bodoni Moda web fonts.
  */
-import { readFileSync, readdirSync, writeFileSync, mkdirSync, mkdtempSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { tmpdir } from 'node:os'
-import { execFileSync } from 'node:child_process'
-import { fileURLToPath } from 'node:url'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { parse } from 'yaml'
+import {
+  site, services, byCategory, business, hours, phone, domain,
+  esc, price, wordmark, document, renderPdf,
+} from './shared.mjs'
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..')
-const site = join(root, 'site')
 const out = join(site, 'public/downloads/sublime-service-menu.pdf')
-const chrome = process.env.CHROME || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-
-/* ---------- data ---------- */
-
-const dir = join(site, 'collections/services')
-const services = readdirSync(dir)
-  .filter((f) => f.endsWith('.yml'))
-  .flatMap((f) => parse(readFileSync(join(dir, f), 'utf8')) || [])
-  .sort((a, b) => a.order - b.order)
-
-const byCategory = (name) => services.filter((s) => s.category === name)
 
 /* The notes beside each category heading, from the services page's `yaml:categories` block. */
 const menuPage = readFileSync(join(site, 'pages/services/1-menu.md'), 'utf8')
 const notesBlock = menuPage.match(/```yaml:categories\n([\s\S]*?)```/)
 const notes = new Map((notesBlock ? parse(notesBlock[1]) : []).map((c) => [c.name, c.note]))
 
-const { business } = parse(readFileSync(join(site, 'site.yml'), 'utf8'))
-const short = (day) => day.slice(0, 3)
-const clock = (t) => String(Number(t.split(':')[0]) % 12 || 12)
-const hours = business.hours
-  .map((h) => `${short(h.days[0])}–${short(h.days.at(-1))} ${clock(h.opens)}–${clock(h.closes)}`)
-  .join(' · ')
-const phone = business.telephone.replace(/^\+1-/, '').replace(/-/g, '.')
-const domain = business.url.replace(/^https?:\/\//, '')
-
 /* ---------- markup ---------- */
-
-const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-
-function price(s) {
-  const note = s.priceNote || ''
-  if (!(Number(s.price) > 0)) return `<span class="quoted">${esc(note)}</span>`
-  const from = /^from\b/i.test(note)
-  const rest = from ? '' : note
-  return `${from ? '<span class="from">from</span>' : ''}<span class="amount">$${s.price}</span>${
-    rest ? `<span class="save">${esc(rest)}</span>` : ''
-  }`
-}
 
 const row = (s, detail) => `
   <li class="row">
@@ -79,9 +46,6 @@ const group = (name, { no, title = name, list = byCategory(name), note = notes.g
     </header>
     <ul>${list.map((s) => row(s, detail)).join('')}</ul>
   </section>`
-
-const wordmark = (size = '') => `
-  <div class="wordmark ${size}"><span class="sublime">sublime</span><span class="studio">hair studio</span></div>`
 
 const footer = `
   <footer class="foot">
@@ -208,18 +172,6 @@ const page2 = `
 
 const css = `
 @page { size: letter; margin: 0; }
-:root {
-  --ink: #17120F; --paper: #F6F0E6; --sand: #ECE3D6; --card: #FFFCF6;
-  --vermilion: #C8401F; --deep: #B5391B; --on-verm: #FFF1E8; --on-verm-soft: #F8D3C4;
-  --body: #3E352F; --subtle: #6F6259; --rule: #DDD0BE;
-  --sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
-  --logo: 'Bodoni Moda', Didot, Georgia, serif;
-  --squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23B5391B' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body { font-family: var(--sans); color: var(--body); background: #888; }
-ul { list-style: none; }
 
 .page {
   width: 8.5in; height: 11in; position: relative; overflow: hidden;
@@ -229,9 +181,6 @@ ul { list-style: none; }
 .page:last-child { page-break-after: auto; break-after: auto; }
 .stripe { position: absolute; inset: 0 0 auto 0; height: 0.09in; background: var(--vermilion); }
 
-.caps, .eyebrow, .from, .tag, .sub {
-  font-stretch: 125%; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
-}
 
 /* masthead */
 .top { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
@@ -239,9 +188,6 @@ ul { list-style: none; }
 .eyebrow.right { justify-content: flex-end; letter-spacing: 0.14em; }
 .eno { white-space: nowrap; font-style: italic; font-weight: 500; font-size: 10pt; letter-spacing: 0; text-transform: none; font-stretch: 100%; color: var(--deep); }
 .rule { width: 22pt; height: 1px; background: var(--deep); }
-.wordmark { display: flex; flex-direction: column; align-items: center; line-height: 1; color: var(--ink); }
-.wordmark .sublime { font-family: var(--logo); font-style: italic; font-weight: 500; font-size: 30pt; letter-spacing: -0.03em; }
-.wordmark .studio { margin-top: 3pt; margin-right: -0.34em; font-size: 6.4pt; font-weight: 600; font-stretch: 125%; letter-spacing: 0.34em; text-transform: uppercase; }
 
 /* the big line */
 .lede {
@@ -324,25 +270,4 @@ h1 em {
 @media screen { .page { margin: 0.3in auto; box-shadow: 0 2px 20px rgba(0,0,0,.25); } }
 `
 
-const html = `<!doctype html>
-<html lang="en"><head><meta charset="utf-8">
-<title>Sublime Hair Studio — Service Menu</title>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@1,6..96,500&display=block" rel="stylesheet">
-<style>${css}</style></head>
-<body>${page1}${page2}</body></html>`
-
-/* ---------- render ---------- */
-
-const tmp = mkdtempSync(join(tmpdir(), 'sublime-menu-'))
-const htmlPath = join(tmp, 'menu.html')
-writeFileSync(htmlPath, html)
-if (process.argv.includes('--html')) {
-  console.log(htmlPath)
-  process.exit(0)
-}
-mkdirSync(dirname(out), { recursive: true })
-execFileSync(chrome, [
-  '--headless=new', '--disable-gpu', '--no-pdf-header-footer',
-  '--virtual-time-budget=10000', `--print-to-pdf=${out}`, `file://${htmlPath}`,
-], { stdio: ['ignore', 'ignore', 'ignore'] })
-console.log(`Wrote ${out.replace(root + '/', '')}`)
+renderPdf(document({ title: 'Sublime Hair Studio — Service Menu', css, body: page1 + page2 }), out)

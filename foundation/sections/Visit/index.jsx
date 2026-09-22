@@ -2,6 +2,7 @@ import { P, Icon, Link, cn } from '@uniweb/kit'
 import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
+import { buttonLinks, linkProps } from '#utils/links.js'
 
 const iconName = (item, fallback) =>
   item.icons?.[0] ? `${item.icons[0].library}-${item.icons[0].name}` : fallback
@@ -18,22 +19,24 @@ function Detail({ label, children }) {
 
 /**
  * Address, hours and the practical details. Heading and ruled detail rows on
- * one side; on the other, the map in a hairline frame and the booking
- * buttons under it. Practical notes run beneath as a numbered index.
+ * one side; on the other, the map in a hairline frame and the buttons
+ * under it (booking, directions). Practical notes run beneath as a numbered index.
  *
  * The map is an embedded OpenStreetMap frame — no API key, no tracking script.
  */
 export default function Visit({ content, params, block }) {
-  const { pretitle, title, paragraphs, links, items } = content
+  const { pretitle, title, paragraphs, items } = content
+  const links = buttonLinks(content)
   const hours = content.data?.hours || []
   const {
-    address = '190 MacLaren Street\nOttawa, ON  K2P 0L6',
-    phone = '(613) 567-7400',
-    phoneHref = 'tel:+16135677400',
-    email = 'hello@sublimehair.ca',
+    address = '',
+    phone = '',
+    phoneHref = '',
+    email = '',
     mapEmbed = '',
     mapLink = '',
-    hoursNote = "By appointment. Call ahead for same-day — we'll always try to fit you in.",
+    mapTitle = 'Map to the studio',
+    hoursNote = '',
     tone = '',
   } = params
 
@@ -71,7 +74,7 @@ export default function Visit({ content, params, block }) {
                           key={i}
                           className={cn(
                             'flex justify-between gap-4 px-2 py-1',
-                            isToday && 'bg-vermilion font-semibold text-paper'
+                            isToday && 'bg-brand font-semibold text-paper'
                           )}
                         >
                           <dt className={isToday ? 'text-paper' : 'text-body'}>
@@ -86,16 +89,22 @@ export default function Visit({ content, params, block }) {
                 </Detail>
               )}
 
-              <Detail label="Reach us">
-                <ul className="space-y-1.5">
-                  <li>
-                    <Link href={phoneHref} className="font-display text-2xl text-heading transition-colors hover:text-accent-ink">{phone}</Link>
-                  </li>
-                  <li>
-                    <Link href={`mailto:${email}`} className="text-body underline decoration-heading/30 underline-offset-4 transition-colors hover:text-accent-ink">{email}</Link>
-                  </li>
-                </ul>
-              </Detail>
+              {(phone || email) && (
+                <Detail label="Reach us">
+                  <ul className="space-y-1.5">
+                    {phone && (
+                      <li>
+                        <Link href={phoneHref || `tel:${phone.replace(/[^\d+]/g, '')}`} className="font-display text-2xl text-heading transition-colors hover:text-accent-ink">{phone}</Link>
+                      </li>
+                    )}
+                    {email && (
+                      <li>
+                        <Link href={`mailto:${email}`} className="text-body underline decoration-heading/30 underline-offset-4 transition-colors hover:text-accent-ink">{email}</Link>
+                      </li>
+                    )}
+                  </ul>
+                </Detail>
+              )}
             </div>
           </div>
 
@@ -103,7 +112,7 @@ export default function Visit({ content, params, block }) {
             {mapEmbed && (
               <div className="framed p-2.5">
                 <iframe
-                  title="Map to the studio"
+                  title={mapTitle}
                   src={mapEmbed}
                   className="aspect-[4/5] w-full border-0 grayscale-[60%] sepia-[15%]"
                   loading="lazy"
@@ -114,7 +123,7 @@ export default function Visit({ content, params, block }) {
             {links.length > 0 && (
               <div className="mt-10 flex flex-wrap gap-4">
                 {links.map((l, i) => (
-                  <Button key={i} href={l.href} size="lg" tone={i === 0 ? 'primary' : 'outline'} className="flex-1">
+                  <Button key={i} {...linkProps(l)} size="lg" tone={i === 0 ? 'primary' : 'outline'} className="flex-1">
                     {l.label}
                   </Button>
                 ))}

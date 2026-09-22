@@ -6,7 +6,7 @@
       "runtimeExecutable": "pnpm",
       "runtimeArgs": [
         "--filter",
-        "site",
+        "sublime",
         "dev",
         "--port",
         "5200",
@@ -19,7 +19,7 @@
       "runtimeExecutable": "pnpm",
       "runtimeArgs": [
         "--filter",
-        "site",
+        "sublime",
         "dev",
         "--port",
         "5201",
@@ -56,6 +56,80 @@
         "--strictPort"
       ],
       "port": 5190
+    },
+    {
+      "name": "bijou",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--filter",
+        "bijou",
+        "dev",
+        "--port",
+        "5210",
+        "--strictPort"
+      ],
+      "port": 5210
+    },
+    {
+      "name": "built",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "5300",
+        "--directory",
+        "sites/sublime/dist"
+      ],
+      "port": 5300
+    },
+    {
+      "name": "before-sublime",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "5301",
+        "--directory",
+        "/private/tmp/claude-502/-Users-proximify-dev-clients-sublime-hair-studio/fff2693c-e0e7-4909-b93a-8d08fda2f67d/scratchpad/before-sublime"
+      ],
+      "port": 5301
+    },
+    {
+      "name": "before-bijou",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "5302",
+        "--directory",
+        "/private/tmp/claude-502/-Users-proximify-dev-clients-sublime-hair-studio/fff2693c-e0e7-4909-b93a-8d08fda2f67d/scratchpad/before-bijou"
+      ],
+      "port": 5302
+    },
+    {
+      "name": "gh-preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "5303",
+        "--directory",
+        "/private/tmp/claude-502/-Users-proximify-dev-clients-sublime-hair-studio/fff2693c-e0e7-4909-b93a-8d08fda2f67d/scratchpad/gh"
+      ],
+      "port": 5303
+    },
+    {
+      "name": "shop",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--filter",
+        "bijou",
+        "dev",
+        "--port",
+        "5211",
+        "--strictPort"
+      ],
+      "port": 5211
     }
   ]
 }

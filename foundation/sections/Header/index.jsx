@@ -1,15 +1,17 @@
 import { Link, Icon, cn, useScrolled, useMobileMenu, useWebsite, useActiveRoute } from '@uniweb/kit'
 import Button from '#components/Button.jsx'
 import Wordmark from '#components/Wordmark.jsx'
+import { wordmarkParts } from '#utils/wordmark.js'
 import PaletteSwitcher from '#components/PaletteSwitcher.jsx'
+import { linkProps } from '#utils/links.js'
 
 const isExternal = (href = '') => /^https?:\/\//.test(href)
 
-/** One nav link in wide capitals; a vermilion hairline draws in under it. */
+/** One nav link in wide capitals; a brand-colour hairline draws in under it. */
 function NavLink({ link, active, onClick, className }) {
   return (
     <Link
-      href={link.href}
+      {...linkProps(link)}
       onClick={onClick}
       aria-current={active ? 'page' : undefined}
       className={cn(
@@ -25,25 +27,61 @@ function NavLink({ link, active, onClick, className }) {
 }
 
 /**
- * Fixed masthead: the three-colour selvedge along the very top, the wordmark
- * at the centre and the nav split evenly either side of it, with the booking
- * button last on the right. Once the page scrolls the bar turns to frosted
- * paper and the wordmark steps down a size.
+ * A slim ink bar above the masthead that leads out to another site — how the
+ * shop, served under the salon's domain, gets you back to the salon.
+ */
+function ReturnBar({ link, className }) {
+  return (
+    <div className={cn('return-bar tone tone-ink', className)}>
+      <div className="mx-auto flex h-8 max-w-[var(--max-content-width)] items-center px-4 sm:px-6">
+        <Link
+          {...linkProps(link)}
+          className="caps inline-flex items-center gap-2 text-[0.5625rem] text-body transition-colors hover:text-accent-ink"
+        >
+          <Icon name="lu-arrow-left" size="12" />
+          {link.label}
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+/**
+ * Fixed masthead: the edge along the very top (a brand-colour selvedge, or a
+ * film strip), the wordmark at the centre and the nav split evenly either
+ * side of it, with the button last on the right. Once the page scrolls the
+ * bar turns to frosted paper and the wordmark steps down a size.
  *
  * With `nav: authored` the links authored in header.md ARE the nav, in order.
  * With `nav: pages` it is the page nav (minus home — the wordmark is the home
- * link) followed by any authored links. Either way a link to `bookHref` is
+ * link) followed by any authored links. Either way a link to `ctaHref` is
  * drawn as the button; if there is none, one is added at the end.
+ *
+ * `returnLabel` + `returnHref` add a slim bar above it all that leads to
+ * another site (see ReturnBar). A `yaml:palettes` block turns on the floating
+ * palette picker (components/PaletteSwitcher.jsx).
  */
 function Header({ content, params }) {
   const { website } = useWebsite()
   const scrolled = useScrolled(16)
   const { isOpen: mobileOpen, toggle: toggleMobile, close: closeMobile } = useMobileMenu()
   const { isActiveOrAncestor } = useActiveRoute()
-  const { bookHref = '/book', nav = 'pages' } = params
+  const {
+    ctaHref = '/book',
+    ctaMobileLabel = '',
+    nav = 'pages',
+    edge = 'selvedge',
+    wordmark = '',
+    wordmarkTagline = '',
+    returnLabel = '',
+    returnHref = '',
+  } = params
 
-  const siteName = website.name || 'Sublime Hair Studio'
-  const authored = (content.links || []).map((l) => ({ label: l.label, href: l.href }))
+  const siteName = website.name || ''
+  const mark = wordmarkParts(siteName, { wordmark, tagline: wordmarkTagline })
+  const edgeClass = edge === 'filmstrip' ? 'filmstrip' : 'selvedge'
+  const returnLink = returnLabel && returnHref ? { label: returnLabel, href: returnHref, reload: true } : null
+  const authored = (content.links || []).map((l) => ({ label: l.label, href: l.href, reload: l.reload, target: l.target }))
 
   const links = nav === 'authored'
     ? authored
@@ -55,8 +93,11 @@ function Header({ content, params }) {
         ...authored,
       ]
 
-  const bookLink = links.find((l) => l.href === bookHref) || { label: 'Book now', href: bookHref }
-  const navLinks = links.filter((l) => l !== bookLink)
+  const ctaLink = links.find((l) => l.href === ctaHref) || { label: 'Book now', href: ctaHref }
+  const navLinks = links.filter((l) => l !== ctaLink)
+  // Phones get one word, so the button balances the menu toggle across the
+  // wordmark: "Book now" → "Book", "Visit us" → "Visit".
+  const ctaShort = String(ctaLink.label || '').split(/\s+/)[0]
 
   /* Only same-site paths without a hash can be "the page you are on". */
   const isActive = (link) => {
@@ -66,7 +107,7 @@ function Header({ content, params }) {
     return target !== '' && isActiveOrAncestor(target)
   }
 
-  /* Split evenly, counting the booking button as one of the right-hand items. */
+  /* Split evenly, counting the button as one of the right-hand items. */
   const half = Math.floor((navLinks.length + 1) / 2)
   const left = navLinks.slice(0, half)
   const right = navLinks.slice(half)
@@ -84,10 +125,16 @@ function Header({ content, params }) {
       </button>
 
       {/* Fixed, not sticky: the runtime wraps this section in elements exactly as
-          tall as the bar, so sticky had no room. The spacer holds its place. */}
-      <div aria-hidden="true" className="h-[calc(var(--header-height)+5px)]" />
+          tall as the bar, so sticky had no room. The spacer holds its place:
+          the same edge and return bar, and the bar's height plus its border. */}
+      <div aria-hidden="true" className="invisible">
+        <div className={edgeClass} />
+        {returnLink && <div className="h-8" />}
+        <div className="h-[calc(var(--header-height)+1px)]" />
+      </div>
       <div className="fixed inset-x-0 top-0 z-40">
-        <div className="selvedge" aria-hidden="true" />
+        <div className={edgeClass} aria-hidden="true" />
+        {returnLink && <ReturnBar link={returnLink} />}
         <div
           className={cn(
             'border-b transition-[background-color,border-color] duration-300',
@@ -120,6 +167,8 @@ function Header({ content, params }) {
 
             <Link href="/" aria-label={`${siteName} — home`} className="flex justify-center">
               <Wordmark
+                name={mark.name}
+                tagline={mark.tagline}
                 className={cn(
                   'origin-center transition-transform duration-300 text-[2.375rem] sm:text-[2.75rem]',
                   scrolled && 'scale-[0.86]'
@@ -127,17 +176,16 @@ function Header({ content, params }) {
               />
             </Link>
 
-            {/* Right: second half of the nav, then the booking button. */}
+            {/* Right: second half of the nav, then the button. */}
             <div className="flex items-center justify-end gap-8 xl:gap-10">
               <ul className="hidden items-center gap-8 lg:flex xl:gap-10">
                 {right.map((link) => (
                   <li key={link.href}><NavLink link={link} active={isActive(link)} /></li>
                 ))}
               </ul>
-              <Button href={bookLink.href} size="sm" className="!px-3.5 sm:!px-5">
-                {/* Phones: one word, so it balances the menu button across the wordmark. */}
-                <span className="sm:hidden">Book</span>
-                <span className="hidden sm:inline">{bookLink.label}</span>
+              <Button {...linkProps(ctaLink)} size="sm" className="!px-3.5 sm:!px-5">
+                <span className="sm:hidden">{ctaShort}</span>
+                <span className="hidden sm:inline">{ctaLink.label}</span>
               </Button>
             </div>
           </nav>
@@ -149,7 +197,7 @@ function Header({ content, params }) {
               {navLinks.map((link) => (
                 <li key={link.href} className="border-b border-border last:border-0">
                   <Link
-                    href={link.href}
+                    {...linkProps(link)}
                     onClick={closeMobile}
                     aria-current={isActive(link) ? 'page' : undefined}
                     className={cn(
@@ -164,8 +212,8 @@ function Header({ content, params }) {
               ))}
             </ul>
             <div className="px-6 pb-7">
-              <Button href={bookLink.href} size="lg" className="w-full" onClick={closeMobile}>
-                Book an appointment
+              <Button {...linkProps(ctaLink)} size="lg" className="w-full" onClick={closeMobile}>
+                {ctaMobileLabel || ctaLink.label}
               </Button>
             </div>
           </div>
@@ -175,8 +223,8 @@ function Header({ content, params }) {
       {/* Landing target for the skip link. */}
       <div id="content-start" tabIndex={-1} className="sr-only" />
 
-      {/* Trying other colours. Delete this line when the palette is settled. */}
-      <PaletteSwitcher />
+      {/* Trying other colours: on while header.md has a `yaml:palettes` block. */}
+      <PaletteSwitcher palettes={content.data?.palettes || []} storageKey={mark.name || 'site'} />
     </>
   )
 }

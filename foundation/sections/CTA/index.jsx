@@ -2,6 +2,7 @@ import { H2, P, Icon, cn } from '@uniweb/kit'
 import Button from '#components/Button.jsx'
 import { Eyebrow } from '#components/Shout.jsx'
 import { toneClass } from '#components/tone.js'
+import { buttonLinks, linkProps } from '#utils/links.js'
 
 /** Printer's crop marks in the corners — the page is ready to go to press. */
 function CropMarks() {
@@ -21,8 +22,9 @@ function CropMarks() {
  * a line of copy and one clear button, inside printer's crop marks.
  */
 export default function CTA({ content, params, block }) {
-  const { pretitle, title, paragraphs, links } = content
-  const { tone = 'vermilion' } = params
+  const { pretitle, title, paragraphs } = content
+  const links = buttonLinks(content)
+  const { tone = 'brand' } = params
 
   return (
     <div className={cn('relative', toneClass(tone))}>
@@ -39,7 +41,7 @@ export default function CTA({ content, params, block }) {
         {links.length > 0 && (
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
             {links.map((l, i) => (
-              <Button key={i} href={l.href} size="lg" tone={i === 0 ? 'primary' : 'outline'}>
+              <Button key={i} {...linkProps(l)} size="lg" tone={i === 0 ? 'primary' : 'outline'}>
                 {l.label}
                 {i === 0 && <Icon name="lu-arrow-right" size="16" />}
               </Button>

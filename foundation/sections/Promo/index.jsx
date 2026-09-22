@@ -1,6 +1,7 @@
 import { H2, P, Icon, cn } from '@uniweb/kit'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
+import { buttonLinks, linkProps } from '#utils/links.js'
 
 /**
  * A seasonal offer, set as a coupon across the page: a dashed tear-off edge
@@ -11,8 +12,9 @@ import { toneClass } from '#components/tone.js'
  * hero. Swap the copy each season; delete the file when there is no offer.
  */
 export default function Promo({ content, params }) {
-  const { pretitle, title, paragraphs, links } = content
-  const { figure = '', figureLabel = '', note = '', tone = 'vermilion' } = params
+  const { pretitle, title, paragraphs } = content
+  const links = buttonLinks(content)
+  const { figure = '', figureLabel = '', note = '', tone = 'brand' } = params
 
   return (
     <div className={toneClass(tone)}>
@@ -51,7 +53,7 @@ export default function Promo({ content, params }) {
             {(links.length > 0 || note) && (
               <div className="flex flex-col items-start gap-4 lg:items-end">
                 {links.map((l, i) => (
-                  <Button key={i} href={l.href} size="lg" tone={i === 0 ? 'primary' : 'outline'}>
+                  <Button key={i} {...linkProps(l)} size="lg" tone={i === 0 ? 'primary' : 'outline'}>
                     {l.label}
                     {i === 0 && <Icon name="lu-arrow-right" size="16" />}
                   </Button>

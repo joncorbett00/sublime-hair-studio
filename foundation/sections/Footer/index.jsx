@@ -1,12 +1,15 @@
 import { Link, H3, P, SocialIcon, filterSocialLinks, useWebsite } from '@uniweb/kit'
 import BusinessSchema from '#components/BusinessSchema.jsx'
 import Wordmark from '#components/Wordmark.jsx'
+import { wordmarkParts } from '#utils/wordmark.js'
+import { linkProps } from '#utils/links.js'
 
 /**
- * Studio footer, on ink. Blurb, socials, opening hours and the link columns
- * across the top; along the bottom the wordmark set as wide as the page, the
- * way a label signs off. Takes the hours and columns as authored markdown so
- * the salon can change them without anyone opening this file.
+ * Footer, on ink. Blurb, socials, opening hours and the link columns across
+ * the top; along the bottom the wordmark set as wide as the page, the way a
+ * label signs off (or the end credits roll). Takes the hours and columns as
+ * authored markdown so the business can change them without anyone opening
+ * this file. The edge along its top matches the masthead's.
  */
 function Footer({ content, params }) {
   const { website } = useWebsite()
@@ -14,7 +17,8 @@ function Footer({ content, params }) {
   const social = filterSocialLinks(links)
   const plain = links.filter((l) => !social.includes(l))
   const hours = data?.hours || []
-  const { credit = '', creditHref = '' } = params
+  const { credit = '', creditHref = '', signoff = '', edge = 'selvedge', wordmark = '' } = params
+  const mark = wordmarkParts(website.name, { wordmark })
 
   /* Each link column is a labelled group: a markdown list item whose text is
      the heading and whose nested list holds the links. */
@@ -27,7 +31,7 @@ function Footer({ content, params }) {
 
   return (
     <div className="tone tone-ink overflow-hidden">
-      <div className="selvedge" aria-hidden="true" />
+      <div className={edge === 'filmstrip' ? 'filmstrip' : 'selvedge'} aria-hidden="true" />
       <div className="mx-auto max-w-[var(--max-content-width)] px-6 pt-20">
         <BusinessSchema />
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_0.8fr_0.8fr] lg:gap-16">
@@ -42,7 +46,7 @@ function Footer({ content, params }) {
                     key={i}
                     href={l.href}
                     aria-label={l.label}
-                    className="grid size-11 place-items-center border border-border text-heading transition-colors hover:border-vermilion hover:bg-vermilion hover:text-paper"
+                    className="grid size-11 place-items-center border border-border text-heading transition-colors hover:border-brand hover:bg-brand hover:text-paper"
                   >
                     <SocialIcon url={l.href} size={18} />
                   </Link>
@@ -71,7 +75,7 @@ function Footer({ content, params }) {
               <ul className="mt-5 space-y-3">
                 {column.links.map((link, i) => (
                   <li key={i}>
-                    <Link href={link.href} className="nav-line text-body transition-colors hover:text-heading">
+                    <Link {...linkProps(link)} className="nav-line text-body transition-colors hover:text-heading">
                       {link.label}
                     </Link>
                   </li>
@@ -83,11 +87,11 @@ function Footer({ content, params }) {
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-7 sm:flex-row sm:items-center">
           <p className="caps text-[0.5625rem] text-subtle">
-            © {new Date().getFullYear()} {title || website.name} — one flight up, just off Elgin
+            © {new Date().getFullYear()} {title || website.name}{signoff ? ` — ${signoff}` : ''}
           </p>
           <div className="flex flex-wrap items-center gap-6">
             {plain.map((l, i) => (
-              <Link key={i} href={l.href} className="caps text-[0.5625rem] text-subtle transition-colors hover:text-heading">
+              <Link key={i} {...linkProps(l)} className="caps text-[0.5625rem] text-subtle transition-colors hover:text-heading">
                 {l.label}
               </Link>
             ))}
@@ -102,7 +106,7 @@ function Footer({ content, params }) {
 
       {/* The sign-off: the wordmark at the width of the page, cropped at its foot. */}
       <div aria-hidden="true" className="mx-auto -mb-[4vw] mt-10 flex max-w-[var(--max-content-width)] justify-center px-6">
-        <Wordmark className="text-[clamp(5rem,24vw,21rem)] [&>span:last-child]:hidden" />
+        <Wordmark name={mark.name} className="text-[clamp(5rem,24vw,21rem)]" />
       </div>
     </div>
   )

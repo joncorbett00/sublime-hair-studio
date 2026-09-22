@@ -70,7 +70,7 @@ function bookingLink(service, { squareBase, bookHref, enquireHref }) {
 
 /**
  * The homepage teaser: three offering cards. `highlight` sets one of them in
- * vermilion — the colour block in a row of paper.
+ * the brand colour — the colour block in a row of paper.
  */
 function Cards({ services, highlight, highlightLabel, links }) {
   const cols = services.length >= 3 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2'
@@ -81,7 +81,7 @@ function Cards({ services, highlight, highlightLabel, links }) {
         const href = bookingLink(s, links)
         return (
           <li key={s.slug} className={cn(featured && 'lg:-translate-y-6')}>
-            <article className={cn('framed lift flex h-full flex-col p-8 sm:p-9', featured && 'tone tone-vermilion')}>
+            <article className={cn('framed lift flex h-full flex-col p-8 sm:p-9', featured && 'tone tone-brand')}>
               <div className="flex items-center justify-between gap-4">
                 <span className="font-display text-lg italic text-accent-ink" aria-hidden="true">No.&thinsp;{pad(i + 1)}</span>
                 {featured && highlightLabel ? (
@@ -277,7 +277,7 @@ export default function ServiceMenu({ content, params, block }) {
                                         className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover/photo:scale-105"
                                       />
                                       {more > 0 && (
-                                        <span className="font-display absolute inset-0 grid place-items-center bg-vermilion/85 text-3xl italic text-paper">
+                                        <span className="font-display absolute inset-0 grid place-items-center bg-brand/85 text-3xl italic text-paper">
                                           +{more}
                                         </span>
                                       )}

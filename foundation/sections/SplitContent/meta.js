@@ -3,8 +3,6 @@ import { toneParam } from '#components/tone.js'
 export default {
   title: 'Split Content',
   description: 'Prose, buttons and a numbered list on one side; on the other a matted photo with a hairline around the mount. The general-purpose section for story, policy and explainer content.',
-  category: 'content',
-  purpose: 'Explain',
 
   content: {
     pretitle: 'Eyebrow label [0-1]',
@@ -19,9 +17,14 @@ export default {
     flipped: { type: 'boolean', label: 'Photo on the left', default: false },
     frame: {
       type: 'select', label: 'Photo frame',
-      options: [{ value: 'rounded', label: 'Square' }, { value: 'arch', label: 'Arched window' }],
+      options: [
+        { value: 'rounded', label: 'Square' },
+        { value: 'arch', label: 'Arched window' },
+        { value: 'gate', label: 'Film frame — softly rounded corners' },
+      ],
       default: 'rounded',
     },
+    captionLabel: { type: 'string', label: 'Caption label', description: 'The italic word before the photo caption — "Fig.", "Still". Empty for none.', default: 'Fig.' },
     tone: toneParam,
   },
 

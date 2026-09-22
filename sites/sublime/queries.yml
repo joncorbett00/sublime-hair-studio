@@ -1,0 +1,26 @@
+# How pages reach the site's records (records/).
+#
+# Each folder in records/ is one set of records, one or more YAML files of
+# them; each query here reads the folder of the same name, in the order that
+# every page shows it. A section narrows a query for itself with `fetch:` —
+# home shows the featured services, colour the colour ones:
+#
+#   fetch: { query: services, where: { category: Colour } }
+#
+# The services menu and the crew page take a whole query with `query:` in
+# their page.yml.
+
+services:
+  sort: order asc
+
+crew:
+  sort: order asc
+
+gallery:
+  sort: order asc
+
+reviews:
+  sort: date desc
+
+products:
+  sort: order asc

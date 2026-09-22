@@ -1,0 +1,105 @@
+# Bijou Boutique — "Wardrobe Department"
+# Sister to Sublime Hair Studio's "Front Row": the same wardrobe of neutrals
+# and the same rule of one loud colour. Sublime's is vermilion; Bijou's is a
+# cut-emerald green, with champagne for the accent word on the green only.
+# Ivory paper, sand and a green-black ink; Archivo for headlines and text,
+# and a Bodoni wordmark.
+
+colors:
+  primary: '#1C6B4F'      # jewel green — buttons, the film-strip edge, colour-block sections
+  secondary: '#6F7A72'    # a green-grey neutral, for anything the kit calls secondary
+  accent: '#1C6B4F'       # the same green: there is one colour, not two
+  neutral: stone          # warm greys
+
+contexts:
+  light:
+    section: '#F4F1E9'    # ivory paper
+    card: '#FBF9F3'
+    border: '#D9D2C2'
+    heading: '#121714'
+    body: '#37403A'
+    subtle: '#5C665F'
+    primary: primary-500  # the exact green on buttons (7:1 on paper)
+    primary-hover: primary-600
+  medium:
+    section: '#E9E4D8'    # sand
+    card: '#F4F1E9'
+    border: '#D2C9B6'
+    heading: '#121714'
+    body: '#37403A'
+    subtle: '#58625B'
+    primary: primary-500
+    primary-hover: primary-600
+  dark:
+    section: '#121714'    # ink
+    card: '#1C2420'
+    border: '#334039'
+    heading: '#F4F1E9'
+    body: '#D3D9D3'
+    subtle: '#9AA79F'
+    primary: primary-500
+    primary-hover: primary-400
+
+# One look, chosen on purpose.
+appearance:
+  default: light
+  allowToggle: false
+  respectSystemPreference: false
+
+# One reading family, Archivo, for headings and text. Bodoni Moda is loaded
+# for the wordmark and seal only (italic, one weight). To change the headline
+# face, change `font-display` in foundation/main.js too.
+fonts:
+  heading: "'Archivo', ui-sans-serif, system-ui, sans-serif"
+  body: "'Archivo', ui-sans-serif, system-ui, sans-serif"
+  import:
+    - url: "https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@1,6..96,500&display=swap"
+
+# `[words]{accent}` in a heading: italic in the green with a squiggle under it
+# (styles.css). Brighter green on ink, champagne on the green.
+inline:
+  accent: { color: 'var(--accent-ink)', font-style: 'italic' }
+  callout: { color: 'var(--primary)', font-weight: '600' }
+
+vars:
+  radius: 0rem
+
+  # The house colours (declared in foundation/main.js, where the defaults
+  # are Sublime's). A green-black ink and an ivory paper — a shade cooler
+  # than Sublime's, so the green sits in them rather than on them.
+  ink: '#121714'
+  paper: '#F4F1E9'
+  sand: '#E3DCCD'
+
+  # The one loud colour and the shades cut from it.
+  brand: '#1C6B4F'
+  brand-bright: '#4DBE92'     # lifted, for text on ink
+  brand-deep: '#185E45'       # deepened, for text on paper
+  brand-deeper: '#15533D'     # deeper again, for text on sand
+  brand-shade: '#175A42'      # cards inside a green block
+  brand-lift: '#26805F'       # button hover on ink
+  on-brand: '#EDF6F0'
+  on-brand-soft: '#BCD9CA'
+  # Champagne: the glint that only ever appears on the green — the accent
+  # word, the focus ring and the seal's initial.
+  on-brand-accent: '#E6CD93'
+  on-brand-ring: '#E6CD93'
+  seal-letter: '#E6CD93'
+
+  # The ink and sand blocks.
+  ink-card: '#1C2420'
+  ink-muted: '#25302A'
+  ink-border: '#334039'
+  ink-body: '#D3D9D3'
+  ink-subtle: '#9AA79F'
+  sand-card: '#EDE8DC'
+  sand-muted: '#D8D0BF'
+  sand-border: '#C8BEAA'
+  sand-body: '#37403A'
+  sand-subtle: '#5C665F'
+
+  # The accent squiggle, drawn in brand-deep, brand-bright and champagne.
+  # An SVG can't read a CSS variable, so change the colour in these too.
+  squiggle: 'url("data:image/svg+xml,%3Csvg xmlns=''http://www.w3.org/2000/svg'' viewBox=''0 0 120 16'' preserveAspectRatio=''none''%3E%3Cpath d=''M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0'' fill=''none'' stroke=''%23185E45'' stroke-width=''2'' stroke-linecap=''round''/%3E%3C/svg%3E")'
+  squiggle-bright: 'url("data:image/svg+xml,%3Csvg xmlns=''http://www.w3.org/2000/svg'' viewBox=''0 0 120 16'' preserveAspectRatio=''none''%3E%3Cpath d=''M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0'' fill=''none'' stroke=''%234DBE92'' stroke-width=''2'' stroke-linecap=''round''/%3E%3C/svg%3E")'
+  squiggle-on-brand: 'url("data:image/svg+xml,%3Csvg xmlns=''http://www.w3.org/2000/svg'' viewBox=''0 0 120 16'' preserveAspectRatio=''none''%3E%3Cpath d=''M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0'' fill=''none'' stroke=''%23E6CD93'' stroke-width=''2'' stroke-linecap=''round''/%3E%3C/svg%3E")'

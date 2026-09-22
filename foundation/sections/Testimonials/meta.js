@@ -2,9 +2,7 @@ import { toneParam } from '#components/tone.js'
 
 export default {
   title: 'Reviews',
-  description: 'Compact review cards in a row, the middle one in vermilion, with the heading and an all-reviews link above. Fed by the `reviews` collection (a random few, filtered by rating and age, reshuffled per visit); the authored `###` items are the fallback when that is empty.',
-  category: 'showcase',
-  purpose: 'Reassure',
+  description: 'Compact review cards in a row, the middle one in the brand colour, with the heading and an all-reviews link above. Fed by the `reviews` collection (a random few, filtered by rating and age, reshuffled per visit); the authored `###` items are the fallback when that is empty.',
 
   data: {
     reviews: {

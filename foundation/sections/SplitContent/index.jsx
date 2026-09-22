@@ -2,20 +2,23 @@ import { P, Icon, cn } from '@uniweb/kit'
 import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
+import { buttonLinks, linkProps } from '#utils/links.js'
 
 const iconName = (item) => (item.icons?.[0] ? `${item.icons[0].library}-${item.icons[0].name}` : 'lu-check')
 
 /**
- * Image beside prose. The general-purpose workhorse — about pages, studio
- * story, policies. The photo sits on a solid block of colour (`shadow`) with
- * an ink hairline frame thrown the other way, and captions like a figure.
+ * Image beside prose. The general-purpose workhorse — about pages, the
+ * story, policies. The photo sits in a paper mat — square, an arched window
+ * or a film gate (`frame`) — with a second hairline round the mount, and a
+ * caption like a figure ("Fig.", "Still" — `captionLabel`).
  * The `###` items become a numbered, ruled list.
  */
 export default function SplitContent({ content, params, block }) {
-  const { pretitle, title, paragraphs, links, images, items } = content
-  const { flipped = false, frame = 'rounded', tone = '' } = params
+  const { pretitle, title, paragraphs, images, items } = content
+  const links = buttonLinks(content)
+  const { flipped = false, frame = 'rounded', captionLabel = 'Fig.', tone = '' } = params
   const image = images[0]
-  const arch = frame === 'arch'
+  const shape = frame === 'arch' || frame === 'gate' ? frame : ''
 
   return (
     <div className={toneClass(tone)}>
@@ -31,7 +34,7 @@ export default function SplitContent({ content, params, block }) {
             {links.length > 0 && (
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 {links.map((l, i) => (
-                  <Button key={i} href={l.href} tone={i === 0 ? 'primary' : 'outline'}>{l.label}</Button>
+                  <Button key={i} {...linkProps(l)} tone={i === 0 ? 'primary' : 'outline'}>{l.label}</Button>
                 ))}
               </div>
             )}
@@ -58,7 +61,7 @@ export default function SplitContent({ content, params, block }) {
 
           {image && (
             <figure className={cn('relative mx-auto w-full max-w-md lg:max-w-[30rem]', flipped ? 'lg:mr-auto lg:ml-4' : 'lg:ml-auto lg:mr-4')}>
-              <div className={cn('mat', arch && 'arch')}>
+              <div className={cn('mat', shape)}>
                 <span aria-hidden="true" className="halo" />
                 <img
                   src={image.url || image.src}
@@ -69,7 +72,7 @@ export default function SplitContent({ content, params, block }) {
               </div>
               {image.alt && (
                 <figcaption className={cn('figcap mt-8', flipped ? 'text-right' : 'text-left')}>
-                  <b>Fig.</b>&ensp;{image.alt}
+                  {captionLabel && <><b>{captionLabel}</b>&ensp;</>}{image.alt}
                 </figcaption>
               )}
             </figure>

@@ -1,18 +1,34 @@
-import { H1, P, Icon, cn } from '@uniweb/kit'
+import { H1, P, Icon, cn, useWebsite } from '@uniweb/kit'
 import Button from '#components/Button.jsx'
 import Seal from '#components/Seal.jsx'
 import { Eyebrow } from '#components/Shout.jsx'
+import { buttonLinks, linkProps } from '#utils/links.js'
+import { initialOf, wordmarkParts } from '#utils/wordmark.js'
 
 /**
  * Front-door hero, set like a magazine cover. A poster-sized headline,
  * intro and buttons on the left, and a row of headline numbers under a ruled
- * line. On the right, the upstairs-window arch: the first photo matted in the
- * arch with a second hairline arch around it, the second photo laid over its
- * foot, the turning seal on top, and a running caption up the side.
+ * line. On the right, the first photo matted in a frame (`frame`: the
+ * upstairs-window arch, a film gate or square) with a second hairline around
+ * it, the second photo laid over its foot (a print, or a Polaroid pinned at an
+ * angle — `inset`), the turning seal on top, and a running caption up the
+ * side ("Look 01", "Take 01" — `captionLabel`).
  */
 export default function Hero({ content, params, block }) {
-  const { pretitle, title, paragraphs, links, images, data } = content
-  const { layout = 'split', stamp = '' } = params
+  const { website } = useWebsite()
+  const { pretitle, title, paragraphs, images, data } = content
+  const links = buttonLinks(content)
+  const {
+    layout = 'split',
+    frame = 'arch',
+    inset: insetStyle = 'print',
+    captionLabel = 'Look 01',
+    stamp = '',
+    seal = 'ring',
+    sealLetter = '',
+  } = params
+  const shape = frame === 'arch' || frame === 'gate' ? frame : ''
+  const letter = sealLetter || initialOf(wordmarkParts(website.name).name)
   const facts = data?.facts || []
   const [main, inset] = images
   const split = layout !== 'stacked' && main
@@ -39,7 +55,7 @@ export default function Hero({ content, params, block }) {
           {links.length > 0 && (
             <div className="mt-10 flex flex-wrap items-center gap-4">
               {links.map((link, i) => (
-                <Button key={i} href={link.href} tone={i === 0 ? 'primary' : 'outline'} size="lg">
+                <Button key={i} {...linkProps(link)} tone={i === 0 ? 'primary' : 'outline'} size="lg">
                   {link.label}
                   {i === 0 && <Icon name="lu-arrow-right" size="16" />}
                 </Button>
@@ -62,7 +78,7 @@ export default function Hero({ content, params, block }) {
         {split && (
           <div className="relative mx-auto w-full max-w-[26rem] pb-20 lg:mr-0 lg:max-w-[31rem]">
             <figure className="relative ml-14 mr-8 sm:ml-24 sm:mr-10">
-              <div className="mat arch">
+              <div className={cn('mat', shape)}>
                 <span aria-hidden="true" className="halo" />
                 <img
                   src={main.url || main.src}
@@ -74,15 +90,16 @@ export default function Hero({ content, params, block }) {
               </div>
               {main.alt && (
                 <figcaption className="figcap running absolute -right-8 bottom-0 whitespace-nowrap sm:-right-10">
-                  <b>Look 01</b>&ensp;—&ensp;{main.alt}
+                  {captionLabel && <><b>{captionLabel}</b>&ensp;—&ensp;</>}{main.alt}
                 </figcaption>
               )}
             </figure>
 
-            {/* The second photo is laid over the foot of the arch, the way
-                prints get pinned over each other on a mood board. */}
+            {/* The second photo is laid over the foot of the frame, the way
+                prints get pinned over each other on a mood board — or
+                continuity Polaroids in wardrobe, tilted, with a deep foot. */}
             {inset && (
-              <figure className="mat absolute bottom-0 left-0 w-[48%] p-2">
+              <figure className={cn('mat absolute bottom-0 left-0 w-[48%] p-2', insetStyle === 'polaroid' && '-rotate-3 pb-7')}>
                 <img
                   src={inset.url || inset.src}
                   alt={inset.alt || ''}
@@ -94,7 +111,7 @@ export default function Hero({ content, params, block }) {
 
             {stamp && (
               <div className="absolute -top-8 right-0">
-                <Seal text={stamp} />
+                <Seal text={stamp} letter={letter} style={seal} />
               </div>
             )}
           </div>

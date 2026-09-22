@@ -1,11 +1,13 @@
 import { useWebsite } from '@uniweb/kit'
 
 /**
- * HairSalon structured data (schema.org JSON-LD), built from the `business:`
- * block in the site's site.yml. This is how Google ties the website to the
- * Google Business Profile, so the values must match the profile exactly.
+ * LocalBusiness structured data (schema.org JSON-LD), built from the
+ * `business:` block in the site's site.yml. This is how Google ties the
+ * website to the Google Business Profile, so the values must match the
+ * profile exactly. `business.type` is the schema.org type — HairSalon,
+ * ClothingStore — and defaults to LocalBusiness.
  *
- * Renders nothing when a site has no `business:` block (the shop site).
+ * Renders nothing when a site has no `business:` block.
  */
 export default function BusinessSchema() {
   const { website } = useWebsite()
@@ -15,7 +17,7 @@ export default function BusinessSchema() {
   const { address = {}, geo, hours = [], sameAs = [] } = b
   const data = {
     '@context': 'https://schema.org',
-    '@type': 'HairSalon',
+    '@type': b.type || 'LocalBusiness',
     '@id': `${b.url}/#business`,
     name: b.name,
     url: b.url,

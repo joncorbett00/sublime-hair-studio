@@ -3,6 +3,7 @@ import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { money } from '#components/money.js'
 import { toneClass } from '#components/tone.js'
+import { buttonLinks, linkProps } from '#utils/links.js'
 
 const pad = (n) => String(n).padStart(2, '0')
 
@@ -84,7 +85,8 @@ export default function ProductGrid({ content, params, block }) {
      (a new collection, before the next build writes public/data) arrives as a
      non-array, and mapping it takes the whole page down. */
   const products = Array.isArray(content.data?.products) ? content.data.products : []
-  const { pretitle, title, paragraphs, links } = content
+  const { pretitle, title, paragraphs } = content
+  const links = buttonLinks(content)
   const { columns = 4, showPrices = true, ctaLabel = 'Shop', note = '', tone = '' } = params
 
   if (block.dataLoading) return <DataPlaceholder lines={6} />
@@ -116,7 +118,7 @@ export default function ProductGrid({ content, params, block }) {
         {links.length > 0 && (
           <div className="mt-12 flex flex-wrap items-center gap-6">
             {links.map((link, i) => (
-              <Button key={i} href={link.href} tone={i === 0 ? 'primary' : 'outline'}>
+              <Button key={i} {...linkProps(link)} tone={i === 0 ? 'primary' : 'outline'}>
                 {link.label}
               </Button>
             ))}

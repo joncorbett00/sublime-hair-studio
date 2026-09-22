@@ -45,10 +45,12 @@ jobs:
           else
             echo "UNIWEB_BASE=/$REPO/" >> $GITHUB_ENV
           fi
-      - run: pnpm exec uniweb build --host=github-pages
+      # Builds the foundation and both sites, with Bijou Boutique nested at
+      # <base>shop/ inside Sublime's output (scripts/build.mjs).
+      - run: pnpm build --host=github-pages
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site/dist
+          path: sites/sublime/dist
       - id: deployment
         uses: actions/deploy-pages@v4

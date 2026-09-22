@@ -1,6 +1,6 @@
 packages:
   - "foundation"
-  - "site"
+  - "sites/*"
 
 # Permit install scripts for these native deps (esbuild compiles, sharp
 # resolves its platform binary). Both spellings are listed on purpose:
@@ -23,3 +23,10 @@ onlyBuiltDependencies:
 allowBuilds:
   esbuild: true
   sharp: true
+
+minimumReleaseAgeExclude:
+  - '@uniweb/build@0.58.0'
+  - '@uniweb/core@0.29.8'
+  - '@uniweb/kit@0.19.4'
+  - '@uniweb/runtime@0.27.4'
+  - uniweb@0.62.0

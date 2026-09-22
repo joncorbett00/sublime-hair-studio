@@ -5,16 +5,44 @@ collections and copy as `~/dev/clients/hair-salon-1` (`sites/salon`). The brief 
 hair-salon-1, elevated: its fun and colour with some haute fashion in it. The polish comes
 from hair-salon-2's editorial look.
 
+The workspace also holds **Bijou Boutique** (the shop), a second site on the same
+foundation. For now it is served under `/shop/` on this site's domain.
+
 ```
-foundation/    section types (React + Tailwind v4)
-site/          content: pages, collections, layout, theme
+foundation/      section types (React + Tailwind v4), shared by both sites
+sites/sublime/   Sublime Hair Studio: pages, records, layout, theme
+sites/bijou/     Bijou Boutique: pages, records (finds), layout, theme
+scripts/         build.mjs (both sites → one deploy), postbuild.mjs, new-piece.mjs
+print/           printable service menu and flyers (PDF)
 ```
 
 ```bash
 pnpm install
-pnpm dev          # http://localhost:5173 (the Claude preview uses 5200)
-pnpm build        # foundation + site → site/dist (static, prerendered)
+pnpm dev          # Sublime (the Claude preview uses 5200)
+pnpm dev:shop     # Bijou Boutique on its own (the Claude preview uses 5211)
+pnpm build        # foundation + both sites → sites/sublime/dist, the shop at dist/shop/
+pnpm new-piece "Camel wrap coat"   # a new find for the shop
 ```
+
+### One foundation, two looks
+
+Both sites use the same section types; each site's look is settings:
+
+| | Sublime ("Front Row") | Bijou ("Wardrobe Department") |
+|---|---|---|
+| Colours | foundation defaults (vermilion) | `vars:` in `sites/bijou/theme.yml` (jewel green, champagne) |
+| Edge along the top | Header/Footer `edge: selvedge` | `edge: filmstrip` |
+| Hero | `frame: arch`, `captionLabel: Look 01`, `seal: ring` | `frame: gate`, `inset: polaroid`, `captionLabel: Take 01`, `seal: reel` |
+| Split content | `frame: rounded`/`arch`, caption `Fig.` | `frame: gate`, `captionLabel: Still` |
+| Header button | `ctaHref: /book` | `ctaHref: /visit`, plus `returnLabel`/`returnHref` back to Sublime |
+| Structured data | `business.type: HairSalon` | `business.type: ClothingStore` |
+
+The colour block is `tone: brand` on both (it was `vermilion` here and `jewel` there). The
+wordmark and the seal's initial come from the site name; the palette picker's swatches are
+a `yaml:palettes` block in each `layout/header.md`.
+
+Links between the two sites end in `{reload}` so they load the other site in full:
+`[Shop](/shop/){reload}` here, and `/../` back up from the shop.
 
 ---
 
@@ -44,7 +72,7 @@ timeline** (`Timeline` section) between the team and the hiring note.
 
 ### House vocabulary (`foundation/styles.css`)
 
-- `tone: vermilion | ink | sand` in a section's frontmatter sets the whole section in that
+- `tone: brand | ink | sand` in a section's frontmatter sets the whole section in that
   colour (`.tone-*` redefines every token, so buttons, text and the accent word all adapt).
   Supported by CTA, Promo, SplitContent, Itinerary, Timeline, ServiceMenu, Gallery,
   Testimonials, FAQ, Crew and Visit. `theme: light | medium | dark` still works as usual;

@@ -2,9 +2,7 @@ import { toneParam } from '#components/tone.js'
 
 export default {
   title: 'Visit Us',
-  description: 'Ruled rows of address, opening hours and contact beside a framed map and booking buttons, opening hours and contact details, plus optional practical notes (parking, accessibility, cancellation).',
-  category: 'structure',
-  purpose: 'Inform',
+  description: 'Ruled rows of address, opening hours and contact beside a framed map and buttons, plus optional practical notes (parking, accessibility, cancellation, holds).',
 
   content: {
     pretitle: 'Eyebrow label [0-1]',
@@ -15,14 +13,20 @@ export default {
     data: 'A `yaml:hours` block — a list of { day, open }',
   },
 
+  // Data blocks reach the component only when declared.
+  data: {
+    hours: {},
+  },
+
   params: {
-    address: { type: 'string', label: 'Postal address', default: '190 MacLaren Street\nOttawa, ON  K2P 0L6' },
-    phone: { type: 'string', label: 'Phone (displayed)', default: '(613) 567-7400' },
-    phoneHref: { type: 'string', label: 'Phone link', default: 'tel:+16135677400' },
-    email: { type: 'string', label: 'Email', default: 'hello@sublimehair.ca' },
+    address: { type: 'string', label: 'Postal address', default: '' },
+    phone: { type: 'string', label: 'Phone (displayed)', default: '' },
+    phoneHref: { type: 'string', label: 'Phone link', default: '' },
+    email: { type: 'string', label: 'Email', default: '' },
     mapEmbed: { type: 'string', label: 'Map iframe URL', default: '' },
     mapLink: { type: 'string', label: 'Directions link', default: '' },
-    hoursNote: { type: 'string', label: 'Small italic line under the hours', default: "By appointment. Call ahead for same-day — we'll always try to fit you in." },
+    mapTitle: { type: 'string', label: 'Map name', description: 'What a screen reader announces for the map', default: 'Map to the studio' },
+    hoursNote: { type: 'string', label: 'Small italic line under the hours', default: '' },
     tone: toneParam,
   },
 }

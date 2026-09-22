@@ -3,6 +3,7 @@ import { P, Icon, cn } from '@uniweb/kit'
 import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
+import { buttonLinks, linkProps } from '#utils/links.js'
 
 const MONTH_MS = 30.44 * 24 * 60 * 60 * 1000
 
@@ -36,7 +37,7 @@ function shuffle(list) {
 /**
  * Review cards, kept compact: the heading and the "all reviews" link share a
  * row, and each card is stars, the words (clamped to four lines), and the
- * reviewer in wide capitals. The middle card is set in vermilion. On phones
+ * reviewer in wide capitals. The middle card is set in the brand colour. On phones
  * the cards sit in one row to swipe through.
  *
  * Two sources, in order of preference:
@@ -48,7 +49,8 @@ function shuffle(list) {
  * 2. The authored `###` items, used only when the collection yields nothing.
  */
 export default function Testimonials({ content, params, block }) {
-  const { pretitle, title, items, links } = content
+  const { pretitle, title, items } = content
+  const links = buttonLinks(content)
   const { columns = 3, pick = 3, minRating = 4, maxAgeMonths = 12, tone = '' } = params
   const reviews = Array.isArray(content.data?.reviews) ? content.data.reviews : []
   const cols = { 2: 'md:grid-cols-2', 3: 'md:grid-cols-2 lg:grid-cols-3' }
@@ -98,7 +100,7 @@ export default function Testimonials({ content, params, block }) {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <Shout pretitle={pretitle} title={title} block={block} size="md" />
           {links.map((l, i) => (
-            <Button key={i} href={l.href} tone="outline">
+            <Button key={i} {...linkProps(l)} tone="outline">
               {l.label} <Icon name="lu-arrow-up-right" size="14" />
             </Button>
           ))}
@@ -111,7 +113,7 @@ export default function Testimonials({ content, params, block }) {
             const loud = shown.length >= 3 && i === 1
             return (
               <li key={card.key} className="w-[82%] shrink-0 snap-start md:w-auto">
-                <figure className={cn('framed flex h-full flex-col p-6 sm:p-7', loud && 'tone tone-vermilion')}>
+                <figure className={cn('framed flex h-full flex-col p-6 sm:p-7', loud && 'tone tone-brand')}>
                   <div className="flex gap-0.5 text-accent-ink" aria-label={`${rating} out of 5`}>
                     {Array.from({ length: 5 }, (_, s) => (
                       <Icon

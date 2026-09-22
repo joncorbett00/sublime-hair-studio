@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- The seal, small: a jewel-green disc and an italic serif "b" in champagne. -->
+  <circle cx="16" cy="16" r="15.5" fill="#1C6B4F"/>
+  <circle cx="16" cy="16" r="12.5" fill="none" stroke="#F4F1E9" stroke-opacity="0.45" stroke-width="0.75"/>
+  <text x="16.5" y="23" text-anchor="middle" font-family="'Bodoni Moda', 'Bodoni 72', Didot, Georgia, serif" font-style="italic" font-size="22" fill="#E6CD93">b</text>
+</svg>

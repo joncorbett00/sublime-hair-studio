@@ -1,0 +1,24 @@
+# How pages reach the site's records (site/records/).
+#
+# ─── Finds ───────────────────────────────────────────────────────────────────
+# The boutique holds far more than the website shows. `finds` is the selection
+# that IS on the website: key finds from the shop, newest first, up to `limit`.
+#
+#   • Add a find — a new file in records/piece/ with today's `added:` date, or
+#     `pnpm new-piece "Title"` — and it shows first, marked "Just in".
+#   • The oldest find past the limit comes off the website: its card, its page
+#     and its URL. It may well still be in the shop; its file stays in
+#     records/piece/, and nothing else needs editing.
+#
+# Because the limit is on the QUERY, it decides which finds have a page at all:
+# /finds/<slug> exists for these and no others. A section's `fetch:` can only
+# take from them (the homepage shows the first three large).
+#
+# To show more or fewer finds online, change `limit`. No copy mentions the number.
+finds:
+  schema: '@/piece'
+  sort: added desc
+  limit: 12
+  excerpt:
+    field: description
+    maxLength: 160

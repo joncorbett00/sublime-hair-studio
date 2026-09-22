@@ -4,6 +4,7 @@
 
 @source "./sections/**/*.{js,jsx}";
 @source "./components/**/*.{js,jsx}";
+@source "./utils/**/*.{js,jsx}";
 @source "./node_modules/@uniweb/kit/src/**/*.{js,jsx}";
 
 @custom-variant dark (&:where(.scheme-dark, .scheme-dark *));
@@ -18,7 +19,7 @@
   --color-ink: var(--ink);
   --color-paper: var(--paper);
   --color-sand: var(--sand);
-  --color-vermilion: var(--vermilion);
+  --color-brand: var(--brand);
   --color-accent-ink: var(--accent-ink);
 }
 
@@ -27,114 +28,95 @@
 @layer components {
 
 /* ---------------------------------------------------------------
-   House vocabulary — "Front Row".
+   House vocabulary.
 
-   One colour, dressed by a fashion editor. Vermilion is the only loud
-   thing in the house; everything else is paper, sand, taupe and ink, so
-   wherever the red lands it is the point of the page. Two voices:
+   One colour, dressed by a fashion editor. The brand colour is the only
+   loud thing in the house; everything else is paper, sand and ink, so
+   wherever it lands it is the point of the page. Two voices:
 
-   The magazine: bone paper and ink, Archivo at poster sizes, wide
-   capitals for labels, a Bodoni wordmark, square corners, hairline rules, numbered
+   The magazine: paper and ink, Archivo at poster sizes, wide capitals for
+   labels, a Bodoni wordmark, square corners, hairline rules, numbered
    sections, figure captions and matted photographs.
 
-   The salon: whole sections set in vermilion, the squiggle under the
-   italic word, the garment-label rule on buttons and cards, arched
-   photos like the upstairs windows, and the turning seal.
+   The house's own: whole sections set in the brand colour, the squiggle
+   under the italic word, the garment-label rule on buttons and cards, and
+   the turning seal. Each site then picks its motifs through section
+   settings — an arched window or a film gate, a plain selvedge or a film
+   strip along the top — and its colours through the foundation vars in
+   main.js, set per site under `vars:` in theme.yml.
 
    Everything reads tokens, so it follows the light/medium/dark
    contexts and the `tone-*` blocks below.
    --------------------------------------------------------------- */
 
 :root {
+  /* Shadows are the ink colour at a few strengths. */
+  --ink-shadow-06: color-mix(in srgb, var(--ink) 6%, transparent);
+  --ink-shadow-08: color-mix(in srgb, var(--ink) 8%, transparent);
+  --ink-shadow-45: color-mix(in srgb, var(--ink) 45%, transparent);
+  --ink-shadow-55: color-mix(in srgb, var(--ink) 55%, transparent);
+
   /* Bodoni Moda is the logo's face only: the wordmark and the seal. */
   --font-logo: 'Bodoni Moda', 'Didot', ui-serif, Georgia, serif;
 
-  --ink: #17120F;
-  --paper: #F6F0E6;
-  --sand: #E6DBCB;
-  /* The one loud colour and the shades cut from it. The names stay
-     "vermilion", but these are the brand colour: the palette switcher
-     (components/PaletteSwitcher.jsx) overrides all of them on <html>. */
-  --vermilion: #C8401F;
-  /* Lifted for text on ink, where the brand red is too dim. */
-  --vermilion-bright: #E2582F;
-  /* Deepened for text on paper (accent words, eyebrow rules)… */
-  --vermilion-deep: #B5391B;
-  /* …and a touch deeper again for text on sand. */
-  --vermilion-deeper: #A8341A;
-  /* Cards inside a vermilion block, and the hover on ink. */
-  --vermilion-shade: #B4381A;
-  --vermilion-lift: #D9542F;
-  /* Reading text on a vermilion block. */
-  --on-vermilion: #FFF1E8;
-  --on-vermilion-soft: #F8D3C4;
-  /* The accent word on a vermilion block, and its squiggle. */
-  --on-vermilion-accent: var(--ink);
-
-  /* The italic accent word: vermilion on paper and sand, the brighter red
-     on ink, and ink on vermilion. */
-  --accent-ink: var(--vermilion-deep);
-
-  /* The accent squiggle is an SVG, which cannot read a variable, so each
-     colour has its own image. */
-  --squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23B5391B' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-  --squiggle-bright: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23E2582F' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-  --squiggle-ink: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%2317120F' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  /* The italic accent word: the brand colour deepened on paper and sand,
+     brightened on ink, and --on-brand-accent on the brand colour itself. */
+  --accent-ink: var(--brand-deep);
 }
-.context-light, .context-medium { --accent-ink: var(--vermilion-deep); }
-.context-dark { --accent-ink: var(--vermilion-bright); }
+.context-light, .context-medium { --accent-ink: var(--brand-deep); }
+.context-dark { --accent-ink: var(--brand-bright); }
 
-::selection { background: var(--vermilion); color: var(--paper); }
+::selection { background: var(--brand); color: var(--paper); }
 
 /* ---------------------------------------------------------------
-   Colour blocks. A section with `tone: vermilion | ink | sand` is set
+   Colour blocks. A section with `tone: brand | ink | sand` is set
    entirely in that colour: the component puts `tone-*` on its outer
    element, and every token below it follows.
    --------------------------------------------------------------- */
 .tone { background: var(--section); color: var(--body); }
 
-.tone-vermilion {
-  --section: var(--vermilion);
-  --card: var(--vermilion-shade);
-  --muted: var(--vermilion-shade);
+.tone-brand {
+  --section: var(--brand);
+  --card: var(--brand-shade);
+  --muted: var(--brand-shade);
   --border: color-mix(in oklch, var(--paper), transparent 70%);
   --heading: var(--paper);
-  --body: var(--on-vermilion);
-  --subtle: var(--on-vermilion-soft);
+  --body: var(--on-brand);
+  --subtle: var(--on-brand-soft);
   --primary: var(--paper);
   --primary-hover: #FFFFFF;
   --primary-foreground: var(--ink);
-  --accent-ink: var(--on-vermilion-accent);
-  --ring: var(--paper);
+  --accent-ink: var(--on-brand-accent);
+  --ring: var(--on-brand-ring);
   -webkit-font-smoothing: antialiased;
 }
 .tone-ink {
   --section: var(--ink);
-  --card: #231C18;
-  --muted: #2E2520;
-  --border: #3B312B;
+  --card: var(--ink-card);
+  --muted: var(--ink-muted);
+  --border: var(--ink-border);
   --heading: var(--paper);
-  --body: #D9CEC2;
-  --subtle: #A89A8E;
-  --primary: var(--vermilion);
-  --primary-hover: var(--vermilion-lift);
+  --body: var(--ink-body);
+  --subtle: var(--ink-subtle);
+  --primary: var(--brand);
+  --primary-hover: var(--brand-lift);
   --primary-foreground: var(--paper);
-  --accent-ink: var(--vermilion-bright);
-  --ring: var(--vermilion-bright);
+  --accent-ink: var(--brand-bright);
+  --ring: var(--brand-bright);
   -webkit-font-smoothing: antialiased;
 }
 .tone-sand {
   --section: var(--sand);
-  --card: #EFE7DB;
-  --muted: #DDD0BE;
-  --border: #CDBEAA;
+  --card: var(--sand-card);
+  --muted: var(--sand-muted);
+  --border: var(--sand-border);
   --heading: var(--ink);
-  --body: #3E352F;
-  --subtle: #66584D;
-  --primary: var(--vermilion);
-  --primary-hover: var(--vermilion-deep);
+  --body: var(--sand-body);
+  --subtle: var(--sand-subtle);
+  --primary: var(--brand);
+  --primary-hover: var(--brand-deep);
   --primary-foreground: var(--paper);
-  --accent-ink: var(--vermilion-deeper);
+  --accent-ink: var(--brand-deeper);
   --ring: var(--ink);
 }
 
@@ -161,7 +143,7 @@
   text-transform: uppercase;
 }
 
-/* Eyebrow above headings: section number, a short vermilion rule, the label. */
+/* Eyebrow above headings: section number, a short brand-colour rule, the label. */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -197,7 +179,7 @@
 .eyebrow > .eyebrow-label { order: 2; }
 
 /* Accent words in display headings: italic, with a fine squiggle
-   drawn under them in the accent colour — the salon's handwriting on the
+   drawn under them in the accent colour — the house handwriting on the
    magazine page. A background image rather than a pseudo-element, so it
    follows the word when it wraps onto a second line.
    The runtime renders `[word]{accent}` as <span accent="true">. */
@@ -215,11 +197,11 @@
 .context-dark .squiggle, .tone-ink .squiggle {
   background-image: var(--squiggle-bright);
 }
-.tone-vermilion .font-display [accent], .tone-vermilion .squiggle {
-  background-image: var(--squiggle-ink);
+.tone-brand .font-display [accent], .tone-brand .squiggle {
+  background-image: var(--squiggle-on-brand);
 }
 
-/* Header nav links: a vermilion hairline drawn in from the left on hover,
+/* Header nav links: a brand-colour hairline drawn in from the left on hover,
    kept on the current page. */
 .nav-line {
   background-image: linear-gradient(var(--accent-ink), var(--accent-ink));
@@ -230,8 +212,18 @@
 }
 .nav-line:hover, .nav-line.is-active { background-size: 100% 1px; }
 
-/* The top-of-page stripe: a single band of vermilion, like a label's selvedge. */
-.selvedge { height: 4px; background: var(--vermilion); }
+/* The top-of-page edge (Header and Footer `edge`). The selvedge is a single
+   band of the brand colour, like a label's; the film strip is a wider band
+   punched with paper sprocket holes, the edge of a strip of film. */
+.selvedge { height: 4px; background: var(--brand); }
+.filmstrip {
+  height: 10px;
+  background-color: var(--brand);
+  background-image: linear-gradient(90deg, var(--paper) 7px, transparent 7px);
+  background-size: 17px 4px;
+  background-position: 5px center;
+  background-repeat: repeat-x;
+}
 
 /* ---------------------------------------------------------------
    Buttons (components/Button.jsx).
@@ -292,10 +284,10 @@
 
 .btn-ink { background: var(--heading); color: var(--section); --sweep: var(--primary); --sweep-ink: var(--primary-foreground); }
 
-/* On vermilion the primary button is paper; it sweeps to ink. */
-.tone-vermilion .btn-primary { --sweep: var(--ink); --sweep-ink: var(--paper); }
+/* On the brand colour the primary button is paper; it sweeps to ink. */
+.tone-brand .btn-primary { --sweep: var(--ink); --sweep-ink: var(--paper); }
 
-/* The small "Book →" text link. */
+/* The small "Book →" / "See all the finds →" text link. */
 .text-cta {
   display: inline-flex;
   align-items: center;
@@ -316,8 +308,14 @@
    Frames.
    --------------------------------------------------------------- */
 
-/* Arched frame — the studio's upstairs windows, with square feet. */
+/* Photo frames (the `frame` setting on Hero and SplitContent):
+     arch  an arched window with square feet
+     gate  the softly rounded corners of a projected film frame */
 .arch { border-radius: 999px 999px 0 0; }
+.mat.arch > img { border-radius: 999px 999px 0 0; }
+.gate { border-radius: 1.4rem / 1rem; }
+.mat.gate { border-radius: 1.9rem / 1.4rem; }
+.mat.gate > img { border-radius: 1.4rem / 1rem; }
 
 /* A matted photograph: the print sits in a paper mount with a hairline
    edge, laid on the page with a long soft shadow. */
@@ -326,9 +324,8 @@
   background: var(--card);
   padding: 0.625rem;
   border: 1px solid color-mix(in oklch, var(--heading), transparent 82%);
-  box-shadow: 0 2px 4px rgb(23 18 15 / 0.06), 0 34px 60px -32px rgb(23 18 15 / 0.45);
+  box-shadow: 0 2px 4px var(--ink-shadow-06), 0 34px 60px -32px var(--ink-shadow-45);
 }
-.mat.arch > img { border-radius: 999px 999px 0 0; }
 
 /* A second, larger hairline drawn around a frame on the same centre — the
    double rule of a mount, not a shadow. */
@@ -355,16 +352,69 @@
   pointer-events: none;
 }
 /* A card laid on the page: a long, soft shadow, never a hard edge. */
-.laid { box-shadow: 0 2px 4px rgb(23 18 15 / 0.08), 0 32px 60px -28px rgb(23 18 15 / 0.55); }
+.laid { box-shadow: 0 2px 4px var(--ink-shadow-08), 0 32px 60px -28px var(--ink-shadow-55); }
 .lift {
   transition: transform 360ms cubic-bezier(.2,.7,.2,1), box-shadow 360ms cubic-bezier(.2,.7,.2,1);
 }
 .lift:hover {
   transform: translateY(-6px);
-  box-shadow: 0 2px 4px rgb(23 18 15 / 0.06), 0 30px 50px -30px rgb(23 18 15 / 0.45);
+  box-shadow: 0 2px 4px var(--ink-shadow-06), 0 30px 50px -30px var(--ink-shadow-45);
 }
 
-/* Figure caption: "Fig. 2 — Sonia, owner". */
+/* ---------------------------------------------------------------
+   Wardrobe department (Finds, NewArrivals, Piece).
+   --------------------------------------------------------------- */
+
+/* The wardrobe tag every piece hangs from: a paper tag with its point
+   clipped and a punched eyelet. Paper and ink wherever it hangs, like a
+   real tag; a new arrival's tag is the brand colour. */
+.tag {
+  --tag-bg: var(--paper);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem 0.4rem 1.55rem;
+  background: var(--tag-bg);
+  color: var(--ink);
+  clip-path: polygon(0.65rem 0, 100% 0, 100% 100%, 0.65rem 100%, 0 50%);
+  font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
+  font-stretch: 125%;
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+/* The eyelet. */
+.tag::before {
+  content: '';
+  position: absolute;
+  left: 0.72rem;
+  top: 50%;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: -0.2rem;
+  border-radius: 999px;
+  background: var(--tag-ink, var(--ink));
+  opacity: 0.8;
+}
+.tag b { font-family: var(--font-display); font-stretch: normal; font-size: 0.8125rem; font-style: italic; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.tag-new { --tag-bg: var(--brand); --tag-ink: var(--paper); color: var(--paper); }
+
+/* The clapperboard slate: a strip of diagonal bars along the top of the card
+   that records where a piece was worn. */
+.slate { position: relative; border: 1px solid var(--heading); background: var(--card); }
+.slate::before {
+  content: '';
+  display: block;
+  height: 0.875rem;
+  background: repeating-linear-gradient(-55deg, var(--heading) 0 0.75rem, var(--card) 0.75rem 1.5rem);
+  border-bottom: 1px solid var(--heading);
+}
+
+/* Figure caption: "Fig. 2 — Sonia, owner", "Still — the camel wrap". */
 .figcap {
   font-stretch: 125%;
   font-size: 0.625rem;
@@ -385,8 +435,12 @@
   transform: rotate(180deg);
 }
 
-/* The header is fixed, so in-page jumps stop short of it. */
-section[id] { scroll-margin-top: calc(var(--header-height) + 5px); }
+/* The header is fixed, so in-page jumps stop short of it — and of the edge
+   along its top (taller when it is the film strip) and any return bar. */
+:root { --edge-height: 4px; --return-height: 0px; }
+:root:has(header .filmstrip) { --edge-height: 10px; }
+:root:has(.return-bar) { --return-height: 2rem; }
+section[id] { scroll-margin-top: calc(var(--header-height) + var(--edge-height) + var(--return-height) + 1px); }
 
 /* ---------------------------------------------------------------
    Motion.
@@ -416,6 +470,15 @@ section[id] { scroll-margin-top: calc(var(--header-height) + 5px); }
 }
 .rise { animation: sublime-rise 900ms cubic-bezier(.2,.7,.2,1) both; }
 
+/* A new arrival's tag swings once on its eyelet as the page opens. */
+@keyframes sublime-swing {
+  0% { transform: rotate(-7deg); }
+  40% { transform: rotate(4deg); }
+  70% { transform: rotate(-2deg); }
+  100% { transform: rotate(0); }
+}
+.swing { transform-origin: 0.9rem 50%; animation: sublime-swing 1400ms cubic-bezier(.3,.7,.3,1) 300ms both; }
+
 /* ---------------------------------------------------------------
    Keyboard focus, stated once for every control in the foundation.
    `:where()` keeps specificity at 0 so a component can override it.
@@ -426,7 +489,7 @@ section[id] { scroll-margin-top: calc(var(--header-height) + 5px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ticker-track, .spin-slow, .rise { animation: none !important; }
+  .ticker-track, .spin-slow, .rise, .swing { animation: none !important; }
   .lift:hover { transform: none; }
   .btn::before, .btn > svg { transition: none; }
 }

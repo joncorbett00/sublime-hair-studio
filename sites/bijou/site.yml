@@ -1,0 +1,53 @@
+name: Bijou Boutique
+defaultLanguage: en
+
+foundation: foundation
+index: home
+
+pages: [home, finds, story, visit, ...]
+
+keywords: [film wardrobe ottawa, screen worn clothing, movie costume clothing ottawa, vintage clothing ottawa, film costume boutique, wardrobe from films shot in montreal, boutique golden triangle ottawa, centretown clothing boutique]
+
+seo:
+  # Also set in vite.config.js — the build reads it from there, not here.
+  # For now the boutique is served under /shop/ on Sublime Hair Studio's
+  # domain (see scripts/build.mjs at the workspace root). When it moves to
+  # its own domain, change every sublimehair.ca/shop address in this file
+  # and vite.config.js to it.
+  baseUrl: https://sublimehair.ca/shop
+  description: >-
+    Bijou Boutique — an Ottawa boutique full of clothing worn in films and series shot in
+    Montréal: coats, suits, gowns and more, each with the story of where it was worn. See the
+    latest finds online, and the rest in store.
+  image: https://sublimehair.ca/shop/images/og-default.png
+
+# The business as Google should see it. The footer turns this into
+# ClothingStore structured data on every page, so it must match the Google
+# Business Profile exactly — same name, address, phone and hours. The visible
+# hours are in layout/footer.md and pages/visit/1-visit.md; change all three
+# together. `email` is also where every piece's "Ask about this piece" goes.
+#
+# The address is Sublime Hair Studio's: the boutique shares its studio.
+# ⚠ PLACEHOLDERS — the phone and email are stand-ins, and the hours are
+# Sublime's until the boutique confirms its own.
+business:
+  type: ClothingStore
+  name: Bijou Boutique
+  url: https://sublimehair.ca/shop
+  telephone: "+1-613-555-0142"
+  email: hello@bijouboutique.ca
+  image: https://sublimehair.ca/shop/images/logo.png
+  address:
+    street: 190 MacLaren Street, 2nd floor
+    city: Ottawa
+    region: ON
+    postalCode: K2P 0L6
+    country: CA
+  geo: { lat: 45.4157, lng: -75.6928 }
+  # 24-hour times. Days not listed are closed.
+  hours:
+    - { days: [Tuesday, Wednesday, Thursday, Friday, Saturday], opens: "12:00", closes: "18:00" }
+  sameAs: []
+
+build:
+  prerender: true

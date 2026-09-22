@@ -2,19 +2,22 @@ import { P, Icon, cn } from '@uniweb/kit'
 import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
+import { buttonLinks, linkProps } from '#utils/links.js'
 
 /**
- * A timed run-of-show, drawn as the running order pinned up backstage:
- * "12:00 leave the office, 12:05 up the stairs…". Heading and copy on one
- * side, the card on the other — a paper card laid on the page at a slight
- * angle, whatever colour the section is.
+ * A timed run-of-show or a run of steps, drawn as a card pinned up backstage —
+ * the salon's running order ("12:00 leave the office, 12:05 up the stairs…")
+ * or a film call sheet ("Wrap — Pick — Tag — Shop"); `cardLabel` names it.
+ * Heading and copy on one side, the card on the other — a paper card laid on
+ * the page at a slight angle, whatever colour the section is.
  *
  * Each `###` item is one stop: the heading is the time, `####` the step, and
  * the paragraph a line of detail. The last stop is drawn as the finish.
  */
 export default function Itinerary({ content, params, block }) {
-  const { pretitle, title, paragraphs, links, items } = content
-  const { cardTitle = '', tone = '' } = params
+  const { pretitle, title, paragraphs, items } = content
+  const links = buttonLinks(content)
+  const { cardLabel = 'Running order', cardTitle = '', tone = '' } = params
 
   return (
     <div className={toneClass(tone)}>
@@ -29,7 +32,7 @@ export default function Itinerary({ content, params, block }) {
             {links.length > 0 && (
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 {links.map((l, i) => (
-                  <Button key={i} href={l.href} tone={i === 0 ? 'primary' : 'outline'}>
+                  <Button key={i} {...linkProps(l)} tone={i === 0 ? 'primary' : 'outline'}>
                     {l.label}
                     {i === 0 && <Icon name="lu-arrow-right" size="15" />}
                   </Button>
@@ -43,7 +46,7 @@ export default function Itinerary({ content, params, block }) {
             <div className="context-light relative mx-auto w-full max-w-lg bg-transparent lg:rotate-[1.25deg]">
               <div className="framed laid [--card:var(--paper)]">
                 <div className="flex items-center justify-between gap-4 border-b border-heading px-6 py-4 sm:px-8">
-                  <span className="caps text-[0.625rem] text-heading">Running order</span>
+                  <span className="caps text-[0.625rem] text-heading">{cardLabel}</span>
                   {cardTitle && <span className="font-display text-lg italic text-accent-ink">{cardTitle}</span>}
                 </div>
                 <ol className="px-6 py-8 sm:px-8">
@@ -57,7 +60,7 @@ export default function Itinerary({ content, params, block }) {
                             aria-hidden="true"
                             className={cn(
                               'absolute -left-[5px] top-1.5 size-[9px] rotate-45',
-                              last ? 'bg-section ring-1 ring-vermilion' : 'bg-vermilion'
+                              last ? 'bg-section ring-1 ring-brand' : 'bg-brand'
                             )}
                           />
                           {item.subtitle && <strong className="caps block text-[0.6875rem] text-heading">{item.subtitle}</strong>}

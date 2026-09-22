@@ -3,8 +3,6 @@ import { toneParam } from '#components/tone.js'
 export default {
   title: 'Call to Action',
   description: 'The closing invitation as a full colour block: a poster-sized headline inside printer’s crop marks, a supporting line and one or two buttons.',
-  category: 'impact',
-  purpose: 'Convert',
 
   content: {
     pretitle: 'Eyebrow label [0-1]',
@@ -14,6 +12,6 @@ export default {
   },
 
   params: {
-    tone: { ...toneParam, default: 'vermilion' },
+    tone: { ...toneParam, default: 'brand' },
   },
 }

@@ -1,0 +1,4 @@
+# One page for each find shown online, at /finds/<slug>. The `finds` query on
+# the parent page decides which have one. The title and description come from
+# the piece itself.
+title: Find

@@ -3,8 +3,6 @@ import { toneParam } from '#components/tone.js'
 export default {
   title: 'Product Grid',
   description: 'A row of shelf products from the `products` collection, each card linking out to its page in the shop. Cards are text-forward and show a photo only when the product has one, so a line can be featured before its photography exists.',
-  category: 'showcase',
-  purpose: 'Sell',
 
   data: {
     products: {

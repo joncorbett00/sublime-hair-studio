@@ -3,8 +3,6 @@ import { toneParam } from '#components/tone.js'
 export default {
   title: 'Photo Wall',
   description: 'Numbered 4:5 photos from the `gallery` collection, as a lookbook grid with a category filter or as a single scrolling row with arrows, and a lightbox that pages with the arrow keys. Set `limit` to use it as a teaser on another page.',
-  category: 'showcase',
-  purpose: 'Show',
 
   data: {
     gallery: {

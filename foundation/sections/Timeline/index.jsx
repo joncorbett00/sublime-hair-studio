@@ -2,9 +2,10 @@ import { P, Icon, cn } from '@uniweb/kit'
 import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
+import { buttonLinks, linkProps } from '#utils/links.js'
 
 /**
- * A career in chapters: a hairline running down the page with a vermilion
+ * A career in chapters: a hairline running down the page with a brand-colour
  * diamond at each stop, the year at poster size, and a matted photo
  * from that part of the story. Photos alternate sides on wide screens, like
  * the spreads of a retrospective; on phones everything runs down one side of
@@ -14,7 +15,8 @@ import { toneClass } from '#components/tone.js'
  * the headline, then a paragraph and one photo — its alt text is the caption.
  */
 export default function Timeline({ content, params, block }) {
-  const { pretitle, title, paragraphs, links, items } = content
+  const { pretitle, title, paragraphs, items } = content
+  const links = buttonLinks(content)
   const { tone = '' } = params
 
   return (
@@ -30,7 +32,7 @@ export default function Timeline({ content, params, block }) {
               {links.length > 0 && (
                 <div className="mt-8 flex flex-wrap gap-4">
                   {links.map((l, i) => (
-                    <Button key={i} href={l.href} tone={i === 0 ? 'primary' : 'outline'}>
+                    <Button key={i} {...linkProps(l)} tone={i === 0 ? 'primary' : 'outline'}>
                       {l.label}
                       {i === 0 && <Icon name="lu-arrow-right" size="15" />}
                     </Button>
@@ -52,7 +54,7 @@ export default function Timeline({ content, params, block }) {
               <li key={i} className="relative grid gap-8 pb-20 pl-10 last:pb-0 lg:grid-cols-2 lg:gap-28 lg:pl-0 lg:pb-28">
                 <span
                   aria-hidden="true"
-                  className="absolute left-0 top-5 size-[11px] rotate-45 bg-vermilion ring-4 ring-[var(--section)] lg:left-1/2 lg:-translate-x-[5px]"
+                  className="absolute left-0 top-5 size-[11px] rotate-45 bg-brand ring-4 ring-[var(--section)] lg:left-1/2 lg:-translate-x-[5px]"
                 />
 
                 <div className={cn('lg:pt-0', photoFirst ? 'lg:order-2' : 'lg:text-right')}>
