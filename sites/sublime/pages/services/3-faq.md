@@ -27,9 +27,9 @@ you can manage it — we're a small studio, and a four-hour slot that goes empty
 loss. Life happens, though, so if it's shorter notice than that, just tell us.
 
 ### What products do you use, and can I buy them?
-We work with René Furterer and Keune — salon-only lines that are hard to find anywhere
-else in Ottawa. Whatever we use on you in the chair is on the shelf on your way out, and
-we will tell you the two things worth buying rather than the whole range.
+We work with René Furterer and Keune — salon lines you'll only find at Sublime in Ottawa —
+plus Layrite and Reuzel for men's grooming. Whatever we use on you in the chair is on the
+shelf on your way out, and we will tell you the two things worth buying rather than the whole range.
 
 ### Can I bring a photo?
 Please do. Bring several, including ones you dislike — knowing what you do not want is

@@ -34,7 +34,7 @@ Runway-trained hair in a warm little studio upstairs.
 - Shop
   - [Bijou Boutique](/shop/){reload}
   - [Latest finds](/shop/finds){reload}
-  - [Hair products](/#section-products)
+  - [Retail lines](/#section-products)
 
 [Privacy](/visit)
 [Accessibility](/visit)

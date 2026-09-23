@@ -13,35 +13,66 @@ import { buttonLinks, linkProps } from '#utils/links.js'
  *
  * Each `###` item is one chapter: the heading is the year (or "Today"), `####`
  * the headline, then a paragraph and one photo — its alt text is the caption.
+ *
+ * A photo written before the first chapter is the subject's portrait: it sits
+ * in an arched mat beside the heading, so the story opens on a face.
  */
 export default function Timeline({ content, params, block }) {
-  const { pretitle, title, paragraphs, items } = content
+  const { pretitle, title, paragraphs, images, items } = content
   const links = buttonLinks(content)
   const { tone = '' } = params
+  const portrait = images[0]
+
+  const intro = (paragraphs.length > 0 || links.length > 0) && (
+    <div>
+      {paragraphs.map((p, i) => (
+        <P key={i} text={p} className={cn('text-lg leading-relaxed text-body', i > 0 && 'mt-4')} />
+      ))}
+      {links.length > 0 && (
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          {links.map((l, i) => (
+            <Button key={i} {...linkProps(l)} tone={i === 0 ? 'primary' : 'outline'}>
+              {l.label}
+              {i === 0 && <Icon name="lu-arrow-right" size="15" />}
+            </Button>
+          ))}
+        </div>
+      )}
+    </div>
+  )
 
   return (
     <div className={toneClass(tone)}>
       <div className="mx-auto max-w-[var(--max-content-width)] px-6 py-[var(--section-padding-y)]">
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end lg:gap-20">
-          <Shout pretitle={pretitle} title={title} block={block} />
-          {(paragraphs.length > 0 || links.length > 0) && (
-            <div>
-              {paragraphs.map((p, i) => (
-                <P key={i} text={p} className={cn('text-lg leading-relaxed text-body', i > 0 && 'mt-4')} />
-              ))}
-              {links.length > 0 && (
-                <div className="mt-8 flex flex-wrap gap-4">
-                  {links.map((l, i) => (
-                    <Button key={i} {...linkProps(l)} tone={i === 0 ? 'primary' : 'outline'}>
-                      {l.label}
-                      {i === 0 && <Icon name="lu-arrow-right" size="15" />}
-                    </Button>
-                  ))}
-                </div>
+        {portrait ? (
+          <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,26rem)_1fr] lg:gap-24">
+            <figure className="mx-auto w-full max-w-sm lg:max-w-none">
+              <div className="mat arch">
+                <span aria-hidden="true" className="halo" />
+                <img
+                  src={portrait.url || portrait.src}
+                  alt={portrait.alt || ''}
+                  className="aspect-[4/5] w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              {portrait.alt && (
+                <figcaption className="figcap mt-8">
+                  <b>Fig.</b>&ensp;{portrait.alt}
+                </figcaption>
               )}
+            </figure>
+            <div>
+              <Shout pretitle={pretitle} title={title} block={block} />
+              {intro && <div className="mt-10 max-w-xl">{intro}</div>}
             </div>
-          )}
-        </div>
+          </div>
+        ) : (
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end lg:gap-20">
+            <Shout pretitle={pretitle} title={title} block={block} />
+            {intro}
+          </div>
+        )}
 
         <ol className="relative mt-20 lg:mt-28">
           {/* The line the chapters hang from. */}

@@ -10,13 +10,14 @@ const iconName = (item) => (item.icons?.[0] ? `${item.icons[0].library}-${item.i
  * Image beside prose. The general-purpose workhorse — about pages, the
  * story, policies. The photo sits in a paper mat — square, an arched window
  * or a film gate (`frame`) — with a second hairline round the mount, and a
- * caption like a figure ("Fig.", "Still" — `captionLabel`).
+ * caption like a figure ("Fig.", "Still" — `captionLabel`), in colour or
+ * black and white (`monochrome`).
  * The `###` items become a numbered, ruled list.
  */
 export default function SplitContent({ content, params, block }) {
   const { pretitle, title, paragraphs, images, items } = content
   const links = buttonLinks(content)
-  const { flipped = false, frame = 'rounded', captionLabel = 'Fig.', tone = '' } = params
+  const { flipped = false, frame = 'rounded', captionLabel = 'Fig.', monochrome = false, tone = '' } = params
   const image = images[0]
   const shape = frame === 'arch' || frame === 'gate' ? frame : ''
 
@@ -66,7 +67,7 @@ export default function SplitContent({ content, params, block }) {
                 <img
                   src={image.url || image.src}
                   alt={image.alt || ''}
-                  className="aspect-[4/5] w-full object-cover"
+                  className={cn('aspect-[4/5] w-full object-cover', monochrome && 'grayscale')}
                   loading="lazy"
                 />
               </div>

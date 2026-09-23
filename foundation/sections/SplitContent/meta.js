@@ -24,6 +24,7 @@ export default {
       ],
       default: 'rounded',
     },
+    monochrome: { type: 'boolean', label: 'Black-and-white photo', default: false },
     captionLabel: { type: 'string', label: 'Caption label', description: 'The italic word before the photo caption — "Fig.", "Still". Empty for none.', default: 'Fig.' },
     tone: toneParam,
   },

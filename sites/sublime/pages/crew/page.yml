@@ -1,11 +1,10 @@
 # `title` is the Google result and browser tab — the site name is added after it
 # ("… | Sublime Hair Studio"), so leave it out here. `label` is the nav link.
-title: "Meet Our Ottawa Stylists"
+title: "Meet Sonia, Our Owner & Stylist"
 label: The Crew
 description: >-
-  Meet the stylists at Sublime Hair Studio — colour correction, vivids, curly cutting,
-  precision cutting, bridal and up-dos.
-query: crew
+  Meet Sonia, owner of Sublime Hair Studio — apprenticed at 13, trained with Vidal Sassoon
+  and Toni & Guy, master of cut and colour — and Charlotte and Bijou, the studio dogs.
 
 seo:
   canonical: https://sublimehair.ca/crew

@@ -1,17 +1,18 @@
-# PLACEHOLDER CREW — apart from Sonia, names, bios, specialties and pricing tiers are invented.
+# PLACEHOLDER CREW — apart from Sonia (real bio and photo), names, bios, specialties and pricing tiers are invented.
 # Portraits are royalty-free Unsplash stock photos standing in for real headshots.
 # Replace with the real team before this goes anywhere near the public.
 - slug: sonia
   title: Sonia
   role: Owner & Senior Stylist
   pronouns: she/her
-  image: https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&crop=faces&w=900&h=1125&q=80
-  tagline: Runway and editorial trained. Still happiest behind her own chair.
+  image: /images/crew/sonia.webp
+  tagline: Apprenticed at 13, trained with the best. Still happiest behind her own chair.
   bio: >-
-    Sonia is a certified stylist who has done hair for runway shows, models and editorial shoots —
-    work she describes as "mostly hairspray and waiting". She brought that precision back to a
-    warm little studio upstairs off Elgin.
-    She takes the hardest colour corrections in the shop and genuinely enjoys them.
+    Sonia started her apprenticeship at thirteen among European hairstylists and went on to learn
+    from Vidal Sassoon, Toni & Guy London, Schwarzkopf, Alain Larivée and Anthony Edge. She came
+    home from New York in the early 2000s set on a salon with a SoHo loft's obsession for style
+    and service, minus the attitude. She excels at men's hair and barbering, and is a true
+    alchemist with colour.
   specialties: [Colour correction, Creative colour, Curly cutting]
   favouriteThing: The exact moment someone sees the back of their head in the mirror.
   worstHaircut: Self-administered, 2009, kitchen scissors, still discussed at family dinners.
