@@ -62,7 +62,7 @@ export function photoSrcSet(src, widths = [480, 800, 1200]) {
 /** A mailto link that names the piece, so the boutique knows what you mean. */
 export function enquiryHref(email, piece) {
   if (!email) return ''
-  const subject = `About the ${piece?.title || 'piece'}${piece?.production ? ` from ${piece.production}` : ''}`
+  const subject = `About the ${piece?.title || 'piece'}${piece?.designer ? ` by ${piece.designer}` : ''}`
   const body = `Hi Bijou,\n\nIs the ${piece?.title || 'piece'} still in the shop? I'd like to come in and try it on.\n\n`
   return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 }

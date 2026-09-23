@@ -1,16 +1,17 @@
 ---
 type: Footer
 theme: dark
-edge: filmstrip
-signoff: wardrobe from films shot in Montréal
+edge: selvedge
+signoff: vintage, designer & everyday
+logo: /images/bijou-logo.png
 credit: Created by Proximify Studios
 creditHref: https://proximify.ca
 ---
 
 # Bijou Boutique
 
-A boutique one flight up on MacLaren Street, Ottawa, full of clothing worn in
-films and series shot in Montréal. A few key finds online; many more on the racks.
+A boutique one flight up on MacLaren Street, Ottawa: curated vintage, designer
+and everyday clothing. A few key finds online; many more on the racks.
 
 ```yaml:hours
 - { day: Monday, open: Closed }

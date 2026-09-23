@@ -1,10 +1,8 @@
 ---
 title: Burgundy tulle gown
 added: 2026-09-16
-production: "The Understudy's Understudy"
-year: 2025
-worn: The understudy, finally on stage
-scene: Sc. 70
+designer: "Made to order, Montréal"
+found: A costume sale in Montréal
 category: Dresses
 era: Contemporary
 material: Silk tulle, hand-sewn rosettes
@@ -16,4 +14,4 @@ description: >-
   A strapless burgundy gown with a tulle skirt scattered with hand-sewn rosettes.
 ---
 
-The last costume of the film and the only one built from scratch. There are 240 rosettes, all sewn by hand in the costume shop on Saint-Laurent.
+There are 240 rosettes, every one sewn by hand in an atelier on Saint-Laurent. A true one-off — nobody else will be wearing it.

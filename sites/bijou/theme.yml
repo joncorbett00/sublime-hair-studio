@@ -1,9 +1,9 @@
-# Bijou Boutique — "Wardrobe Department"
+# Bijou Boutique — "Curated Apparel"
 # Sister to Sublime Hair Studio's "Front Row": the same wardrobe of neutrals
 # and the same rule of one loud colour. Sublime's is vermilion; Bijou's is a
 # cut-emerald green, with champagne for the accent word on the green only.
-# Ivory paper, sand and a green-black ink; Archivo for headlines and text,
-# and a Bodoni wordmark.
+# Ivory paper, sand and a green-black ink; Archivo for headlines and text.
+# The logo is the round badge (public/images/bijou-logo.png).
 
 colors:
   primary: '#1C6B4F'      # jewel green — buttons, the film-strip edge, colour-block sections
@@ -63,6 +63,10 @@ inline:
 
 vars:
   radius: 0rem
+
+  # A taller masthead than Sublime's, so the round badge (layout/header.md
+  # `logo:`) is big enough to read.
+  header-height: 6.75rem
 
   # The house colours (declared in foundation/main.js, where the defaults
   # are Sublime's). A green-black ink and an ivory paper — a shade cooler

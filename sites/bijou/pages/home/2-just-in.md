@@ -9,7 +9,7 @@ count: 3
 # The latest
 # [finds]{accent}
 
-Pieces we've just brought in from set. Come and see them in person — along with everything
-we haven't had time to photograph.
+Pieces that have just come in. Come and see them in person — along with everything we
+haven't had time to photograph.
 
 [See all the finds](/finds)

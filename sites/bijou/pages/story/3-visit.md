@@ -29,5 +29,5 @@ Tuesday to Saturday, one flight up on MacLaren. Browse the racks as long as you 
 One fitting room, a long mirror, and no rush.
 
 ### 04
-#### Hear its story
-Ask about any piece — we'll tell you the production, the scene and what was altered.
+#### Ask us anything
+About any piece — we'll tell you the label, the era and anything that was altered.

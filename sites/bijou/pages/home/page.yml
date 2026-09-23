@@ -1,11 +1,11 @@
 # `title` is the Google result and browser tab — the site name is added after
 # it ("… | Bijou Boutique"), so leave it out here. `label` is the nav link.
-title: "Screen-Worn Clothing from Films Shot in Montréal"
+title: "Curated Vintage, Designer & Everyday Clothing in Ottawa"
 label: Home
 description: >-
-  Bijou Boutique — an Ottawa boutique full of clothing worn in films and series shot in
-  Montréal, each piece with the story of where it was worn. See the latest finds, then come
-  in for the rest.
+  Bijou Boutique — curated apparel one flight up on MacLaren Street, Ottawa: vintage,
+  designer and everyday pieces, each one hand-picked. See the latest finds, then come in for
+  the rest.
 
 # The finds shown online. Every section on the page that shows pieces reads this
 # query; the records it delivers each link to their own page under /finds.

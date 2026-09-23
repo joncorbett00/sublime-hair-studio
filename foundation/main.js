@@ -1,7 +1,7 @@
 /**
  * The Sublime foundation — section types for Sublime Hair Studio and its
  * sister, Bijou Boutique. Both sites use every section type here; what makes
- * one Sublime's "Front Row" and the other Bijou's "Wardrobe Department" is
+ * one Sublime's "Front Row" and the other Bijou's "Curated Apparel" is
  * settings, not code:
  *
  *   - colour: the vars below, set per site under `vars:` in theme.yml
@@ -78,7 +78,7 @@ export const vars = {
 
 export default {
   name: 'Sublime',
-  description: 'Section types for Sublime Hair Studio and Bijou Boutique — fashion-magazine polish on a colourful little salon, and the wardrobe department of a film set.',
+  description: 'Section types for Sublime Hair Studio and Bijou Boutique — fashion-magazine polish on a colourful little salon, and a curated vintage and designer boutique.',
   defaultSection: 'Section',
   viewTransitions: true,
 }

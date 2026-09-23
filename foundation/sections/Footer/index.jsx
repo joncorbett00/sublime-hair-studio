@@ -1,4 +1,4 @@
-import { Link, H3, P, SocialIcon, filterSocialLinks, useWebsite } from '@uniweb/kit'
+import { Link, H3, P, SocialIcon, filterSocialLinks, useWebsite, applyBasePath } from '@uniweb/kit'
 import BusinessSchema from '#components/BusinessSchema.jsx'
 import Wordmark from '#components/Wordmark.jsx'
 import { wordmarkParts } from '#utils/wordmark.js'
@@ -7,7 +7,7 @@ import { linkProps } from '#utils/links.js'
 /**
  * Footer, on ink. Blurb, socials, opening hours and the link columns across
  * the top; along the bottom the wordmark set as wide as the page, the way a
- * label signs off (or the end credits roll). Takes the hours and columns as
+ * label signs off — or, with a `logo` image, the logo, centred. Takes the hours and columns as
  * authored markdown so the business can change them without anyone opening
  * this file. The edge along its top matches the masthead's.
  */
@@ -17,7 +17,7 @@ function Footer({ content, params }) {
   const social = filterSocialLinks(links)
   const plain = links.filter((l) => !social.includes(l))
   const hours = data?.hours || []
-  const { credit = '', creditHref = '', signoff = '', edge = 'selvedge', wordmark = '' } = params
+  const { credit = '', creditHref = '', signoff = '', edge = 'selvedge', wordmark = '', logo = '' } = params
   const mark = wordmarkParts(website.name, { wordmark })
 
   /* Each link column is a labelled group: a markdown list item whose text is
@@ -104,10 +104,23 @@ function Footer({ content, params }) {
         </div>
       </div>
 
-      {/* The sign-off: the wordmark at the width of the page, cropped at its foot. */}
-      <div aria-hidden="true" className="mx-auto -mb-[4vw] mt-10 flex max-w-[var(--max-content-width)] justify-center px-6">
-        <Wordmark name={mark.name} className="text-[clamp(5rem,24vw,21rem)]" />
-      </div>
+      {/* The sign-off: the logo, or the wordmark at the width of the page, cropped at its foot. */}
+      {logo ? (
+        <div aria-hidden="true" className="mx-auto flex max-w-[var(--max-content-width)] justify-center px-6 pb-16 pt-14">
+          <img
+            src={applyBasePath(logo, website.basePath)}
+            alt=""
+            width="640"
+            height="640"
+            loading="lazy"
+            className="size-[clamp(9rem,24vw,14rem)] object-contain"
+          />
+        </div>
+      ) : (
+        <div aria-hidden="true" className="mx-auto -mb-[4vw] mt-10 flex max-w-[var(--max-content-width)] justify-center px-6">
+          <Wordmark name={mark.name} className="text-[clamp(5rem,24vw,21rem)]" />
+        </div>
+      )}
     </div>
   )
 }

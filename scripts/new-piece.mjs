@@ -42,11 +42,8 @@ const today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-$
 writeFileSync(file, `---
 title: ${title}
 added: ${today}
-production: ""
-year:
-worn:
-scene:
-doubled:
+designer:             # the label or maker
+found:                # where it came from, if there's a story — or leave empty
 category: Outerwear   # Outerwear, Dresses, Suiting, Tops, Knitwear or Accessories
 era:
 material:
@@ -58,7 +55,7 @@ description: >-
   One line for the card and for search results.
 ---
 
-The story of the piece: why it was chosen, what was altered, what happened to it on set.
+The story of the piece: what makes it special, where it came from, how it fits.
 `)
 
 console.log(`Wrote ${file.replace(new URL('..', import.meta.url).pathname, '')}${staged ? ' (staged — rename without the _ to put it on the website)' : ''}`)

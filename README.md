@@ -28,17 +28,18 @@ pnpm new-piece "Camel wrap coat"   # a new find for the shop
 
 Both sites use the same section types; each site's look is settings:
 
-| | Sublime ("Front Row") | Bijou ("Wardrobe Department") |
+| | Sublime ("Front Row") | Bijou ("Curated Apparel") |
 |---|---|---|
 | Colours | foundation defaults (vermilion) | `vars:` in `sites/bijou/theme.yml` (jewel green, champagne) |
-| Edge along the top | Header/Footer `edge: selvedge` | `edge: filmstrip` |
-| Hero | `frame: arch`, `captionLabel: Look 01`, `seal: ring` | `frame: gate`, `inset: polaroid`, `captionLabel: Take 01`, `seal: reel` |
-| Split content | `frame: rounded`/`arch`, caption `Fig.` | `frame: gate`, `captionLabel: Still` |
+| Edge along the top | Header/Footer `edge: selvedge` | `edge: selvedge` |
+| Wordmark | set in type from the site name | `logo: /images/bijou-logo.png` on Header and Footer (the round badge; originals in `sites/bijou/brand/`), with a taller bar (`header-height` in `theme.yml`) |
+| Hero | `frame: arch`, `captionLabel: Look 01`, `seal: ring` | `frame: gate`, `inset: polaroid`, `captionLabel: Look 01`, `seal: ring` |
+| Split content | `frame: rounded`/`arch`, caption `Fig.` | `frame: gate`, caption `Fig.` |
 | Header button | `ctaHref: /book` | `ctaHref: /visit`, plus `returnLabel`/`returnHref` back to Sublime |
 | Structured data | `business.type: HairSalon` | `business.type: ClothingStore` |
 
-The colour block is `tone: brand` on both (it was `vermilion` here and `jewel` there). The
-wordmark and the seal's initial come from the site name; the palette picker's swatches are
+The colour block is `tone: brand` on both (it was `vermilion` here and `jewel` there). Sublime's
+wordmark and both seals' initials come from the site name; the palette picker's swatches are
 a `yaml:palettes` block in each `layout/header.md`.
 
 Links between the two sites end in `{reload}` so they load the other site in full:

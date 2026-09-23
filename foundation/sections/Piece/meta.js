@@ -1,6 +1,6 @@
 export default {
   title: 'Piece',
-  description: 'A find’s own page: the photos in a film-gate mat with its wardrobe tag, where it was worn on a clapperboard slate, the facts, the price, "Ask about this piece" and "Come try it on", and its story. For the parametric page under Finds.',
+  description: 'A find’s own page: the photos in a soft-cornered mat with its swing tag, its label and era, the facts, the price, "Ask about this piece" and "Come try it on", and its story. For the parametric page under Finds.',
 
   // `finds`: this page's piece — the route query delivers it as a list of one.
   // `all`: every find (`fetch: { query: finds, as: all, current: include }`),

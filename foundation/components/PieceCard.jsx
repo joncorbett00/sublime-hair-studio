@@ -11,14 +11,14 @@ function MaybeLink({ href, className, children, ...rest }) {
 }
 
 /**
- * One find: the photo in a film-gate mat with its wardrobe tag hanging over
- * the corner, then the production it came from, the name of the piece, and
- * size and price on one ruled line.
+ * One find: the photo in a soft-cornered mat with its tag hanging over the
+ * corner, then its label and era, the name of the piece, and size and price
+ * on one ruled line.
  *
  *   size   'md' for the grid, 'lg' for the lead new arrival
  */
 export default function PieceCard({ piece, isNew = false, size = 'md', eager = false, className }) {
-  const { title, production, year, size: fit, price, image, category, $route } = piece
+  const { title, designer, era, size: fit, price, image, category, $route } = piece
   const lg = size === 'lg'
 
   return (
@@ -38,10 +38,11 @@ export default function PieceCard({ piece, isNew = false, size = 'md', eager = f
       </div>
 
       <div className={cn('mt-6', lg && 'mt-8')}>
-        {production && (
+        {(designer || era) && (
           <p className="caps text-[0.5625rem] text-subtle">
-            From <span className="font-display text-[0.8125rem] font-medium normal-case italic tracking-normal text-accent-ink [font-stretch:normal]">{production}</span>
-            {year ? <>, {year}</> : null}
+            {designer && <span className="font-display text-[0.8125rem] font-medium normal-case italic tracking-normal text-accent-ink [font-stretch:normal]">{designer}</span>}
+            {designer && era ? <>&ensp;·&ensp;</> : null}
+            {era}
           </p>
         )}
         <h3

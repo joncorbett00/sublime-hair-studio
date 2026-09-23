@@ -1,20 +1,21 @@
 ---
 type: SplitContent
 frame: gate
-captionLabel: Still
+captionLabel: Fig.
 flipped: true
 ---
 
 #> The boutique
 
-# A wardrobe department
-# with the door [open]{accent}
+# A closet worth
+# going [through]{accent}
 
-Montréal stands in for Paris, Manhattan and 1970s Boston most weeks of the year, and every
-production leaves a wardrobe behind. Bijou is where it goes: a boutique just off Elgin in Ottawa,
-with racks of screen-worn clothing, a fitting room, and the stories that came with the clothes.
+Bijou is a small boutique just off Elgin in Ottawa, with racks of vintage, designer and
+everyday clothing, a fitting room, and someone who can tell you about every piece. Sorted by
+what it is, not what it cost — so a 1970s leather blazer can hang beside this season's
+knit.
 
-We don't sell online and we don't ship. Come in, try it on, and hear where it's been.
+We don't sell online and we don't ship. Come in, try it on, and take your time.
 
 [Our story](/story)
 

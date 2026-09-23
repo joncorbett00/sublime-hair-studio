@@ -1,34 +1,33 @@
 ---
 type: SplitContent
 frame: gate
-captionLabel: Still
+captionLabel: Fig.
 flipped: true
 tone: sand
 ---
 
-#> Every piece keeps its tag
+#> What we look for
 
-# Where it was worn,
-# who wore it, [which scene]{accent}
+# The label, the cut,
+# the [cloth]{accent}
 
-On set, every costume carries a wardrobe tag: the character, the scene, the change. We
-keep that record with the piece, and add what the costume department told us — why it was
-chosen, what was altered, what happened to it between takes.
+Every piece on the racks has earned its place. We check the same four things before
+anything comes back to the shop, and we'll tell you what we found.
 
-### The production
-![](lu-clapperboard)
-The film or series it was made for, and the city Montréal was standing in for.
+### The label
+![](lu-tag)
+Who made it and when — a designer name, a good maker, or an honest "unlabelled".
 
-### The character
-![](lu-user-round)
-Who wore it, and when. Some productions ask us not to name the actor.
+### The cut
+![](lu-ruler)
+How it's built and how it sits: shoulders, seams, the drape of a skirt.
 
-### The scene
-![](lu-hash)
-The scene number from its tag, when there was one.
+### The cloth
+![](lu-shirt)
+Wool, silk, leather, good cotton — fabrics that last, and get better with wear.
 
-### The alterations
+### The condition
 ![](lu-scissors)
-Hems taken up, seams let out — noted, so a tailor can take them back.
+Cleaned and pressed, with any mends or alterations noted, so a tailor can take them back.
 
-![Wardrobe tags, still pinned](https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1000&q=80&auto=format&fit=crop)
+![Tags, still pinned](https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1000&q=80&auto=format&fit=crop)

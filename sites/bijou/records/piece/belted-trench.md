@@ -1,10 +1,7 @@
 ---
 title: Belted trench coat
 added: 2026-08-19
-production: "Winter Hours"
-year: 2024
-worn: The architect, walking the site on the first day
-scene: Sc. 3
+designer: "British label"
 category: Outerwear
 era: Contemporary
 material: Cotton gabardine
@@ -16,4 +13,4 @@ description: >-
   A long stone-coloured gabardine trench with a storm flap and a tie belt.
 ---
 
-The costume designer wanted the architect in the same coat for the whole shoot, so there were four of them. This is the one that never got rained on.
+The trench everyone means when they say "a good trench": proper cotton gabardine, a storm flap, gun flaps and a belt that ties rather than buckles. It will outlast most things in your wardrobe.

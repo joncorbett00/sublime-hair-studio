@@ -22,4 +22,5 @@ export function initialOf(name = '') {
 export const wordmarkParams = {
   wordmark: { type: 'string', label: 'Wordmark', description: 'The big italic word. Empty: the first word of the site name, in lower case.', default: '' },
   wordmarkTagline: { type: 'string', label: 'Wordmark tagline', description: 'The line of capitals under it. Empty: the rest of the site name.', default: '' },
+  logo: { type: 'string', label: 'Logo image', description: 'A logo file to show instead of the type wordmark, e.g. /images/logo.png. Empty: the wordmark set in type.', default: '' },
 }

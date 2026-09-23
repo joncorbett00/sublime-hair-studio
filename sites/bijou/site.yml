@@ -6,7 +6,7 @@ index: home
 
 pages: [home, finds, story, visit, ...]
 
-keywords: [film wardrobe ottawa, screen worn clothing, movie costume clothing ottawa, vintage clothing ottawa, film costume boutique, wardrobe from films shot in montreal, boutique golden triangle ottawa, centretown clothing boutique]
+keywords: [vintage clothing ottawa, designer consignment ottawa, curated clothing boutique ottawa, vintage boutique centretown, pre-loved designer clothing ottawa, boutique golden triangle ottawa, centretown clothing boutique]
 
 seo:
   # Also set in vite.config.js — the build reads it from there, not here.
@@ -16,9 +16,9 @@ seo:
   # and vite.config.js to it.
   baseUrl: https://sublimehair.ca/shop
   description: >-
-    Bijou Boutique — an Ottawa boutique full of clothing worn in films and series shot in
-    Montréal: coats, suits, gowns and more, each with the story of where it was worn. See the
-    latest finds online, and the rest in store.
+    Bijou Boutique — curated apparel in Ottawa's Golden Triangle: vintage, designer and
+    everyday clothing, hand-picked one piece at a time. Coats, suits, dresses, knitwear and
+    more. See the latest finds online, and the rest in store.
   image: https://sublimehair.ca/shop/images/og-default.png
 
 # The business as Google should see it. The footer turns this into

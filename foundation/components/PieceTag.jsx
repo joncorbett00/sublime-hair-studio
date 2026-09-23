@@ -1,7 +1,7 @@
 import { cn } from '@uniweb/kit'
 
 /**
- * The wardrobe tag a piece hangs from: its category, and "Just in" on the
+ * The swing tag a piece hangs from: its category, and "Just in" on the
  * newest finds, whose tag is the green. See `.tag` in styles.css.
  */
 export default function PieceTag({ category, isNew, className }) {

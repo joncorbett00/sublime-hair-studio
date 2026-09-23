@@ -27,6 +27,7 @@ export default {
       default: 'selvedge',
     },
     wordmark: wordmarkParams.wordmark,
+    logo: wordmarkParams.logo,
     signoff: { type: 'string', label: 'Sign-off', description: 'Words after the copyright line, e.g. where the business is', default: '' },
     credit: { type: 'string', label: 'Credit line', description: 'Small print at the very end of the footer, e.g. who built the site', default: '' },
     creditHref: { type: 'string', label: 'Credit link', default: '' },

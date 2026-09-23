@@ -403,18 +403,7 @@
 .tag b { font-family: var(--font-display); font-stretch: normal; font-size: 0.8125rem; font-style: italic; font-weight: 500; letter-spacing: 0; text-transform: none; }
 .tag-new { --tag-bg: var(--brand); --tag-ink: var(--paper); color: var(--paper); }
 
-/* The clapperboard slate: a strip of diagonal bars along the top of the card
-   that records where a piece was worn. */
-.slate { position: relative; border: 1px solid var(--heading); background: var(--card); }
-.slate::before {
-  content: '';
-  display: block;
-  height: 0.875rem;
-  background: repeating-linear-gradient(-55deg, var(--heading) 0 0.75rem, var(--card) 0.75rem 1.5rem);
-  border-bottom: 1px solid var(--heading);
-}
-
-/* Figure caption: "Fig. 2 — Sonia, owner", "Still — the camel wrap". */
+/* Figure caption: "Fig. 2 — Sonia, owner", "Found — an estate sale". */
 .figcap {
   font-stretch: 125%;
   font-size: 0.625rem;

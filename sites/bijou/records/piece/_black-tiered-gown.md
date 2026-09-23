@@ -4,10 +4,7 @@
 # "Just in", and the oldest find comes off the website.
 title: Black tiered gown
 added: 2026-09-26
-production: "The Understudy's Understudy"
-year: 2025
-worn: The rival, at the gala
-scene: Sc. 66
+designer: "Evening label, made in Canada"
 category: Dresses
 era: Contemporary
 material: Sequinned tulle, tiered
@@ -16,8 +13,7 @@ price: 590
 condition: Excellent
 image: https://images.unsplash.com/photo-1568251188392-ae32f898cb3b
 description: >-
-  A black off-shoulder gown with tiered sequinned tulle, worn by the rival at the gala.
+  A black off-shoulder gown with tiered sequinned tulle — made for a gala and worn once.
 ---
 
-Built in the same costume shop as the burgundy tulle gown, for the one scene where the two
-characters share the stage.
+Tiers of sequinned tulle that catch the light every time you move. It came in with the burgundy tulle gown from the same collection, and it has barely been worn.

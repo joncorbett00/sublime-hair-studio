@@ -23,8 +23,7 @@ mapLink: https://www.openstreetmap.org/?mlat=45.4157&mlon=-75.6928#map=18/45.415
 Bijou shares the second floor of 190 MacLaren Street with [Sublime Hair Studio](https://sublimehair.ca),
 a two-minute walk from Elgin Street. Look for
 the door at street level and come up one flight of stairs. There's far more on the racks
-than we show online: come in, look through everything, try it on, and we'll tell you the
-story that came with it.
+than we show online: come in, look through everything and try it on.
 
 ```yaml:hours
 - { day: Monday, open: Closed }
@@ -61,7 +60,7 @@ piece's name, so we know which one you mean.
 
 ### Looking for something?
 ![](lu-search)
-Most of the shop isn't online. Tell us what you're after — a size, an era, a production —
+Most of the shop isn't online. Tell us what you're after — a size, an era, a label —
 and we'll look through the racks.
 
 ### Holds

@@ -1,10 +1,8 @@
 ---
 title: Beaded flapper dress
 added: 2026-09-09
-production: "Ballroom on Bleury"
-year: 2023
-worn: The headliner, on opening night
-scene: Sc. 63
+designer: "Unlabelled, hand-beaded"
+found: A costume sale in Montréal
 category: Dresses
 era: 1920s
 material: Glass beads on silk georgette
@@ -13,7 +11,7 @@ price: 650
 condition: Very good — a few beads replaced by hand
 image: https://images.unsplash.com/photo-1736653491995-c7911884f302
 description: >-
-  A champagne dress beaded in glass on silk georgette, worn for the opening-night number.
+  A champagne dress beaded in glass on silk georgette, cut in the 1920s way.
 ---
 
-Beaded by hand over three weeks for a single number. The weight of it is the first thing people notice. When a few beads came loose on the last night of shooting, the wardrobe team sewed them back on between takes.
+Beaded by hand over three weeks, and the weight of it is the first thing people notice. A few beads have been replaced by hand to match. Made for the stage, so it moves beautifully.

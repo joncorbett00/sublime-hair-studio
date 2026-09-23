@@ -1,32 +1,33 @@
 ---
 type: Itinerary
-cardLabel: Call sheet
+cardLabel: How it works
 tone: brand
-cardTitle: From set to shop
+cardTitle: From closet to rack
 ---
 
 #> Where it comes from
 
-# From the set
-# to the [racks]{accent}
+# Picked one piece
+# at a [time]{accent}
 
-Montréal doubles for cities all over the world, and every production builds a wardrobe.
-When a shoot wraps, we go through it rack by rack and bring the best of it to the
-boutique — with everything the wardrobe department can tell us about it.
+We look for clothes that were made well and are still worth wearing: vintage with real
+character, designer pieces at a fair price, and good everyday things you'll reach for
+every week. Estate sales, collectors, closets being cleared — we go through all of it, rack
+by rack, and bring the best back to the boutique.
 
 [Our story](/story)
 
 ### 01
-#### Wrap
-A production finishes shooting in Montréal and sells off its wardrobe.
+#### Find
+Estate sales, collectors and closets being cleared, all year round.
 
 ### 02
 #### Pick
-We go through the racks for the pieces worth wearing again.
+Only the pieces worth wearing again — good cloth, good cut, good condition.
 
 ### 03
-#### Tag
-Each keeps its wardrobe tag: the production, the character, the scene.
+#### Care
+Each is cleaned, pressed and mended where it needs it.
 
 ### 04
 #### Shop

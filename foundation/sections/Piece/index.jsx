@@ -19,11 +19,11 @@ function Fact({ label, children }) {
 /**
  * A find's own page, at /finds/<slug>.
  *
- * The photo in a film-gate mat with its wardrobe tag, and any further photos
- * as a strip beneath it to choose from. Beside it: where it was worn, set on a
- * clapperboard slate; what it is, as ruled facts; the price; and the two ways
- * to have it — ask about it, or come in and try it on. No cart: the boutique
- * sells in person. The story of the piece runs underneath.
+ * The photo in a soft-cornered mat with its swing tag, and any further photos
+ * as a strip beneath it to choose from. Beside it: its label, what it is, the
+ * price, the two ways to have it — ask about it, or come in and try it on —
+ * and the facts, as ruled rows. No cart: the boutique sells in person. The
+ * story of the piece runs underneath.
  *
  * `finds` holds this page's piece (the page's route query delivers it). `all`
  * is every find, so the page knows whether the piece is "Just in".
@@ -89,9 +89,9 @@ export default function Piece({ content, params, block }) {
               />
             </div>
             <PieceTag category={piece.category} isNew={isNew} className="absolute -left-3 top-8" />
-            {(piece.scene || piece.production) && (
+            {piece.found && (
               <figcaption className="figcap mt-8">
-                <b>{piece.scene || 'Take 1'}</b>&ensp;—&ensp;{piece.production}{piece.year ? `, ${piece.year}` : ''}
+                <b>Found</b>&ensp;—&ensp;{piece.found}
               </figcaption>
             )}
           </figure>
@@ -115,11 +115,13 @@ export default function Piece({ content, params, block }) {
           )}
         </div>
 
-        {/* What it is, where it was worn, and how to have it. */}
+        {/* What it is and how to have it. */}
         <div className="lg:pt-4">
-          {piece.production && (
+          {(piece.designer || piece.era) && (
             <p className="caps text-[0.625rem] text-subtle">
-              Worn in <span className="font-display text-base font-medium normal-case italic tracking-normal text-accent-ink [font-stretch:normal]">{piece.production}</span>
+              {piece.designer && <span className="font-display text-base font-medium normal-case italic tracking-normal text-accent-ink [font-stretch:normal]">{piece.designer}</span>}
+              {piece.designer && piece.era ? <>&ensp;·&ensp;</> : null}
+              {piece.era}
             </p>
           )}
           <h1 className="font-display mt-4 text-[clamp(2.75rem,5vw,4.5rem)]/[0.95] font-medium tracking-[-0.03em] text-heading">
@@ -143,36 +145,10 @@ export default function Piece({ content, params, block }) {
             <Button href={visitHref} tone="outline" size="lg">Come try it on</Button>
           </div>
 
-          {/* The slate: where it was worn. */}
-          {(piece.production || piece.worn) && (
-            <div className="slate mt-12">
-              <dl className="grid grid-cols-2 sm:grid-cols-[1.5fr_0.6fr_1fr]">
-                <div className="border-b border-r border-heading px-4 py-3 sm:border-b-0">
-                  <dt className="caps text-[0.5rem] text-subtle">Production</dt>
-                  <dd className="font-display mt-1 text-lg font-medium italic leading-tight text-heading">{piece.production}</dd>
-                </div>
-                <div className="border-b border-heading px-4 py-3 sm:border-b-0 sm:border-r">
-                  <dt className="caps text-[0.5rem] text-subtle">Year</dt>
-                  <dd className="font-display mt-1 text-lg font-medium leading-tight text-heading">{piece.year}</dd>
-                </div>
-                <div className="col-span-2 px-4 py-3 sm:col-span-1">
-                  <dt className="caps text-[0.5rem] text-subtle">Scene</dt>
-                  <dd className="font-display mt-1 text-lg font-medium leading-tight text-heading">{piece.scene || '—'}</dd>
-                </div>
-              </dl>
-              {piece.worn && (
-                <div className="border-t border-heading px-4 py-3">
-                  <p className="caps text-[0.5rem] text-subtle">Worn by</p>
-                  <p className="mt-1 leading-snug text-heading">{piece.worn}</p>
-                </div>
-              )}
-            </div>
-          )}
-
           <dl className="mt-10 border-t border-heading">
-            <Fact label="Montréal as">{piece.doubled}</Fact>
+            <Fact label="Label">{piece.designer}</Fact>
             <Fact label="Era">{piece.era}</Fact>
-            <Fact label="Label · fabric">{piece.material}</Fact>
+            <Fact label="Fabric">{piece.material}</Fact>
             <Fact label="Size">{piece.size}</Fact>
             <Fact label="Condition">{piece.condition}</Fact>
             <Fact label="Online since">{piece.added ? arrivalDate(piece.added, { year: true }) : ''}</Fact>
@@ -182,7 +158,7 @@ export default function Piece({ content, params, block }) {
 
       {piece.content && (
         <div className="mt-20 grid gap-8 border-t border-heading pt-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
-          <p className="caps text-[0.625rem] text-heading">From the wardrobe department</p>
+          <p className="caps text-[0.625rem] text-heading">The story</p>
           <div className="prose prose-lg max-w-none text-body [&_p]:leading-relaxed">
             <Article content={piece.content} />
           </div>

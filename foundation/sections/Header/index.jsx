@@ -1,4 +1,4 @@
-import { Link, Icon, cn, useScrolled, useMobileMenu, useWebsite, useActiveRoute } from '@uniweb/kit'
+import { Link, Icon, cn, useScrolled, useMobileMenu, useWebsite, useActiveRoute, applyBasePath } from '@uniweb/kit'
 import Button from '#components/Button.jsx'
 import Wordmark from '#components/Wordmark.jsx'
 import { wordmarkParts } from '#utils/wordmark.js'
@@ -48,7 +48,7 @@ function ReturnBar({ link, className }) {
 
 /**
  * Fixed masthead: the edge along the very top (a brand-colour selvedge, or a
- * film strip), the wordmark at the centre and the nav split evenly either
+ * film strip), the wordmark — or the `logo` image — at the centre and the nav split evenly either
  * side of it, with the button last on the right. Once the page scrolls the
  * bar turns to frosted paper and the wordmark steps down a size.
  *
@@ -73,6 +73,7 @@ function Header({ content, params }) {
     edge = 'selvedge',
     wordmark = '',
     wordmarkTagline = '',
+    logo = '',
     returnLabel = '',
     returnHref = '',
   } = params
@@ -166,14 +167,27 @@ function Header({ content, params }) {
             </div>
 
             <Link href="/" aria-label={`${siteName} — home`} className="flex justify-center">
-              <Wordmark
-                name={mark.name}
-                tagline={mark.tagline}
-                className={cn(
-                  'origin-center transition-transform duration-300 text-[2.375rem] sm:text-[2.75rem]',
-                  scrolled && 'scale-[0.86]'
-                )}
-              />
+              {logo ? (
+                <img
+                  src={applyBasePath(logo, website.basePath)}
+                  alt=""
+                  width="640"
+                  height="640"
+                  className={cn(
+                    'size-[calc(var(--header-height)-0.75rem)] origin-center object-contain transition-transform duration-300',
+                    scrolled && 'scale-[0.86]'
+                  )}
+                />
+              ) : (
+                <Wordmark
+                  name={mark.name}
+                  tagline={mark.tagline}
+                  className={cn(
+                    'origin-center transition-transform duration-300 text-[2.375rem] sm:text-[2.75rem]',
+                    scrolled && 'scale-[0.86]'
+                  )}
+                />
+              )}
             </Link>
 
             {/* Right: second half of the nav, then the button. */}
