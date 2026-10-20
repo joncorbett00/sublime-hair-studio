@@ -19,7 +19,7 @@
   "devDependencies": {
     "@types/node": "^22.0.0",
     "qrcode": "1.5.4",
-    "uniweb": "^0.62.0",
+    "uniweb": "~1.15.2",
     "yaml": "^2.9.0"
   }
 }

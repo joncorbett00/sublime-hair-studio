@@ -27,7 +27,6 @@ export default {
     pretitle: 'Eyebrow label [0-1]',
     title: 'Section heading [0-1]',
     paragraphs: 'Intro copy [0-3]',
-    data: 'An optional `yaml:categories` block — a list of { name, note }; the note prints beside that category heading',
   },
 
   params: {

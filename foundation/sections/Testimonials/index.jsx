@@ -139,7 +139,7 @@ export default function Testimonials({ content, params, block }) {
 
   const cards = reviews.length
     ? (picked || initial).map((r) => ({
-        key: r.slug || `${r.author}-${r.date}`,
+        key: r.$name || `${r.author}-${r.date}`,
         rating: Number(r.rating) || 0,
         text: plain(r.text),
         name: r.author,

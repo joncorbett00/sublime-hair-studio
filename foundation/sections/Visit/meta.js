@@ -10,11 +10,11 @@ export default {
     paragraphs: 'Intro copy [0-2]',
     links: 'Buttons in the contact card [0-2]',
     items: 'Practical notes — `###` heading, an icon, and a line of copy',
-    data: 'A `yaml:hours` block — a list of { day, open }',
   },
 
   // Data blocks reach the component only when declared.
   data: {
+    // The `yaml:hours` block — a list of { day, open }.
     hours: {},
   },
 

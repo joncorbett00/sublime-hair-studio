@@ -109,7 +109,7 @@ function Wall({ shots, categories, active, onPick, onOpen, onClose, title, label
           <Filter categories={categories} active={active} onPick={onPick} allLabel={lookProps.allLabel} />
           <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
             {shots.map((s, i) => (
-              <Look key={s.slug} shot={s} index={i} onOpen={() => onOpen(i)} badge={lookProps.badge} aspect={lookProps.aspect} />
+              <Look key={s.$name} shot={s} index={i} onOpen={() => onOpen(i)} badge={lookProps.badge} aspect={lookProps.aspect} />
             ))}
           </div>
         </div>
@@ -225,7 +225,7 @@ export default function Gallery({ content, params, block }) {
               className="no-scrollbar mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain"
             >
               {shots.map((s, i) => (
-                <li key={s.slug} className="w-[72%] shrink-0 snap-start xs:w-[46%] md:w-[31%] lg:w-[calc((100%-3*1.25rem)/4)]">
+                <li key={s.$name} className="w-[72%] shrink-0 snap-start xs:w-[46%] md:w-[31%] lg:w-[calc((100%-3*1.25rem)/4)]">
                   <Look shot={s} index={i} onOpen={() => setIndex(i)} badge={badgeLabel} aspect={aspect} />
                 </li>
               ))}
@@ -241,7 +241,7 @@ export default function Gallery({ content, params, block }) {
 
             <div className={cn('mt-14 grid grid-cols-1 gap-6', colClass[columns] || colClass[3])}>
               {shots.map((s, i) => (
-                <Look key={s.slug} shot={s} index={i} onOpen={() => setIndex(i)} badge={badgeLabel} aspect={aspect} />
+                <Look key={s.$name} shot={s} index={i} onOpen={() => setIndex(i)} badge={badgeLabel} aspect={aspect} />
               ))}
             </div>
 

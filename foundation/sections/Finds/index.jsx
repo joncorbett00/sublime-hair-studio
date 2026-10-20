@@ -72,7 +72,7 @@ export default function Finds({ content, params, block }) {
         ) : shown.length > 0 ? (
           <ul className={cn('grid grid-cols-1 gap-x-10 gap-y-16', hasHeader && 'mt-16', cols[columns] || cols[3])}>
             {shown.map((piece) => (
-              <li key={piece.slug || piece.$name}>
+              <li key={piece.$name}>
                 <PieceCard piece={piece} isNew={markOf(placeOf(piece, all), { fresh }) === 'new'} words={words} />
               </li>
             ))}

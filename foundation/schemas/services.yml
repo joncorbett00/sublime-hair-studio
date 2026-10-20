@@ -1,0 +1,19 @@
+# A service on Sublime's menu, with its price. Records live in
+# site/records/services/, one YAML file each; the file's name is the service's
+# name, which gallery photos point at with `service:`.
+name: services
+label: Service
+description: A service on the studio's menu, with its price and how it is booked.
+
+fields:
+  title:       { type: string, required: true, description: 'What it is — "Classic Haircut"' }
+  category:    { type: string, required: true, description: 'The menu heading it sits under — "Cut & Style", "Colour", "Treatments", "Styling", "Packages", "Add-ons"' }
+  price:       { type: number, required: true, description: 'In Canadian dollars' }
+  priceNote:   { type: string, description: 'Words beside the price — "from", "save $20", "contact us"' }
+  tagline:     { type: string, description: 'One line under the name' }
+  description: { type: string, description: 'A longer description, for the cards' }
+  icon:        { type: string, description: 'An icon — "lu:scissors"' }
+  featured:    { type: boolean, description: 'Shown on the homepage and marked on the menu' }
+  bookable:    { type: boolean, description: 'Booked online. Off: the button reads "Enquire".' }
+  square:      { type: string, description: 'The service’s ID on the Square booking site — the last part of its link there' }
+  order:       { type: number, required: true, description: 'Position on the menu' }

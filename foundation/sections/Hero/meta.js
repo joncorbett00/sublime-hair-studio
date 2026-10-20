@@ -10,11 +10,11 @@ export default {
     paragraphs: 'Intro copy [1-2]',
     links: 'Buttons — the first is the main one [0-3]',
     images: 'Two photos — the first fills the frame (its alt text is the running caption), the second sits in front of it',
-    data: 'A `yaml:facts` block — a list of { value, label }',
   },
 
   // Data blocks reach the component only when declared.
   data: {
+    // The `yaml:facts` block — a list of { value, label }.
     facts: {},
   },
 

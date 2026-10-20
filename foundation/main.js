@@ -15,17 +15,11 @@
  * meta.js instead. The defaults are Sublime's.
  */
 
-// The accent squiggle is an SVG, and an SVG in a data URL cannot read a CSS
-// variable, so each colour it is drawn in is its own image.
-const squiggle = (hex) =>
-  `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0' fill='none' stroke='%23${hex.slice(1)}' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")`
-
 // Plain vars, not `type: 'color'`: a colour-typed var is resolved per
 // light/dark context at runtime, and these must be on :root in the
 // prerendered page — the tone blocks, shadows and ::selection read them
 // whatever the context.
 const color = (value, description) => ({ default: value, group: 'House colours', description })
-const image = (value, description) => ({ default: value, group: 'House colours', description })
 
 export const vars = {
   'header-height': { default: '5.5rem', description: 'Fixed header bar height, under the edge along the top' },
@@ -92,11 +86,8 @@ export const vars = {
   'sand-body': color('#3E352F', 'Reading text on a sand block'),
   'sand-subtle': color('#66584D', 'Secondary text on a sand block'),
 
-  // The squiggle under an accent word, in brand-deep, brand-bright and
-  // on-brand-accent. Change these with those colours.
-  squiggle: image(squiggle('#B5391B'), 'Squiggle on paper and sand (brand-deep)'),
-  'squiggle-bright': image(squiggle('#E2582F'), 'Squiggle on ink (brand-bright)'),
-  'squiggle-on-brand': image(squiggle('#17120F'), 'Squiggle on a brand block (on-brand-accent)'),
+  // The squiggle under an accent word is drawn from brand-deep, brand-bright
+  // and on-brand-accent by components/Squiggles.jsx — a var can't hold its image.
 }
 
 export default {

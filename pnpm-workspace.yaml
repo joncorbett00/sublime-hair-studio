@@ -25,8 +25,13 @@ allowBuilds:
   sharp: true
 
 minimumReleaseAgeExclude:
-  - '@uniweb/build@0.58.0'
-  - '@uniweb/core@0.29.8'
-  - '@uniweb/kit@0.19.4'
-  - '@uniweb/runtime@0.27.4'
-  - uniweb@0.62.0
+  - '@uniweb/build@0.58.0 || 1.7.2'
+  - '@uniweb/core@0.29.8 || 1.4.0'
+  - '@uniweb/kit@0.19.4 || 1.6.0'
+  - '@uniweb/runtime@0.27.4 || 1.1.15'
+  - uniweb@0.62.0 || 1.15.2
+  - '@uniweb/content-reader@1.5.4'
+  - '@uniweb/projections@1.1.6'
+  - '@uniweb/schemas@1.6.0 || 1.6.1'
+  - '@uniweb/semantic-parser@1.12.2'
+  - '@uniweb/theming@1.2.1'

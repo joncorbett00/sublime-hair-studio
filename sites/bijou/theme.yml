@@ -106,9 +106,3 @@ vars:
   sand-body: '#37403A'
   sand-subtle: '#5C665F'
 
-  # The accent squiggle, drawn in brand-deep, brand-bright and champagne.
-  # An SVG can't read a CSS variable, so change the colour in these too.
-  squiggle: 'url("data:image/svg+xml,%3Csvg xmlns=''http://www.w3.org/2000/svg'' viewBox=''0 0 120 16'' preserveAspectRatio=''none''%3E%3Cpath d=''M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0'' fill=''none'' stroke=''%23185E45'' stroke-width=''2'' stroke-linecap=''round''/%3E%3C/svg%3E")'
-  squiggle-bright: 'url("data:image/svg+xml,%3Csvg xmlns=''http://www.w3.org/2000/svg'' viewBox=''0 0 120 16'' preserveAspectRatio=''none''%3E%3Cpath d=''M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0'' fill=''none'' stroke=''%234DBE92'' stroke-width=''2'' stroke-linecap=''round''/%3E%3C/svg%3E")'
-  squiggle-on-brand: 'url("data:image/svg+xml,%3Csvg xmlns=''http://www.w3.org/2000/svg'' viewBox=''0 0 120 16'' preserveAspectRatio=''none''%3E%3Cpath d=''M3 8c9.5-5.3 17.5-5.3 28.5 0s19 5.3 28.5 0 19-5.3 28.5 0 19 5.3 28.5 0'' fill=''none'' stroke=''%23E6CD93'' stroke-width=''2'' stroke-linecap=''round''/%3E%3C/svg%3E")'
-

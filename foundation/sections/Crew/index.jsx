@@ -44,7 +44,7 @@ export default function Crew({ content, params, block }) {
 
         <ul className={cn('mt-20 grid grid-cols-1 gap-x-12 gap-y-20', cols[columns] || cols[3])}>
           {people.map((person, i) => (
-            <li key={person.slug}>
+            <li key={person.$name}>
               <button
                 type="button"
                 onClick={() => setOpen(person)}

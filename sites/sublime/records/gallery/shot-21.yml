@@ -1,0 +1,8 @@
+service: classic-haircut
+title: "A pixie grown out and reshaped rather than started over"
+category: Cuts
+caption: "A pixie grown out and reshaped rather than started over."
+image: /images/gallery/pixie-reshaped.jpg
+orientation: square
+stylist: marco
+order: 5

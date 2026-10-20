@@ -62,7 +62,7 @@ export default function NewArrivals({ content, params, block }) {
               <PieceCard piece={lead} isNew size="lg" eager words={words} />
             </li>
             {rest.map((piece, i) => (
-              <li key={piece.slug || piece.$name} className={cn(i === 0 ? 'lg:mt-28' : 'lg:mt-56')}>
+              <li key={piece.$name} className={cn(i === 0 ? 'lg:mt-28' : 'lg:mt-56')}>
                 <PieceCard piece={piece} isNew words={words} />
               </li>
             ))}
@@ -70,7 +70,7 @@ export default function NewArrivals({ content, params, block }) {
         ) : lead ? (
           <ul className={cn('mt-16 grid grid-cols-1 gap-x-10 gap-y-16 sm:grid-cols-2', pieces.length >= 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3')}>
             {pieces.map((piece, i) => (
-              <li key={piece.slug || piece.$name}>
+              <li key={piece.$name}>
                 <PieceCard piece={piece} isNew eager={i === 0} words={words} />
               </li>
             ))}

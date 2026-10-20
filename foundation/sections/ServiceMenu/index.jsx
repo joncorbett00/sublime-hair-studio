@@ -86,7 +86,7 @@ function Cards({ services, highlight, highlightLabel, numbered, links, words }) 
         const featured = i + 1 === Number(highlight)
         const href = bookingLink(s, links)
         return (
-          <li key={s.slug} className={cn(featured && 'lg:-translate-y-6')}>
+          <li key={s.$name} className={cn(featured && 'lg:-translate-y-6')}>
             <article className={cn('framed lift flex h-full flex-col p-8 sm:p-9', featured && 'tone tone-brand')}>
               <div className="flex items-center justify-between gap-4">
                 <span className="font-display text-lg italic text-accent-ink" aria-hidden="true">{numbered && <>No.&thinsp;{pad(i + 1)}</>}</span>
@@ -118,7 +118,7 @@ function Cards({ services, highlight, highlightLabel, numbered, links, words }) 
  *
  * `layout: list` is the full menu, set like the price page of a lookbook: a
  * category filter and one ruled, numbered row per service, with the photos of
- * that service (from the `gallery` collection, matched on its `service:` slug)
+ * that service (from the `gallery` collection, matched on its `service:` name)
  * opening in a lightbox. `layout: cards` is the homepage teaser.
  *
  * A section gets exactly one declaratively-bound collection, so services stays
@@ -168,12 +168,12 @@ export default function ServiceMenu({ content, params, block }) {
   const [active, setActive] = useState(null) // the category filter; null is all of them
   const [viewing, setViewing] = useState(null) // { service, index }
 
-  const viewingShots = viewing ? photosByService.get(viewing.service.slug) || [] : []
+  const viewingShots = viewing ? photosByService.get(viewing.service.$name) || [] : []
   const closeViewer = useCallback(() => setViewing(null), [])
   const stepViewer = useCallback(
     (delta) => setViewing((v) => {
       if (!v) return v
-      const n = (photosByService.get(v.service.slug) || []).length
+      const n = (photosByService.get(v.service.$name) || []).length
       return { ...v, index: (v.index + delta + n) % n }
     }),
     [photosByService]
@@ -237,13 +237,13 @@ export default function ServiceMenu({ content, params, block }) {
                   )}
                   <ul>
                     {visible.filter((s) => s.category === category).map((s) => {
-                      const photos = photosByService.get(s.slug) || []
+                      const photos = photosByService.get(s.$name) || []
                       const number = services.indexOf(s) + 1
                       /* A bare line on the menu (name and price) sits tight; one with
                          copy or photos gets room to breathe. */
                       const roomy = s.description || photos.length > 0
                       return (
-                        <li key={s.slug} className={cn('border-b border-heading/25', roomy ? 'py-10' : 'py-6')}>
+                        <li key={s.$name} className={cn('border-b border-heading/25', roomy ? 'py-10' : 'py-6')}>
                           <article className={cn('grid gap-6 md:gap-10', numbered ? 'md:grid-cols-[4rem_1fr_auto]' : 'md:grid-cols-[1fr_auto]')}>
                             <span className={cn('font-display hidden text-2xl italic leading-none text-accent-ink', numbered && 'md:block')} aria-hidden="true">
                               {pad(number)}
@@ -277,7 +277,7 @@ export default function ServiceMenu({ content, params, block }) {
                               {photos.slice(0, STRIP).map((photo, i) => {
                                 const more = i === STRIP - 1 ? photos.length - STRIP : 0
                                 return (
-                                  <li key={photo.slug}>
+                                  <li key={photo.$name}>
                                     <button
                                       type="button"
                                       onClick={() => setViewing({ service: s, index: i })}

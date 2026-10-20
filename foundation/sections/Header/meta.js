@@ -6,11 +6,11 @@ export default {
 
   content: {
     links: 'Nav links. With Navigation set to "Authored links" these are the whole nav, split half and half around the wordmark (a link to the button page becomes the button). Otherwise they follow the page nav [0-7]. Add `{reload}` after a link to another site on the same domain.',
-    data: 'Optional `yaml:palettes` block — a list of { id, name, color, bright, deep, pop } for the floating palette picker; the first is the site’s own colour',
   },
 
   // Data blocks reach the component only when declared.
   data: {
+    // Optional `yaml:palettes` block — a list of { id, name, color, bright, deep, pop } for the floating palette picker; the first is the site’s own colour.
     palettes: {},
   },
 

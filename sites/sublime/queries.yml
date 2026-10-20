@@ -1,26 +1,84 @@
 # How pages reach the site's records (records/).
 #
-# Each folder in records/ is one set of records, one or more YAML files of
-# them; each query here reads the folder of the same name, in the order that
-# every page shows it. A section narrows a query for itself with `fetch:` —
-# home shows the featured services, colour the colour ones:
+# Each folder in records/ holds one kind of record, one YAML file per record;
+# the file's name is the record's name. Each query here reads the folder its
+# schema names (`@/services` → records/services/), in the order that every page
+# shows it. A section narrows a query for itself with `fetch:` — home shows the
+# featured services, colour the colour ones:
 #
 #   fetch: { query: services, where: { category: Colour } }
 #
 # The services menu and the crew page take a whole query with `query:` in
 # their page.yml.
 
+# THE SERVICE MENU — from the studio's printed menu (2026). Prices are the
+# studio's own; everything priced "from" moves with length, density and what
+# the consult turns up. `order` sets the position on the page, and the category
+# notes (colour materials, add-ons, massage) live in pages/services/1-menu.md.
+# Materials are charged on top of every colour price. Packages are bought at
+# the studio, so they read "Enquire" rather than "Book". Add-ons go on top of a
+# haircut. "Rejuvenation & Relaxation" on the printed menu is the treatments:
+# in-salon treatments, then longer scalp massages.
+#
+# Gallery photos point at a service by its file name (records/gallery/,
+# `service:`), so rename a service's file there too.
+#
+# `square:` is the service's ID on the Square booking site, so its Book button
+# opens that service with nothing else to pick. It's the last part of the
+# service's link on the booking site (…/services/<ID>). Square has one entry
+# for all colour work, so every colour service shares it. A service with no
+# `square:` (youth cut, scalp massages, the combined toner/gloss add-on) books
+# from the full list. Deleting and re-creating a service in Square changes its
+# ID — update it here when that happens.
 services:
+  schema: '@/services'
   sort: order asc
 
+# PLACEHOLDER CREW — apart from Sonia (real bio and photo), names, bios,
+# specialties and pricing tiers are invented. Portraits are royalty-free
+# Unsplash stock photos standing in for real headshots. Replace with the real
+# team before this goes anywhere near the public.
 crew:
+  schema: '@/crew'
   sort: order asc
 
+# GALLERY — the .jpg entries are real photos; the rest are royalty-free
+# stock photos from Unsplash (images.unsplash.com) standing in for the studio's own work.
+# Swap `image:` for a real file in public/images/gallery/ and keep everything else.
+#
+# `service:` is the name of the service in records/services/ the photo shows.
+# The service menus no longer show photos (`photosSource: ''` on
+# pages/services/1-menu.md and pages/colour/3-menu.md), but the tag is kept
+# so they can be turned back on. Every photo appears on the homepage gallery.
 gallery:
+  schema: '@/gallery'
   sort: order asc
 
+# Real reviews from the studio's clients, word for word from the old site's
+# "Happy Clients" section. They carry no star rating or date, so the cards
+# show neither.
+#
+# Fields: `author`, `text`, and optionally `rating` (1–5, shows stars),
+# `date` (YYYY-MM-DD, shows "3 months ago") and `source` ("Google review").
+# The Testimonials section drops a review below its `minRating` or older than
+# its `maxAgeMonths` only when the review has a rating or a date to judge.
 reviews:
+  schema: '@/reviews'
   sort: date desc
 
+# PLACEHOLDER PRODUCTS — the brands are real and the studio carries them, but the
+# individual products, prices, sizes and `href`s are stand-ins chosen from
+# each brand's best-known lines. Before this goes public, confirm with the studio:
+#   1. which products they actually stock (and which they want featured here),
+#   2. the shelf price and size of each,
+#   3. the real store URL — `href` follows the footer's `/products` convention and
+#      the shop is not live yet, so every link here is a guess.
+#
+# `image:` is optional. With no image the card is text-only, which is deliberate:
+# a wrong product photo is worse than none. Add a photo of the studio's own shelf
+# stock (public/images/products/) and the card picks it up.
+#
+# `order` sets the position; the homepage takes the first few by `featured: true`.
 products:
+  schema: '@/products'
   sort: order asc

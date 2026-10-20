@@ -1,0 +1,8 @@
+service: creative-colour
+title: "Hot pink, bright on purpose"
+category: Colour
+caption: "Hot pink, lifted evenly first so it stays bright on purpose."
+image: https://images.unsplash.com/photo-1470259078422-826894b933aa?auto=format&fit=crop&w=900&h=1125&q=80
+orientation: portrait
+stylist: jules
+order: 15

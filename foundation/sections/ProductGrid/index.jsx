@@ -107,7 +107,7 @@ export default function ProductGrid({ content, params, block }) {
 
         <ul className={cn('mt-16 grid grid-cols-1 gap-8', COLS[columns] || COLS[4])}>
           {products.map((product, i) => (
-            <li key={product.slug} className="flex">
+            <li key={product.$name} className="flex">
               <ProductCard product={product} index={i} showPrice={showPrices} showImage={showImages} numbered={numbered} ctaLabel={ctaLabel} />
             </li>
           ))}

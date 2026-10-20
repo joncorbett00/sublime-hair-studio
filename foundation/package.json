@@ -35,13 +35,13 @@
     "react-dom": "^19.0.0"
   },
   "dependencies": {
-    "@uniweb/core": "^0.29.8",
-    "@uniweb/kit": "^0.19.4",
+    "@uniweb/core": "~1.4.0",
+    "@uniweb/kit": "~1.6.0",
     "maplibre-gl": "5.24.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
-    "@uniweb/build": "^0.58.0",
+    "@uniweb/build": "~1.7.2",
     "@vitejs/plugin-react": "^5.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

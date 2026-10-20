@@ -11,9 +11,9 @@ export default {
     items: 'Questions — `###` question, then the answer as paragraphs',
   },
 
-  // Data blocks reach the component only when declared.
+  // An optional ```md:faq block, in place of the items.
   data: {
-    faq: {},
+    'md:faq': { label: 'Questions and answers [1+]', content: { title: 'Question', paragraphs: 'Answer' } },
   },
 
   params: {

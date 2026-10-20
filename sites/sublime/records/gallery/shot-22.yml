@@ -1,0 +1,8 @@
+service: barber-scissor-cut
+title: "Textured crop, scissor-cut on top"
+category: Cuts
+caption: "Textured crop, scissor-cut on top so it moves instead of sitting flat."
+image: https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&h=1125&q=80
+orientation: portrait
+stylist: marco
+order: 22

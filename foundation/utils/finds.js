@@ -16,11 +16,11 @@ export function markOf(place, { fresh = 3 } = {}) {
   return place && place <= fresh ? 'new' : ''
 }
 
-/** The place (1-based) of a piece among the finds, by its slug. 0 when it is not among them. */
+/** The place (1-based) of a piece among the finds, by its name. 0 when it is not among them. */
 export function placeOf(piece, finds = []) {
   if (!piece) return 0
-  const key = piece.slug || piece.$name
-  return finds.findIndex((p) => (p.slug || p.$name) === key) + 1
+  const key = piece.$name
+  return finds.findIndex((p) => p.$name === key) + 1
 }
 
 /**

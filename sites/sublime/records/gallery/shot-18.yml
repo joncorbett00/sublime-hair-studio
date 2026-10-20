@@ -1,0 +1,8 @@
+service: barber-scissor-cut
+title: "Clipper blend into scissor detail"
+category: Cuts
+caption: "Clipper blend into scissor detail. Still sharp in week five."
+image: https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?auto=format&fit=crop&w=900&h=1125&q=80
+orientation: portrait
+stylist: marco
+order: 2

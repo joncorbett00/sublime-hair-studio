@@ -10,11 +10,11 @@ export default {
     paragraphs: 'Short blurb [0-2]',
     links: 'Social profiles plus legal links — socials are detected by URL',
     lists: 'One markdown list of link columns — each top-level item is the column heading, with the links as a nested list beneath it. Add `{reload}` after a link to another site on the same domain.',
-    data: 'A `yaml:hours` block — a list of { day, open }',
   },
 
   // Data blocks reach the component only when declared.
   data: {
+    // The `yaml:hours` block — a list of { day, open }.
     hours: {},
   },
 

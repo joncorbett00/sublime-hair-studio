@@ -1,0 +1,8 @@
+service: hair-colour-shine-gloss
+title: "A gloss appointment"
+category: Colour
+caption: "A gloss appointment. Forty-five minutes. Look at the shine."
+image: https://images.unsplash.com/photo-1496440737103-cd596325d314?auto=format&fit=crop&w=900&h=1125&q=80
+orientation: portrait
+stylist: rosalie
+order: 18

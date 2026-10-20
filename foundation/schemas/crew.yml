@@ -1,0 +1,20 @@
+# A member of the studio's team. Records live in site/records/crew/, one YAML
+# file each; the file's name is the person's name, which gallery photos point
+# at with `stylist:`.
+name: crew
+label: Crew member
+description: A stylist at the studio.
+
+fields:
+  title:          { type: string, required: true, description: 'Their name' }
+  role:           { type: string, description: '"Senior Stylist & Colourist"' }
+  pronouns:       { type: string, description: '"she/her"' }
+  image:          { type: image, description: 'A portrait, 4:5' }
+  tagline:        { type: string, description: 'One line under the name' }
+  bio:            { type: string, description: 'A short paragraph about them' }
+  specialties:    { type: string, many: true, description: 'What to book them for' }
+  favouriteThing: { type: string, description: 'Their favourite thing about the job' }
+  worstHaircut:   { type: string, description: 'The worst haircut they have had' }
+  level:          { type: string, description: '"Junior", "Standard" or "Senior"' }
+  levelSurcharge: { type: number, description: 'Dollars added to (or taken off) a service booked with them' }
+  order:          { type: number, required: true, description: 'Position in the team' }

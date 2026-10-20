@@ -1,0 +1,15 @@
+# A photo of the studio's work. Records live in site/records/gallery/, one
+# YAML file each.
+name: gallery
+label: Gallery photo
+description: A photo of the studio's work, tagged with the service it shows.
+
+fields:
+  title:       { type: string, required: true, description: 'What the photo shows, for its alt text' }
+  caption:     { type: string, description: 'The line under the photo' }
+  image:       { type: image, required: true }
+  orientation: { type: string, enum: [portrait, square, wide], description: 'The photo’s shape' }
+  category:    { type: string, description: '"Colour", "Cuts", "Curls", "Up-dos", "Studio"' }
+  service:     { type: string, description: 'The name of the service it shows — a file name in records/services/' }
+  stylist:     { type: string, description: 'Who did it — a file name in records/crew/' }
+  order:       { type: number, required: true, description: 'Position in the gallery' }
