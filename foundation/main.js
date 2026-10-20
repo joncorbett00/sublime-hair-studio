@@ -91,7 +91,7 @@ export const vars = {
 }
 
 export default {
-  name: 'Sublime',
+  name: 'sublime',
   description: 'Section types for Sublime Hair Studio and Bijou Boutique — fashion-magazine polish on a colourful little salon, and a curated vintage and designer boutique.',
   defaultSection: 'Section',
   viewTransitions: true,
