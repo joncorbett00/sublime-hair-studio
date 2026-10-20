@@ -2,7 +2,6 @@ import { Link, Icon, cn, useScrolled, useMobileMenu, useWebsite, useActiveRoute,
 import Button from '#components/Button.jsx'
 import Wordmark from '#components/Wordmark.jsx'
 import { wordmarkParts } from '#utils/wordmark.js'
-import PaletteSwitcher from '#components/PaletteSwitcher.jsx'
 import Squiggles from '#components/Squiggles.jsx'
 import { linkProps } from '#utils/links.js'
 
@@ -78,8 +77,7 @@ function isDarkBar(bar, block, website) {
  * drawn as the button; if there is none, one is added at the end.
  *
  * `returnLabel` + `returnHref` add a slim bar above it all that leads to
- * another site (see ReturnBar). A `yaml:palettes` block turns on the floating
- * palette picker (components/PaletteSwitcher.jsx).
+ * another site (see ReturnBar)..
  */
 function Header({ content, params, block }) {
   const { website } = useWebsite()
@@ -265,9 +263,6 @@ function Header({ content, params, block }) {
 
       {/* The accent-word squiggle, in this site's brand colours. */}
       <Squiggles />
-
-      {/* Trying other colours: on while header.md has a `yaml:palettes` block. */}
-      <PaletteSwitcher palettes={content.data?.palettes || []} storageKey={mark.name || 'site'} />
     </>
   )
 }

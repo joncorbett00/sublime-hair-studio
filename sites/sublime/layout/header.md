@@ -25,12 +25,3 @@ logoOnDark: /images/sublime-logo-paper.png
 [Shop](/shop/){reload}
 [Book now](/book)
 
-<!-- The floating palette picker, for trying the site in another colour. The
-     first is the house vermilion (theme.yml). Delete this block to remove the
-     picker. -->
-```yaml:palettes
-- { id: vermilion, name: Vermilion, color: '#C8401F', bright: '#E2582F', deep: '#B5391B' }
-- { id: espresso, name: Dark brown, color: '#4A2E22', bright: '#C09274', deep: '#4A2E22', pop: '#E3C9A8' }
-- { id: gold, name: Gold, color: '#8C6420', bright: '#D9B25E', deep: '#7A5818', pop: '#F3E2B3' }
-- { id: silver, name: Silver, color: '#6B6E73', bright: '#C4C7CB', deep: '#55585D', pop: '#E4E6E9' }
-```

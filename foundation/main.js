@@ -21,6 +21,11 @@
 // whatever the context.
 const color = (value, description) => ({ default: value, group: 'House colours', description })
 
+// A shade of the theme's neutral palette, or `pct`% of the way from one shade
+// to the next.
+const neutral = (a, b, pct) =>
+  b ? `color-mix(in oklch, var(--neutral-${a}), var(--neutral-${b}) ${pct}%)` : `var(--neutral-${a})`
+
 export const vars = {
   'header-height': { default: '5.5rem', description: 'Fixed header bar height, under the edge along the top' },
   'max-content-width': { default: '84rem', description: 'Outer content width' },
@@ -55,36 +60,40 @@ export const vars = {
     description: 'Face for the letter in the middle of the turning seal and the wordmark set in type. Set per site as `logo:` under `fonts:` in theme.yml.',
   },
 
-  // The neutrals.
-  ink: color('#17120F', 'Near-black: headings on paper, the dark blocks, shadows'),
-  paper: color('#F6F0E6', 'The page'),
-  sand: color('#E6DBCB', 'The sand block'),
+  // The neutrals — read from the neutral palette the theme generates from
+  // `colors.neutral`, so changing that one colour changes the page, the
+  // blocks and the text with it. A site may still pin any of them under `vars:`.
+  ink: color(neutral(900, 950, 50), 'Near-black: headings on paper, the dark blocks, shadows'),
+  paper: color(neutral(50, 100, 25), 'The page'),
+  sand: color(neutral(100, 200, 75), 'The sand block'),
 
-  // The one loud colour and the shades cut from it. The palette switcher
-  // (components/PaletteSwitcher.jsx) overrides these on <html>.
-  brand: color('#C8401F', 'The one loud colour: whole sections, buttons, the seal, the edge along the top'),
-  'brand-bright': color('#E2582F', 'Lifted, for text on ink'),
-  'brand-deep': color('#B5391B', 'Deepened, for text on paper — accent words, eyebrow rules'),
-  'brand-deeper': color('#A8341A', 'A touch deeper again, for text on sand'),
-  'brand-shade': color('#B4381A', 'Cards inside a brand block'),
-  'brand-lift': color('#D9542F', 'Button hover on ink'),
-  'on-brand': color('#FFF1E8', 'Reading text on a brand block'),
-  'on-brand-soft': color('#F8D3C4', 'Secondary text on a brand block'),
+  // The one loud colour and the shades cut from it — all read from the
+  // primary palette the theme generates from `colors.primary`, so changing
+  // that one colour changes every one of these. A site may still pin any of
+  // them under `vars:`.
+  brand: color('var(--primary-500)', 'The one loud colour: whole sections, buttons, the seal, the edge along the top'),
+  'brand-bright': color('var(--primary-400)', 'Lifted, for text on ink'),
+  'brand-deep': color('var(--primary-600)', 'Deepened, for text on paper — accent words, eyebrow rules'),
+  'brand-deeper': color('color-mix(in oklch, var(--primary-600), var(--primary-700) 25%)', 'A touch deeper again, for text on sand'),
+  'brand-shade': color('color-mix(in oklch, var(--primary-500), var(--primary-600))', 'Cards inside a brand block'),
+  'brand-lift': color('color-mix(in oklch, var(--primary-500), var(--primary-400))', 'Button hover on ink'),
+  'on-brand': color('var(--primary-50)', 'Reading text on a brand block'),
+  'on-brand-soft': color('var(--primary-200)', 'Secondary text on a brand block'),
   'on-brand-accent': color('var(--ink)', 'The accent word on a brand block'),
   'on-brand-ring': color('var(--paper)', 'Keyboard focus ring on a brand block'),
   'seal-letter': color('var(--paper)', 'The letter at the middle of the turning seal'),
 
   // The ink and sand blocks.
-  'ink-card': color('#231C18', 'Cards on an ink block'),
-  'ink-muted': color('#2E2520', 'Hover and zebra rows on an ink block'),
-  'ink-border': color('#3B312B', 'Rules on an ink block'),
-  'ink-body': color('#D9CEC2', 'Reading text on an ink block'),
-  'ink-subtle': color('#A89A8E', 'Secondary text on an ink block'),
-  'sand-card': color('#EFE7DB', 'Cards on a sand block'),
-  'sand-muted': color('#DDD0BE', 'Hover and zebra rows on a sand block'),
-  'sand-border': color('#CDBEAA', 'Rules on a sand block'),
-  'sand-body': color('#3E352F', 'Reading text on a sand block'),
-  'sand-subtle': color('#66584D', 'Secondary text on a sand block'),
+  'ink-card': color(neutral(900, 950, 25), 'Cards on an ink block'),
+  'ink-muted': color(neutral(800, 900, 75), 'Hover and zebra rows on an ink block'),
+  'ink-border': color(neutral(800, 900, 25), 'Rules on an ink block'),
+  'ink-body': color(neutral(200, 300, 25), 'Reading text on an ink block'),
+  'ink-subtle': color(neutral(400, 500, 25), 'Secondary text on an ink block'),
+  'sand-card': color(neutral(100), 'Cards on a sand block'),
+  'sand-muted': color(neutral(200, 300, 25), 'Hover and zebra rows on a sand block'),
+  'sand-border': color(neutral(300), 'Rules on a sand block'),
+  'sand-body': color(neutral(800), 'Reading text on a sand block'),
+  'sand-subtle': color(neutral(600, 700, 50), 'Secondary text on a sand block'),
 
   // The squiggle under an accent word is drawn from brand-deep, brand-bright
   // and on-brand-accent by components/Squiggles.jsx — a var can't hold its image.

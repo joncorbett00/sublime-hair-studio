@@ -9,30 +9,33 @@ colors:
   primary: '#C8401F'      # vermilion — the brand red, booking buttons, colour-block sections
   secondary: '#8C7B6B'    # taupe — a neutral, for anything the kit calls secondary
   accent: '#C8401F'       # the same vermilion: there is one colour, not two
-  neutral: stone          # warm greys
+  neutral: '#8C7B6B'      # taupe — the warm grey every surface and text colour is cut from
 
+# Every surface and every text colour below is cut from the neutral palette
+# (`colors.neutral`), through the house vars in foundation/main.js — paper,
+# sand and ink — so changing the neutral changes the whole page with it.
 contexts:
   light:
-    section: '#F6F0E6'    # bone paper
-    card: '#FFFCF6'
-    border: '#DDD0BE'
-    heading: '#17120F'
-    body: '#3E352F'
-    subtle: '#6F6259'
+    section: var(--paper)     # bone paper
+    card: 'color-mix(in oklch, white, var(--neutral-50) 25%)'
+    border: var(--sand-muted)
+    heading: var(--ink)
+    body: neutral-800
+    subtle: 'color-mix(in oklch, var(--neutral-600), var(--neutral-700) 25%)'
   medium:
-    section: '#ECE3D6'    # sand
-    card: '#F6F0E6'
-    border: '#D6C8B5'
-    heading: '#17120F'
-    body: '#3E352F'
-    subtle: '#66584D'
+    section: 'color-mix(in oklch, var(--neutral-100), var(--neutral-200) 25%)'   # sand
+    card: var(--paper)
+    border: 'color-mix(in oklch, var(--neutral-200), var(--neutral-300) 50%)'
+    heading: var(--ink)
+    body: neutral-800
+    subtle: var(--sand-subtle)
   dark:
-    section: '#17120F'    # ink
-    card: '#231C18'
-    border: '#3B312B'
-    heading: '#F6F0E6'
-    body: '#D9CEC2'
-    subtle: '#A89A8E'
+    section: var(--ink)       # ink
+    card: var(--ink-card)
+    border: var(--ink-border)
+    heading: var(--paper)
+    body: var(--ink-body)
+    subtle: var(--ink-subtle)
     primary: primary-500
     primary-hover: primary-400
 

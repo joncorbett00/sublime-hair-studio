@@ -20,14 +20,3 @@ returnHref: /../
 [Our Story](/story)
 [Visit us](/visit)
 
-<!-- The floating palette picker, for trying the site in another jewel. The
-     first is the house green (theme.yml). Delete this block to remove the
-     picker. -->
-```yaml:palettes
-- { id: emerald, name: Emerald, color: '#1C6B4F', bright: '#4DBE92', deep: '#185E45', pop: '#E6CD93' }
-- { id: bottle, name: Bottle green, color: '#23473A', bright: '#6FB597', deep: '#23473A', pop: '#E6CD93' }
-- { id: sapphire, name: Sapphire, color: '#1F3F8F', bright: '#7C98EE', deep: '#1C3981', pop: '#E6CD93' }
-- { id: garnet, name: Garnet, color: '#7A1F33', bright: '#D8657C', deep: '#7A1F33', pop: '#E6CD93' }
-- { id: amethyst, name: Amethyst, color: '#5B2E73', bright: '#B783D1', deep: '#5B2E73', pop: '#E6CD93' }
-- { id: teal, name: Peacock, color: '#0E6570', bright: '#3BB4BD', deep: '#0D5A63', pop: '#E6CD93' }
-```

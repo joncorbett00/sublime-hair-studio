@@ -9,34 +9,37 @@ colors:
   primary: '#1C6B4F'      # jewel green — buttons, the film-strip edge, colour-block sections
   secondary: '#6F7A72'    # a green-grey neutral, for anything the kit calls secondary
   accent: '#1C6B4F'       # the same green: there is one colour, not two
-  neutral: stone          # warm greys
+  neutral: '#7A7F72'      # green-grey — every surface and text colour is cut from it
 
+# Every surface and every text colour below is cut from the neutral palette
+# (`colors.neutral`), through the house vars in foundation/main.js — paper,
+# sand and ink — so changing the neutral changes the whole page with it.
 contexts:
   light:
-    section: '#F4F1E9'    # ivory paper
-    card: '#FBF9F3'
-    border: '#D9D2C2'
-    heading: '#121714'
-    body: '#37403A'
-    subtle: '#5C665F'
+    section: var(--paper)     # ivory paper
+    card: 'color-mix(in oklch, white, var(--neutral-50) 50%)'
+    border: var(--sand-muted)
+    heading: var(--ink)
+    body: 'color-mix(in oklch, var(--neutral-700), var(--neutral-800) 75%)'
+    subtle: 'color-mix(in oklch, var(--neutral-600), var(--neutral-700) 25%)'
     primary: primary-500  # the exact green on buttons (7:1 on paper)
     primary-hover: primary-600
   medium:
-    section: '#E9E4D8'    # sand
-    card: '#F4F1E9'
-    border: '#D2C9B6'
-    heading: '#121714'
-    body: '#37403A'
-    subtle: '#58625B'
+    section: 'color-mix(in oklch, var(--neutral-100), var(--neutral-200) 25%)'   # sand
+    card: var(--paper)
+    border: 'color-mix(in oklch, var(--neutral-200), var(--neutral-300) 50%)'
+    heading: var(--ink)
+    body: 'color-mix(in oklch, var(--neutral-700), var(--neutral-800) 75%)'
+    subtle: 'color-mix(in oklch, var(--neutral-600), var(--neutral-700) 25%)'
     primary: primary-500
     primary-hover: primary-600
   dark:
-    section: '#121714'    # ink
-    card: '#1C2420'
-    border: '#334039'
-    heading: '#F4F1E9'
-    body: '#D3D9D3'
-    subtle: '#9AA79F'
+    section: var(--ink)       # ink
+    card: neutral-900
+    border: 'color-mix(in oklch, var(--neutral-700), var(--neutral-800) 75%)'
+    heading: var(--paper)
+    body: neutral-200
+    subtle: neutral-400
     primary: primary-500
     primary-hover: primary-400
 
@@ -72,37 +75,14 @@ vars:
   # at its normal width, the foundation default). 100% to match Sublime.
   label-stretch: 125%
 
-  # The house colours (declared in foundation/main.js, where the defaults
-  # are Sublime's). A green-black ink and an ivory paper — a shade cooler
-  # than Sublime's, so the green sits in them rather than on them.
-  ink: '#121714'
-  paper: '#F4F1E9'
-  sand: '#E3DCCD'
-
-  # The one loud colour and the shades cut from it.
-  brand: '#1C6B4F'
-  brand-bright: '#4DBE92'     # lifted, for text on ink
-  brand-deep: '#185E45'       # deepened, for text on paper
-  brand-deeper: '#15533D'     # deeper again, for text on sand
-  brand-shade: '#175A42'      # cards inside a green block
-  brand-lift: '#26805F'       # button hover on ink
-  on-brand: '#EDF6F0'
-  on-brand-soft: '#BCD9CA'
+  # The house colours (declared in foundation/main.js) are cut from the
+  # theme's palettes, so they follow them: paper, sand, ink and the ink and
+  # sand blocks from `colors.neutral`; the one loud colour and its shades from
+  # `colors.primary`. Only the lifted shade is set here: a dark green needs a
+  # lighter step than the default to read on ink.
+  brand-bright: 'color-mix(in oklch, var(--primary-300), var(--primary-400))'
   # Champagne: the glint that only ever appears on the green — the accent
   # word, the focus ring and the seal's initial.
   on-brand-accent: '#E6CD93'
   on-brand-ring: '#E6CD93'
   seal-letter: '#E6CD93'
-
-  # The ink and sand blocks.
-  ink-card: '#1C2420'
-  ink-muted: '#25302A'
-  ink-border: '#334039'
-  ink-body: '#D3D9D3'
-  ink-subtle: '#9AA79F'
-  sand-card: '#EDE8DC'
-  sand-muted: '#D8D0BF'
-  sand-border: '#C8BEAA'
-  sand-body: '#37403A'
-  sand-subtle: '#5C665F'
-

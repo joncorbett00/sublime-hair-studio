@@ -19,17 +19,21 @@ const PAIRS = [
 export default function Squiggles() {
   const theme = useThemeData()
 
-  // A var may name another (`on-brand-accent: var(--ink)`): follow it to a hex.
-  const hex = (name, fallback) => {
-    let value = theme?.getFoundationVar(name)
-    for (let i = 0; i < 3 && typeof value === 'string'; i++) {
-      const ref = value.match(/^var\(--([\w-]+)\)$/)
-      if (!ref) break
-      value = theme.getFoundationVar(ref[1])
+  // A var may name another (`on-brand-accent: var(--ink)`) or shades of the
+  // theme's palette (`brand-deep: var(--primary-600)`, or a color-mix of
+  // two): put each in place until only colours are left.
+  const lookup = (name) => {
+    const shade = name.match(/^(\w+)-(\d+)$/)
+    return (shade && theme?.getColor(shade[1], Number(shade[2]))) || theme?.getFoundationVar(name)
+  }
+  const resolve = (name, fallback) => {
+    let value = lookup(name)
+    for (let i = 0; i < 3 && typeof value === 'string' && value.includes('var('); i++) {
+      value = value.replace(/var\(--([\w-]+)\)/g, (ref, n) => lookup(n) || ref)
     }
-    return /^#[0-9a-f]{6}$/i.test(value || '') ? value : fallback
+    return typeof value === 'string' && value && !value.includes('var(') ? value : fallback
   }
 
-  const css = PAIRS.map(([name, from, fallback]) => `--${name}:${squiggle(hex(from, fallback))};`).join('')
+  const css = PAIRS.map(([name, from, fallback]) => `--${name}:${squiggle(resolve(from, fallback))};`).join('')
   return <style dangerouslySetInnerHTML={{ __html: `:root{${css}}` }} />
 }
