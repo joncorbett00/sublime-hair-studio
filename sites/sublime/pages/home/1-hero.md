@@ -3,6 +3,10 @@ type: Hero
 frame: gate
 theme: dark
 stamp: The focus is on you
+seal: ring
+inset: print
+layout: split
+flipped: false
 ---
 
 #> Golden Triangle · Ottawa

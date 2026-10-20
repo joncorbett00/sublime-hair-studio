@@ -1,8 +1,9 @@
 ---
 type: Promo
-tone: brand
+tone: sand
 figure: 10%
-figureLabel: off
+figureLabel: 'off'
+coupon: true
 ---
 
 <!-- PLACEHOLDER TERMS: confirm with the studio which services the offer covers,
