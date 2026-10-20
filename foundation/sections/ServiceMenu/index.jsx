@@ -69,10 +69,16 @@ function bookingLink(service, { squareBase, bookHref, enquireHref }) {
 }
 
 /**
+ * What a screen reader hears for a service's button. Kit labels every off-site
+ * link "Open external link", which drops which service the button books.
+ */
+const bookingLabel = (service, words) => `${service.bookable === false ? words.enquire : words.book} — ${service.title}`
+
+/**
  * The homepage teaser: three offering cards. `highlight` sets one of them in
  * the brand colour — the colour block in a row of paper.
  */
-function Cards({ services, highlight, highlightLabel, links }) {
+function Cards({ services, highlight, highlightLabel, numbered, links, words }) {
   const cols = services.length >= 3 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2'
   return (
     <ul className={cn('mt-16 grid grid-cols-1 gap-8 lg:gap-10', cols)}>
@@ -83,7 +89,7 @@ function Cards({ services, highlight, highlightLabel, links }) {
           <li key={s.slug} className={cn(featured && 'lg:-translate-y-6')}>
             <article className={cn('framed lift flex h-full flex-col p-8 sm:p-9', featured && 'tone tone-brand')}>
               <div className="flex items-center justify-between gap-4">
-                <span className="font-display text-lg italic text-accent-ink" aria-hidden="true">No.&thinsp;{pad(i + 1)}</span>
+                <span className="font-display text-lg italic text-accent-ink" aria-hidden="true">{numbered && <>No.&thinsp;{pad(i + 1)}</>}</span>
                 {featured && highlightLabel ? (
                   <span className="caps bg-heading px-2.5 py-1.5 text-[0.5625rem] text-section">{highlightLabel}</span>
                 ) : (
@@ -95,8 +101,8 @@ function Cards({ services, highlight, highlightLabel, links }) {
               {s.description && <p className="mt-5 flex-1 text-[0.9375rem] leading-relaxed text-body">{s.description}</p>}
               <div className="mt-8 flex items-end justify-between gap-4 border-t border-heading/25 pt-6">
                 <Price service={s} />
-                <Link href={href} className="text-cta shrink-0">
-                  {s.bookable === false ? 'Enquire' : 'Book'} <Icon name="lu-arrow-right" size="13" />
+                <Link href={href} className="text-cta shrink-0" aria-label={bookingLabel(s, words)}>
+                  {s.bookable === false ? words.enquire : words.book} <Icon name="lu-arrow-right" size="13" />
                 </Link>
               </div>
             </article>
@@ -132,12 +138,20 @@ export default function ServiceMenu({ content, params, block }) {
     photosSource = '/data/gallery.json',
     highlight = 0,
     highlightLabel = 'Signature',
+    featuredLabel = 'Signature',
+    bookLabel = 'Book',
+    enquireLabel = 'Enquire',
+    allLabel = 'All',
+    numbered = true,
+    emptyText = 'Nothing in that category yet.',
+    closeLabel = 'Close',
     note = '',
     tone = '',
   } = params
   const cards = layout === 'cards'
   const { website } = useWebsite()
   const links = { squareBase: website.config?.booking?.services, bookHref, enquireHref }
+  const words = { book: bookLabel, enquire: enquireLabel }
 
   const { data: fetchedPhotos } = useFetched(!cards && photosSource ? { path: photosSource } : null)
   const photosByService = useMemo(() => {
@@ -151,7 +165,7 @@ export default function ServiceMenu({ content, params, block }) {
   }, [fetchedPhotos])
 
   const categories = [...new Set(services.map((s) => s.category).filter(Boolean))]
-  const [active, setActive] = useState('All')
+  const [active, setActive] = useState(null) // the category filter; null is all of them
   const [viewing, setViewing] = useState(null) // { service, index }
 
   const viewingShots = viewing ? photosByService.get(viewing.service.slug) || [] : []
@@ -167,7 +181,7 @@ export default function ServiceMenu({ content, params, block }) {
 
   if (block.dataLoading) return <DataPlaceholder lines={10} />
 
-  const visible = active === 'All' ? services : services.filter((s) => s.category === active)
+  const visible = active === null ? services : services.filter((s) => s.category === active)
 
   return (
     <div className={toneClass(tone)}>
@@ -188,14 +202,14 @@ export default function ServiceMenu({ content, params, block }) {
         </div>
 
         {cards ? (
-          <Cards services={services} highlight={highlight} highlightLabel={highlightLabel} links={links} />
+          <Cards services={services} highlight={highlight} highlightLabel={highlightLabel} numbered={numbered} links={links} words={words} />
         ) : (
           <>
             {showFilter && categories.length > 1 && (
               <div className="mt-14 flex flex-wrap gap-2" role="group" aria-label="Filter services by category">
-                {['All', ...categories].map((cat) => (
+                {[null, ...categories].map((cat) => (
                   <button
-                    key={cat}
+                    key={cat ?? 'all'}
                     type="button"
                     onClick={() => setActive(cat)}
                     aria-pressed={active === cat}
@@ -206,7 +220,7 @@ export default function ServiceMenu({ content, params, block }) {
                         : 'border-heading/25 text-heading hover:border-heading'
                     )}
                   >
-                    {cat}
+                    {cat ?? allLabel}
                   </button>
                 ))}
               </div>
@@ -230,15 +244,15 @@ export default function ServiceMenu({ content, params, block }) {
                       const roomy = s.description || photos.length > 0
                       return (
                         <li key={s.slug} className={cn('border-b border-heading/25', roomy ? 'py-10' : 'py-6')}>
-                          <article className="grid gap-6 md:grid-cols-[4rem_1fr_auto] md:gap-10">
-                            <span className="font-display hidden text-2xl italic leading-none text-accent-ink md:block" aria-hidden="true">
+                          <article className={cn('grid gap-6 md:gap-10', numbered ? 'md:grid-cols-[4rem_1fr_auto]' : 'md:grid-cols-[1fr_auto]')}>
+                            <span className={cn('font-display hidden text-2xl italic leading-none text-accent-ink', numbered && 'md:block')} aria-hidden="true">
                               {pad(number)}
                             </span>
                             <div className="min-w-0">
                               <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                                 <h4 className={cn('font-display font-medium leading-tight tracking-tight text-heading', roomy ? 'text-3xl sm:text-[2.25rem]' : 'text-2xl sm:text-[1.75rem]')}>{s.title}</h4>
-                                {s.featured && (
-                                  <span className="caps bg-heading px-2.5 py-1.5 text-[0.5625rem] text-section">Signature</span>
+                                {s.featured && featuredLabel && (
+                                  <span className="caps bg-heading px-2.5 py-1.5 text-[0.5625rem] text-section">{featuredLabel}</span>
                                 )}
                               </div>
                               {s.tagline && <p className="font-display mt-2 text-lg italic text-accent-ink">{s.tagline}</p>}
@@ -252,14 +266,14 @@ export default function ServiceMenu({ content, params, block }) {
 
                             <div className="flex items-center justify-between gap-6 md:flex-col md:items-end md:justify-start">
                               <Price service={s} className="md:text-right" />
-                              <Button href={bookingLink(s, links)} size="sm" tone={s.bookable === false ? 'outline' : 'primary'}>
-                                {s.bookable === false ? 'Enquire' : 'Book'}
+                              <Button href={bookingLink(s, links)} aria-label={bookingLabel(s, words)} size="sm" tone={s.bookable === false ? 'outline' : 'primary'}>
+                                {s.bookable === false ? enquireLabel : bookLabel}
                               </Button>
                             </div>
                           </article>
 
                           {photos.length > 0 && (
-                            <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 md:ml-[6.5rem] md:max-w-3xl" aria-label={`Photos of ${s.title}`}>
+                            <ul className={cn('mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 md:max-w-3xl', numbered && 'md:ml-[6.5rem]')} aria-label={`Photos of ${s.title}`}>
                               {photos.slice(0, STRIP).map((photo, i) => {
                                 const more = i === STRIP - 1 ? photos.length - STRIP : 0
                                 return (
@@ -295,14 +309,14 @@ export default function ServiceMenu({ content, params, block }) {
               ))}
             </div>
 
-            {visible.length === 0 && <p className="mt-10 text-center text-subtle">Nothing in that category yet.</p>}
+            {visible.length === 0 && emptyText && <p className="mt-10 text-center text-subtle">{emptyText}</p>}
           </>
         )}
 
         {note && <p className="font-display mx-auto mt-14 max-w-xl text-center text-lg italic text-subtle">{note}</p>}
 
         {viewing && (
-          <Lightbox shots={viewingShots} index={viewing.index} onClose={closeViewer} onStep={stepViewer} subtitle={viewing.service.title} />
+          <Lightbox shots={viewingShots} index={viewing.index} onClose={closeViewer} onStep={stepViewer} subtitle={viewing.service.title} closeLabel={closeLabel} />
         )}
       </div>
     </div>

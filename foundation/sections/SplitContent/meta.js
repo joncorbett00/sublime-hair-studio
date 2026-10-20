@@ -1,4 +1,5 @@
 import { toneParam } from '#components/tone.js'
+import { frameParam } from '#components/frame.js'
 
 export default {
   title: 'Split Content',
@@ -15,14 +16,11 @@ export default {
 
   params: {
     flipped: { type: 'boolean', label: 'Photo on the left', default: false },
-    frame: {
-      type: 'select', label: 'Photo frame',
-      options: [
-        { value: 'rounded', label: 'Square' },
-        { value: 'arch', label: 'Arched window' },
-        { value: 'gate', label: 'Film frame — softly rounded corners' },
-      ],
-      default: 'rounded',
+    frame: frameParam('rounded'),
+    listColumns: {
+      type: 'select', label: 'List columns',
+      options: [{ value: 1, label: '1' }, { value: 2, label: '2' }],
+      default: 2,
     },
     monochrome: { type: 'boolean', label: 'Black-and-white photo', default: false },
     captionLabel: { type: 'string', label: 'Caption label', description: 'The italic word before the photo caption — "Fig.", "Still". Empty for none.', default: 'Fig.' },

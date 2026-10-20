@@ -1,5 +1,7 @@
 import { H1, H2, P, cn } from '@uniweb/kit'
+import { oneLine } from '#utils/text.js'
 import Button from '#components/Button.jsx'
+import { toneClass } from '#components/tone.js'
 import { buttonLinks, linkProps } from '#utils/links.js'
 
 /**
@@ -15,6 +17,7 @@ export default function Section({ content, params }) {
   const {
     align = 'center',
     width = 'default',
+    tone = '',
   } = params || {}
 
   const alignments = {
@@ -31,7 +34,7 @@ export default function Section({ content, params }) {
   }
 
   return (
-    <div className={cn('py-[var(--section-padding-y)] px-6', alignments[align])}>
+    <div className={cn('py-[var(--section-padding-y)] px-6', alignments[align], toneClass(tone))}>
       <div className={cn('mx-auto', widths[width])}>
         {pretitle && (
           <p className="caps mb-5 text-[0.6875rem] text-accent-ink">
@@ -41,8 +44,8 @@ export default function Section({ content, params }) {
 
         {title && (
           <H1
-            text={title}
-            className="font-display mb-5 text-4xl font-medium leading-[1.02] tracking-tight text-heading sm:text-5xl"
+            text={oneLine(title)}
+            className="font-display mb-5 text-balance text-4xl font-medium leading-[1.02] tracking-tight text-heading sm:text-5xl"
           />
         )}
 

@@ -8,8 +8,7 @@ tone: sand
 
 #> What we look for
 
-# The label, the cut,
-# the [cloth]{accent}
+# The label, the cut, the [cloth]{accent}
 
 Every piece on the racks has earned its place. We check the same four things before
 anything comes back to the shop, and we'll tell you what we found.

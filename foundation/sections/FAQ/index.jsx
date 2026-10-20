@@ -7,17 +7,26 @@ import { toneClass } from '#components/tone.js'
  * Questions people actually ask, as a numbered, ruled index: the heading sits
  * to the left on wide screens and the questions run down the right. The open
  * question turns italic, in the accent colour.
+ *
+ * `layout: stacked` puts the heading above the questions instead;
+ * `openFirst` opens the first answer; `numbered` shows the 01, 02… column.
  */
 export default function FAQ({ content, params, block }) {
   const { pretitle, title, paragraphs, items } = content
-  const { tone = '' } = params
+  const { layout = 'side', openFirst = true, numbered = true, tone = '' } = params
   const entries = content.data?.faq?.items || items
-  const [open, setOpen] = useState(0)
+  const [open, setOpen] = useState(openFirst ? 0 : -1)
+  const side = layout !== 'stacked'
 
   return (
     <div className={toneClass(tone)}>
-      <div className="mx-auto grid max-w-[var(--max-content-width)] gap-12 px-6 py-[var(--section-padding-y)] lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-        <div className="lg:sticky lg:top-[calc(var(--header-height)+3rem)] lg:self-start">
+      <div
+        className={cn(
+          'mx-auto grid max-w-[var(--max-content-width)] gap-12 px-6 py-[var(--section-padding-y)]',
+          side ? 'lg:grid-cols-[0.8fr_1.2fr] lg:gap-20' : 'max-w-4xl'
+        )}
+      >
+        <div className={cn(side && 'lg:sticky lg:top-[calc(var(--header-height)+3rem)] lg:self-start')}>
           <Shout pretitle={pretitle} title={title} block={block} size="md">
             {paragraphs.map((p, i) => (
               <P key={i} text={p} className="mt-6 text-lg leading-relaxed text-body" />
@@ -36,9 +45,12 @@ export default function FAQ({ content, params, block }) {
                     onClick={() => setOpen(isOpen ? -1 : i)}
                     aria-expanded={isOpen}
                     aria-controls={`faq-${block?.id ?? 'x'}-${i}`}
-                    className="group grid w-full grid-cols-[2.5rem_1fr_auto] items-center gap-3 py-6 text-left sm:grid-cols-[3.5rem_1fr_auto]"
+                    className={cn(
+                      'group grid w-full items-center gap-3 py-6 text-left',
+                      numbered ? 'grid-cols-[2.5rem_1fr_auto] sm:grid-cols-[3.5rem_1fr_auto]' : 'grid-cols-[1fr_auto]'
+                    )}
                   >
-                    <span className="font-display text-sm italic text-subtle" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                    {numbered && <span className="font-display text-sm italic text-subtle" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>}
                     <span
                       className={cn(
                         'font-display text-xl leading-snug tracking-tight transition-colors sm:text-2xl',
@@ -59,7 +71,7 @@ export default function FAQ({ content, params, block }) {
                   </button>
                 </h3>
                 {isOpen && (
-                  <div id={`faq-${block?.id ?? 'x'}-${i}`} className="pb-7 pl-[2.75rem] pr-12 sm:pl-[4.25rem]">
+                  <div id={`faq-${block?.id ?? 'x'}-${i}`} className={cn('pb-7 pr-12', numbered && 'pl-[2.75rem] sm:pl-[4.25rem]')}>
                     {item.paragraphs.map((p, j) => (
                       <P key={j} text={p} className="max-w-2xl leading-relaxed text-body [&:not(:first-child)]:mt-3" />
                     ))}

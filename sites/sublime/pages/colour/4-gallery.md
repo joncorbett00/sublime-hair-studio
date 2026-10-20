@@ -8,5 +8,4 @@ fetch: { query: gallery, where: { category: Colour } }
 
 #> Recent colour
 
-# Bright on purpose,
-# soft on purpose
+# Bright on purpose, soft on purpose

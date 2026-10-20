@@ -33,9 +33,32 @@ export const vars = {
   'section-padding-y': { default: 'clamp(4.5rem, 9vw, 8.5rem)', description: 'Vertical section padding' },
   'section-padding-x': { default: '1.5rem', description: 'Horizontal section padding' },
 
+  'label-stretch': {
+    default: '100%',
+    description: 'Width of the capital-letter labels, buttons and nav — 100% is the body face as it is; 125% sets them in Archivo’s wide cut, which reads as a face of its own.',
+  },
+
+  'section-numbers': {
+    type: 'select',
+    label: 'Section numbers',
+    description: 'The italic "No. 01" before each section’s label.',
+    options: [{ value: 'inline', label: 'Show' }, { value: 'none', label: 'Hide' }],
+    default: 'inline',
+  },
+
+  'display-stretch': {
+    default: '100%',
+    description: 'Width of the headline face — 100% is the face as it is; with a variable-width face like Archivo, 87.5% sets headlines in its semi-condensed cut and 112.5% in its semi-expanded one.',
+  },
+
   'font-display': {
     default: "'Archivo', ui-sans-serif, system-ui, sans-serif",
-    description: 'Face for headlines, numbers and prices. The wordmark keeps Bodoni Moda (--font-logo in styles.css).',
+    description: 'Face for headlines, numbers and prices.',
+  },
+
+  'font-logo': {
+    default: "'Bodoni Moda', 'Didot', ui-serif, Georgia, serif",
+    description: 'Face for the letter in the middle of the turning seal and the wordmark set in type. Set per site as `logo:` under `fonts:` in theme.yml.',
   },
 
   // The neutrals.

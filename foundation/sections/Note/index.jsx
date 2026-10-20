@@ -1,4 +1,5 @@
 import { P, Span, Icon, Link, cn } from '@uniweb/kit'
+import { oneLine } from '#utils/text.js'
 import { linkProps } from '#utils/links.js'
 
 /**
@@ -8,16 +9,16 @@ import { linkProps } from '#utils/links.js'
  */
 export default function Note({ content, params }) {
   const { pretitle, title, paragraphs, links } = content
-  const { align = 'center' } = params
+  const { align = 'center', style = 'outline' } = params
   const center = align === 'center'
 
   return (
     <div className="mx-auto max-w-[var(--max-content-width)] px-6 py-14">
-      <aside className={cn('max-w-xl border border-heading/25 px-7 py-6', center ? 'mx-auto text-center' : '')}>
+      <aside className={cn('max-w-xl px-7 py-6', style === 'filled' ? 'framed' : 'border border-heading/25', center ? 'mx-auto text-center' : '')}>
         {pretitle && <p className="caps text-[0.5625rem] text-subtle">{pretitle}</p>}
         {title && (
           <p className="font-display mt-2 text-xl font-medium italic leading-snug text-heading">
-            <Span text={Array.isArray(title) ? title.join(' ') : title} />
+            <Span text={oneLine(title)} />
           </p>
         )}
         {paragraphs.map((p, i) => (

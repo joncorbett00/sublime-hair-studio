@@ -9,8 +9,7 @@ cardTitle: A creative colour Saturday
 
 #> How a colour day goes
 
-# Long, but
-# never [a guess]{accent}
+# Long, but never [a guess]{accent}
 
 The plan is made at the consult, so on the day nobody is improvising with bleach. You'll know
 how many sittings it takes, what it costs, and what it will look like in six weeks, before

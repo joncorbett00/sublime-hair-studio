@@ -11,12 +11,23 @@ import { buttonLinks } from '#utils/links.js'
  * The heading carries the date of the latest one, so the page says how fresh
  * it is without anyone updating the copy.
  *
- * Reads the `finds` query; shows its first `count` pieces.
+ * Reads the `finds` query; shows its first `count` pieces. `layout: row`
+ * sets them as an even row instead of the stepped spread.
  */
 export default function NewArrivals({ content, params, block }) {
   const { pretitle, title, paragraphs } = content
   const links = buttonLinks(content || {})
-  const { count = 3, tone = '' } = params
+  const {
+    count = 3,
+    layout = 'spread',
+    latestLabel = 'Latest find',
+    newLabel = 'Just in',
+    noPriceLabel = 'Ask',
+    emptyText = 'New finds are on their way — in the meantime, the shop is open.',
+    tone = '',
+  } = params
+  const words = { newLabel, noPriceLabel }
+  const spread = layout !== 'row'
   const pieces = (content.data?.finds || []).slice(0, Math.max(1, Number(count) || 3))
   const [lead, ...rest] = pieces
   const latest = lead?.added ? arrivalDate(lead.added) : ''
@@ -29,7 +40,7 @@ export default function NewArrivals({ content, params, block }) {
           <div>
             {latest && (
               <p className="caps text-[0.625rem] text-heading">
-                Latest find&ensp;<span className="font-display text-base font-medium normal-case italic tracking-normal text-accent-ink [font-stretch:normal]">{latest}</span>
+                {latestLabel && <>{latestLabel}&ensp;</>}<span className="font-display text-base font-medium normal-case italic tracking-normal text-accent-ink [font-stretch:var(--display-stretch)]">{latest}</span>
               </p>
             )}
             {paragraphs.map((p, i) => (
@@ -45,22 +56,28 @@ export default function NewArrivals({ content, params, block }) {
 
         {block.dataLoading ? (
           <div className="mt-16"><DataPlaceholder lines={6} /></div>
-        ) : lead ? (
+        ) : lead && spread ? (
           <ul className={cn('mt-16 grid grid-cols-1 gap-x-10 gap-y-16 sm:grid-cols-2', rest.length && 'lg:grid-cols-[1.45fr_1fr_1fr]')}>
             <li className="sm:col-span-2 lg:col-span-1">
-              <PieceCard piece={lead} isNew size="lg" eager />
+              <PieceCard piece={lead} isNew size="lg" eager words={words} />
             </li>
             {rest.map((piece, i) => (
               <li key={piece.slug || piece.$name} className={cn(i === 0 ? 'lg:mt-28' : 'lg:mt-56')}>
-                <PieceCard piece={piece} isNew />
+                <PieceCard piece={piece} isNew words={words} />
               </li>
             ))}
           </ul>
-        ) : (
-          <p className="font-display mt-16 text-2xl italic text-subtle">
-            New finds are on their way — in the meantime, the shop is open.
-          </p>
-        )}
+        ) : lead ? (
+          <ul className={cn('mt-16 grid grid-cols-1 gap-x-10 gap-y-16 sm:grid-cols-2', pieces.length >= 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3')}>
+            {pieces.map((piece, i) => (
+              <li key={piece.slug || piece.$name}>
+                <PieceCard piece={piece} isNew eager={i === 0} words={words} />
+              </li>
+            ))}
+          </ul>
+        ) : emptyText ? (
+          <p className="font-display mt-16 text-2xl italic text-subtle">{emptyText}</p>
+        ) : null}
       </div>
     </div>
   )

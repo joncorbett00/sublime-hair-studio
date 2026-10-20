@@ -1,4 +1,5 @@
 import { toneParam } from '#components/tone.js'
+import { findWordParams, emptyParam } from '#components/findWords.js'
 
 export default {
   title: 'Finds',
@@ -48,6 +49,8 @@ export default {
       ],
       default: 3,
     },
+    ...findWordParams,
+    emptyText: emptyParam,
     tone: toneParam,
   },
 

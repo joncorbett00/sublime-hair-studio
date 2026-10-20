@@ -4,8 +4,7 @@ type: SplitContent
 
 #> The studio
 
-# Upstairs, and
-# cozy [on purpose]{accent}
+# Upstairs, and cozy [on purpose]{accent}
 
 Street level on Elgin is busy. Up our stairs it isn't. The studio sits on a second
 floor in the Golden Triangle — a warm room with good light, a few chairs, and music

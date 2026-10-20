@@ -1,4 +1,5 @@
 import { H1, H2, cn } from '@uniweb/kit'
+import { oneLine } from '#utils/text.js'
 
 /**
  * Section headline: the numbered eyebrow and the poster-sized heading. Used by most
@@ -38,9 +39,9 @@ export default function Shout({ pretitle, title, block, align = 'left', size = '
       {pretitle ? <Eyebrow block={block} className="mb-6">{pretitle}</Eyebrow> : null}
       {title ? (
         <Heading
-          text={title}
+          text={oneLine(title)}
           /* Size before leading: tailwind-merge drops a line-height that comes before a font size. */
-          className={cn('font-display text-heading font-medium tracking-[-0.02em]', sizes[size] || sizes.lg, 'leading-[0.98]')}
+          className={cn('font-display text-heading text-balance font-medium tracking-[-0.02em]', sizes[size] || sizes.lg, 'leading-[0.98]')}
         />
       ) : null}
       {children}

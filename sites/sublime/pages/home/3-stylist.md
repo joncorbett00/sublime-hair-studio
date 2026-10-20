@@ -6,8 +6,7 @@ frame: arch
 
 #> Behind the chair
 
-# All the precision,
-# [none of the fuss]{accent}
+# All the precision, [none of the fuss]{accent}
 
 Sonia started her apprenticeship at thirteen and went on to train with Vidal Sassoon and
 Toni & Guy London. She came home from New York's SoHo loft salons wanting their obsession

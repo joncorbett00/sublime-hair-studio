@@ -8,8 +8,7 @@ type: Timeline
 
 #> The owner
 
-# Sonia,
-# [so far]{accent}
+# Sonia, [so far]{accent}
 
 Sublime Hair Studio is an outlet for Sonia's creative imagination and unique stylistic
 approaches. She puts an incredible amount of dedication into creating a personalized,

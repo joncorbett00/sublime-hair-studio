@@ -2,8 +2,9 @@
 type: Footer
 theme: dark
 edge: selvedge
+signature: false
 signoff: vintage, designer & everyday
-logo: /images/bijou-logo.png
+logo: /images/bijou-poodle-light.png
 credit: Created by Proximify Studios
 creditHref: https://proximify.ca
 ---
@@ -12,6 +13,8 @@ creditHref: https://proximify.ca
 
 A boutique one flight up on MacLaren Street, Ottawa: curated vintage, designer
 and everyday clothing. A few key finds online; many more on the racks.
+
+[Instagram](https://www.instagram.com/bijouboutique613/)
 
 ```yaml:hours
 - { day: Monday, open: Closed }
@@ -29,5 +32,5 @@ and everyday clothing. A few key finds online; many more on the racks.
   - [Our story](/story)
   - [Visit us](/visit)
 
-[Privacy](/visit)
-[Accessibility](/visit)
+[Privacy](/privacy)
+[Accessibility](/accessibility)

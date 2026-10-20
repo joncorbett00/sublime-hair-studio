@@ -2,6 +2,7 @@ import { P, Icon, cn } from '@uniweb/kit'
 import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
+import { frameClass } from '#components/frame.js'
 import { buttonLinks, linkProps } from '#utils/links.js'
 
 /**
@@ -15,13 +16,16 @@ import { buttonLinks, linkProps } from '#utils/links.js'
  * the headline, then a paragraph and one photo — its alt text is the caption.
  *
  * A photo written before the first chapter is the subject's portrait: it sits
- * in an arched mat beside the heading, so the story opens on a face.
+ * in a mat beside the heading (`frame`), so the story opens on a face.
+ *
+ * `alternate: false` keeps every photo on the same side.
  */
 export default function Timeline({ content, params, block }) {
   const { pretitle, title, paragraphs, images, items } = content
   const links = buttonLinks(content)
-  const { tone = '' } = params
+  const { frame = 'arch', alternate = true, captionLabel = 'Fig.', tone = '' } = params
   const portrait = images[0]
+  const caption = (text) => <>{captionLabel && <><b>{captionLabel}</b>&ensp;</>}{text}</>
 
   const intro = (paragraphs.length > 0 || links.length > 0) && (
     <div>
@@ -47,7 +51,7 @@ export default function Timeline({ content, params, block }) {
         {portrait ? (
           <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,26rem)_1fr] lg:gap-24">
             <figure className="mx-auto w-full max-w-sm lg:max-w-none">
-              <div className="mat arch">
+              <div className={cn('mat', frameClass(frame))}>
                 <span aria-hidden="true" className="halo" />
                 <img
                   src={portrait.url || portrait.src}
@@ -58,7 +62,7 @@ export default function Timeline({ content, params, block }) {
               </div>
               {portrait.alt && (
                 <figcaption className="figcap mt-8">
-                  <b>Fig.</b>&ensp;{portrait.alt}
+                  {caption(portrait.alt)}
                 </figcaption>
               )}
             </figure>
@@ -80,7 +84,7 @@ export default function Timeline({ content, params, block }) {
 
           {items.map((item, i) => {
             const image = item.images?.[0]
-            const photoFirst = i % 2 === 1
+            const photoFirst = alternate && i % 2 === 1
             return (
               <li key={i} className="relative grid gap-8 pb-20 pl-10 last:pb-0 lg:grid-cols-2 lg:gap-28 lg:pl-0 lg:pb-28">
                 <span
@@ -116,7 +120,7 @@ export default function Timeline({ content, params, block }) {
                     </div>
                     {image.alt && (
                       <figcaption className="figcap mt-4">
-                        <b>Fig.</b>&ensp;{image.alt}
+                        {caption(image.alt)}
                       </figcaption>
                     )}
                   </figure>

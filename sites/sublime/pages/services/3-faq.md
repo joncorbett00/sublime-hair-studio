@@ -5,8 +5,7 @@ theme: medium
 
 #> Before you book
 
-# Questions we get
-# every single week
+# Questions we get every single week
 
 ### How long does creative colour actually take?
 Between four and seven hours, and occasionally two appointments. If your photo shows
@@ -22,9 +21,9 @@ Yes. Tell us when you book so we can put enough time aside, and bring the box if
 still have it. The ingredients list genuinely helps.
 
 ### What is your cancellation policy?
-There's no deposit and no cancellation fee. All we ask is twenty-four hours' notice when
-you can manage it — we're a small studio, and a four-hour slot that goes empty is a real
-loss. Life happens, though, so if it's shorter notice than that, just tell us.
+Please reschedule or cancel at least 48 hours before your appointment; later than that,
+there is a $50 cancellation fee. We take a credit card when you book, and it is only
+charged if you cancel within those 48 hours.
 
 ### What products do you use, and can I buy them?
 We work with René Furterer and Keune — salon lines you'll only find at Sublime in Ottawa —
@@ -41,7 +40,7 @@ starts at $55. Under five is usually better at a place set up for it, and we wil
 happily point you at one.
 
 ### Can I really get a cut on my lunch break?
-Yes. Book The Lunch-Hour Cut: 45 minutes, starting from noon, for a repeat of a shape
+Yes. Book The Lunch-Hour Cut: 45 minutes over your lunch hour, for a repeat of a shape
 you already like. If you want something new, book a full cut so there's time to talk.
 
 ### Are you accessible?

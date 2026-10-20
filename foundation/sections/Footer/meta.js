@@ -1,4 +1,5 @@
 import { wordmarkParams } from '#utils/wordmark.js'
+import { toneParam } from '#components/tone.js'
 
 export default {
   title: 'Footer',
@@ -18,6 +19,9 @@ export default {
   },
 
   params: {
+    tone: { ...toneParam, label: 'Colour', default: 'ink' },
+    signature: { type: 'boolean', label: 'Sign off with the big wordmark or logo', default: true },
+    hoursLabel: { type: 'string', label: 'Hours heading', default: 'Hours' },
     edge: {
       type: 'select', label: 'Edge along the top',
       options: [

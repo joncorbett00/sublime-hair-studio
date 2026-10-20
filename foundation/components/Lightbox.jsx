@@ -9,7 +9,7 @@ import { Overlay, Icon } from '@uniweb/kit'
  * paging a service's results and paging the wall feel like the same thing.
  * `subtitle` is whatever the caller wants in front of the "03 / 08" counter.
  */
-export default function Lightbox({ shots, index, onClose, onStep, subtitle }) {
+export default function Lightbox({ shots, index, onClose, onStep, subtitle, closeLabel = 'Close' }) {
   useEffect(() => {
     if (index === null) return
     const onKey = (e) => {
@@ -44,7 +44,7 @@ export default function Lightbox({ shots, index, onClose, onStep, subtitle }) {
         </div>
 
         <div className="mt-8 max-w-2xl text-center">
-          <p className="font-display text-xl italic text-paper sm:text-2xl">{shot.caption || shot.title}</p>
+          <p className="text-lg leading-relaxed text-paper sm:text-xl">{shot.caption || shot.title}</p>
           <p className="caps mt-3 text-[0.625rem] text-[var(--brand-bright)]">
             {subtitle ? `${subtitle} · ` : ''}{pad(index + 1)} / {pad(shots.length)}
           </p>
@@ -55,7 +55,7 @@ export default function Lightbox({ shots, index, onClose, onStep, subtitle }) {
           onClick={onClose}
           className="caps mt-6 border border-paper/40 px-5 py-3 text-[0.625rem] text-paper transition-colors hover:bg-paper hover:text-ink"
         >
-          Close
+          {closeLabel}
         </button>
       </div>
     </Overlay>

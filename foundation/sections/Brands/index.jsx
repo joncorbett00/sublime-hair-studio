@@ -28,7 +28,7 @@ const host = (href = '') => href.replace(/^https?:\/\/(www\.)?/, '').replace(/\/
  */
 export default function Brands({ content, params, block }) {
   const { pretitle, title, paragraphs, items } = content
-  const { columns = 4, note = '', moreLabel = 'Read more', tone = '' } = params
+  const { columns = 4, numbered = true, showImages = true, note = '', moreLabel = 'Read more', tone = '' } = params
   const [open, setOpen] = useState(null)
   const brand = open === null ? null : items[open]
 
@@ -48,7 +48,7 @@ export default function Brands({ content, params, block }) {
 
         <ul className={cn('mt-16 grid grid-cols-1 gap-8', COLS[columns] || COLS[4])}>
           {items.map((item, i) => {
-            const image = item.images?.[0]
+            const image = showImages ? item.images?.[0] : null
             return (
               <li key={i} className="flex">
                 <button
@@ -63,7 +63,7 @@ export default function Brands({ content, params, block }) {
                   <div className="flex flex-1 flex-col p-7 sm:p-8">
                     <div className="flex items-baseline justify-between gap-4">
                       <span className="caps text-[0.5625rem] text-accent-ink">{item.subtitle}</span>
-                      <span className="font-display shrink-0 text-sm italic text-subtle" aria-hidden="true">No.&thinsp;{pad(i + 1)}</span>
+                      {numbered && <span className="font-display shrink-0 text-sm italic text-subtle" aria-hidden="true">No.&thinsp;{pad(i + 1)}</span>}
                     </div>
                     <h3 className="font-display mt-4 text-[2rem] font-medium leading-tight tracking-tight text-heading">
                       {item.title}

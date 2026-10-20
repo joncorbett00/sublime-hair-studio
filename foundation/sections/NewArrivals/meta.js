@@ -1,4 +1,5 @@
 import { toneParam } from '#components/tone.js'
+import { findWordParams, emptyParam } from '#components/findWords.js'
 
 export default {
   family: 'teaser',
@@ -23,6 +24,17 @@ export default {
       description: 'How many of the newest finds to feature. Three fills the spread.',
       default: 3,
     },
+    layout: {
+      type: 'select', label: 'Layout',
+      options: [
+        { value: 'spread', label: 'Spread — the latest large, the rest stepped down' },
+        { value: 'row', label: 'An even row' },
+      ],
+      default: 'spread',
+    },
+    latestLabel: { type: 'string', label: 'Words before the latest date', description: 'Empty to show just the date.', default: 'Latest find' },
+    ...findWordParams,
+    emptyText: emptyParam,
     tone: toneParam,
   },
 }

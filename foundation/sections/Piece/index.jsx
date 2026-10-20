@@ -1,9 +1,12 @@
 import { useState } from 'react'
-import { Link, Icon, Article, DataPlaceholder, useWebsite, cn } from '@uniweb/kit'
+import { H1, P, Link, Icon, Article, DataPlaceholder, useWebsite, cn } from '@uniweb/kit'
+import { oneLine } from '#utils/text.js'
 import Button from '#components/Button.jsx'
 import PieceTag from '#components/PieceTag.jsx'
 import { money } from '#components/money.js'
 import { markOf, placeOf, arrivalDate, photo, photoSrcSet, enquiryHref } from '#utils/finds.js'
+import { frameClass } from '#components/frame.js'
+import { buttonLinks, linkProps } from '#utils/links.js'
 
 /** One ruled row of facts: a label in wide capitals, then the value. */
 function Fact({ label, children }) {
@@ -27,10 +30,36 @@ function Fact({ label, children }) {
  *
  * `finds` holds this page's piece (the page's route query delivers it). `all`
  * is every find, so the page knows whether the piece is "Just in".
+ *
+ * Every label on the page is a setting. The section's own markdown is the
+ * message shown when a piece has come off the website (an old link): its
+ * label, heading, a paragraph and buttons.
  */
 export default function Piece({ content, params, block }) {
   const { website } = useWebsite()
-  const { findsHref = '/finds', visitHref = '/visit', fresh = 3 } = params
+  const {
+    findsHref = '/finds',
+    visitHref = '/visit',
+    fresh = 3,
+    frame = 'gate',
+    backLabel = 'All finds',
+    newLabel = 'Just in',
+    priceOnRequest = 'Price on request',
+    availability = 'One of one · in the boutique',
+    enquireLabel = 'Ask about this piece',
+    visitLabel = 'Come try it on',
+    writeLabel = 'Write to us',
+    foundLabel = 'Found',
+    storyLabel = 'The story',
+    factLabel = 'Label',
+    factEra = 'Era',
+    factFabric = 'Fabric',
+    factSize = 'Size',
+    factCondition = 'Condition',
+    factAdded = 'Online since',
+    enquirySubject = 'About the {piece}',
+    enquiryMessage = "Is the {piece} still in the shop? I'd like to come in and try it on.",
+  } = params
   const piece = content.data?.finds?.[0]
   const all = content.data?.all || []
   const [shown, setShown] = useState(0)
@@ -41,19 +70,23 @@ export default function Piece({ content, params, block }) {
   }
 
   if (!piece) {
+    const links = buttonLinks(content)
     return (
       <div className="mx-auto max-w-3xl px-6 py-[var(--section-padding-y)] text-center">
-        <p className="caps text-[0.625rem] text-subtle">No longer online</p>
-        <h1 className="font-display mt-6 text-[clamp(2.5rem,5vw,4rem)]/[1] font-medium tracking-tight text-heading">
-          This find is off the <span className="squiggle">website</span>
-        </h1>
-        <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-body">
-          We only show a handful of pieces online, and they change as new finds come in. This one may
-          well still be in the shop — write to us and we'll check.
-        </p>
+        {content.pretitle && <p className="caps text-[0.625rem] text-subtle">{content.pretitle}</p>}
+        {content.title && (
+          <H1 text={oneLine(content.title)} className="font-display mt-6 text-balance text-[clamp(2.5rem,5vw,4rem)]/[1] font-medium tracking-tight text-heading" />
+        )}
+        {content.paragraphs.map((p, i) => (
+          <P key={i} text={p} className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-body" />
+        ))}
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Button href={findsHref} size="lg">See the latest finds <Icon name="lu-arrow-right" size="16" /></Button>
-          {email && <Button href={`mailto:${email}`} tone="outline" size="lg">Write to us</Button>}
+          {links.map((l, i) => (
+            <Button key={i} {...linkProps(l)} size="lg" tone={i === 0 ? 'primary' : 'outline'}>
+              {l.label} {i === 0 && <Icon name="lu-arrow-right" size="16" />}
+            </Button>
+          ))}
+          {email && writeLabel && <Button href={`mailto:${email}`} tone="outline" size="lg">{writeLabel}</Button>}
         </div>
       </div>
     )
@@ -62,13 +95,13 @@ export default function Piece({ content, params, block }) {
   const isNew = markOf(placeOf(piece, all), { fresh }) === 'new'
   const photos = [piece.image, ...(piece.photos || [])].filter(Boolean)
   const current = photos[Math.min(shown, photos.length - 1)]
-  const enquire = enquiryHref(email, piece)
+  const enquire = enquiryHref(email, piece, { site: String(website.name || '').split(' ')[0], subject: enquirySubject, message: enquiryMessage })
 
   return (
     <article className="mx-auto max-w-[var(--max-content-width)] px-6 pb-[var(--section-padding-y)] pt-10 lg:pt-14">
       <nav aria-label="Breadcrumb">
         <Link href={findsHref} className="text-cta">
-          <Icon name="lu-arrow-left" size="13" /> All finds
+          <Icon name="lu-arrow-left" size="13" /> {backLabel}
         </Link>
       </nav>
 
@@ -76,7 +109,7 @@ export default function Piece({ content, params, block }) {
         {/* The photos. */}
         <div>
           <figure className="relative mx-auto max-w-xl lg:mx-0">
-            <div className="mat gate">
+            <div className={cn('mat', frameClass(frame))}>
               <span aria-hidden="true" className="halo" />
               <img
                 src={photo(current, 1400)}
@@ -88,10 +121,10 @@ export default function Piece({ content, params, block }) {
                 fetchPriority="high"
               />
             </div>
-            <PieceTag category={piece.category} isNew={isNew} className="absolute -left-3 top-8" />
+            <PieceTag category={piece.category} isNew={isNew} newLabel={newLabel} className="absolute -left-3 top-8" />
             {piece.found && (
               <figcaption className="figcap mt-8">
-                <b>Found</b>&ensp;—&ensp;{piece.found}
+                {foundLabel && <><b>{foundLabel}</b>&ensp;—&ensp;</>}{piece.found}
               </figcaption>
             )}
           </figure>
@@ -119,7 +152,7 @@ export default function Piece({ content, params, block }) {
         <div className="lg:pt-4">
           {(piece.designer || piece.era) && (
             <p className="caps text-[0.625rem] text-subtle">
-              {piece.designer && <span className="font-display text-base font-medium normal-case italic tracking-normal text-accent-ink [font-stretch:normal]">{piece.designer}</span>}
+              {piece.designer && <span className="font-display text-base font-medium normal-case italic tracking-normal text-accent-ink [font-stretch:var(--display-stretch)]">{piece.designer}</span>}
               {piece.designer && piece.era ? <>&ensp;·&ensp;</> : null}
               {piece.era}
             </p>
@@ -132,33 +165,33 @@ export default function Piece({ content, params, block }) {
           )}
 
           <div className="mt-10 flex flex-wrap items-baseline gap-x-6 gap-y-2">
-            <span className="font-display text-4xl font-medium text-heading">{piece.price ? money(piece.price) : 'Price on request'}</span>
-            <span className="caps text-[0.5625rem] text-subtle">One of one · in the boutique</span>
+            <span className="font-display text-4xl font-medium text-heading">{piece.price ? money(piece.price) : priceOnRequest}</span>
+            {availability && <span className="caps text-[0.5625rem] text-subtle">{availability}</span>}
           </div>
 
           <div className="mt-8 flex flex-wrap gap-4">
             {enquire && (
               <Button href={enquire} size="lg">
-                Ask about this piece <Icon name="lu-arrow-right" size="16" />
+                {enquireLabel} <Icon name="lu-arrow-right" size="16" />
               </Button>
             )}
-            <Button href={visitHref} tone="outline" size="lg">Come try it on</Button>
+            {visitLabel && <Button href={visitHref} tone="outline" size="lg">{visitLabel}</Button>}
           </div>
 
           <dl className="mt-10 border-t border-heading">
-            <Fact label="Label">{piece.designer}</Fact>
-            <Fact label="Era">{piece.era}</Fact>
-            <Fact label="Fabric">{piece.material}</Fact>
-            <Fact label="Size">{piece.size}</Fact>
-            <Fact label="Condition">{piece.condition}</Fact>
-            <Fact label="Online since">{piece.added ? arrivalDate(piece.added, { year: true }) : ''}</Fact>
+            <Fact label={factLabel}>{piece.designer}</Fact>
+            <Fact label={factEra}>{piece.era}</Fact>
+            <Fact label={factFabric}>{piece.material}</Fact>
+            <Fact label={factSize}>{piece.size}</Fact>
+            <Fact label={factCondition}>{piece.condition}</Fact>
+            <Fact label={factAdded}>{piece.added ? arrivalDate(piece.added, { year: true }) : ''}</Fact>
           </dl>
         </div>
       </div>
 
       {piece.content && (
         <div className="mt-20 grid gap-8 border-t border-heading pt-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
-          <p className="caps text-[0.625rem] text-heading">The story</p>
+          <p className="caps text-[0.625rem] text-heading">{storyLabel}</p>
           <div className="prose prose-lg max-w-none text-body [&_p]:leading-relaxed">
             <Article content={piece.content} />
           </div>

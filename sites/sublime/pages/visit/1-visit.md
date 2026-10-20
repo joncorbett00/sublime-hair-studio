@@ -7,14 +7,17 @@ phone: (613) 567-7400
 phoneHref: tel:+16135677400
 email: hello@sublimehair.ca
 hoursNote: By appointment. Call ahead for same-day — we'll always try to fit you in.
-mapEmbed: https://www.openstreetmap.org/export/embed.html?bbox=-75.6988%2C45.4131%2C-75.6868%2C45.4183&layer=mapnik&marker=45.4157%2C-75.6928
-mapLink: https://www.openstreetmap.org/?mlat=45.4157&mlon=-75.6928#map=18/45.4157/-75.6928
+# 190 MacLaren is the corner building at Elgin, beside the Bridgehead —
+# OpenStreetMap's nodes for the address sit at 45.41695, -75.68990.
+lat: 45.41695
+lng: -75.68990
+zoom: 16
+mapLink: https://www.google.com/maps/search/?api=1&query=190+MacLaren+Street%2C+Ottawa%2C+ON+K2P+0L6
 ---
 
 #> Golden Triangle, Centretown
 
-# One flight up,
-# just off [Elgin]{accent}
+# One flight up, just off [Elgin]{accent}
 
 We're on MacLaren, a two-minute walk from Elgin Street. Look for our door at street
 level and come up one flight of stairs to the second floor, where it's quieter.
@@ -24,10 +27,10 @@ live in the neighbourhood.
 ```yaml:hours
 - { day: Monday, open: Closed }
 - { day: Tuesday, open: "12–6" }
-- { day: Wednesday, open: "12–6" }
-- { day: Thursday, open: "12–6" }
-- { day: Friday, open: "12–6" }
-- { day: Saturday, open: "12–6" }
+- { day: Wednesday, open: "10–6" }
+- { day: Thursday, open: "10–7" }
+- { day: Friday, open: "10–7" }
+- { day: Saturday, open: "9–4" }
 - { day: Sunday, open: Closed }
 ```
 
@@ -55,7 +58,7 @@ There are bike rings on MacLaren near the door. Lock up on the street and come o
 
 ### Lunch-hour cuts
 ![](lu-timer)
-Book a 45-minute slot from noon. We keep to the clock so you get back on time.
+Book a 45-minute slot over lunch. We keep to the clock so you get back on time.
 
 ### On the shelf
 ![](lu-shopping-bag)
@@ -64,5 +67,10 @@ even if you are not booked in — come up and ask.
 
 ### Cancellations
 ![](lu-calendar-x)
-No deposits, and nothing to pay if you cancel. Twenty-four hours' notice is all we ask so
-the chair doesn't sit empty — and if life happens, just tell us.
+We ask that you please reschedule or cancel before the beginning of your appointment.
+
+Please cancel up to 48 hours in advance, otherwise you will be charged a cancellation fee
+of $50.\*
+
+\*Upon booking we require 1 credit card on file that will only be charged if you do not
+cancel within 48 hours before your scheduled appointment.

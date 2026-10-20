@@ -18,6 +18,8 @@ export default {
       options: [{ value: 2, label: '2' }, { value: 3, label: '3' }, { value: 4, label: '4' }],
       default: 4,
     },
+    numbered: { type: 'boolean', label: 'Number the cards', default: true },
+    showImages: { type: 'boolean', label: 'Show photos on the cards', default: true },
     moreLabel: { type: 'string', label: 'Link on each card', default: 'Read more' },
     note: { type: 'string', label: 'Small italic line under the grid', default: '' },
     tone: toneParam,

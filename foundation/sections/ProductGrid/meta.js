@@ -32,6 +32,8 @@ export default {
       default: 4,
     },
     showPrices: { type: 'boolean', label: 'Show prices', default: true },
+    showImages: { type: 'boolean', label: 'Show product photos', default: true },
+    numbered: { type: 'boolean', label: 'Number the cards', default: true },
     ctaLabel: { type: 'string', label: 'Link on each card', default: 'Shop' },
     note: { type: 'string', label: 'Small italic line under the grid', default: '' },
     tone: toneParam,

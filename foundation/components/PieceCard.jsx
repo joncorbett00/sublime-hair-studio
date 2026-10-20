@@ -16,8 +16,10 @@ function MaybeLink({ href, className, children, ...rest }) {
  * on one ruled line.
  *
  *   size   'md' for the grid, 'lg' for the lead new arrival
+ *   words  the section's labels: { newLabel, noPriceLabel }
  */
-export default function PieceCard({ piece, isNew = false, size = 'md', eager = false, className }) {
+export default function PieceCard({ piece, isNew = false, size = 'md', eager = false, words = {}, className }) {
+  const { newLabel = 'Just in', noPriceLabel = 'Ask' } = words
   const { title, designer, era, size: fit, price, image, category, $route } = piece
   const lg = size === 'lg'
 
@@ -34,13 +36,13 @@ export default function PieceCard({ piece, isNew = false, size = 'md', eager = f
             className={cn('w-full object-cover', lg ? 'aspect-[4/5] lg:aspect-[5/6]' : 'aspect-[4/5]')}
           />
         </div>
-        <PieceTag category={category} isNew={isNew} className="absolute -left-2 top-6" />
+        <PieceTag category={category} isNew={isNew} newLabel={newLabel} className="absolute -left-2 top-6" />
       </div>
 
       <div className={cn('mt-6', lg && 'mt-8')}>
         {(designer || era) && (
           <p className="caps text-[0.5625rem] text-subtle">
-            {designer && <span className="font-display text-[0.8125rem] font-medium normal-case italic tracking-normal text-accent-ink [font-stretch:normal]">{designer}</span>}
+            {designer && <span className="font-display text-[0.8125rem] font-medium normal-case italic tracking-normal text-accent-ink [font-stretch:var(--display-stretch)]">{designer}</span>}
             {designer && era ? <>&ensp;·&ensp;</> : null}
             {era}
           </p>
@@ -55,7 +57,7 @@ export default function PieceCard({ piece, isNew = false, size = 'md', eager = f
         </h3>
         <div className="mt-4 flex items-baseline justify-between gap-4 border-t border-heading/25 pt-3">
           <span className="caps text-[0.5625rem] text-subtle">{fit}</span>
-          <span className="font-display text-lg font-medium text-heading">{price ? money(price) : 'Ask'}</span>
+          <span className="font-display text-lg font-medium text-heading">{price ? money(price) : noPriceLabel}</span>
         </div>
       </div>
     </MaybeLink>

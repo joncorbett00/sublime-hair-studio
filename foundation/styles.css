@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "@uniweb/kit/theme-tokens.css";
 @import "@uniweb/kit/prose-tokens.css";
+@import "maplibre-gl/dist/maplibre-gl.css";
 
 @source "./sections/**/*.{js,jsx}";
 @source "./components/**/*.{js,jsx}";
@@ -35,7 +36,7 @@
    wherever it lands it is the point of the page. Two voices:
 
    The magazine: paper and ink, Archivo at poster sizes, wide capitals for
-   labels, a Bodoni wordmark, square corners, hairline rules, numbered
+   labels, a wordmark in the logo face, square corners, hairline rules, numbered
    sections, figure captions and matted photographs.
 
    The house's own: whole sections set in the brand colour, the squiggle
@@ -55,9 +56,6 @@
   --ink-shadow-08: color-mix(in srgb, var(--ink) 8%, transparent);
   --ink-shadow-45: color-mix(in srgb, var(--ink) 45%, transparent);
   --ink-shadow-55: color-mix(in srgb, var(--ink) 55%, transparent);
-
-  /* Bodoni Moda is the logo's face only: the wordmark and the seal. */
-  --font-logo: 'Bodoni Moda', 'Didot', ui-serif, Georgia, serif;
 
   /* The italic accent word: the brand colour deepened on paper and sand,
      brightened on ink, and --on-brand-accent on the brand colour itself. */
@@ -126,18 +124,23 @@
 
 /* Headlines, numbers and prices: Archivo at poster sizes, tracked in.
    (The class keeps its name; the face is set by `font-display` in main.js.) */
+.font-display,
+h1, h2, h3 { font-stretch: var(--display-stretch); }
 .font-display { font-feature-settings: 'kern', 'liga'; }
 
-/* The logo's Didone — never for reading text. */
+/* The logo's face (`font-logo` in main.js) — the seal's letter and the type
+   wordmark, never reading text. */
 .font-logo {
   font-family: var(--font-logo);
   font-optical-sizing: auto;
 }
 
-/* The magazine's second voice: wide, tracked capitals in Archivo. */
+/* The magazine's second voice: tracked capitals in the body face, at the
+   width set by `label-stretch` (main.js) — the body face as it is on
+   Sublime, Archivo's wide cut on Bijou. */
 .caps {
   font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
-  font-stretch: 125%;
+  font-stretch: var(--label-stretch);
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -149,7 +152,7 @@
   align-items: center;
   gap: 0.8rem;
   font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
-  font-stretch: 125%;
+  font-stretch: var(--label-stretch);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -165,10 +168,11 @@
   background: var(--accent-ink);
 }
 .eyebrow > .eyebrow-no {
+  display: var(--section-numbers, inline);
   order: 0;
   white-space: nowrap;
   font-family: var(--font-display);
-  font-stretch: normal;
+  font-stretch: var(--display-stretch);
   font-size: 1rem;
   font-style: italic;
   font-weight: 500;
@@ -243,7 +247,7 @@
   justify-content: center;
   gap: 0.6rem;
   font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
-  font-stretch: 125%;
+  font-stretch: var(--label-stretch);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -292,7 +296,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-stretch: 125%;
+  font-stretch: var(--label-stretch);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -308,14 +312,16 @@
    Frames.
    --------------------------------------------------------------- */
 
-/* Photo frames (the `frame` setting on Hero and SplitContent):
+/* Photo frames (the `frame` setting — components/frame.js):
      arch  an arched window with square feet
-     gate  the softly rounded corners of a projected film frame */
+     gate  the softly rounded corners of a projected film frame
+     oval  a portrait oval, like a cameo */
 .arch { border-radius: 999px 999px 0 0; }
 .mat.arch > img { border-radius: 999px 999px 0 0; }
 .gate { border-radius: 1.4rem / 1rem; }
 .mat.gate { border-radius: 1.9rem / 1.4rem; }
 .mat.gate > img { border-radius: 1.4rem / 1rem; }
+.oval, .mat.oval > img { border-radius: 50%; }
 
 /* A matted photograph: the print sits in a paper mount with a hairline
    edge, laid on the page with a long soft shadow. */
@@ -379,7 +385,7 @@
   color: var(--ink);
   clip-path: polygon(0.65rem 0, 100% 0, 100% 100%, 0.65rem 100%, 0 50%);
   font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
-  font-stretch: 125%;
+  font-stretch: var(--label-stretch);
   font-size: 0.5625rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -400,19 +406,35 @@
   background: var(--tag-ink, var(--ink));
   opacity: 0.8;
 }
-.tag b { font-family: var(--font-display); font-stretch: normal; font-size: 0.8125rem; font-style: italic; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.tag b { font-family: var(--font-display); font-stretch: var(--display-stretch); font-size: 0.8125rem; font-style: italic; font-weight: 500; letter-spacing: 0; text-transform: none; }
 .tag-new { --tag-bg: var(--brand); --tag-ink: var(--paper); color: var(--paper); }
 
 /* Figure caption: "Fig. 2 — Sonia, owner", "Found — an estate sale". */
 .figcap {
-  font-stretch: 125%;
+  font-stretch: var(--label-stretch);
   font-size: 0.625rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--subtle);
 }
-.figcap b { font-family: var(--font-display); font-stretch: normal; font-size: 0.8125rem; font-style: italic; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--accent-ink); }
+.figcap b { font-family: var(--font-display); font-stretch: var(--display-stretch); font-size: 0.8125rem; font-style: italic; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--accent-ink); }
+
+/* A long review on its card: the last lines fade out, so it reads as "more
+   below" rather than as text cut off mid-word, and the card grows a touch on
+   hover or keyboard focus — scaled, so the cards beside it don't move
+   (Testimonials). */
+.review-fade {
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 3rem), transparent);
+}
+.review-grow {
+  transition: transform 360ms cubic-bezier(.2,.7,.2,1), box-shadow 360ms cubic-bezier(.2,.7,.2,1);
+}
+.review-grow:hover, .review-grow:has(:focus-visible) {
+  z-index: 1;
+  transform: scale(1.035);
+  box-shadow: 0 2px 4px var(--ink-shadow-06), 0 30px 50px -30px var(--ink-shadow-45);
+}
 
 /* A sideways-scrolling row (the gallery carousel): swipe or the arrows, no bar. */
 .no-scrollbar { scrollbar-width: none; }
@@ -479,7 +501,7 @@ section[id] { scroll-margin-top: calc(var(--header-height) + var(--edge-height) 
 
 @media (prefers-reduced-motion: reduce) {
   .ticker-track, .spin-slow, .rise, .swing { animation: none !important; }
-  .lift:hover { transform: none; }
+  .lift:hover, .review-grow:hover, .review-grow:has(:focus-visible) { transform: none; }
   .btn::before, .btn > svg { transition: none; }
 }
 
@@ -490,3 +512,45 @@ section[id] { scroll-margin-top: calc(var(--header-height) + var(--edge-height) 
 }
 
 } /* @layer components */
+
+/* A label set on a heading element (the footer's column heads) keeps the
+   body face. The site's fonts put the headline face on h1–h3 outside any
+   layer, which outranks everything in the layer above, so this sits out
+   here too. */
+:is(h1, h2, h3).caps { font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif); }
+
+/* ---------------------------------------------------------------
+   The street map (components/StreetMap.jsx).
+
+   Outside the components layer on purpose: MapLibre's own stylesheet is
+   unlayered and gives its container `position: relative`, which would beat
+   any layered rule — the map would collapse to nothing inside its box.
+   --------------------------------------------------------------- */
+.street-map {
+  position: absolute;
+  inset: 0;
+}
+/* The seal pin sits on the map with a ring of paper and a soft shadow, so it
+   lifts off the streets rather than being printed on them. */
+.map-pin {
+  position: relative;
+  box-shadow:
+    0 0 0 2px var(--paper),
+    0 6px 14px -5px var(--ink-shadow-55);
+}
+/* The credit the map data's licence asks for, at the weight of small print,
+   and lifted over the link that covers the map so its own link still works. */
+.street-map .maplibregl-ctrl-bottom-left { z-index: 3; }
+.street-map .maplibregl-ctrl-attrib {
+  padding: 1px 6px;
+  border-radius: 0;
+  background: color-mix(in srgb, var(--sand) 85%, transparent);
+  font-size: 0.5625rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--ink) 60%, transparent);
+}
+[data-tone='ink'] .street-map .maplibregl-ctrl-attrib {
+  background: color-mix(in srgb, var(--ink) 80%, transparent);
+  color: color-mix(in srgb, var(--paper) 55%, transparent);
+}
+.street-map .maplibregl-ctrl-attrib a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }

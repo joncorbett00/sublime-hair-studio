@@ -3,6 +3,7 @@ import { P, Icon, Link, Overlay, DataPlaceholder, cn } from '@uniweb/kit'
 import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
+import { frameClass } from '#components/frame.js'
 
 /**
  * The team, cast like a show. Matted arched portraits in black and white that
@@ -12,7 +13,19 @@ import { toneClass } from '#components/tone.js'
 export default function Crew({ content, params, block }) {
   const people = content.data?.crew || []
   const { pretitle, title, paragraphs } = content
-  const { bookHref = '/book', columns = 3, tone = '' } = params
+  const {
+    bookHref = '/book',
+    columns = 3,
+    frame = 'arch',
+    monochrome = true,
+    numbered = true,
+    meetLabel = 'Meet',
+    bookLabel = 'Book with',
+    favouriteLabel = 'Favourite part of the job',
+    worstLabel = 'Worst haircut they have ever had',
+    workLabel = 'Their work',
+    tone = '',
+  } = params
   const [open, setOpen] = useState(null)
 
   if (block.dataLoading) return <DataPlaceholder lines={8} />
@@ -38,17 +51,17 @@ export default function Crew({ content, params, block }) {
                 className="group block w-full text-left"
                 aria-label={`Read more about ${person.title}`}
               >
-                <div className="mat arch transition-transform duration-500 group-hover:-translate-y-1.5">
+                <div className={cn('mat transition-transform duration-500 group-hover:-translate-y-1.5', frameClass(frame))}>
                   <img
                     src={person.image}
                     alt=""
-                    className="aspect-[4/5] w-full object-cover grayscale transition-[filter] duration-700 group-hover:grayscale-0"
+                    className={cn('aspect-[4/5] w-full object-cover', monochrome && 'grayscale transition-[filter] duration-700 group-hover:grayscale-0')}
                     loading="lazy"
                   />
                 </div>
                 <div className="mt-9">
-                  <p className="font-display text-sm italic text-accent-ink" aria-hidden="true">No.&thinsp;{String(i + 1).padStart(2, '0')}</p>
-                  <h3 className="font-display mt-1 text-[2rem] font-medium leading-tight tracking-tight text-heading">
+                  {numbered && <p className="font-display mb-1 text-sm italic text-accent-ink" aria-hidden="true">No.&thinsp;{String(i + 1).padStart(2, '0')}</p>}
+                  <h3 className="font-display text-[2rem] font-medium leading-tight tracking-tight text-heading">
                     {person.title}
                   </h3>
                   <p className="caps mt-2 text-[0.625rem] text-heading">
@@ -61,7 +74,7 @@ export default function Crew({ content, params, block }) {
                     <p className="font-display mt-4 italic text-subtle">{person.specialties.join(' / ')}</p>
                   )}
                   <span className="text-cta mt-6">
-                    Meet {first(person)} <Icon name="lu-arrow-right" size="13" />
+                    {meetLabel} {first(person)} <Icon name="lu-arrow-right" size="13" />
                   </span>
                 </div>
               </button>
@@ -102,13 +115,13 @@ export default function Crew({ content, params, block }) {
                   <dl className="mt-7 space-y-5 border-t border-heading/25 pt-6">
                     {open.favouriteThing && (
                       <div>
-                        <dt className="caps text-[0.5625rem] text-subtle">Favourite part of the job</dt>
+                        <dt className="caps text-[0.5625rem] text-subtle">{favouriteLabel}</dt>
                         <dd className="font-display mt-1.5 text-lg italic leading-snug text-heading">{open.favouriteThing}</dd>
                       </div>
                     )}
                     {open.worstHaircut && (
                       <div>
-                        <dt className="caps text-[0.5625rem] text-subtle">Worst haircut they have ever had</dt>
+                        <dt className="caps text-[0.5625rem] text-subtle">{worstLabel}</dt>
                         <dd className="font-display mt-1.5 text-lg italic leading-snug text-heading">{open.worstHaircut}</dd>
                       </div>
                     )}
@@ -116,11 +129,11 @@ export default function Crew({ content, params, block }) {
 
                   <div className="mt-8 flex flex-wrap items-center gap-6">
                     <Button href={bookHref} onClick={() => setOpen(null)}>
-                      Book with {first(open)}
+                      {bookLabel} {first(open)}
                     </Button>
                     {open.instagram && (
                       <Link href={open.instagram} className="text-cta">
-                        <Icon name="lu-instagram" size="14" /> Their work
+                        <Icon name="lu-instagram" size="14" /> {workLabel}
                       </Link>
                     )}
                   </div>

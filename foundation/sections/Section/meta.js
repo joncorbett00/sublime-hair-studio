@@ -1,3 +1,5 @@
+import { toneParam } from '#components/tone.js'
+
 export default {
   title: 'Section',
   description: 'A versatile content section for headings, text, and links',
@@ -29,6 +31,7 @@ export default {
       ],
       default: 'default',
     },
+    tone: toneParam,
   },
 
   presets: {

@@ -7,8 +7,7 @@ cardTitle: Leave some time
 
 #> How to shop Bijou
 
-# Come for one piece,
-# leave with [three]{accent}
+# Come for one piece, leave with [three]{accent}
 
 The website shows a few key finds. The shop is where the rest is — rack after rack of it,
 sorted by what it is rather than where it came from. Most people come in for something

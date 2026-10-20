@@ -18,7 +18,17 @@ import { buttonLinks } from '#utils/links.js'
 export default function Finds({ content, params, block }) {
   const { pretitle, title, paragraphs } = content
   const links = buttonLinks(content || {})
-  const { start = 1, count = 0, fresh = 3, columns = 3, tone = '' } = params
+  const {
+    start = 1,
+    count = 0,
+    fresh = 3,
+    columns = 3,
+    newLabel = 'Just in',
+    noPriceLabel = 'Ask',
+    emptyText = 'New finds are on their way — in the meantime, the shop is open.',
+    tone = '',
+  } = params
+  const words = { newLabel, noPriceLabel }
 
   const list = content.data?.finds || []
   const all = content.data?.all?.length ? content.data.all : list
@@ -63,15 +73,13 @@ export default function Finds({ content, params, block }) {
           <ul className={cn('grid grid-cols-1 gap-x-10 gap-y-16', hasHeader && 'mt-16', cols[columns] || cols[3])}>
             {shown.map((piece) => (
               <li key={piece.slug || piece.$name}>
-                <PieceCard piece={piece} isNew={markOf(placeOf(piece, all), { fresh }) === 'new'} />
+                <PieceCard piece={piece} isNew={markOf(placeOf(piece, all), { fresh }) === 'new'} words={words} />
               </li>
             ))}
           </ul>
-        ) : (
-          <p className="font-display mt-14 text-2xl italic text-subtle">
-            New finds are on their way — in the meantime, the shop is open.
-          </p>
-        )}
+        ) : emptyText ? (
+          <p className="font-display mt-14 text-2xl italic text-subtle">{emptyText}</p>
+        ) : null}
       </div>
     </div>
   )

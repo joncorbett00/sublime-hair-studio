@@ -1,4 +1,5 @@
 import { H2, P, Icon, cn } from '@uniweb/kit'
+import { oneLine } from '#utils/text.js'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
 import { buttonLinks, linkProps } from '#utils/links.js'
@@ -10,19 +11,23 @@ import { buttonLinks, linkProps } from '#utils/links.js'
  *
  * A short band rather than a full section, so it can sit straight under the
  * hero. Swap the copy each season; delete the file when there is no offer.
+ *
+ * `coupon: false` drops the dashed edge and scissors for a plain band.
  */
 export default function Promo({ content, params }) {
   const { pretitle, title, paragraphs } = content
   const links = buttonLinks(content)
-  const { figure = '', figureLabel = '', note = '', tone = 'brand' } = params
+  const { figure = '', figureLabel = '', note = '', coupon = true, tone = 'brand' } = params
 
   return (
     <div className={toneClass(tone)}>
       <div className="mx-auto max-w-[var(--max-content-width)] px-4 py-7 sm:px-6 sm:py-9">
-        <div className="relative border border-dashed border-heading/50 px-6 py-10 sm:px-10 lg:px-14 lg:py-12">
-          <span aria-hidden="true" className="absolute -top-3 left-8 bg-section px-2 text-heading sm:left-12">
-            <Icon name="lu-scissors" size="20" />
-          </span>
+        <div className={cn('relative px-6 py-10 sm:px-10 lg:px-14 lg:py-12', coupon && 'border border-dashed border-heading/50')}>
+          {coupon && (
+            <span aria-hidden="true" className="absolute -top-3 left-8 bg-section px-2 text-heading sm:left-12">
+              <Icon name="lu-scissors" size="20" />
+            </span>
+          )}
 
           <div className={cn('grid items-center gap-8 lg:gap-14', figure ? 'lg:grid-cols-[auto_1fr_auto]' : 'lg:grid-cols-[1fr_auto]')}>
             {figure && (
@@ -41,8 +46,8 @@ export default function Promo({ content, params }) {
               )}
               {title && (
                 <H2
-                  text={title}
-                  className="font-display mt-4 text-heading text-[clamp(2rem,3.6vw,3rem)] font-medium tracking-[-0.02em] leading-[1]"
+                  text={oneLine(title)}
+                  className="font-display mt-4 text-heading text-balance text-[clamp(2rem,3.6vw,3rem)] font-medium tracking-[-0.02em] leading-[1]"
                 />
               )}
               {paragraphs.map((p, i) => (

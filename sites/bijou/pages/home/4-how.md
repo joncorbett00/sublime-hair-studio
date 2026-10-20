@@ -7,8 +7,7 @@ cardTitle: From closet to rack
 
 #> Where it comes from
 
-# Picked one piece
-# at a [time]{accent}
+# Picked one piece at a [time]{accent}
 
 We look for clothes that were made well and are still worth wearing: vintage with real
 character, designer pieces at a fair price, and good everyday things you'll reach for

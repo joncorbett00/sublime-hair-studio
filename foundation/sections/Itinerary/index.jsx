@@ -17,12 +17,12 @@ import { buttonLinks, linkProps } from '#utils/links.js'
 export default function Itinerary({ content, params, block }) {
   const { pretitle, title, paragraphs, items } = content
   const links = buttonLinks(content)
-  const { cardLabel = 'Running order', cardTitle = '', tone = '' } = params
+  const { cardLabel = 'Running order', cardTitle = '', flipped = false, tilt = true, tone = '' } = params
 
   return (
     <div className={toneClass(tone)}>
       <div className="mx-auto max-w-[var(--max-content-width)] px-6 py-[var(--section-padding-y)]">
-        <div className="grid items-center gap-16 lg:grid-cols-[1fr_1fr] lg:gap-24">
+        <div className={cn('grid items-center gap-16 lg:grid-cols-[1fr_1fr] lg:gap-24', flipped && 'lg:[&>*:first-child]:order-2')}>
           <div>
             <Shout pretitle={pretitle} title={title} block={block} size="md">
               {paragraphs.map((p, i) => (
@@ -43,7 +43,7 @@ export default function Itinerary({ content, params, block }) {
 
           {items.length > 0 && (
             /* The card is always paper and ink, so it carries its own light context. */
-            <div className="context-light relative mx-auto w-full max-w-lg bg-transparent lg:rotate-[1.25deg]">
+            <div className={cn('context-light relative mx-auto w-full max-w-lg bg-transparent', tilt && (flipped ? 'lg:-rotate-[1.25deg]' : 'lg:rotate-[1.25deg]'))}>
               <div className="framed laid [--card:var(--paper)]">
                 <div className="flex items-center justify-between gap-4 border-b border-heading px-6 py-4 sm:px-8">
                   <span className="caps text-[0.625rem] text-heading">{cardLabel}</span>

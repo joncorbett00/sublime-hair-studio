@@ -7,8 +7,7 @@ flipped: true
 
 #> The boutique
 
-# A closet worth
-# going [through]{accent}
+# A closet worth going [through]{accent}
 
 Bijou is a small boutique just off Elgin in Ottawa, with racks of vintage, designer and
 everyday clothing, a fitting room, and someone who can tell you about every piece. Sorted by

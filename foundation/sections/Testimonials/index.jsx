@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { P, Icon, cn } from '@uniweb/kit'
+import { Icon, Overlay, cn } from '@uniweb/kit'
 import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
@@ -18,11 +18,73 @@ function timeAgo(date, now) {
   return y === 1 ? 'a year ago' : `${y} years ago`
 }
 
+/**
+ * Reviews worth showing. A rating or a date is only judged when the review
+ * has one: a review with neither (a quote copied from the old site) always
+ * passes.
+ */
 function eligible(reviews, { minRating, maxAgeMonths, now }) {
   return reviews.filter((r) => {
+    if (Number(r.rating) > 0 && Number(r.rating) < minRating) return false
+    if (!r.date) return true
     const t = new Date(r.date).getTime()
-    return Number(r.rating) >= minRating && !Number.isNaN(t) && now - t <= maxAgeMonths * MONTH_MS
+    return !Number.isNaN(t) && now - t <= maxAgeMonths * MONTH_MS
   })
+}
+
+/** The review's words as plain text (authored fallbacks arrive as HTML). */
+const plain = (html = '') => String(html).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()
+
+
+/** Five stars, the earned ones filled. Nothing when the review has no rating. */
+function Stars({ rating, size = '13' }) {
+  if (!(rating > 0)) return null
+  const n = Math.min(5, rating)
+  return (
+    <div className="flex gap-0.5 text-accent-ink" role="img" aria-label={`${n} out of 5 stars`}>
+      {Array.from({ length: 5 }, (_, s) => (
+        <Icon
+          key={s}
+          name="lu-star"
+          size={size}
+          /* Lucide ships outline stars (fill="none"); CSS beats the
+             presentation attribute, so this fills the earned ones. */
+          className={s < n ? 'fill-current' : 'opacity-30'}
+        />
+      ))}
+    </div>
+  )
+}
+
+/** The whole review, over the page — for the ones the card cuts short. */
+function FullReview({ card, onClose }) {
+  return (
+    <Overlay onClose={onClose} className="items-center justify-center bg-ink/80 p-4 sm:p-8">
+      <figure
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="review-full-name"
+        className="context-light framed laid relative w-full max-w-2xl p-8 sm:p-12"
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close review"
+          className="absolute right-4 top-4 z-10 grid size-10 place-items-center text-heading transition-colors hover:text-accent-ink"
+        >
+          <Icon name="lu-x" size="18" />
+        </button>
+        <Stars rating={card.rating} size="15" />
+        <blockquote className={cn('text-lg leading-relaxed text-heading sm:text-xl', card.rating > 0 && 'mt-6')}>
+          “{card.text}”
+        </blockquote>
+        <figcaption className="mt-8 flex flex-wrap items-baseline gap-x-2 border-t border-heading/20 pt-5">
+          <span id="review-full-name" className="caps text-[0.6875rem] text-heading">{card.name}</span>
+          {card.meta && <span className="text-sm text-subtle">{card.meta}</span>}
+        </figcaption>
+      </figure>
+    </Overlay>
+  )
 }
 
 function shuffle(list) {
@@ -36,27 +98,30 @@ function shuffle(list) {
 
 /**
  * Review cards, kept compact: the heading and the "all reviews" link share a
- * row, and each card is stars, the words (clamped to four lines), and the
- * reviewer in wide capitals. The middle card is set in the brand colour. On phones
+ * row, and each card is stars (when the review has a rating), the words, and
+ * the reviewer in wide capitals. A review longer than `excerpt` characters is
+ * shown to a fixed height under a fade; the card grows a touch on hover to
+ * say there is more, and pressing it opens the whole review. On phones
  * the cards sit in one row to swipe through.
  *
  * Two sources, in order of preference:
  *
- * 1. The `reviews` collection (standing in for a Google reviews feed): filtered
- *    to `minRating`+ within the last `maxAgeMonths`, then a random `pick` of
- *    them. The prerender can't know the visitor's "now" or roll their dice, so
+ * 1. The `reviews` collection: filtered to `minRating`+ within the last
+ *    `maxAgeMonths` (for reviews that have a rating or a date), then a random
+ *    `pick` of them. The prerender can't know the visitor's "now" or roll their dice, so
  *    it draws the newest ones and the client reshuffles after mount.
  * 2. The authored `###` items, used only when the collection yields nothing.
  */
 export default function Testimonials({ content, params, block }) {
   const { pretitle, title, items } = content
   const links = buttonLinks(content)
-  const { columns = 3, pick = 3, minRating = 4, maxAgeMonths = 12, tone = '' } = params
+  const { columns = 3, pick = 3, minRating = 4, maxAgeMonths = 12, excerpt = 160, showStars = true, showSource = true, tone = '' } = params
   const reviews = Array.isArray(content.data?.reviews) ? content.data.reviews : []
-  const cols = { 2: 'md:grid-cols-2', 3: 'md:grid-cols-2 lg:grid-cols-3' }
+  const cols = { 2: 'md:grid-cols-2', 3: 'md:grid-cols-2 lg:grid-cols-3', 4: 'md:grid-cols-2 lg:grid-cols-4' }
 
   const [now, setNow] = useState(null)
   const [picked, setPicked] = useState(null)
+  const [open, setOpen] = useState(null) // the card being read in full
 
   /* Keyed on length, not the array: data can arrive as a fresh array each
      render, and reshuffling on every one would loop. */
@@ -75,10 +140,13 @@ export default function Testimonials({ content, params, block }) {
   const cards = reviews.length
     ? (picked || initial).map((r) => ({
         key: r.slug || `${r.author}-${r.date}`,
-        rating: Number(r.rating),
-        quote: [r.text],
+        rating: Number(r.rating) || 0,
+        text: plain(r.text),
         name: r.author,
-        meta: r.date ? `Google review · ${now ? timeAgo(new Date(r.date).getTime(), now) : new Date(r.date).toLocaleDateString('en-CA', { month: 'long', year: 'numeric', timeZone: 'UTC' })}` : 'Google review',
+        meta: [
+          r.source,
+          r.date && (now ? timeAgo(new Date(r.date).getTime(), now) : new Date(r.date).toLocaleDateString('en-CA', { month: 'long', year: 'numeric', timeZone: 'UTC' })),
+        ].filter(Boolean).join(' · '),
       }))
     : []
 
@@ -87,7 +155,7 @@ export default function Testimonials({ content, params, block }) {
     /* Five stars on every card regardless of what was said is a rating
        the component invented. Let the content carry it, default to 5. */
     rating: Number(item.data?.review?.rating ?? 5),
-    quote: item.paragraphs,
+    text: plain(item.paragraphs.join(' ')),
     name: item.title,
     meta: item.subtitle,
   }))
@@ -109,37 +177,52 @@ export default function Testimonials({ content, params, block }) {
         {/* Phones: one row to swipe through, so three reviews do not stack into a tower. */}
         <ul className={cn('no-scrollbar -mx-6 mt-10 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 md:mx-0 md:grid md:gap-5 md:overflow-visible md:px-0', cols[columns] || cols[3])}>
           {shown.map((card, i) => {
-            const rating = Math.max(0, Math.min(5, card.rating || 0))
-            const loud = shown.length >= 3 && i === 1
+            const rating = showStars ? Math.max(0, Math.min(5, card.rating || 0)) : 0
+            const cut = excerpt > 0 && card.text.length > excerpt
             return (
               <li key={card.key} className="w-[82%] shrink-0 snap-start md:w-auto">
-                <figure className={cn('framed flex h-full flex-col p-6 sm:p-7', loud && 'tone tone-brand')}>
-                  <div className="flex gap-0.5 text-accent-ink" aria-label={`${rating} out of 5`}>
-                    {Array.from({ length: 5 }, (_, s) => (
-                      <Icon
-                        key={s}
-                        name="lu-star"
-                        size="13"
-                        /* Lucide ships outline stars (fill="none"); CSS beats the
-                           presentation attribute, so this fills the earned ones. */
-                        className={s < rating ? 'fill-current' : 'opacity-30'}
-                      />
-                    ))}
-                  </div>
-                  <blockquote className="mt-4 flex-1">
-                    {card.quote.map((p, j) => (
-                      <P key={j} text={p} className="line-clamp-4 leading-relaxed text-heading" />
-                    ))}
+                <figure className={cn('framed group relative flex h-full flex-col p-6 sm:p-7', cut && 'review-grow')}>
+                  <Stars rating={rating} />
+                  <blockquote
+                    className={cn(
+                      'flex-1 leading-relaxed text-heading',
+                      rating > 0 && 'mt-4',
+                      /* Six lines under a fade; the card grows a touch on hover (styles.css). */
+                      cut && 'review-fade max-h-[9.75rem] overflow-hidden'
+                    )}
+                  >
+                    “{card.text}”
                   </blockquote>
                   <figcaption className="mt-5 flex flex-wrap items-baseline gap-x-2 border-t border-heading/20 pt-4">
                     <span className="caps text-[0.625rem] text-heading">{card.name}</span>
-                    {card.meta && <span className="text-xs text-subtle">{card.meta}</span>}
+                    {showSource && card.meta && <span className="text-xs text-subtle">{card.meta}</span>}
+                    {cut && (
+                      <Icon
+                        name="lu-plus"
+                        size="14"
+                        aria-hidden="true"
+                        className="ml-auto self-center text-subtle transition-transform duration-300 group-hover:rotate-90 group-hover:text-accent-ink"
+                      />
+                    )}
                   </figcaption>
+                  {/* The whole card opens the full review. Laid over the card
+                      rather than wrapping it: a button can't hold a blockquote. */}
+                  {cut && (
+                    <button
+                      type="button"
+                      onClick={() => setOpen(card)}
+                      aria-haspopup="dialog"
+                      aria-label={`Read the full review from ${card.name}`}
+                      className="absolute inset-0 z-10 cursor-pointer"
+                    />
+                  )}
                 </figure>
               </li>
             )
           })}
         </ul>
+
+        {open && <FullReview card={{ ...open, rating: showStars ? open.rating : 0, meta: showSource ? open.meta : '' }} onClose={() => setOpen(null)} />}
       </div>
     </div>
   )

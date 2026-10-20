@@ -5,7 +5,7 @@ hideIn: [header]
 description: >-
   Book an appointment at Sublime Hair Studio.
 
-# Bookings are Square Appointments (no deposits). Every "Book" link on the site
+# Bookings are Square Appointments (a card on file; see the cancellation policy on /visit). Every "Book" link on the site
 # points at /book, so this is the ONE place the Square address lives. It comes
 # from Square Dashboard → Appointments → Online booking → booking site link.
 # `booking.services` in site.yml is the same address, used for per-service links.

@@ -15,49 +15,6 @@
       "port": 5200
     },
     {
-      "name": "site-5201",
-      "runtimeExecutable": "pnpm",
-      "runtimeArgs": [
-        "--filter",
-        "sublime",
-        "dev",
-        "--port",
-        "5201",
-        "--strictPort"
-      ],
-      "port": 5201
-    },
-    {
-      "name": "option-1",
-      "runtimeExecutable": "pnpm",
-      "runtimeArgs": [
-        "--dir",
-        "/Users/proximify/dev/clients/hair-salon-1",
-        "--filter",
-        "salon",
-        "dev",
-        "--port",
-        "5173",
-        "--strictPort"
-      ],
-      "port": 5173
-    },
-    {
-      "name": "option-2",
-      "runtimeExecutable": "pnpm",
-      "runtimeArgs": [
-        "--dir",
-        "/Users/proximify/dev/clients/hair-salon-2",
-        "--filter",
-        "site",
-        "dev",
-        "--port",
-        "5190",
-        "--strictPort"
-      ],
-      "port": 5190
-    },
-    {
       "name": "bijou",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": [
@@ -71,65 +28,17 @@
       "port": 5210
     },
     {
-      "name": "built",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": [
-        "-m",
-        "http.server",
-        "5300",
-        "--directory",
-        "sites/sublime/dist"
-      ],
-      "port": 5300
-    },
-    {
-      "name": "before-sublime",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": [
-        "-m",
-        "http.server",
-        "5301",
-        "--directory",
-        "/private/tmp/claude-502/-Users-proximify-dev-clients-sublime-hair-studio/fff2693c-e0e7-4909-b93a-8d08fda2f67d/scratchpad/before-sublime"
-      ],
-      "port": 5301
-    },
-    {
-      "name": "before-bijou",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": [
-        "-m",
-        "http.server",
-        "5302",
-        "--directory",
-        "/private/tmp/claude-502/-Users-proximify-dev-clients-sublime-hair-studio/fff2693c-e0e7-4909-b93a-8d08fda2f67d/scratchpad/before-bijou"
-      ],
-      "port": 5302
-    },
-    {
-      "name": "gh-preview",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": [
-        "-m",
-        "http.server",
-        "5303",
-        "--directory",
-        "/private/tmp/claude-502/-Users-proximify-dev-clients-sublime-hair-studio/fff2693c-e0e7-4909-b93a-8d08fda2f67d/scratchpad/gh"
-      ],
-      "port": 5303
-    },
-    {
-      "name": "shop",
+      "name": "sublime-preview",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": [
         "--filter",
-        "bijou",
-        "dev",
+        "sublime",
+        "preview",
         "--port",
-        "5211",
+        "5201",
         "--strictPort"
       ],
-      "port": 5211
+      "port": 5201
     }
   ]
 }

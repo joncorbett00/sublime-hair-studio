@@ -4,13 +4,13 @@ theme: medium
 ---
 
 <!-- PLACEHOLDER ANSWER: the aftercare advice needs the studio's real routine
-     before publishing. The deposit and cancellation answers are confirmed: no
-     deposits, 24 hours' notice, no fee. Same wording on /services and /visit. -->
+     before publishing. The deposit and cancellation answers follow the studio's
+     policy: a card on file, 48 hours' notice, a $50 fee after that. The full
+     wording is on /visit; keep /services and this page in step with it. -->
 
 #> Before you book colour
 
-# Questions we get
-# every single week
+# Questions we get every single week
 
 ### How long does creative colour actually take?
 Between four and seven hours, and occasionally two appointments. If your photo shows
@@ -36,5 +36,5 @@ Foils give a brighter, more even result that needs a closer eye on the regrowth.
 you which suits your hair at the consult.
 
 ### Is there a deposit?
-No — not even for creative colour or balayage. We hold the chair on trust and just ask for
-twenty-four hours' notice if you need to move a long appointment.
+No deposit, but we take a credit card when you book. It is only charged — a $50
+cancellation fee — if you cancel or reschedule within 48 hours of your appointment.

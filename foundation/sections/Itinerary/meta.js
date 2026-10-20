@@ -16,6 +16,8 @@ export default {
   params: {
     cardLabel: { type: 'string', label: 'Card label', description: 'Wide capitals at the top left of the card — "Running order", "Call sheet"', default: 'Running order' },
     cardTitle: { type: 'string', label: 'Card title', description: 'A small italic line at the top of the card', default: '' },
+    flipped: { type: 'boolean', label: 'Card on the left', default: false },
+    tilt: { type: 'boolean', label: 'Lay the card at a slight angle', default: true },
     tone: toneParam,
   },
 }

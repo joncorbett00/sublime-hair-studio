@@ -1,7 +1,8 @@
-import { Link, H3, P, SocialIcon, filterSocialLinks, useWebsite, applyBasePath } from '@uniweb/kit'
+import { Link, H3, P, cn, SocialIcon, filterSocialLinks, useWebsite, applyBasePath } from '@uniweb/kit'
 import BusinessSchema from '#components/BusinessSchema.jsx'
 import Wordmark from '#components/Wordmark.jsx'
 import { wordmarkParts } from '#utils/wordmark.js'
+import { toneClass } from '#components/tone.js'
 import { linkProps } from '#utils/links.js'
 
 /**
@@ -10,6 +11,9 @@ import { linkProps } from '#utils/links.js'
  * label signs off — or, with a `logo` image, the logo, centred. Takes the hours and columns as
  * authored markdown so the business can change them without anyone opening
  * this file. The edge along its top matches the masthead's.
+ *
+ * `tone` sets its colour (ink by default); `signature: false` drops the big
+ * wordmark or logo at the foot.
  */
 function Footer({ content, params }) {
   const { website } = useWebsite()
@@ -17,7 +21,7 @@ function Footer({ content, params }) {
   const social = filterSocialLinks(links)
   const plain = links.filter((l) => !social.includes(l))
   const hours = data?.hours || []
-  const { credit = '', creditHref = '', signoff = '', edge = 'selvedge', wordmark = '', logo = '' } = params
+  const { credit = '', creditHref = '', signoff = '', edge = 'selvedge', wordmark = '', logo = '', tone = 'ink', signature = true, hoursLabel = 'Hours' } = params
   const mark = wordmarkParts(website.name, { wordmark })
 
   /* Each link column is a labelled group: a markdown list item whose text is
@@ -30,7 +34,7 @@ function Footer({ content, params }) {
     .filter((c) => c.links.length > 0)
 
   return (
-    <div className="tone tone-ink overflow-hidden">
+    <div className={cn('overflow-hidden', toneClass(tone), !signature && 'pb-14')}>
       <div className={edge === 'filmstrip' ? 'filmstrip' : 'selvedge'} aria-hidden="true" />
       <div className="mx-auto max-w-[var(--max-content-width)] px-6 pt-20">
         <BusinessSchema />
@@ -57,7 +61,7 @@ function Footer({ content, params }) {
 
           {hours.length > 0 && (
             <div>
-              <H3 text="Hours" className="caps text-[0.625rem] text-accent-ink" />
+              <H3 text={hoursLabel} className="caps text-[0.625rem] text-accent-ink" />
               <dl className="mt-5">
                 {hours.map((row, i) => (
                   <div key={i} className="flex justify-between gap-4 border-b border-border py-2 text-sm">
@@ -105,15 +109,13 @@ function Footer({ content, params }) {
       </div>
 
       {/* The sign-off: the logo, or the wordmark at the width of the page, cropped at its foot. */}
-      {logo ? (
+      {!signature ? null : logo ? (
         <div aria-hidden="true" className="mx-auto flex max-w-[var(--max-content-width)] justify-center px-6 pb-16 pt-14">
           <img
             src={applyBasePath(logo, website.basePath)}
             alt=""
-            width="640"
-            height="640"
             loading="lazy"
-            className="size-[clamp(9rem,24vw,14rem)] object-contain"
+            className="h-[clamp(9rem,24vw,14rem)] w-auto max-w-full object-contain"
           />
         </div>
       ) : (

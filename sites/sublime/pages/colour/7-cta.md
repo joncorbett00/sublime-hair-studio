@@ -3,10 +3,7 @@ type: CTA
 tone: ink
 ---
 
-#> Bring every photo
-
-# Pick a
-# [colour]{accent}
+# Pick a [colour]{accent}
 
 Book a consult and bring the screenshots, the Pinterest board and the ones you hate. We'll
 make the plan together.

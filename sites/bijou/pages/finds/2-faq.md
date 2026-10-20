@@ -5,8 +5,7 @@ theme: medium
 
 #> Before you come in
 
-# Good to
-# [know]{accent}
+# Good to [know]{accent}
 
 ### Can I buy online?
 No — everything is sold in the boutique. Most pieces need trying on, and every one is one

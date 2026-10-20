@@ -1,4 +1,5 @@
 import { H2, P, Icon, cn } from '@uniweb/kit'
+import { oneLine } from '#utils/text.js'
 import Button from '#components/Button.jsx'
 import { Eyebrow } from '#components/Shout.jsx'
 import { toneClass } from '#components/tone.js'
@@ -20,26 +21,41 @@ function CropMarks() {
 /**
  * The closing invitation, set as a full colour block: a poster-sized headline,
  * a line of copy and one clear button, inside printer's crop marks.
+ *
+ * `align` sets it centred or ranged left, `size` a poster or a compact band,
+ * and `marks` turns the crop marks off.
  */
 export default function CTA({ content, params, block }) {
   const { pretitle, title, paragraphs } = content
   const links = buttonLinks(content)
-  const { tone = 'brand' } = params
+  const { tone = 'brand', align = 'center', size = 'poster', marks = true } = params
+  const center = align !== 'left'
+  const compact = size === 'compact'
 
   return (
     <div className={cn('relative', toneClass(tone))}>
-      <CropMarks />
-      <div className="relative mx-auto max-w-5xl px-6 py-[calc(var(--section-padding-y)*1.15)] text-center">
+      {marks && <CropMarks />}
+      <div
+        className={cn(
+          'relative mx-auto px-6',
+          center ? 'max-w-5xl text-center' : 'max-w-[var(--max-content-width)] sm:px-12 lg:px-16',
+          compact ? 'py-[calc(var(--section-padding-y)*0.7)]' : 'py-[calc(var(--section-padding-y)*1.15)]'
+        )}
+      >
         {pretitle && <Eyebrow block={block} className="mb-8">{pretitle}</Eyebrow>}
         <H2
-          text={title}
-          className="font-display text-heading text-[clamp(3rem,8.5vw,7.5rem)]/[0.9] font-medium tracking-[-0.035em]"
+          text={oneLine(title)}
+          className={cn(
+            'font-display text-heading text-balance font-medium tracking-[-0.035em]',
+            compact ? 'text-[clamp(2.25rem,5vw,4rem)]' : 'text-[clamp(3rem,8.5vw,7.5rem)]',
+            'leading-[0.9]'
+          )}
         />
         {paragraphs.map((p, i) => (
-          <P key={i} text={p} className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-body" />
+          <P key={i} text={p} className={cn('mt-8 max-w-xl text-lg leading-relaxed text-body', center && 'mx-auto')} />
         ))}
         {links.length > 0 && (
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+          <div className={cn('flex flex-wrap items-center gap-4', compact ? 'mt-10' : 'mt-12', center && 'justify-center')}>
             {links.map((l, i) => (
               <Button key={i} {...linkProps(l)} size="lg" tone={i === 0 ? 'primary' : 'outline'}>
                 {l.label}

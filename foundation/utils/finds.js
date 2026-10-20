@@ -59,10 +59,16 @@ export function photoSrcSet(src, widths = [480, 800, 1200]) {
   return widths.map((w) => `${photo(src, w)} ${w}w`).join(', ')
 }
 
-/** A mailto link that names the piece, so the boutique knows what you mean. */
-export function enquiryHref(email, piece) {
+/**
+ * A mailto link that names the piece, so the boutique knows what you mean.
+ * `subject` and `message` are the section's words, with `{piece}` standing
+ * for the piece's name; the greeting names the site.
+ */
+export function enquiryHref(email, piece, { site = '', subject: subjectWords = 'About the {piece}', message = '' } = {}) {
   if (!email) return ''
-  const subject = `About the ${piece?.title || 'piece'}${piece?.designer ? ` by ${piece.designer}` : ''}`
-  const body = `Hi Bijou,\n\nIs the ${piece?.title || 'piece'} still in the shop? I'd like to come in and try it on.\n\n`
+  const name = piece?.title || 'piece'
+  const fill = (text) => String(text).replaceAll('{piece}', name)
+  const subject = `${fill(subjectWords)}${piece?.designer ? ` by ${piece.designer}` : ''}`
+  const body = `${site ? `Hi ${site},` : 'Hi,'}\n\n${fill(message)}\n\n`
   return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 }

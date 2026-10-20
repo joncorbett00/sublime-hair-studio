@@ -23,7 +23,7 @@ const COLS = {
  * The whole card is one link. The visible "Shop" line is decoration, so it is
  * hidden from screen readers to keep a single stop per product.
  */
-function ProductCard({ product, index, showPrice, ctaLabel }) {
+function ProductCard({ product, index, showPrice, showImage, numbered, ctaLabel }) {
   const { title, brand, category, tagline, size, price, image, href } = product
   const priced = showPrice && Number(price) > 0
 
@@ -32,7 +32,7 @@ function ProductCard({ product, index, showPrice, ctaLabel }) {
       href={href}
       className="framed lift group flex h-full flex-col focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-heading"
     >
-      {image && (
+      {showImage && image && (
         <img
           src={image}
           alt=""
@@ -46,7 +46,7 @@ function ProductCard({ product, index, showPrice, ctaLabel }) {
             without it the number wraps along with the brand. */}
         <div className="flex items-baseline justify-between gap-4">
           <span className="caps text-[0.5625rem] text-accent-ink">{brand}</span>
-          <span className="font-display shrink-0 text-sm italic text-subtle" aria-hidden="true">No.&thinsp;{pad(index + 1)}</span>
+          {numbered && <span className="font-display shrink-0 text-sm italic text-subtle" aria-hidden="true">No.&thinsp;{pad(index + 1)}</span>}
         </div>
 
         <h3 className="font-display mt-4 text-2xl font-medium leading-tight tracking-tight text-heading">
@@ -87,7 +87,7 @@ export default function ProductGrid({ content, params, block }) {
   const products = Array.isArray(content.data?.products) ? content.data.products : []
   const { pretitle, title, paragraphs } = content
   const links = buttonLinks(content)
-  const { columns = 4, showPrices = true, ctaLabel = 'Shop', note = '', tone = '' } = params
+  const { columns = 4, showPrices = true, showImages = true, numbered = true, ctaLabel = 'Shop', note = '', tone = '' } = params
 
   if (block.dataLoading) return <DataPlaceholder lines={6} />
 
@@ -108,7 +108,7 @@ export default function ProductGrid({ content, params, block }) {
         <ul className={cn('mt-16 grid grid-cols-1 gap-8', COLS[columns] || COLS[4])}>
           {products.map((product, i) => (
             <li key={product.slug} className="flex">
-              <ProductCard product={product} index={i} showPrice={showPrices} ctaLabel={ctaLabel} />
+              <ProductCard product={product} index={i} showPrice={showPrices} showImage={showImages} numbered={numbered} ctaLabel={ctaLabel} />
             </li>
           ))}
         </ul>

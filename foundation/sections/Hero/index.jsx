@@ -1,7 +1,9 @@
 import { H1, P, Icon, cn, useWebsite } from '@uniweb/kit'
+import { oneLine } from '#utils/text.js'
 import Button from '#components/Button.jsx'
 import Seal from '#components/Seal.jsx'
 import { Eyebrow } from '#components/Shout.jsx'
+import { frameClass } from '#components/frame.js'
 import { buttonLinks, linkProps } from '#utils/links.js'
 import { initialOf, wordmarkParts } from '#utils/wordmark.js'
 
@@ -9,7 +11,8 @@ import { initialOf, wordmarkParts } from '#utils/wordmark.js'
  * Front-door hero, set like a magazine cover. A poster-sized headline,
  * intro and buttons on the left, and a row of headline numbers under a ruled
  * line. On the right, the first photo matted in a frame (`frame`: the
- * upstairs-window arch, a film gate or square) with a second hairline around
+ * upstairs-window arch, a film gate, an oval or square; `flipped` puts it
+ * on the left) with a second hairline around
  * it, the second photo laid over its foot (a print, or a Polaroid pinned at an
  * angle — `inset`), the turning seal on top, and a running caption up the
  * side ("Look 01", "Take 01" — `captionLabel`).
@@ -21,13 +24,14 @@ export default function Hero({ content, params, block }) {
   const {
     layout = 'split',
     frame = 'arch',
+    flipped = false,
     inset: insetStyle = 'print',
     captionLabel = 'Look 01',
     stamp = '',
     seal = 'ring',
     sealLetter = '',
   } = params
-  const shape = frame === 'arch' || frame === 'gate' ? frame : ''
+  const shape = frameClass(frame)
   const letter = sealLetter || initialOf(wordmarkParts(website.name).name)
   const facts = data?.facts || []
   const [main, inset] = images
@@ -35,13 +39,13 @@ export default function Hero({ content, params, block }) {
 
   return (
     <div className="relative mx-auto max-w-[var(--max-content-width)] px-6 pb-20 pt-10 lg:pb-28 lg:pt-14">
-      <div className={cn('grid grid-cols-[minmax(0,1fr)] items-center gap-16 lg:gap-12', split && 'lg:grid-cols-[1.25fr_1fr]')}>
+      <div className={cn('grid grid-cols-[minmax(0,1fr)] items-center gap-16 lg:gap-12', split && (flipped ? 'lg:grid-cols-[1fr_1.25fr] lg:[&>*:first-child]:order-2' : 'lg:grid-cols-[1.25fr_1fr]'))}>
         <div className="rise">
           {pretitle && <Eyebrow block={block} className="mb-8">{pretitle}</Eyebrow>}
 
           <H1
-            text={title}
-            className="font-display text-heading text-[clamp(3.25rem,6.4vw,6.25rem)]/[0.92] font-medium tracking-[-0.035em]"
+            text={oneLine(title)}
+            className="font-display text-heading text-balance text-[clamp(3.25rem,6.4vw,6.25rem)]/[0.92] font-medium tracking-[-0.035em]"
           />
 
           {paragraphs.map((p, i) => (
@@ -76,7 +80,7 @@ export default function Hero({ content, params, block }) {
         </div>
 
         {split && (
-          <div className="relative mx-auto w-full max-w-[26rem] pb-20 lg:mr-0 lg:max-w-[31rem]">
+          <div className={cn('relative mx-auto w-full max-w-[26rem] pb-20 lg:max-w-[31rem]', flipped ? 'lg:ml-0' : 'lg:mr-0')}>
             <figure className="relative ml-14 mr-8 sm:ml-24 sm:mr-10">
               <div className={cn('mat', shape)}>
                 <span aria-hidden="true" className="halo" />

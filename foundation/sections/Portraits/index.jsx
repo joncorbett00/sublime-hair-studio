@@ -1,6 +1,7 @@
 import { P, cn } from '@uniweb/kit'
 import Shout from '#components/Shout.jsx'
 import { toneClass } from '#components/tone.js'
+import { frameClass } from '#components/frame.js'
 
 /**
  * A few portraits with their whole story showing — the studio dogs, a founder
@@ -12,7 +13,7 @@ import { toneClass } from '#components/tone.js'
  */
 export default function Portraits({ content, params, block }) {
   const { pretitle, title, paragraphs, items } = content
-  const { columns = 2, tone = '' } = params
+  const { columns = 2, frame = 'arch', monochrome = false, stagger = true, tone = '' } = params
   const cols = { 2: 'md:grid-cols-2', 3: 'md:grid-cols-2 lg:grid-cols-3' }
 
   return (
@@ -28,13 +29,13 @@ export default function Portraits({ content, params, block }) {
           {items.map((item, i) => {
             const image = item.images?.[0]
             return (
-              <li key={i} className={cn(columns == 2 && i % 2 === 1 && 'md:mt-24')}>
+              <li key={i} className={cn(stagger && columns == 2 && i % 2 === 1 && 'md:mt-24')}>
                 {image && (
-                  <div className="mat arch mx-auto max-w-md md:mx-0">
+                  <div className={cn('mat mx-auto max-w-md md:mx-0', frameClass(frame))}>
                     <img
                       src={image.url || image.src}
                       alt={image.alt || ''}
-                      className="aspect-[4/5] w-full object-cover"
+                      className={cn('aspect-[4/5] w-full object-cover', monochrome && 'grayscale')}
                       loading="lazy"
                     />
                   </div>

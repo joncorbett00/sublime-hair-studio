@@ -15,7 +15,7 @@ export default function Wordmark({ name, tagline, className }) {
       <span className="font-logo font-medium italic tracking-[-0.03em] text-heading">{name}</span>
       {tagline && (
         <span
-          className="mt-[0.3em] mr-[-0.34em] text-[0.24em] font-semibold uppercase tracking-[0.34em] text-heading [font-stretch:125%]"
+          className="mt-[0.3em] mr-[-0.34em] text-[0.24em] font-semibold uppercase tracking-[0.34em] text-heading [font-stretch:var(--label-stretch)]"
         >
           {tagline}
         </span>

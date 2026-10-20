@@ -3,8 +3,6 @@ type: CTA
 tone: brand
 ---
 
-#> Tuesday to Saturday, from noon
-
 # Come on [up]{accent}
 
 Book online and choose your time, whether that's a quick lunch-hour cut or a long

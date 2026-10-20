@@ -1,8 +1,9 @@
 import { toneParam } from '#components/tone.js'
+import { frameParam } from '#components/frame.js'
 
 export default {
   title: 'The Crew',
-  description: 'Matted arched stylist portraits, from the `crew` collection. Each card opens a dialog with the full bio and a link to the booking page.',
+  description: 'Matted stylist portraits (arched, oval, rounded or square), from the `crew` collection. Each card opens a dialog with the full bio and a link to the booking page.',
 
   data: {
     crew: {
@@ -32,7 +33,15 @@ export default {
       options: [{ value: 2, label: '2' }, { value: 3, label: '3' }, { value: 4, label: '4' }],
       default: 3,
     },
-      tone: toneParam,
+    frame: frameParam('arch'),
+    monochrome: { type: 'boolean', label: 'Black and white, colour on hover', default: true },
+    numbered: { type: 'boolean', label: 'Number the cards', default: true },
+    meetLabel: { type: 'string', label: 'Link on each card', description: 'Followed by the first name — "Meet Sonia".', default: 'Meet' },
+    bookLabel: { type: 'string', label: 'Booking button in the dialog', description: 'Followed by the first name — "Book with Sonia".', default: 'Book with' },
+    favouriteLabel: { type: 'string', label: 'Label for the favourite part of the job', default: 'Favourite part of the job' },
+    worstLabel: { type: 'string', label: 'Label for the worst haircut', default: 'Worst haircut they have ever had' },
+    workLabel: { type: 'string', label: 'Instagram link words', default: 'Their work' },
+    tone: toneParam,
   },
 
   presets: {

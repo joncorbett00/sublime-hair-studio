@@ -34,7 +34,7 @@ export const { business, booking } = parse(readFileSync(join(site, 'site.yml'), 
 const short = (day) => day.slice(0, 3)
 const clock = (t) => String(Number(t.split(':')[0]) % 12 || 12)
 export const hours = business.hours
-  .map((h) => `${short(h.days[0])}–${short(h.days.at(-1))} ${clock(h.opens)}–${clock(h.closes)}`)
+  .map((h) => `${h.days.length > 1 ? `${short(h.days[0])}–${short(h.days.at(-1))}` : short(h.days[0])} ${clock(h.opens)}–${clock(h.closes)}`)
   .join(' · ')
 export const phone = business.telephone.replace(/^\+1-/, '').replace(/-/g, '.')
 export const domain = business.url.replace(/^https?:\/\//, '')

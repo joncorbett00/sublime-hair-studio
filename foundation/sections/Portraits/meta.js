@@ -1,8 +1,9 @@
 import { toneParam } from '#components/tone.js'
+import { frameParam } from '#components/frame.js'
 
 export default {
   title: 'Portraits',
-  description: 'A few people (or dogs) with their whole story showing: an arched matted photo, the name large, a short line under it and a few paragraphs. For the studio dogs, a founder, a partner — anyone who deserves more than a card.',
+  description: 'A few people (or dogs) with their whole story showing: a matted photo (arched, oval, rounded or square), the name large, a short line under it and a few paragraphs. For the studio dogs, a founder, a partner — anyone who deserves more than a card.',
   family: 'team',
 
   content: {
@@ -18,6 +19,9 @@ export default {
       options: [{ value: 2, label: '2 — staggered' }, { value: 3, label: '3' }],
       default: 2,
     },
+    stagger: { type: 'boolean', label: 'Step every second portrait down (2 columns)', default: true },
+    frame: frameParam('arch'),
+    monochrome: { type: 'boolean', label: 'Black-and-white photos', default: false },
     tone: toneParam,
   },
 }

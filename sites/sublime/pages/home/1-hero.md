@@ -1,13 +1,13 @@
 ---
 type: Hero
-stamp: One flight up · on Elgin St.
+frame: gate
+theme: dark
+stamp: The focus is on you
 ---
 
 #> Golden Triangle · Ottawa
 
-# Runway skills,
-# one flight up
-# from [Elgin]{accent}
+# Runway skills, one flight up from [Elgin]{accent}
 
 A small, warm studio up a flight of stairs in the Golden Triangle, run by a certified
 stylist who has done hair for runways and editorial shoots — and who is just as happy
@@ -18,7 +18,7 @@ fitting a sharp cut into your lunch hour.
 
 ```yaml:facts
 - { value: "45 min", label: "Lunch-hour cuts" }
-- { value: "12–6", label: "Tuesday to Saturday" }
+- { value: "Tue–Sat", label: "Open through lunch" }
 - { value: "20+ yrs", label: "Upstairs on Elgin" }
 ```
 

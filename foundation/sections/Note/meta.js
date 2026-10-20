@@ -16,5 +16,10 @@ export default {
       options: [{ value: 'center', label: 'Centred' }, { value: 'left', label: 'Left' }],
       default: 'center',
     },
+    style: {
+      type: 'select', label: 'Card',
+      options: [{ value: 'outline', label: 'Hairline outline' }, { value: 'filled', label: 'Filled card' }],
+      default: 'outline',
+    },
   },
 }

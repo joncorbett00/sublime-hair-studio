@@ -11,8 +11,7 @@ captionLabel: ''
 
 #> Our mission
 
-# The focus
-# is [on you]{accent}
+# The focus is [on you]{accent}
 
 Sublime Hair Studio is built on the idea that every client deserves a style that is the
 outcome of creativity and originality. Tucked in amongst the restaurants, shops and small

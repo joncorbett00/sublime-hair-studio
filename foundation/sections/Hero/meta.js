@@ -1,6 +1,8 @@
+import { frameParam } from '#components/frame.js'
+
 export default {
   title: 'Hero',
-  description: 'Front-door hero set like a magazine cover — a poster-sized headline, intro copy, buttons and a row of headline numbers beside a matted photo — arched, film-gate or square — with a second photo laid over it and an optional turning seal.',
+  description: 'Front-door hero set like a magazine cover — a poster-sized headline, intro copy, buttons and a row of headline numbers beside a matted photo — square, rounded, arched or oval — with a second photo laid over it and an optional turning seal.',
 
   content: {
     pretitle: 'Location or eyebrow label [0-1]',
@@ -26,15 +28,8 @@ export default {
       ],
       default: 'split',
     },
-    frame: {
-      type: 'select', label: 'Photo frame',
-      options: [
-        { value: 'arch', label: 'Arched window' },
-        { value: 'gate', label: 'Film frame — softly rounded corners' },
-        { value: 'rounded', label: 'Square' },
-      ],
-      default: 'arch',
-    },
+    flipped: { type: 'boolean', label: 'Photos on the left', default: false },
+    frame: frameParam('arch'),
     inset: {
       type: 'select', label: 'Second photo',
       options: [
@@ -47,7 +42,7 @@ export default {
     stamp: {
       type: 'string',
       label: 'Seal text',
-      description: 'Short phrase that runs round the turning seal on the photo. Leave empty for no seal.',
+      description: 'Short phrase that runs round the turning seal on the photo — it repeats and resizes to fill the ring, so anything from two words to a short sentence works. Leave empty for no seal.',
       default: '',
     },
     seal: {

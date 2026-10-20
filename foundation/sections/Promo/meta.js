@@ -15,6 +15,7 @@ export default {
     figure: { type: 'string', label: 'Offer figure', description: 'The big number, e.g. "10%" or "$20". Leave empty for none.', default: '' },
     figureLabel: { type: 'string', label: 'Word after the figure', description: 'Set in italic beside it, e.g. "off"', default: '' },
     note: { type: 'string', label: 'Fine print under the button', description: 'e.g. "Until September 30"', default: '' },
+    coupon: { type: 'boolean', label: 'Dashed coupon edge with scissors', default: true },
     tone: { ...toneParam, default: 'brand' },
   },
 }

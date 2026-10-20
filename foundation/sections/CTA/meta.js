@@ -13,5 +13,16 @@ export default {
 
   params: {
     tone: { ...toneParam, default: 'brand' },
+    align: {
+      type: 'select', label: 'Alignment',
+      options: [{ value: 'center', label: 'Centred' }, { value: 'left', label: 'Left' }],
+      default: 'center',
+    },
+    size: {
+      type: 'select', label: 'Size',
+      options: [{ value: 'poster', label: 'Poster — a big headline' }, { value: 'compact', label: 'Compact band' }],
+      default: 'poster',
+    },
+    marks: { type: 'boolean', label: 'Crop marks in the corners', default: true },
   },
 }

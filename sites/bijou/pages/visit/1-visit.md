@@ -10,15 +10,18 @@ phone: (613) 555-0142
 phoneHref: tel:+16135550142
 email: hello@bijouboutique.ca
 hoursNote: Upstairs in the same studio as Sublime Hair Studio.
-mapEmbed: https://www.openstreetmap.org/export/embed.html?bbox=-75.6988%2C45.4131%2C-75.6868%2C45.4183&layer=mapnik&marker=45.4157%2C-75.6928
 mapTitle: Map to the boutique
-mapLink: https://www.openstreetmap.org/?mlat=45.4157&mlon=-75.6928#map=18/45.4157/-75.6928
+# 190 MacLaren is the corner building at Elgin, beside the Bridgehead —
+# OpenStreetMap's nodes for the address sit at 45.41695, -75.68990.
+lat: 45.41695
+lng: -75.68990
+zoom: 16
+mapLink: https://www.google.com/maps/search/?api=1&query=190+MacLaren+Street%2C+Ottawa%2C+ON+K2P+0L6
 ---
 
 #> Golden Triangle · Ottawa
 
-# One flight up,
-# just off [Elgin]{accent}
+# One flight up, just off [Elgin]{accent}
 
 Bijou shares the second floor of 190 MacLaren Street with [Sublime Hair Studio](https://sublimehair.ca),
 a two-minute walk from Elgin Street. Look for

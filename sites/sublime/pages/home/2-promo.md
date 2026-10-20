@@ -11,8 +11,7 @@ figureLabel: off
 
 #> Back to school
 
-# A fresh cut
-# for a [fresh term]{accent}
+# A fresh cut for a [fresh term]{accent}
 
 Ten percent off cuts and colour for back-to-school season. Mention the offer when
 you book and we'll take it off at the till.

@@ -6,8 +6,7 @@ captionLabel: Fig.
 
 #> Our story
 
-# Good clothes deserve
-# a [second life]{accent}
+# Good clothes deserve a [second life]{accent}
 
 Bijou started with a simple idea: that the best clothes in the city are often the ones
 already made — a coat too good to leave behind at an estate sale, a suit that fits like it

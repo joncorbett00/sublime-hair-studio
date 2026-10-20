@@ -1,5 +1,6 @@
 ---
 type: Hero
+theme: dark
 frame: gate
 inset: polaroid
 captionLabel: Look 01
@@ -9,8 +10,7 @@ seal: ring
 
 #> Curated apparel · Ottawa
 
-# Vintage, designer
-# & [everyday]{accent}
+# Vintage, designer & [everyday]{accent}
 
 A boutique one flight up on MacLaren Street, full of clothes worth wearing — coats, suits,
 dresses, knitwear and everything in between, picked one piece at a time. Here are a few of

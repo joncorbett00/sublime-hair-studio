@@ -4,6 +4,11 @@ nav: authored
 ctaHref: /book
 ctaMobileLabel: Book an appointment
 edge: selvedge
+# The Sublime logo, in place of the wordmark set in type: ink on the paper
+# bar, paper on the dark one. The bar goes dark on pages that open on a dark
+# section, like the homepage hero (`bar: auto`).
+logo: /images/sublime-logo-ink.png
+logoOnDark: /images/sublime-logo-paper.png
 ---
 
 <!-- The whole nav, in order: the first half sits left of the wordmark, the
@@ -25,10 +30,7 @@ edge: selvedge
      picker. -->
 ```yaml:palettes
 - { id: vermilion, name: Vermilion, color: '#C8401F', bright: '#E2582F', deep: '#B5391B' }
-- { id: fuchsia, name: Fuchsia, color: '#C21E6A', bright: '#EC5A9A', deep: '#AE1A5F' }
-- { id: oxblood, name: Oxblood, color: '#7E1F2A', bright: '#D8606F', deep: '#7E1F2A', pop: '#F4B6BE' }
-- { id: plum, name: Plum, color: '#6F2C66', bright: '#C570B7', deep: '#6F2C66', pop: '#EBC0E3' }
-- { id: cobalt, name: Cobalt, color: '#2F45C8', bright: '#7389F7', deep: '#2A3EB5', pop: '#C9D2FF' }
-- { id: petrol, name: Petrol, color: '#0E6C73', bright: '#3BB4BD', deep: '#0D6168', pop: '#A9E3E7' }
-- { id: emerald, name: Emerald, color: '#1E6E50', bright: '#43B78B', deep: '#1B6448', pop: '#B4E6CF' }
+- { id: espresso, name: Dark brown, color: '#4A2E22', bright: '#C09274', deep: '#4A2E22', pop: '#E3C9A8' }
+- { id: gold, name: Gold, color: '#8C6420', bright: '#D9B25E', deep: '#7A5818', pop: '#F3E2B3' }
+- { id: silver, name: Silver, color: '#6B6E73', bright: '#C4C7CB', deep: '#55585D', pop: '#E4E6E9' }
 ```

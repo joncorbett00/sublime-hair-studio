@@ -46,11 +46,30 @@ function ReturnBar({ link, className }) {
   )
 }
 
+/** Colour blocks (`tone:`) that read as dark, like a `theme: dark` section. */
+const DARK_TONES = ['ink']
+
+/**
+ * Whether the bar should be dark: `bar: dark` always, `bar: light` never, and
+ * `bar: auto` when the page opens on a dark section — a `theme: dark` hero or
+ * an ink colour block — so the bar runs into it instead of sitting on it as a
+ * pale strip. Read from the page being shown, so it follows navigation.
+ */
+function isDarkBar(bar, block, website) {
+  if (bar === 'dark' || bar === 'light') return bar === 'dark'
+  const first = block?.getNextBlockInfo?.()
+  if (first?.theme === 'dark') return true
+  const tone = website?.activePage?.bodyBlocks?.[0]?.properties?.tone
+  return DARK_TONES.includes(tone)
+}
+
 /**
  * Fixed masthead: the edge along the very top (a brand-colour selvedge, or a
  * film strip), the wordmark — or the `logo` image — at the centre and the nav split evenly either
  * side of it, with the button last on the right. Once the page scrolls the
- * bar turns to frosted paper and the wordmark steps down a size.
+ * bar turns to frosted paper and the wordmark steps down a size. The bar is
+ * dark over a dark opening section (see isDarkBar), with `logoOnDark` in
+ * place of `logo` when that is set.
  *
  * With `nav: authored` the links authored in header.md ARE the nav, in order.
  * With `nav: pages` it is the page nav (minus home — the wordmark is the home
@@ -61,19 +80,23 @@ function ReturnBar({ link, className }) {
  * another site (see ReturnBar). A `yaml:palettes` block turns on the floating
  * palette picker (components/PaletteSwitcher.jsx).
  */
-function Header({ content, params }) {
+function Header({ content, params, block }) {
   const { website } = useWebsite()
   const scrolled = useScrolled(16)
   const { isOpen: mobileOpen, toggle: toggleMobile, close: closeMobile } = useMobileMenu()
   const { isActiveOrAncestor } = useActiveRoute()
   const {
     ctaHref = '/book',
+    ctaLabel = 'Book now',
+    skipLabel = 'Skip to content',
     ctaMobileLabel = '',
     nav = 'pages',
     edge = 'selvedge',
     wordmark = '',
     wordmarkTagline = '',
     logo = '',
+    logoOnDark = '',
+    bar = 'auto',
     returnLabel = '',
     returnHref = '',
   } = params
@@ -81,6 +104,8 @@ function Header({ content, params }) {
   const siteName = website.name || ''
   const mark = wordmarkParts(siteName, { wordmark, tagline: wordmarkTagline })
   const edgeClass = edge === 'filmstrip' ? 'filmstrip' : 'selvedge'
+  const dark = isDarkBar(bar, block, website)
+  const logoSrc = (dark && logoOnDark) || logo
   const returnLink = returnLabel && returnHref ? { label: returnLabel, href: returnHref, reload: true } : null
   const authored = (content.links || []).map((l) => ({ label: l.label, href: l.href, reload: l.reload, target: l.target }))
 
@@ -94,7 +119,7 @@ function Header({ content, params }) {
         ...authored,
       ]
 
-  const ctaLink = links.find((l) => l.href === ctaHref) || { label: 'Book now', href: ctaHref }
+  const ctaLink = links.find((l) => l.href === ctaHref) || { label: ctaLabel, href: ctaHref }
   const navLinks = links.filter((l) => l !== ctaLink)
   // Phones get one word, so the button balances the menu toggle across the
   // wordmark: "Book now" → "Book", "Visit us" → "Visit".
@@ -122,7 +147,7 @@ function Header({ content, params }) {
         onClick={() => document.getElementById('content-start')?.focus()}
         className="btn btn-primary sr-only z-50 px-5 py-3 text-xs focus:not-sr-only focus:absolute focus:left-4 focus:top-4"
       >
-        Skip to content
+        {skipLabel}
       </button>
 
       {/* Fixed, not sticky: the runtime wraps this section in elements exactly as
@@ -133,7 +158,9 @@ function Header({ content, params }) {
         {returnLink && <div className="h-8" />}
         <div className="h-[calc(var(--header-height)+1px)]" />
       </div>
-      <div className="fixed inset-x-0 top-0 z-40">
+      {/* The context class re-points every token below it — section, heading,
+          border, button — so the whole bar and the phone menu turn together. */}
+      <div className={cn('fixed inset-x-0 top-0 z-40', dark ? 'context-dark' : 'context-light')}>
         <div className={edgeClass} aria-hidden="true" />
         {returnLink && <ReturnBar link={returnLink} />}
         <div
@@ -167,14 +194,12 @@ function Header({ content, params }) {
             </div>
 
             <Link href="/" aria-label={`${siteName} — home`} className="flex justify-center">
-              {logo ? (
+              {logoSrc ? (
                 <img
-                  src={applyBasePath(logo, website.basePath)}
+                  src={applyBasePath(logoSrc, website.basePath)}
                   alt=""
-                  width="640"
-                  height="640"
                   className={cn(
-                    'size-[calc(var(--header-height)-0.75rem)] origin-center object-contain transition-transform duration-300',
+                    'h-[calc(var(--header-height)-0.75rem)] w-auto max-w-[min(15rem,38vw)] origin-center object-contain transition-transform duration-300',
                     scrolled && 'scale-[0.86]'
                   )}
                 />

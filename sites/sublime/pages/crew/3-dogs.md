@@ -5,8 +5,7 @@ tone: sand
 
 #> The studio dogs
 
-# The welcoming
-# [committee]{accent}
+# The welcoming [committee]{accent}
 
 Not everyone on the team holds scissors.
 

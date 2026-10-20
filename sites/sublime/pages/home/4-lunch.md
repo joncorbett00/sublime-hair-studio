@@ -6,11 +6,9 @@ theme: medium
 
 #> Work downtown?
 
-# A great haircut
-# fits in your
-# [lunch hour]{accent}
+# A great haircut fits in your [lunch hour]{accent}
 
-We are a two-minute walk from Elgin Street and open at noon, so a proper cut fits
+We are a two-minute walk from Elgin Street and open through lunch, so a proper cut fits
 between meetings. Book to the minute online, come up the stairs, and be back at
 your desk looking like you took the afternoon off.
 

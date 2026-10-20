@@ -7,7 +7,7 @@ index: home
 # `book` redirects to Square Appointments (pages/book/page.yml). The shop is
 # Bijou Boutique, its own site (sites/bijou) served under /shop/ on this domain
 # — linked from the header and footer, not a page here.
-pages: [home, services, colour, crew, book, visit]
+pages: [home, services, colour, crew, book, visit, privacy, accessibility]
 
 keywords: [hair studio ottawa, hair salon ottawa, elgin street hair salon, golden triangle salon, lunch hour haircut ottawa, balayage ottawa, creative colour, centretown hair, curly cuts ottawa, vivid hair colour ottawa, colour correction ottawa, pastel hair colour]
 
@@ -41,7 +41,10 @@ business:
   geo: { lat: 45.4157, lng: -75.6928 }
   # 24-hour times. Days not listed are closed.
   hours:
-    - { days: [Tuesday, Wednesday, Thursday, Friday, Saturday], opens: "12:00", closes: "18:00" }
+    - { days: [Tuesday], opens: "12:00", closes: "18:00" }
+    - { days: [Wednesday], opens: "10:00", closes: "18:00" }
+    - { days: [Thursday, Friday], opens: "10:00", closes: "19:00" }
+    - { days: [Saturday], opens: "09:00", closes: "16:00" }
   # Every profile that is this business. Add the Google Business Profile link
   # (GBP → Share → copy link) and the real Instagram when there is one.
   sameAs:

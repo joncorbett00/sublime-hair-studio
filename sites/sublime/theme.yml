@@ -2,7 +2,8 @@
 # One loud colour and a wardrobe of neutrals. Vermilion, the studio's red, is
 # the only colour in the house, and whole sections are set in it; everything
 # else is bone paper, sand, taupe and near-black ink, with Archivo for
-# headlines and text, and a Bodoni wordmark.
+# everything you read (headlines in its semi-condensed cut) and Black Mango
+# kept for the seal's letter.
 
 colors:
   primary: '#C8401F'      # vermilion — the brand red, booking buttons, colour-block sections
@@ -41,14 +42,25 @@ appearance:
   allowToggle: false
   respectSystemPreference: false
 
-# One reading family, Archivo, for headings and text. Bodoni Moda is loaded
-# for the wordmark and seal only (italic, one weight). To change the headline
-# face, change `font-display` in foundation/main.js too.
+# Archivo throughout: text and capital-letter labels at its normal width,
+# headlines, numbers and prices in its semi-condensed cut (`display-stretch`
+# under vars:, below). Black Mango (Creative Media Lab) is kept only for the
+# letter in the turning seal — the face of the logo. It read beautifully at
+# logo size but made headlines hard to read.
+#
+# Black Mango is a commercial font; the file is
+# public/fonts/BlackMango-Regular.woff2. `display` is the foundation's
+# headline face (`font-display` in foundation/main.js); `heading` is h1–h3;
+# `logo` is the seal's letter.
 fonts:
   heading: "'Archivo', ui-sans-serif, system-ui, sans-serif"
+  display: "'Archivo', ui-sans-serif, system-ui, sans-serif"
+  logo: "'Black Mango', ui-serif, Georgia, serif"
   body: "'Archivo', ui-sans-serif, system-ui, sans-serif"
   import:
-    - url: "https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@1,6..96,500&display=swap"
+    - url: "https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap"
+  faces:
+    - { family: "Black Mango", src: /fonts/BlackMango-Regular.woff2, weight: "400" }
 
 # `[words]{accent}` in a heading: italic in vermilion with a squiggle
 # under it (styles.css). Brighter red on ink, and ink on vermilion sections.
@@ -58,3 +70,7 @@ inline:
 
 vars:
   radius: 0rem
+
+  # Headlines in Archivo's semi-condensed cut, so they read as a face of
+  # their own beside the body text.
+  display-stretch: 87.5%

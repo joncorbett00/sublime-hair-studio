@@ -17,6 +17,16 @@ export default {
   },
 
   params: {
+    layout: {
+      type: 'select', label: 'Layout',
+      options: [
+        { value: 'side', label: 'Heading on the left, questions on the right' },
+        { value: 'stacked', label: 'Heading above the questions' },
+      ],
+      default: 'side',
+    },
+    openFirst: { type: 'boolean', label: 'Open the first answer', default: true },
+    numbered: { type: 'boolean', label: 'Number the questions', default: true },
     tone: toneParam,
   },
 }

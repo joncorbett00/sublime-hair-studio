@@ -5,8 +5,7 @@ stamp: Vivid · lived-in · corrected
 
 #> Colour
 
-# The fun part,
-# done [properly]{accent}
+# The fun part, done [properly]{accent}
 
 Colour is what people climb the stairs for: vivids that stay bright, pastels over a proper
 lightening plan, balayage that grows out on purpose, and corrections for the box dye nobody
