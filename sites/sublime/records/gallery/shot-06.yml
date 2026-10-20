@@ -1,8 +1,10 @@
+$uuid: 01a1598b-520e-7020-a7b8-fb61f570bb08
 service: full-solid-colour
-title: "Copper on a natural level 5 without a trace of brass"
+title: Copper on a natural level 5 without a trace of brass
 category: Colour
-caption: "Copper on a natural level 5 without a single trace of brass."
-image: https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=900&h=1125&q=80
+caption: Copper on a natural level 5 without a single trace of brass.
+image: >-
+  https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=900&h=1125&q=80
 orientation: portrait
 stylist: sonia
 order: 14

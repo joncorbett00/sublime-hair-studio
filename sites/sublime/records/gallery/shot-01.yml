@@ -1,8 +1,10 @@
+$uuid: 01a1598b-520e-7020-a7b8-fb1a1a828dce
 service: creative-colour
-title: "Full vivid rainbow, done in one very long Saturday"
+title: Full vivid rainbow, done in one very long Saturday
 category: Colour
-caption: "Full vivid rainbow, done in one very long and very loud Saturday."
-image: https://images.unsplash.com/photo-1554519515-242161756769?auto=format&fit=crop&w=900&h=1125&q=80
+caption: Full vivid rainbow, done in one very long and very loud Saturday.
+image: >-
+  https://images.unsplash.com/photo-1554519515-242161756769?auto=format&fit=crop&w=900&h=1125&q=80
 orientation: portrait
 stylist: jules
 order: 3

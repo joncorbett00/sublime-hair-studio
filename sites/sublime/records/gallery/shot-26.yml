@@ -1,8 +1,10 @@
+$uuid: 01a1598b-520e-7020-a7b8-fc80966c7a83
 service: technical-haircut
-title: "Curls with the weight taken out of the middle, not the ends"
+title: Curls with the weight taken out of the middle, not the ends
 category: Curls
-caption: "Curls with the weight taken out of the middle, not the ends."
-image: https://images.unsplash.com/photo-1648600076524-06f310f0e489?auto=format&fit=crop&w=900&h=1125&q=80
+caption: Curls with the weight taken out of the middle, not the ends.
+image: >-
+  https://images.unsplash.com/photo-1648600076524-06f310f0e489?auto=format&fit=crop&w=900&h=1125&q=80
 orientation: portrait
 stylist: priya
 order: 25

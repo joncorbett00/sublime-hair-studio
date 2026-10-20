@@ -1,8 +1,10 @@
+$uuid: 01a1598b-520e-7020-a7b8-fb91becb4b9c
 service: colour-correction
-title: "Silver that took three sittings and held its tone for eleven weeks"
+title: Silver that took three sittings and held its tone for eleven weeks
 category: Colour
-caption: "Silver that took three sittings and held its tone for eleven weeks."
-image: https://images.unsplash.com/photo-1605980625600-88b46abafa8d?auto=format&fit=crop&w=900&h=1125&q=80
+caption: Silver that took three sittings and held its tone for eleven weeks.
+image: >-
+  https://images.unsplash.com/photo-1605980625600-88b46abafa8d?auto=format&fit=crop&w=900&h=1125&q=80
 orientation: portrait
 stylist: sonia
 order: 16

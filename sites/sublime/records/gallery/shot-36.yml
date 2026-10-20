@@ -1,6 +1,8 @@
-title: "Closing time"
+$uuid: 01a1598b-520e-7020-a7b8-fd2a2632b9c2
+title: Closing time
 category: Studio
-caption: "Closing time. Somebody always has the scissors out for a photo."
-image: https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&w=1200&h=800&q=80
+caption: Closing time. Somebody always has the scissors out for a photo.
+image: >-
+  https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&w=1200&h=800&q=80
 orientation: wide
 order: 34

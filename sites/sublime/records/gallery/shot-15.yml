@@ -1,8 +1,10 @@
+$uuid: 01a1598b-520e-7020-a7b8-fbe01e5d70ee
 service: classic-haircut
-title: "A blunt bob that sits without being touched"
+title: A blunt bob that sits without being touched
 category: Cuts
-caption: "A blunt bob that sits without being touched. Marco is quietly proud."
-image: https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=900&h=1125&q=80
+caption: A blunt bob that sits without being touched. Marco is quietly proud.
+image: >-
+  https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=900&h=1125&q=80
 orientation: portrait
 stylist: marco
 order: 20

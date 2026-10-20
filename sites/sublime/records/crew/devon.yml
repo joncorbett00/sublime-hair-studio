@@ -1,13 +1,18 @@
+$uuid: 01a1598b-520e-7020-a7b8-fab2436fec59
 title: Devon Clarke
 role: Stylist
 pronouns: he/him
-image: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&crop=faces&w=900&h=1125&q=80
+image: >-
+  https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&crop=faces&w=900&h=1125&q=80
 tagline: Blowouts, up-dos, and a hand steady enough for wedding mornings.
 bio: >-
-  Devon runs most of our bridal work, which means he is very good at staying calm while
-  somebody's aunt has opinions. Outside of event season he does the best blowout in the
-  building and he knows it.
-specialties: [Up-dos, Bridal, Blowouts]
+  Devon runs most of our bridal work, which means he is very good at staying
+  calm while somebody's aunt has opinions. Outside of event season he does the
+  best blowout in the building and he knows it.
+specialties:
+  - Up-dos
+  - Bridal
+  - Blowouts
 favouriteThing: A wedding party that arrives nervous and leaves loud.
 worstHaircut: Frosted tips. Early 2000s. He brings it up himself.
 level: Standard

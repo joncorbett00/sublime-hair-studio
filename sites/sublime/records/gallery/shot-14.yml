@@ -1,8 +1,10 @@
+$uuid: 01a1598b-520e-7020-a7b8-fbdb2767a4a3
 service: full-solid-colour
-title: "Grey blending rather than grey covering"
+title: Grey blending rather than grey covering
 category: Colour
-caption: "Grey blending rather than grey covering. Growing it out on purpose."
-image: https://images.unsplash.com/photo-1608649672519-e8797a9560cf?auto=format&fit=crop&w=900&h=1125&q=80
+caption: Grey blending rather than grey covering. Growing it out on purpose.
+image: >-
+  https://images.unsplash.com/photo-1608649672519-e8797a9560cf?auto=format&fit=crop&w=900&h=1125&q=80
 orientation: portrait
 stylist: sonia
 order: 8
