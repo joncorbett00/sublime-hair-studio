@@ -25,11 +25,11 @@ targets:
     backend: https://uniweb.app
 deploys:
   production:
-    at: 2026-10-20T21:09:41.330Z
+    at: 2026-10-20T21:31:50.774Z
     host: uniweb
     git:
-      sha: 5e28a6d10ff4b3d6710c6fd0cd57343a926cd472
-      dirty: false
+      sha: c36825f1a6829c375f9cf39f2461f243beb43dab
+      dirty: true
     backend: https://uniweb.app
     siteUuid: 01a15a12-2e65-7032-8465-d9f3039ce957
     url: https://bijou-boutique.uniweb.pro/
