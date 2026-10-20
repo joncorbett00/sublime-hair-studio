@@ -98,7 +98,9 @@
         "01a1598d-93c8-7ca1-a782-7f8f23e58101": "01a15a12-3363-71d0-9bbd-06e4c9c72a11",
         "01a1598d-93c8-7ca1-a782-7f9c50d8f1dd": "01a15a12-3363-71d0-9bbd-06f735d53a69"
       },
-      "services": {},
+      "services": {
+        "records": "01a15b3a-3e1c-77f0-a58a-64027c334dce"
+      },
       "site": {
         "uuid": "01a15a12-2e65-7032-8465-d9f3039ce957",
         "org": "studio"
