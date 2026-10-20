@@ -28,14 +28,27 @@ a two-minute walk from Elgin Street. Look for
 the door at street level and come up one flight of stairs. There's far more on the racks
 than we show online: come in, look through everything and try it on.
 
-```yaml:hours
-- { day: Monday, open: Closed }
-- { day: Tuesday, open: "12–6" }
-- { day: Wednesday, open: "12–6" }
-- { day: Thursday, open: "12–6" }
-- { day: Friday, open: "12–6" }
-- { day: Saturday, open: "12–6" }
-- { day: Sunday, open: Closed }
+```md:hours
+# Monday
+Closed
+
+# Tuesday
+12–6
+
+# Wednesday
+12–6
+
+# Thursday
+12–6
+
+# Friday
+12–6
+
+# Saturday
+12–6
+
+# Sunday
+Closed
 ```
 
 [See the latest finds](/finds)

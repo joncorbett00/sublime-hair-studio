@@ -15,18 +15,19 @@ const chrome = process.env.CHROME || '/Applications/Google Chrome.app/Contents/M
 
 /* ---------- data ---------- */
 
+/* One file per service; the file's name is the service's name. */
 const dir = join(site, 'records/services')
 export const services = readdirSync(dir)
   .filter((f) => f.endsWith('.yml'))
-  .flatMap((f) => parse(readFileSync(join(dir, f), 'utf8')) || [])
+  .map((f) => ({ ...parse(readFileSync(join(dir, f), 'utf8')), name: f.slice(0, -4) }))
   .sort((a, b) => a.order - b.order)
 
 export const byCategory = (name) => services.filter((s) => s.category === name)
 
-/** A service by slug. Throws, so a renamed slug fails the build instead of printing a blank. */
-export function service(slug) {
-  const s = services.find((x) => x.slug === slug)
-  if (!s) throw new Error(`No service "${slug}" in sites/sublime/records/services`)
+/** A service by name (its file name). Throws, so a renamed file fails the build instead of printing a blank. */
+export function service(name) {
+  const s = services.find((x) => x.name === name)
+  if (!s) throw new Error(`No service "${name}" in sites/sublime/records/services`)
   return s
 }
 

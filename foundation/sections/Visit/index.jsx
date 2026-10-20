@@ -1,10 +1,11 @@
-import { P, Icon, Link, cn, useWebsite } from '@uniweb/kit'
+import { P, Span, Text, Icon, Link, cn, useWebsite } from '@uniweb/kit'
 import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import StreetMap from '#components/StreetMap.jsx'
 import { toneClass } from '#components/tone.js'
 import { buttonLinks, linkProps } from '#utils/links.js'
 import { initialOf, wordmarkParts } from '#utils/wordmark.js'
+import { entries } from '#utils/entries.js'
 
 const iconName = (item, fallback) =>
   item.icons?.[0] ? `${item.icons[0].library}-${item.icons[0].name}` : fallback
@@ -33,7 +34,7 @@ export default function Visit({ content, params, block }) {
   const { website } = useWebsite()
   const { pretitle, title, paragraphs, items } = content
   const links = buttonLinks(content)
-  const hours = content.data?.hours || []
+  const hours = entries(content.data?.hours)
   const {
     address = '',
     phone = '',
@@ -88,8 +89,8 @@ export default function Visit({ content, params, block }) {
                 <Detail label={whenLabel}>
                   <dl className="max-w-xs">
                     {hours.map((row, i) => {
-                      const isToday = row.day === today
-                      const closed = /closed/i.test(row.open)
+                      const isToday = row.title === today
+                      const closed = /closed/i.test(row.text)
                       return (
                         <div
                           key={i}
@@ -99,9 +100,9 @@ export default function Visit({ content, params, block }) {
                           )}
                         >
                           <dt className={isToday ? 'text-paper' : 'text-body'}>
-                            {row.day}{isToday && todayLabel && <span className="caps ml-2 text-[0.5rem]">{todayLabel}</span>}
+                            <Span text={row.title} />{isToday && todayLabel && <span className="caps ml-2 text-[0.5rem]">{todayLabel}</span>}
                           </dt>
-                          <dd className={isToday ? 'text-paper' : closed ? 'text-subtle' : 'text-heading'}>{row.open}</dd>
+                          <Text as="dd" text={row.text} className={isToday ? 'text-paper' : closed ? 'text-subtle' : 'text-heading'} />
                         </div>
                       )
                     })}

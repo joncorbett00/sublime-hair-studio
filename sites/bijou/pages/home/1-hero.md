@@ -19,10 +19,15 @@ our latest finds; the shop holds far more.
 [See the finds](/finds)
 [Visit the boutique](/visit)
 
-```yaml:facts
-- { value: "One of one", label: "Every piece hand-picked" }
-- { value: "Every era", label: "Vintage to this season" }
-- { value: "Tue–Sat", label: "One flight up on MacLaren" }
+```md:facts
+# One of one
+Every piece hand-picked
+
+# Every era
+Vintage to this season
+
+# Tue–Sat
+One flight up on MacLaren
 ```
 
 ![The dress form in the back room](https://images.unsplash.com/photo-1571863358002-ce8190f6e8b1?w=1000&q=80&auto=format&fit=crop)

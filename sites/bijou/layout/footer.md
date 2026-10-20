@@ -16,14 +16,27 @@ and everyday clothing. A few key finds online; many more on the racks.
 
 [Instagram](https://www.instagram.com/bijouboutique613/)
 
-```yaml:hours
-- { day: Monday, open: Closed }
-- { day: Tuesday, open: "12–6" }
-- { day: Wednesday, open: "12–6" }
-- { day: Thursday, open: "12–6" }
-- { day: Friday, open: "12–6" }
-- { day: Saturday, open: "12–6" }
-- { day: Sunday, open: Closed }
+```md:hours
+# Monday
+Closed
+
+# Tuesday
+12–6
+
+# Wednesday
+12–6
+
+# Thursday
+12–6
+
+# Friday
+12–6
+
+# Saturday
+12–6
+
+# Sunday
+Closed
 ```
 
 - The boutique

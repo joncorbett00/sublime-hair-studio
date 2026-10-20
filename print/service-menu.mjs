@@ -14,7 +14,6 @@
  */
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { parse } from 'yaml'
 import {
   site, services, byCategory, business, hours, phone, domain,
   esc, price, wordmark, document, renderPdf,
@@ -22,10 +21,16 @@ import {
 
 const out = join(site, 'public/downloads/sublime-service-menu.pdf')
 
-/* The notes beside each category heading, from the services page's `yaml:categories` block. */
+/* The notes beside each category heading, from the services page's ```md:categories
+   block: a `# Category` heading, then its note. */
 const menuPage = readFileSync(join(site, 'pages/services/1-menu.md'), 'utf8')
-const notesBlock = menuPage.match(/```yaml:categories\n([\s\S]*?)```/)
-const notes = new Map((notesBlock ? parse(notesBlock[1]) : []).map((c) => [c.name, c.note]))
+const notesBlock = menuPage.match(/```md:categories\n([\s\S]*?)```/)?.[1] || ''
+const notes = new Map(
+  notesBlock.split(/^# /m).filter((s) => s.trim()).map((entry) => {
+    const [name, ...note] = entry.trim().split('\n')
+    return [name.trim(), note.join(' ').trim()]
+  })
+)
 
 /* ---------- markup ---------- */
 
@@ -70,7 +75,7 @@ const footer = `
 const pkgs = byCategory('Packages')
 const blowouts = pkgs.filter((s) => s.price > 0)
 const quoted = pkgs.filter((s) => !(s.price > 0))
-const [furterer] = services.filter((s) => s.slug === 'rene-furterer-hair-loss')
+const [furterer] = services.filter((s) => s.name === 'rene-furterer-hair-loss')
 const massage = byCategory('Scalp Massage')
 
 const page1 = `

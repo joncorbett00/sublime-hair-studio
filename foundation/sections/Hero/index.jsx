@@ -1,5 +1,6 @@
-import { H1, P, Icon, cn, useWebsite } from '@uniweb/kit'
+import { H1, P, Text, Icon, cn, useWebsite } from '@uniweb/kit'
 import { oneLine } from '#utils/text.js'
+import { entries } from '#utils/entries.js'
 import Button from '#components/Button.jsx'
 import Seal from '#components/Seal.jsx'
 import { Eyebrow } from '#components/Shout.jsx'
@@ -33,7 +34,7 @@ export default function Hero({ content, params, block }) {
   } = params
   const shape = frameClass(frame)
   const letter = sealLetter || initialOf(wordmarkParts(website.name).name)
-  const facts = data?.facts || []
+  const facts = entries(data?.facts)
   const [main, inset] = images
   const split = layout !== 'stacked' && main
 
@@ -71,8 +72,8 @@ export default function Hero({ content, params, block }) {
             <dl className={cn('mt-14 grid grid-cols-3 border-t border-heading', split ? 'max-w-xl' : 'max-w-3xl')}>
               {facts.map((f, i) => (
                 <div key={i} className={cn('pr-3 pt-5', i > 0 && 'border-l border-heading/20 pl-4 sm:pl-6')}>
-                  <dt className="font-display whitespace-nowrap text-[1.625rem] font-medium italic leading-none text-heading sm:text-4xl">{f.value}</dt>
-                  <dd className="caps mt-3 text-[0.5625rem] leading-snug text-subtle sm:text-[0.625rem]">{f.label}</dd>
+                  <Text as="dt" text={f.title} className="font-display whitespace-nowrap text-[1.625rem] font-medium italic leading-none text-heading sm:text-4xl" />
+                  <Text as="dd" text={f.text} className="caps mt-3 text-[0.5625rem] leading-snug text-subtle sm:text-[0.625rem]" />
                 </div>
               ))}
             </dl>

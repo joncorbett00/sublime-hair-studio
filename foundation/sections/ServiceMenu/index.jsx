@@ -5,6 +5,7 @@ import Button from '#components/Button.jsx'
 import Lightbox from '#components/Lightbox.jsx'
 import { money, duration } from '#components/money.js'
 import { toneClass } from '#components/tone.js'
+import { entries } from '#utils/entries.js'
 
 /** Photos shown on a row before the rest collapse into a "+N" tile. */
 const STRIP = 4
@@ -126,9 +127,10 @@ function Cards({ services, highlight, highlightLabel, numbered, links, words }) 
  */
 export default function ServiceMenu({ content, params, block }) {
   const services = content.data?.services || []
-  /* Optional `yaml:categories` block: [{ name, note }]. A note prints under
-     that category's heading ("materials extra", "add on to your haircut"). */
-  const notes = new Map((content.data?.categories || []).map((c) => [c.name, c.note]))
+  /* Optional ```md:categories block: a `#` category name, then its note. The
+     note prints under that category's heading ("materials extra", "add on to
+     your haircut"). */
+  const notes = new Map(entries(content.data?.categories).map((c) => [c.title, c.text]))
   const { pretitle, title, paragraphs } = content
   const {
     layout = 'list',
@@ -232,7 +234,7 @@ export default function ServiceMenu({ content, params, block }) {
                   {category && (
                     <header className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 border-b border-heading pb-4">
                       <h3 className="font-display text-[1.75rem] font-semibold leading-none tracking-tight text-heading sm:text-4xl">{category}</h3>
-                      {notes.get(category) && <p className="font-display text-base italic text-accent-ink">{notes.get(category)}</p>}
+                      <P text={notes.get(category)} className="font-display text-base italic text-accent-ink" />
                     </header>
                   )}
                   <ul>

@@ -1,9 +1,10 @@
-import { Link, H3, P, cn, SocialIcon, filterSocialLinks, useWebsite, applyBasePath } from '@uniweb/kit'
+import { Link, H3, P, Text, cn, SocialIcon, filterSocialLinks, useWebsite, applyBasePath } from '@uniweb/kit'
 import BusinessSchema from '#components/BusinessSchema.jsx'
 import Wordmark from '#components/Wordmark.jsx'
 import { wordmarkParts } from '#utils/wordmark.js'
 import { toneClass } from '#components/tone.js'
 import { linkProps } from '#utils/links.js'
+import { entries } from '#utils/entries.js'
 
 /**
  * Footer, on ink. Blurb, socials, opening hours and the link columns across
@@ -20,7 +21,7 @@ function Footer({ content, params }) {
   const { title, paragraphs, links, lists, data } = content
   const social = filterSocialLinks(links)
   const plain = links.filter((l) => !social.includes(l))
-  const hours = data?.hours || []
+  const hours = entries(data?.hours)
   const { credit = '', creditHref = '', signoff = '', edge = 'selvedge', wordmark = '', logo = '', tone = 'ink', signature = true, hoursLabel = 'Hours' } = params
   const mark = wordmarkParts(website.name, { wordmark })
 
@@ -65,8 +66,8 @@ function Footer({ content, params }) {
               <dl className="mt-5">
                 {hours.map((row, i) => (
                   <div key={i} className="flex justify-between gap-4 border-b border-border py-2 text-sm">
-                    <dt className="text-body">{row.day}</dt>
-                    <dd className={/closed/i.test(row.open) ? 'text-subtle' : 'text-heading'}>{row.open}</dd>
+                    <Text as="dt" text={row.title} className="text-body" />
+                    <Text as="dd" text={row.text} className={/closed/i.test(row.text) ? 'text-subtle' : 'text-heading'} />
                   </div>
                 ))}
               </dl>

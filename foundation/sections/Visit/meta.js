@@ -14,8 +14,7 @@ export default {
 
   // Data blocks reach the component only when declared.
   data: {
-    // The `yaml:hours` block — a list of { day, open }.
-    hours: {},
+    'md:hours': { label: 'Opening hours', content: { title: 'Day', paragraphs: 'Hours' } },
   },
 
   params: {

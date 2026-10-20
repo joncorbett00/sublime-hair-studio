@@ -14,8 +14,7 @@ export default {
 
   // Data blocks reach the component only when declared.
   data: {
-    // The `yaml:facts` block — a list of { value, label }.
-    facts: {},
+    'md:facts': { label: 'Headline numbers [0-3]', content: { title: 'Number', paragraphs: 'What it counts' } },
   },
 
   params: {

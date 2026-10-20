@@ -6,8 +6,7 @@ export default {
 
   // Data blocks and queries reach the component only when declared.
   data: {
-    // The `yaml:categories` block — a note per category.
-    categories: {},
+    'md:categories': { label: 'Category notes', content: { title: 'Category, as on the services', paragraphs: 'Note printed under its heading' } },
     services: {
       title: { type: 'string', default: '' },
       category: { type: 'string', default: '' },

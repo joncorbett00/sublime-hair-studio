@@ -16,10 +16,15 @@ fitting a sharp cut into your lunch hour.
 [Book an appointment](/book)
 [See services & prices](/services)
 
-```yaml:facts
-- { value: "45 min", label: "Lunch-hour cuts" }
-- { value: "Tue–Sat", label: "Open through lunch" }
-- { value: "20+ yrs", label: "Upstairs on Elgin" }
+```md:facts
+# 45 min
+Lunch-hour cuts
+
+# Tue–Sat
+Open through lunch
+
+# 20+ yrs
+Upstairs on Elgin
 ```
 
 ![Warm honey lived-in colour](/images/gallery/honey-lived-in.jpg)

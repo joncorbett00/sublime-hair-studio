@@ -146,7 +146,7 @@ Everything in hair-salon-1's README still applies. In particular:
 | Which sections are colour blocks | `tone:` in each `site/pages/<page>/*.md` |
 | Header nav | `site/layout/header.md` |
 | Footer blurb, hours, link columns | `site/layout/footer.md` |
-| Opening hours | `yaml:hours` in `site/layout/footer.md` and `site/pages/visit/1-visit.md`, plus `business.hours` in `site/site.yml` |
+| Opening hours | `md:hours` (a `# Day` heading, then the hours) in `site/layout/footer.md` and `site/pages/visit/1-visit.md`, plus `business.hours` in `site/site.yml` |
 | Hero seal text | `stamp:` in `site/pages/home/1-hero.md` and `site/pages/colour/1-intro.md` |
 | The current offer | `site/pages/home/2-promo.md` |
 | Sonia's career | `site/pages/crew/2-sonia.md` |

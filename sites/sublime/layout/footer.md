@@ -17,14 +17,27 @@ Runway-trained hair in a warm little studio upstairs.
 [Facebook](https://www.facebook.com/ottawasublimehair/)
 [Instagram](https://www.instagram.com/sublimehairstudio__/)
 
-```yaml:hours
-- { day: Monday, open: Closed }
-- { day: Tuesday, open: "12–6" }
-- { day: Wednesday, open: "10–6" }
-- { day: Thursday, open: "10–7" }
-- { day: Friday, open: "10–7" }
-- { day: Saturday, open: "9–4" }
-- { day: Sunday, open: Closed }
+```md:hours
+# Monday
+Closed
+
+# Tuesday
+12–6
+
+# Wednesday
+10–6
+
+# Thursday
+10–7
+
+# Friday
+10–7
+
+# Saturday
+9–4
+
+# Sunday
+Closed
 ```
 
 - Studio
