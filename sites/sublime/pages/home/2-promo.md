@@ -1,6 +1,6 @@
 ---
 type: Promo
-tone: sand
+tone: brand
 figure: 10%
 figureLabel: 'off'
 coupon: true
