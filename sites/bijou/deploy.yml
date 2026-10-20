@@ -1,0 +1,39 @@
+# deploy.yml — written by `uniweb deploy` / `uniweb publish`.
+
+# You do not create this file. The first successful deploy does, recording the
+# target you picked and what happened. Later deploys rewrite only `deploys:`
+# and leave the rest — including your comments — alone.
+
+# Safe to commit; no credentials live here. Host credentials come from the
+# environment.
+
+#   default:     which target is used when none is named
+#   targets:     where this site ships. Edit to change the destination, or add
+#                a target and pick it with `--target <name>`
+#   deploys:     what each target's last deploy did. A record, not a setting.
+#                `publish` reads one field back — a fingerprint of the service
+#                request it last sent — so deleting it only means the next
+#                publish re-sends that request
+#   saveDeploys: false to stop recording deploys
+
+# Which site this is on each backend lives in sync.json, not here.
+
+default: production
+targets:
+  production:
+    host: uniweb
+    backend: https://uniweb.app
+deploys:
+  production:
+    at: 2026-10-20T21:09:41.330Z
+    host: uniweb
+    git:
+      sha: 5e28a6d10ff4b3d6710c6fd0cd57343a926cd472
+      dirty: false
+    backend: https://uniweb.app
+    siteUuid: 01a15a12-2e65-7032-8465-d9f3039ce957
+    url: https://bijou-boutique.uniweb.pro/
+    foundation:
+      ref: "@studio/sublime@0.1.3"
+      released: false
+saveDeploys: true
