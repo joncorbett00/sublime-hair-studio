@@ -49,6 +49,12 @@ business:
     - { days: [Tuesday, Wednesday, Thursday, Friday, Saturday], opens: "12:00", closes: "18:00" }
   sameAs: []
 
+# The hosting services this site asks uniweb.app for. `records` delivers the
+# records (records/) to the published pages; without it, the queries that
+# reach them show nothing there.
+services:
+  records: true
+
 build:
   prerender: true
 preview: '2026-10-20T18:23:16.570587Z'

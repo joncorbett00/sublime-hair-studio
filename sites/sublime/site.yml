@@ -59,6 +59,12 @@ booking:
 
 # The records (records/) and the queries that reach them are in queries.yml.
 
+# The hosting services this site asks uniweb.app for. `records` delivers the
+# records (records/) to the published pages; without it, the queries that
+# reach them show nothing there.
+services:
+  records: true
+
 build:
   prerender: true
 preview: '2026-10-20T20:46:51.989120Z'
