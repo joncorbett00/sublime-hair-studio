@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "backends": {
+    "https://uniweb.app": {
+      "assets": {
+        "/images/bijou-logo.png": {
+          "id": "1ecc7837a4b670f54268a3affd8efc20f5a131f7a6969fe0465e381c5a34d3ea",
+          "ext": "png",
+          "served": "sha256:a28a71c2d3932aea"
+        },
+        "/images/bijou-poodle-light.png": {
+          "id": "8289fcabb554bd6bacfa6f7d94460dd965d07fd170294fdeae9e170d7bb1d3a1",
+          "ext": "png",
+          "served": "sha256:676e6451ef7f1da4"
+        }
+      },
+      "folders": {
+        "@01a1598d-93c8-7ca1-a782-7eb0e1009fac": "01a1598d-93cb-7252-aa2e-3881d268df9b",
+        "@01a1598d-93c8-7ca1-a782-7ec5be626ed0": "01a1598d-93cb-7252-aa2e-38971576b612",
+        "@01a1598d-93c8-7ca1-a782-7edb7ad502f3": "01a1598d-93cb-7252-aa2e-38af53693de5",
+        "@01a1598d-93c8-7ca1-a782-7ee7bde413ec": "01a1598d-93cb-7252-aa2e-38b94a5c6ed5",
+        "@01a1598d-93c8-7ca1-a782-7ef8d7d35c2e": "01a1598d-93cb-7252-aa2e-38ce354cc5e5",
+        "@01a1598d-93c8-7ca1-a782-7f069eab56ae": "01a1598d-93cb-7252-aa2e-38dee53f13f7",
+        "@01a1598d-93c8-7ca1-a782-7f12b1e73e26": "01a1598d-93cb-7252-aa2e-38e54d990182",
+        "@01a1598d-93c8-7ca1-a782-7f2576143518": "01a1598d-93cb-7252-aa2e-38f43ec0ce46",
+        "@01a1598d-93c8-7ca1-a782-7f356d8125bb": "01a1598d-93cb-7252-aa2e-39072d99c715",
+        "@01a1598d-93c8-7ca1-a782-7f4a0bd8019a": "01a1598d-93cb-7252-aa2e-39114cf2cccb",
+        "@01a1598d-93c8-7ca1-a782-7f5873ad016e": "01a1598d-93cb-7252-aa2e-392f1adb1320",
+        "@01a1598d-93c8-7ca1-a782-7f67191f3351": "01a1598d-93cb-7252-aa2e-39353cb9e924",
+        "@01a1598d-93c8-7ca1-a782-7f78f9b8e59e": "01a1598d-93cb-7252-aa2e-394538dd22cb",
+        "@01a1598d-93c8-7ca1-a782-7f8f23e58101": "01a1598d-93cb-7252-aa2e-3956cb2bb488",
+        "@01a1598d-93c8-7ca1-a782-7f9c50d8f1dd": "01a1598d-93cb-7252-aa2e-3963fe02652e",
+        "beaded-flapper-dress": "01a1598d-93cb-7252-aa2e-3881d268df9b",
+        "belted-trench": "01a1598d-93cb-7252-aa2e-38971576b612",
+        "black-biker-jacket": "01a1598d-93cb-7252-aa2e-38af53693de5",
+        "burgundy-tulle-gown": "01a1598d-93cb-7252-aa2e-38b94a5c6ed5",
+        "camel-wrap-coat": "01a1598d-93cb-7252-aa2e-38ce354cc5e5",
+        "chalk-stripe-suit": "01a1598d-93cb-7252-aa2e-38dee53f13f7",
+        "cognac-leather-blazer": "01a1598d-93cb-7252-aa2e-38e54d990182",
+        "cream-fishermans-sweater": "01a1598d-93cb-7252-aa2e-38f43ec0ce46",
+        "cream-three-piece": "01a1598d-93cb-7252-aa2e-39072d99c715",
+        "faux-fur-coat": "01a1598d-93cb-7252-aa2e-39114cf2cccb",
+        "navy-polka-dot-dress": "01a1598d-93cb-7252-aa2e-392f1adb1320",
+        "printed-peasant-blouse": "01a1598d-93cb-7252-aa2e-39353cb9e924",
+        "red-off-shoulder-dress": "01a1598d-93cb-7252-aa2e-394538dd22cb",
+        "sherpa-denim-jacket": "01a1598d-93cb-7252-aa2e-3956cb2bb488",
+        "windowpane-three-piece": "01a1598d-93cb-7252-aa2e-3963fe02652e"
+      },
+      "items": {
+        "layout/footer.md": "01a1598d-9302-73c2-8d48-d13f114fd989",
+        "layout/header.md": "01a1598d-9302-73c2-8d48-d14a1ef52597",
+        "pages/404/lost.md": "01a1598d-9302-73c2-8d48-d0ec79f44416",
+        "pages/404/page.yml": "01a1598d-9302-73c2-8d48-d0d0e7b08477",
+        "pages/accessibility/page.yml": "01a1598d-9302-73c2-8d48-d0f9ba461190",
+        "pages/accessibility/statement.md": "01a1598d-9302-73c2-8d48-d103e46bb849",
+        "pages/finds/[slug]/more.md": "01a1598d-9302-73c2-8d48-d04e123da511",
+        "pages/finds/[slug]/page.yml": "01a1598d-9302-73c2-8d48-d026a4817178",
+        "pages/finds/[slug]/piece.md": "01a1598d-9302-73c2-8d48-d03ccb3a0df9",
+        "pages/finds/faq.md": "01a1598d-9302-73c2-8d48-d015502bff8c",
+        "pages/finds/finds.md": "01a1598d-9302-73c2-8d48-d0070f49174e",
+        "pages/finds/page.yml": "01a1598d-9302-73c2-8d48-cffce96e4f75",
+        "pages/home/cta.md": "01a1598d-9302-73c2-8d48-cfef09fc3ecd",
+        "pages/home/finds.md": "01a1598d-9302-73c2-8d48-cfbbc8cc8103",
+        "pages/home/hero.md": "01a1598d-9302-73c2-8d48-cf95429549b8",
+        "pages/home/how.md": "01a1598d-9302-73c2-8d48-cfcd1ab00991",
+        "pages/home/just-in.md": "01a1598d-9302-73c2-8d48-cfada7bb8a6d",
+        "pages/home/page.yml": "01a1598d-9302-73c2-8d48-cf88cc49bb48",
+        "pages/home/story.md": "01a1598d-9302-73c2-8d48-cfd0d7ba436d",
+        "pages/privacy/page.yml": "01a1598d-9302-73c2-8d48-d111f27ffc7b",
+        "pages/privacy/policy.md": "01a1598d-9302-73c2-8d48-d12e2ed18fe3",
+        "pages/story/cta.md": "01a1598d-9302-73c2-8d48-d09cd8c91812",
+        "pages/story/intro.md": "01a1598d-9302-73c2-8d48-d0695dcd3cd0",
+        "pages/story/page.yml": "01a1598d-9302-73c2-8d48-d0538588baa2",
+        "pages/story/tags.md": "01a1598d-9302-73c2-8d48-d07eede4976b",
+        "pages/story/visit.md": "01a1598d-9302-73c2-8d48-d087c81d9232",
+        "pages/visit/cta.md": "01a1598d-9302-73c2-8d48-d0c967b76eff",
+        "pages/visit/page.yml": "01a1598d-9302-73c2-8d48-d0a8eb60c950",
+        "pages/visit/visit.md": "01a1598d-9302-73c2-8d48-d0b823de88f5",
+        "site.yml": "01a1598d-8bf4-7160-a523-6e152e28bc23"
+      },
+      "queries": {
+        "finds": "01a1598d-9302-73c2-8d48-d1565d4bf0ba"
+      },
+      "records": {
+        "01a1598d-93c8-7ca1-a782-7eb0e1009fac": "01a1598d-93c8-7ca1-a782-7eb0e1009fac",
+        "01a1598d-93c8-7ca1-a782-7ec5be626ed0": "01a1598d-93c8-7ca1-a782-7ec5be626ed0",
+        "01a1598d-93c8-7ca1-a782-7edb7ad502f3": "01a1598d-93c8-7ca1-a782-7edb7ad502f3",
+        "01a1598d-93c8-7ca1-a782-7ee7bde413ec": "01a1598d-93c8-7ca1-a782-7ee7bde413ec",
+        "01a1598d-93c8-7ca1-a782-7ef8d7d35c2e": "01a1598d-93c8-7ca1-a782-7ef8d7d35c2e",
+        "01a1598d-93c8-7ca1-a782-7f069eab56ae": "01a1598d-93c8-7ca1-a782-7f069eab56ae",
+        "01a1598d-93c8-7ca1-a782-7f12b1e73e26": "01a1598d-93c8-7ca1-a782-7f12b1e73e26",
+        "01a1598d-93c8-7ca1-a782-7f2576143518": "01a1598d-93c8-7ca1-a782-7f2576143518",
+        "01a1598d-93c8-7ca1-a782-7f356d8125bb": "01a1598d-93c8-7ca1-a782-7f356d8125bb",
+        "01a1598d-93c8-7ca1-a782-7f4a0bd8019a": "01a1598d-93c8-7ca1-a782-7f4a0bd8019a",
+        "01a1598d-93c8-7ca1-a782-7f5873ad016e": "01a1598d-93c8-7ca1-a782-7f5873ad016e",
+        "01a1598d-93c8-7ca1-a782-7f67191f3351": "01a1598d-93c8-7ca1-a782-7f67191f3351",
+        "01a1598d-93c8-7ca1-a782-7f78f9b8e59e": "01a1598d-93c8-7ca1-a782-7f78f9b8e59e",
+        "01a1598d-93c8-7ca1-a782-7f8f23e58101": "01a1598d-93c8-7ca1-a782-7f8f23e58101",
+        "01a1598d-93c8-7ca1-a782-7f9c50d8f1dd": "01a1598d-93c8-7ca1-a782-7f9c50d8f1dd"
+      },
+      "services": {},
+      "site": {
+        "uuid": "01a1598d-8bea-7e11-b7f0-10ebbbe2cae0"
+      }
+    }
+  }
+}
