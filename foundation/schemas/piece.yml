@@ -25,3 +25,4 @@ fields:
   image:       { type: image, required: true, description: 'The main photo, portrait (4:5)' }
   photos:      { type: image, many: true, description: 'More photos for the piece page' }
   description: { type: string, description: 'One line for cards and search results' }
+  content:     { type: richtext, description: 'The story of the piece, for its own page — the body of the file' }
