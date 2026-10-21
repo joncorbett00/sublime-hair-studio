@@ -58,10 +58,11 @@
   --ink-shadow-55: color-mix(in srgb, var(--ink) 55%, transparent);
 
   /* The italic accent word, the section numbers and the rules beside them:
-     the theme's accent colour exactly as set, on paper and sand; on ink,
-     --accent-on-ink (main.js — the accent too, unless a site lifts it so a
-     dark accent still reads); and --on-brand-accent on the brand colour. */
-  --accent-ink: var(--accent-500);
+     the brand colour (the theme's primary) exactly as set, on paper and sand;
+     on ink, --accent-on-ink (main.js — the brand colour too, unless a site
+     lifts it so a dark colour still reads); and --on-brand-accent on the
+     brand colour itself. */
+  --accent-ink: var(--brand);
 }
 .context-dark { --accent-ink: var(--accent-on-ink); }
 
@@ -115,7 +116,7 @@
   --primary: var(--brand);
   --primary-hover: var(--brand-deep);
   --primary-foreground: var(--paper);
-  --accent-ink: var(--accent-500);
+  --accent-ink: var(--brand);
   --ring: var(--ink);
 }
 

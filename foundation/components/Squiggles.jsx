@@ -50,7 +50,7 @@ export default function Squiggles() {
 
   // The first guess, from the theme data: a var may name another
   // (`on-brand-accent: var(--ink)`) or shades of the theme's palettes
-  // (`var(--accent-500)`, or a color-mix of two) — put each in place until
+  // (`brand: var(--primary-500)`, or a color-mix of two) — put each in place until
   // only colours are left.
   const lookup = (name) => {
     const shade = name.match(/^(\w+)-(\d+)$/)
@@ -63,7 +63,7 @@ export default function Squiggles() {
     return typeof value === 'string' && value && !value.includes('var(') ? value : null
   }
   const guessed = {
-    squiggle: resolve('var(--accent-500)'),
+    squiggle: resolve('var(--brand)'),
     'squiggle-bright': resolve('var(--accent-on-ink)'),
     'squiggle-on-brand': resolve('var(--on-brand-accent)'),
   }
