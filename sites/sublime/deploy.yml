@@ -24,14 +24,14 @@ targets:
 autoSave: lastDeploy
 deploys:
   uniweb.app:
-    at: 2026-10-21T13:18:14.938Z
+    at: 2026-10-21T13:27:10.192Z
     host: uniweb
     git:
-      sha: 6ab89693eb5cc3d96a14577713886caab9d934a2
+      sha: 794bc02ba049ab4c8b8366c59113c6d5f505546f
       dirty: true
     backend: https://uniweb.app
     siteUuid: 01a15a11-efc7-7073-8f8e-2592dae9320e
     url: https://sublime-hair-studio.uniweb.pro/
     foundation:
-      ref: "@studio/sublime@0.1.5"
+      ref: "@studio/sublime@0.1.7"
       released: true
