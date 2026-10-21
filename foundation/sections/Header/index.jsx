@@ -2,7 +2,6 @@ import { Link, Icon, cn, useScrolled, useMobileMenu, useWebsite, useActiveRoute,
 import Button from '#components/Button.jsx'
 import Wordmark from '#components/Wordmark.jsx'
 import { wordmarkParts } from '#utils/wordmark.js'
-import Squiggles from '#components/Squiggles.jsx'
 import { linkProps } from '#utils/links.js'
 
 const isExternal = (href = '') => /^https?:\/\//.test(href)
@@ -260,9 +259,6 @@ function Header({ content, params, block }) {
 
       {/* Landing target for the skip link. */}
       <div id="content-start" tabIndex={-1} className="sr-only" />
-
-      {/* The accent-word squiggle, in this site's brand colours. */}
-      <Squiggles />
     </>
   )
 }

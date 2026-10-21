@@ -95,9 +95,6 @@ export const vars = {
   'sand-border': color(neutral(300), 'Rules on a sand block'),
   'sand-body': color(neutral(800), 'Reading text on a sand block'),
   'sand-subtle': color(neutral(600, 700, 50), 'Secondary text on a sand block'),
-
-  // The squiggle under an accent word is drawn from brand-deep, brand-bright
-  // and on-brand-accent by components/Squiggles.jsx — a var can't hold its image.
 }
 
 export default {
