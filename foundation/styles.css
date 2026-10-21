@@ -184,21 +184,27 @@ h1, h2, h3 { font-stretch: var(--display-stretch); }
 }
 .eyebrow > .eyebrow-label { order: 2; }
 
-/* Accent words in display headings: italic, with a fine squiggle under
-   them in the same colour as the word — the house handwriting on the
-   magazine page. A wavy underline, so it takes its colour straight from
-   --accent-ink and follows the word when it wraps onto a second line.
+/* Accent words in display headings: italic, with a fine squiggle
+   drawn under them in the accent colour — the house handwriting on the
+   magazine page. A background image rather than a pseudo-element, so it
+   follows the word when it wraps onto a second line.
    The runtime renders `[word]{accent}` as <span accent="true">. */
 .font-display [accent],
 .squiggle {
   font-style: italic;
   font-weight: 500;
-  text-decoration-line: underline;
-  text-decoration-style: wavy;
-  text-decoration-color: var(--accent-ink);
-  text-decoration-thickness: max(1.5px, 0.04em);
-  text-underline-offset: 0.16em;
-  text-decoration-skip-ink: none;
+  padding-bottom: 0.04em;
+  background-image: var(--squiggle);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 96%;
+}
+.context-dark .font-display [accent], .tone-ink .font-display [accent],
+.context-dark .squiggle, .tone-ink .squiggle {
+  background-image: var(--squiggle-bright);
+}
+.tone-brand .font-display [accent], .tone-brand .squiggle {
+  background-image: var(--squiggle-on-brand);
 }
 
 /* Header nav links: a brand-colour hairline drawn in from the left on hover,
