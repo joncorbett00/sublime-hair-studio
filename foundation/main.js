@@ -79,6 +79,7 @@ export const vars = {
   'brand-lift': color('color-mix(in oklch, var(--primary-500), var(--primary-400))', 'Button hover on ink'),
   'on-brand': color('var(--primary-50)', 'Reading text on a brand block'),
   'on-brand-soft': color('var(--primary-200)', 'Secondary text on a brand block'),
+  'accent-on-ink': color('var(--accent-500)', 'The accent word on ink — the theme’s accent colour; a site with a dark accent lifts it so it reads'),
   'on-brand-accent': color('var(--ink)', 'The accent word on a brand block'),
   'on-brand-ring': color('var(--paper)', 'Keyboard focus ring on a brand block'),
   'seal-letter': color('var(--paper)', 'The letter at the middle of the turning seal'),

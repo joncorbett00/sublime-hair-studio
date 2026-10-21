@@ -81,6 +81,8 @@ vars:
   # `colors.primary`. Only the lifted shade is set here: a dark green needs a
   # lighter step than the default to read on ink.
   brand-bright: 'color-mix(in oklch, var(--primary-300), var(--primary-400))'
+  # The accent word on ink, lifted the same way from the accent colour.
+  accent-on-ink: 'color-mix(in oklch, var(--accent-300), var(--accent-400))'
   # Champagne: the glint that only ever appears on the green — the accent
   # word, the focus ring and the seal's initial.
   on-brand-accent: '#E6CD93'
