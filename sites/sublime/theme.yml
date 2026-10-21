@@ -6,9 +6,9 @@
 # kept for the seal's letter.
 
 colors:
-  primary: '#C8401F'      # vermilion — the brand red, booking buttons, colour-block sections
+  primary: '#e19e27'      # vermilion — the brand red, booking buttons, colour-block sections
   secondary: '#8C7B6B'    # taupe — a neutral, for anything the kit calls secondary
-  accent: '#C8401F'       # the same vermilion: there is one colour, not two
+  accent: '#e8e8e8'       # the same vermilion: there is one colour, not two
   neutral: '#8C7B6B'      # taupe — the warm grey every surface and text colour is cut from
 
 # Every surface and every text colour below is cut from the neutral palette
