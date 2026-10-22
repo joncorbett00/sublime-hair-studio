@@ -6,12 +6,12 @@ description: A product on the studio's shelf.
 
 fields:
   title:    { type: string, required: true, description: 'The product’s name' }
-  brand:    { type: string, required: true, description: '"Keune", "René Furterer"' }
+  brand:    { type: string, translatable: false, required: true, description: '"Keune", "René Furterer"' }
   category: { type: string, description: '"Care", "Colour care", "Scalp", "Styling", "Treatment"' }
   tagline:  { type: string, description: 'One line about it' }
   size:     { type: string, description: '"300 ml"' }
   price:    { type: number, description: 'In Canadian dollars' }
-  href:     { type: string, description: 'Its page in the online shop' }
+  href:     { type: string, translatable: false, description: 'Its page in the online shop' }
   image:    { type: image, description: 'A photo of the studio’s own shelf stock. Empty: a text-only card.' }
   featured: { type: boolean, description: 'Shown on the homepage' }
   order:    { type: number, required: true, description: 'Position in the list' }

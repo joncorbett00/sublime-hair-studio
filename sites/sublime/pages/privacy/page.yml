@@ -1,9 +1,10 @@
 title: Privacy Policy
 label: Privacy
+slug: { fr: confidentialite }  # the French URL: /fr/confidentialite
 description: >-
   How Sublime Hair Studio handles your personal information — bookings, client notes,
   messages and this website.
 hideIn: [header]
 
-seo:
-  canonical: https://sublimehair.ca/privacy
+# No `seo.canonical`: it is one fixed URL, so on this bilingual site the French
+# page would name the English one as its canonical and drop out of search.

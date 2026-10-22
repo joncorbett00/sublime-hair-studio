@@ -1,0 +1,3497 @@
+{
+  "version": "1.0",
+  "defaultLocale": "en",
+  "extracted": "2026-10-22T01:12:51.264Z",
+  "units": {
+    "35407035": {
+      "source": "Hair Colour in Ottawa — Vivids, Balayage & Correction",
+      "field": "page.title",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "_meta"
+        }
+      ]
+    },
+    "51825712": {
+      "source": "Back to school",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "promo"
+        }
+      ]
+    },
+    "5f687d16": {
+      "source": "Hair Salon in Centretown, Ottawa",
+      "field": "page.title",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "_meta"
+        }
+      ]
+    },
+    "3a786953": {
+      "source": "Home",
+      "field": "page.label",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "_meta"
+        }
+      ]
+    },
+    "9a275fbe": {
+      "source": "Sublime Hair Studio — runway-trained cuts, colour and styling one flight up, just off Elgin Street in Ottawa's Golden Triangle. Lunch-hour cuts for downtown professionals.",
+      "field": "page.description",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "_meta"
+        }
+      ]
+    },
+    "ca6dde4b": {
+      "source": "Golden Triangle · Ottawa",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "hero"
+        }
+      ]
+    },
+    "18ffb308": {
+      "source": "Runway skills, one flight up from Elgin",
+      "markup": "Runway skills, one flight up from [Elgin]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "hero"
+        }
+      ]
+    },
+    "0f293f59": {
+      "source": "A small, warm studio up a flight of stairs in the Golden Triangle, run by a certified stylist who has done hair for runways and editorial shoots — and who is just as happy fitting a sharp cut into your lunch hour.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "hero"
+        }
+      ]
+    },
+    "d6a256a5": {
+      "source": "Book an appointment See services & prices",
+      "markup": "[Book an appointment](/book) [See services & prices](/services)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "hero"
+        }
+      ]
+    },
+    "d453b149": {
+      "source": "45 min",
+      "field": "heading.2",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "hero"
+        }
+      ]
+    },
+    "cc4f705b": {
+      "source": "Lunch-hour cuts",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "hero"
+        },
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "ca5a88d9": {
+      "source": "Tue–Sat",
+      "field": "heading.3",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "hero"
+        }
+      ]
+    },
+    "1086d2d5": {
+      "source": "Open through lunch",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "hero"
+        }
+      ]
+    },
+    "9f93cd85": {
+      "source": "20+ yrs",
+      "field": "heading.4",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "hero"
+        }
+      ]
+    },
+    "4b5bef27": {
+      "source": "Upstairs on Elgin",
+      "field": "paragraph.4",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "hero"
+        }
+      ]
+    },
+    "6380ec68": {
+      "source": "A fresh cut for a fresh term",
+      "markup": "A fresh cut for a [fresh term]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "promo"
+        }
+      ]
+    },
+    "ff9da3f8": {
+      "source": "Ten percent off cuts and colour for back-to-school season. Mention the offer when you book and we'll take it off at the till.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "promo"
+        }
+      ]
+    },
+    "b6b3d116": {
+      "source": "Book now",
+      "markup": "[Book now](/book)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "promo"
+        }
+      ]
+    },
+    "6acc57d5": {
+      "source": "Behind the chair",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "stylist"
+        }
+      ]
+    },
+    "2a0a1eb5": {
+      "source": "All the precision, none of the fuss",
+      "markup": "All the precision, [none of the fuss]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "stylist"
+        }
+      ]
+    },
+    "d7b2bd8a": {
+      "source": "Sonia started her apprenticeship at thirteen and went on to train with Vidal Sassoon and Toni & Guy London. She came home from New York's SoHo loft salons wanting their obsession with style and service — without the \"so-cool-it's-cold\" attitude. That's what you get here: master cutting and colour, from someone who listens to how you actually wear your hair on a Tuesday.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "stylist"
+        }
+      ]
+    },
+    "c3c54d78": {
+      "source": "Meet Sonia",
+      "markup": "[Meet Sonia](/crew)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "stylist"
+        }
+      ]
+    },
+    "63150bdf": {
+      "source": "A consultation first",
+      "field": "heading.h3.0",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "stylist"
+        }
+      ]
+    },
+    "5c65bae7": {
+      "source": "Every look starts with a real conversation. If a photo won't work on your hair, she'll say so.",
+      "markup": "![](lu-message-circle) Every look starts with a real conversation. If a photo won't work on your hair, she'll say so.",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "stylist"
+        }
+      ]
+    },
+    "9c349f6b": {
+      "source": "Barbering to colour",
+      "field": "heading.h3.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "stylist"
+        }
+      ]
+    },
+    "e0eb8dd0": {
+      "source": "Sharp men's cuts and barbering at one end, a true alchemist with colour at the other.",
+      "markup": "![](lu-scissors) Sharp men's cuts and barbering at one end, a true alchemist with colour at the other.",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "stylist"
+        }
+      ]
+    },
+    "06395a95": {
+      "source": "Retail lines",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ],
+      "markupVaries": true,
+      "markup": "[Retail lines](/#section-products)"
+    },
+    "631e47d0": {
+      "source": "The shelf is short on purpose",
+      "markup": "The shelf is [short on purpose]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "7e4f39a5": {
+      "source": "We use and carry only the highest-quality, performance-based hair products, developed by experts in France, the Netherlands and California. Whatever we use on you in the chair is on the shelf on your way out.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "5227cad0": {
+      "source": "René Furterer",
+      "field": "heading.h3.0",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ],
+      "markupVaries": true,
+      "markup": "[René Furterer](https://www.renefurterer.com){target=_blank}"
+    },
+    "3e43c656": {
+      "source": "Paris, France",
+      "field": "heading.h4.0",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "f690721e": {
+      "source": "Plant-based, research-backed care for hair and scalp — and it retails exclusively at Sublime.",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "18dd3499": {
+      "source": "René Furterer is a luxury line designed specifically to improve the condition of your hair and scalp. Backed by pharmaceutical research and produced using the finest plant-based essential oils, it is at the top of its class for hair and scalp treatment.",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "d9fdd9ea": {
+      "source": "Proven results, beautifully presented, and available in Ottawa only at Sublime.",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "f942b214": {
+      "source": "Layrite",
+      "field": "heading.h3.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ],
+      "markupVaries": true,
+      "markup": "[Layrite](https://layrite.com){target=_blank}"
+    },
+    "cd25901c": {
+      "source": "Southern California, USA",
+      "field": "heading.h4.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "be2425da": {
+      "source": "Men's grooming pomades that \"hold like wax and wash out like gel.\"",
+      "field": "paragraph.5",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "2df818c8": {
+      "source": "For over two decades, Layrite Men's Grooming Products have been setting the benchmark for traditional barbering and men's grooming around the world. Their water-soluble pomades \"hold like wax and wash out like gel,\" says founder Donnie Hawley.",
+      "field": "paragraph.6",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "207fd944": {
+      "source": "Whether your hair is straight, wavy, curly, coarse and thick or fine and thin, there's a shine from matte to super-shine and a hold for texture and volume. The name came from a regular who told Donnie the products \"make hair lay right\" — and a brand was born.",
+      "field": "paragraph.7",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "3ac1ff62": {
+      "source": "Reuzel",
+      "field": "heading.h3.2",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ],
+      "markupVaries": true,
+      "markup": "[Reuzel](https://reuzel.com){target=_blank}"
+    },
+    "a5759dd7": {
+      "source": "Rotterdam, Netherlands",
+      "field": "heading.h4.2",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "c7ddc729": {
+      "source": "The Scumbag Barbers' pomades, made for pompadours, quiffs, flat-tops and fades.",
+      "field": "paragraph.9",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "e083265b": {
+      "source": "Reuzel was formulated over two decades ago by the \"Scumbag Barbers\", Leen and Bertus, who needed a product worthy of their newly founded Schorem barbershop. What began as a line for their signature pompadours, quiffs, flat-tops and fades quickly became a global mainstay for barbers and clients alike.",
+      "field": "paragraph.10",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "f29fc694": {
+      "source": "The range covers wonderfully scented styling, shaving and beard products for every hair type. We carry most of the pomades, and anything else in the line can be special ordered.",
+      "field": "paragraph.11",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "0e2cb884": {
+      "source": "Keune",
+      "field": "heading.h3.3",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ],
+      "markupVaries": true,
+      "markup": "[Keune](https://www.keune.com){target=_blank}"
+    },
+    "ac736e04": {
+      "source": "Netherlands, since 1922",
+      "field": "heading.h4.3",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "0be772a5": {
+      "source": "Heritage European haircare, from long-lasting colour to restorative treatments.",
+      "field": "paragraph.13",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "88a9cc2f": {
+      "source": "Keune is a heritage European brand devoted to the artistry of professional haircare. Founded in 1922, it blends scientific innovation with premium, ethically sourced ingredients, and each formula is crafted with precision, sustainability and care — from vibrant, long-lasting colour to restorative treatments for hair and scalp.",
+      "field": "paragraph.14",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "b9f0c99b": {
+      "source": "Exclusively available at Sublime, in salon or by special order.",
+      "field": "paragraph.15",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "products"
+        }
+      ]
+    },
+    "526d1417": {
+      "source": "Work downtown?",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "4cf079f7": {
+      "source": "A great haircut fits in your lunch hour",
+      "markup": "A great haircut fits in your [lunch hour]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "4cbe60eb": {
+      "source": "We are a two-minute walk from Elgin Street and open through lunch, so a proper cut fits between meetings. Book to the minute online, come up the stairs, and be back at your desk looking like you took the afternoon off.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "513a6b26": {
+      "source": "Book a lunch-hour cut See all services",
+      "markup": "[Book a lunch-hour cut](/book) [See all services](/services)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "9616672e": {
+      "source": "12:00",
+      "field": "heading.h3.0",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        },
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "cdc678c0": {
+      "source": "Close the laptop",
+      "field": "heading.h4.0",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "4c419926": {
+      "source": "Walk down Elgin and turn onto MacLaren. You're nearly there.",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "e00f9887": {
+      "source": "12:03",
+      "field": "heading.h3.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "8ec1b3a9": {
+      "source": "Up one flight",
+      "field": "heading.h4.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "88cdad2f": {
+      "source": "Head up to the second floor. It's quieter up here than on the street.",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "d671f582": {
+      "source": "12:05",
+      "field": "heading.h3.2",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "e66481b3": {
+      "source": "In the chair",
+      "field": "heading.h4.2",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "e6b38b17": {
+      "source": "A quick check-in on what's working, then straight into the cut.",
+      "field": "paragraph.4",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "01b2c2db": {
+      "source": "12:50",
+      "field": "heading.h3.3",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "a301ca04": {
+      "source": "Back on Elgin",
+      "field": "heading.h4.3",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "781c2908": {
+      "source": "Enough time to grab a sandwich on the way back to the office.",
+      "field": "paragraph.5",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "lunch"
+        }
+      ]
+    },
+    "e04c5de8": {
+      "source": "In motion",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "67a512a5": {
+      "source": "Watch it come together",
+      "markup": "Watch it [come together]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "56d05815": {
+      "source": "Colour going on, a cut taking shape, the blow-dry at the end. Tap a clip to watch it with sound.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "b7db7feb": {
+      "source": "Book an appointment",
+      "markup": "[Book an appointment](/book)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "5a5544f0": {
+      "source": "Combed out",
+      "field": "heading.h3.0",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "09f6be79": {
+      "source": "Creative colour",
+      "field": "heading.h4.0",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "a0e73d99": {
+      "source": "Colour going on",
+      "field": "heading.h3.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "3a9dfa58": {
+      "source": "Colour",
+      "field": "heading.h4.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        },
+        {
+          "page": "/services",
+          "section": "menu"
+        },
+        {
+          "page": "/colour",
+          "section": "_meta"
+        },
+        {
+          "page": "/colour",
+          "section": "intro"
+        },
+        {
+          "page": "/colour",
+          "section": "day"
+        },
+        {
+          "page": "/colour",
+          "section": "menu"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ],
+      "markupVaries": true,
+      "markup": "[Colour](/colour)"
+    },
+    "541dcd4d": {
+      "source": "The cut",
+      "field": "heading.h3.2",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "ff41a9e8": {
+      "source": "Cuts",
+      "field": "heading.h4.2",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "4a7b6cfd": {
+      "source": "The wash",
+      "field": "heading.h3.3",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "2e800d09": {
+      "source": "Scalp massage",
+      "field": "heading.h4.3",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "c2169d33": {
+      "source": "The blowout",
+      "field": "heading.h3.4",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "92409c65": {
+      "source": "Styling",
+      "field": "heading.h4.4",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "b895b53d": {
+      "source": "Quick dry",
+      "field": "heading.h3.5",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "b5da20cf": {
+      "source": "Barbering",
+      "field": "heading.h4.5",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "videos"
+        }
+      ]
+    },
+    "d355d4fd": {
+      "source": "Recent work",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "gallery"
+        }
+      ]
+    },
+    "5f04d7a2": {
+      "source": "Hair that left the studio",
+      "markup": "Hair that left the [studio]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "gallery"
+        }
+      ]
+    },
+    "646c722c": {
+      "source": "The studio",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "studio"
+        }
+      ]
+    },
+    "23ec47ca": {
+      "source": "Upstairs, and cozy on purpose",
+      "markup": "Upstairs, and cozy [on purpose]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "studio"
+        }
+      ]
+    },
+    "1d5b8efb": {
+      "source": "Street level on Elgin is busy. Up our stairs it isn't. The studio sits on a second floor in the Golden Triangle — a warm room with good light, a few chairs, and music you can talk over.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "studio"
+        }
+      ]
+    },
+    "915f2cb4": {
+      "source": "It's a small space, so no one is shouting across a busy floor, and your stylist isn't juggling three clients at once. Neighbours have been climbing these stairs for over twenty years; plenty of them still do.",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "studio"
+        }
+      ]
+    },
+    "95eb97cb": {
+      "source": "Plan your visit",
+      "markup": "[Plan your visit](/visit)",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "studio"
+        }
+      ]
+    },
+    "284c54ce": {
+      "source": "Consult first, always",
+      "field": "heading.h3.0",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "studio"
+        }
+      ]
+    },
+    "ad7dc2bd": {
+      "source": "Every appointment starts with a conversation, never a sales pitch.",
+      "markup": "![](lu-message-circle) Every appointment starts with a conversation, never a sales pitch.",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "studio"
+        }
+      ]
+    },
+    "9e4883bc": {
+      "source": "A firm quote before we start",
+      "field": "heading.h3.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "studio"
+        }
+      ]
+    },
+    "0546c2b4": {
+      "source": "You'll know the price at the consult. No surprise at the till.",
+      "markup": "![](lu-receipt) You'll know the price at the consult. No surprise at the till.",
+      "field": "paragraph.4",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "studio"
+        }
+      ]
+    },
+    "a4a0feaf": {
+      "source": "No judgement about the box dye",
+      "field": "heading.h3.2",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "studio"
+        }
+      ]
+    },
+    "bb076d33": {
+      "source": "Genuinely. Bring the photos of what went wrong.",
+      "markup": "![](lu-heart) Genuinely. Bring the photos of what went wrong.",
+      "field": "paragraph.5",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "studio"
+        }
+      ]
+    },
+    "a5d52663": {
+      "source": "Your neighbourhood salon",
+      "field": "heading.h3.3",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "studio"
+        }
+      ]
+    },
+    "3e591756": {
+      "source": "For Centretown and the Golden Triangle, and everyone who works nearby.",
+      "markup": "![](lu-map-pin) For Centretown and the Golden Triangle, and everyone who works nearby.",
+      "field": "paragraph.6",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "studio"
+        }
+      ]
+    },
+    "3bebc5e0": {
+      "source": "Kind words",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "reviews"
+        }
+      ]
+    },
+    "fa1739c6": {
+      "source": "Word from the neighbourhood",
+      "markup": "Word from the [neighbourhood]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "reviews"
+        }
+      ]
+    },
+    "8e425606": {
+      "source": "Read all our reviews on Google",
+      "markup": "[Read all our reviews on Google](https://www.google.com/maps/search/?api=1&query=Sublime+Hair+Studio+190+MacLaren+St+Ottawa)",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "reviews"
+        }
+      ]
+    },
+    "00d1f665": {
+      "source": "Come on up",
+      "markup": "Come on [up]{accent}",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "cta"
+        },
+        {
+          "page": "/visit",
+          "section": "cta"
+        }
+      ]
+    },
+    "5c45f079": {
+      "source": "Book online and choose your time, whether that's a quick lunch-hour cut or a long Saturday of colour. If you'd rather talk it through first, give the studio a call.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "cta"
+        }
+      ]
+    },
+    "c05052c1": {
+      "source": "Book an appointment (613) 567-7400",
+      "markup": "[Book an appointment](/book) [(613) 567-7400](tel:+16135677400)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/",
+          "section": "cta"
+        }
+      ]
+    },
+    "bb922121": {
+      "source": "Hair Services & Prices in Ottawa",
+      "field": "page.title",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "_meta"
+        }
+      ]
+    },
+    "604dce44": {
+      "source": "Services",
+      "field": "page.label",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "_meta"
+        }
+      ]
+    },
+    "8d2f5187": {
+      "source": "Cuts, creative colour, balayage, colour correction, blowouts, up-dos and treatments — the full price list for Sublime Hair Studio in Centretown Ottawa.",
+      "field": "page.description",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "_meta"
+        }
+      ]
+    },
+    "9710ec4b": {
+      "source": "The full menu",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        }
+      ]
+    },
+    "98a62cb8": {
+      "source": "The work, and what it costs",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        }
+      ]
+    },
+    "4ebd58ed": {
+      "source": "The focus is on you. Every appointment starts with a consultation, and every service includes a wash and a rejuvenating scalp massage — updos excepted.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        }
+      ]
+    },
+    "b63b84a0": {
+      "source": "Prices marked \"from\" move with hair length, density, and how much of a rescue mission we are on. You get a firm number at the consult, before anything starts — never a surprise at the till.",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        }
+      ]
+    },
+    "ece1fe75": {
+      "source": "Prefer paper? Download the printable menu (PDF).",
+      "markup": "Prefer paper? [Download the printable menu](/downloads/sublime-service-menu.pdf) (PDF).",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        }
+      ]
+    },
+    "ccfc53fc": {
+      "source": "Add-ons",
+      "field": "heading.2",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        }
+      ]
+    },
+    "5dd2cb0e": {
+      "source": "Added on to your haircut",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        }
+      ]
+    },
+    "73eb1dff": {
+      "source": "Materials are charged in addition",
+      "field": "paragraph.4",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        },
+        {
+          "page": "/colour",
+          "section": "menu"
+        }
+      ]
+    },
+    "e2c27349": {
+      "source": "Treatments",
+      "field": "heading.4",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        }
+      ]
+    },
+    "c61dd063": {
+      "source": "In-salon, with René Furterer and Olaplex",
+      "field": "paragraph.5",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        }
+      ]
+    },
+    "2ea891e6": {
+      "source": "Scalp Massage",
+      "field": "heading.5",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        }
+      ]
+    },
+    "fab3d6d3": {
+      "source": "Every service includes a short one. These are longer.",
+      "field": "paragraph.6",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        }
+      ]
+    },
+    "40a20853": {
+      "source": "Packages",
+      "field": "heading.6",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        }
+      ]
+    },
+    "13fd10dc": {
+      "source": "Contact us directly for bridal and treatment packages",
+      "field": "paragraph.7",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "menu"
+        }
+      ]
+    },
+    "aaeaabe5": {
+      "source": "Before you book",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "7226eecb": {
+      "source": "Questions we get every single week",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        },
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "9010c4cf": {
+      "source": "How long does creative colour actually take?",
+      "field": "heading.h3.0",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        },
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "ee0a578b": {
+      "source": "Between four and seven hours, and occasionally two appointments. If your photo shows pastel over dark hair, it is almost certainly two. We would rather tell you that now than at hour five.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        },
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "b6cdc8aa": {
+      "source": "Do I need a patch test?",
+      "field": "heading.h3.1",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        },
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "5448ba05": {
+      "source": "Yes, for any colour service, and it has to be at least 48 hours before. It takes two minutes at the front desk — swing by, or book it alongside a fringe trim.",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "253e835d": {
+      "source": "I used box dye. Will you still see me?",
+      "field": "heading.h3.2",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        },
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "56c0e29c": {
+      "source": "Yes. Tell us when you book so we can put enough time aside, and bring the box if you still have it. The ingredients list genuinely helps.",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        },
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "5edf8a0d": {
+      "source": "What is your cancellation policy?",
+      "field": "heading.h3.3",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "2424bee9": {
+      "source": "Please reschedule or cancel at least 48 hours before your appointment; later than that, there is a $50 cancellation fee. We take a credit card when you book, and it is only charged if you cancel within those 48 hours.",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "f122a3fd": {
+      "source": "What products do you use, and can I buy them?",
+      "field": "heading.h3.4",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "de140f8b": {
+      "source": "We work with René Furterer and Keune — salon lines you'll only find at Sublime in Ottawa — plus Layrite and Reuzel for men's grooming. Whatever we use on you in the chair is on the shelf on your way out, and we will tell you the two things worth buying rather than the whole range.",
+      "field": "paragraph.4",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "0866fd6b": {
+      "source": "Can I bring a photo?",
+      "field": "heading.h3.5",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "a55c3b75": {
+      "source": "Please do. Bring several, including ones you dislike — knowing what you do not want is often more useful than knowing what you do.",
+      "field": "paragraph.5",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "5fa99f33": {
+      "source": "Do you cut kids' hair?",
+      "field": "heading.h3.6",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "67cd3e93": {
+      "source": "Yes, from about age five. A children's cut (under 10) is $35, and a youth cut (10–18) starts at $55. Under five is usually better at a place set up for it, and we will happily point you at one.",
+      "field": "paragraph.6",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "044c84f2": {
+      "source": "Can I really get a cut on my lunch break?",
+      "field": "heading.h3.7",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "d9ffa3a9": {
+      "source": "Yes. Book The Lunch-Hour Cut: 45 minutes over your lunch hour, for a repeat of a shape you already like. If you want something new, book a full cut so there's time to talk.",
+      "field": "paragraph.7",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "1591943c": {
+      "source": "Are you accessible?",
+      "field": "heading.h3.8",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "6e6ef2ee": {
+      "source": "The studio is on the second floor, up one flight of stairs. If stairs are hard for you, call us before booking and we'll talk through what works.",
+      "field": "paragraph.8",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "faq"
+        }
+      ]
+    },
+    "ce1249cd": {
+      "source": "Bring us a photo",
+      "markup": "Bring us a [photo]{accent}",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "cta"
+        }
+      ]
+    },
+    "6ed7feba": {
+      "source": "Yes, even that one. Screenshots, Pinterest boards, a picture of your friend's head taken without her knowing — all fine. Bring the ones you hate too; they are just as useful.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "cta"
+        }
+      ]
+    },
+    "098e3ee4": {
+      "source": "Book an appointment Ask us first",
+      "markup": "[Book an appointment](/book) [Ask us first](/visit)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/services",
+          "section": "cta"
+        }
+      ]
+    },
+    "db0dcb49": {
+      "source": "Creative colour, vivids, balayage, glosses and colour correction at Sublime Hair Studio in Ottawa's Golden Triangle — how a colour day works, what it costs, and the work.",
+      "field": "page.description",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "_meta"
+        }
+      ]
+    },
+    "3caed4b2": {
+      "source": "The fun part, done properly",
+      "markup": "The fun part, done [properly]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "intro"
+        }
+      ]
+    },
+    "ca9273dc": {
+      "source": "Colour is what people climb the stairs for: vivids that stay bright, pastels over a proper lightening plan, balayage that grows out on purpose, and corrections for the box dye nobody needs to apologise for.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "intro"
+        }
+      ]
+    },
+    "5fdf4a77": {
+      "source": "Book a colour consult See colour prices",
+      "markup": "[Book a colour consult](/book) [See colour prices](#section-menu)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "intro"
+        }
+      ]
+    },
+    "f411a1fb": {
+      "source": "Free",
+      "field": "heading.2",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "intro"
+        }
+      ]
+    },
+    "c02501c5": {
+      "source": "Consult before creative colour",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "intro"
+        }
+      ]
+    },
+    "cdca4986": {
+      "source": "4–7 h",
+      "field": "heading.3",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "intro"
+        }
+      ]
+    },
+    "44bdc8cf": {
+      "source": "A creative colour day",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "intro"
+        }
+      ]
+    },
+    "ab832523": {
+      "source": "48 h",
+      "field": "heading.4",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "intro"
+        }
+      ]
+    },
+    "814988b3": {
+      "source": "Patch test, before",
+      "field": "paragraph.4",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "intro"
+        }
+      ]
+    },
+    "4b930bb7": {
+      "source": "How a colour day goes",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "c8c8b99a": {
+      "source": "Long, but never a guess",
+      "markup": "Long, but never [a guess]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "6966c20b": {
+      "source": "The plan is made at the consult, so on the day nobody is improvising with bleach. You'll know how many sittings it takes, what it costs, and what it will look like in six weeks, before anything is mixed.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "a74821e9": {
+      "source": "Book a colour consult",
+      "markup": "[Book a colour consult](/book)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "ffff8b4c": {
+      "source": "The plan, again",
+      "field": "heading.h4.0",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "76136c1b": {
+      "source": "A quick look at the consult notes and your photos, including the ones you don't like.",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "d084e8de": {
+      "source": "12:30",
+      "field": "heading.h3.1",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "5e6f862c": {
+      "source": "Lightening",
+      "field": "heading.h4.1",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "c82d8722": {
+      "source": "Slow and even, checked the whole way. This is the part that decides how bright the colour gets.",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "9cc5772d": {
+      "source": "2:30",
+      "field": "heading.h3.2",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "76cdcf3c": {
+      "source": "Placement, panels, shadow roots — painted section by section, the way it was planned.",
+      "field": "paragraph.4",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "774b6f0f": {
+      "source": "4:15",
+      "field": "heading.h3.3",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "f21f111d": {
+      "source": "Gloss, cut, done",
+      "field": "heading.h4.3",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "6daa01f9": {
+      "source": "A gloss to seal it, a cut to finish it, and aftercare that keeps it bright.",
+      "field": "paragraph.5",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "day"
+        }
+      ]
+    },
+    "6c405d93": {
+      "source": "The colour menu",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "menu"
+        }
+      ]
+    },
+    "00499529": {
+      "source": "What it costs",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "menu"
+        }
+      ]
+    },
+    "df089b1e": {
+      "source": "Prices move with length, density, and how much of a rescue mission we are on. You get a firm number at the consult, before anything starts.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "menu"
+        }
+      ]
+    },
+    "d79eed5b": {
+      "source": "Recent colour",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "gallery"
+        }
+      ]
+    },
+    "f644bdfc": {
+      "source": "Bright on purpose, soft on purpose",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "gallery"
+        }
+      ]
+    },
+    "66b1b222": {
+      "source": "Before you book colour",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "4f00e681": {
+      "source": "Yes, for any colour service, and it has to be at least 48 hours before. It takes two minutes at the front desk — swing by, or do it at the end of another appointment.",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "25502ae3": {
+      "source": "How long will vivids last?",
+      "field": "heading.h3.3",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "8efec5d4": {
+      "source": "Pastels soften in a few weeks; deeper jewel tones hold longer. Wash cool, wash less, use a colour-safe shampoo — we keep Keune and René Furterer on the shelf, which almost nowhere else in Ottawa does — and book a gloss between bigger appointments to keep it bright.",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "3a863d6c": {
+      "source": "Balayage or highlights?",
+      "field": "heading.h3.4",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "5100e71a": {
+      "source": "Balayage is painted by hand and grows out softly, so you come back in months, not weeks. Foils give a brighter, more even result that needs a closer eye on the regrowth. We'll tell you which suits your hair at the consult.",
+      "field": "paragraph.4",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "8c855a4b": {
+      "source": "Is there a deposit?",
+      "field": "heading.h3.5",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "df08931e": {
+      "source": "No deposit, but we take a credit card when you book. It is only charged — a $50 cancellation fee — if you cancel or reschedule within 48 hours of your appointment.",
+      "field": "paragraph.5",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "faq"
+        }
+      ]
+    },
+    "db160879": {
+      "source": "Pick a colour",
+      "markup": "Pick a [colour]{accent}",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "cta"
+        }
+      ]
+    },
+    "e920155d": {
+      "source": "Book a consult and bring the screenshots, the Pinterest board and the ones you hate. We'll make the plan together.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "cta"
+        }
+      ]
+    },
+    "3b9116e1": {
+      "source": "Book a colour consult (613) 567-7400",
+      "markup": "[Book a colour consult](/book) [(613) 567-7400](tel:+16135677400)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/colour",
+          "section": "cta"
+        }
+      ]
+    },
+    "24e73b31": {
+      "source": "Meet Sonia, Our Owner & Stylist",
+      "field": "page.title",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "_meta"
+        }
+      ]
+    },
+    "74815d47": {
+      "source": "The Crew",
+      "field": "page.label",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "_meta"
+        }
+      ]
+    },
+    "57d89ecc": {
+      "source": "Meet Sonia, owner of Sublime Hair Studio — apprenticed at 13, trained with Vidal Sassoon and Toni & Guy, master of cut and colour — and Charlotte and Bijou, the studio dogs.",
+      "field": "page.description",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "_meta"
+        }
+      ]
+    },
+    "cf198785": {
+      "source": "Our mission",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "about"
+        }
+      ]
+    },
+    "73f7dcc3": {
+      "source": "The focus is on you",
+      "markup": "The focus is [on you]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "about"
+        }
+      ]
+    },
+    "fac5c26c": {
+      "source": "Sublime Hair Studio is built on the idea that every client deserves a style that is the outcome of creativity and originality. Tucked in amongst the restaurants, shops and small businesses that line Ottawa's buzzing Elgin Street, Sublime is a small, private space that offers a warm welcome, attentive service and unparalleled expertise.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "about"
+        }
+      ]
+    },
+    "447da19c": {
+      "source": "Open for over a decade, Sublime has been executing modern and sophisticated styles, transcending trends that Sonia and her team have consistently adapted to. Through the years, trust has remained at the centre of the client experience. Whether it's the product, cut, colour or conversation, clients leave knowing their needs were the focus of every appointment.",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "about"
+        }
+      ]
+    },
+    "bab50c61": {
+      "source": "Nous parlons français.",
+      "markup": "*Nous parlons français.*",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "about"
+        }
+      ]
+    },
+    "7bfe3cae": {
+      "source": "The owner",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "ecded1eb": {
+      "source": "Sonia, so far",
+      "markup": "Sonia, [so far]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "d4ab9778": {
+      "source": "Sublime Hair Studio is an outlet for Sonia's creative imagination and unique stylistic approaches. She puts an incredible amount of dedication into creating a personalized, memorable experience for every person who sits in her chair — and has built a reputation for innovative cut and colour techniques along the way.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "db677332": {
+      "source": "Book with Sonia Discover her work",
+      "markup": "[Book with Sonia](/book) [Discover her work](/colour)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "aa05ccc3": {
+      "source": "1980s",
+      "field": "heading.h3.0",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "afff4bcb": {
+      "source": "Punk, and an apprenticeship at thirteen",
+      "field": "heading.h4.0",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "ef14f259": {
+      "source": "Sonia's career began with a passion for punk hairstyles. She started her apprenticeship at the very young age of 13, among European hairstylists, and that is where she built her foundation.",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "24ffaa32": {
+      "source": "She went on to learn from the world's best academies and mentors — Vidal Sassoon, Toni & Guy London, Schwarzkopf, Alain Larivée and Anthony Edge — and became a master hair cutter with a genius for colour formulation.",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "bf4af42b": {
+      "source": "2000s",
+      "field": "heading.h3.1",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "5bd74eb4": {
+      "source": "Home from New York",
+      "field": "heading.h4.1",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "31503df0": {
+      "source": "In the early 2000s Sonia returned to Ottawa from New York City, freshly inspired by the cutting-edge SoHo loft salons where the client experience came first. She envisioned a salon with the same obsession for style and service — and rejected the notion that high-fashion hair needs a \"so-cool-it's-cold\" room.",
+      "field": "paragraph.4",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "e2ad3637": {
+      "source": "Sublime",
+      "field": "heading.h3.2",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "b8271f15": {
+      "source": "A salon against the grain",
+      "field": "heading.h4.2",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "1ded1c64": {
+      "source": "Her skill, precision and experience became a studio that puts the individual first: every look starts with an in-depth consultation, and her attention to her clients is matched only by her attention to detail in the work.",
+      "field": "paragraph.5",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "2b065c7c": {
+      "source": "Today",
+      "field": "heading.h3.3",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "9e7bd9e7": {
+      "source": "From barbering to alchemy",
+      "field": "heading.h4.3",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "b0f93bc7": {
+      "source": "Sonia excels at men's hair and barbering, and at the other end of the spectrum she is a true alchemist with colour. Sublime is a full-service salon — a destination for everyone.",
+      "field": "paragraph.6",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "4d1a0fea": {
+      "source": "Natural or dramatic colour, a sophisticated classic cut or something curly, funky and avant-garde: she will pour her passion and technique into the look you envision.",
+      "field": "paragraph.7",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "sonia"
+        }
+      ]
+    },
+    "47a4c03e": {
+      "source": "The studio dogs",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "dogs"
+        }
+      ]
+    },
+    "b4db8248": {
+      "source": "The welcoming committee",
+      "markup": "The welcoming [committee]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "dogs"
+        }
+      ]
+    },
+    "15a94954": {
+      "source": "Not everyone on the team holds scissors.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "dogs"
+        }
+      ]
+    },
+    "2e7041b7": {
+      "source": "Charlotte",
+      "field": "heading.h3.0",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "dogs"
+        }
+      ]
+    },
+    "459183db": {
+      "source": "Miniature golden doodle · Dec 2013 – Feb 2026",
+      "field": "heading.h4.0",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "dogs"
+        }
+      ]
+    },
+    "fd4511d8": {
+      "source": "Upon entering Sublime, you'll be greeted by a friendly bark and tail wag from Charlotte, a miniature golden doodle. Charlotte loves to spend her time between her shampoo chair and a vintage hair dryer near her Momma, Sonia.",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "dogs"
+        }
+      ]
+    },
+    "5c3c19a4": {
+      "source": "Although Charlotte keeps to herself while the team is busy at work, you may notice her beautiful big brown eyes catching yours, along with the odd plea for a smooch or a pet as you pass her. Offer her a treat and she'll love you forever.",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "dogs"
+        }
+      ]
+    },
+    "2d490b92": {
+      "source": "For those who aren't really dog friendly, she may just win you over. With her golden locks and calm demeanour, Charlotte brings a smile to nearly every client — even if you aren't much of a dog person, you may just become a \"Charlotte person\" by the time you pet her on your way out the door.",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "dogs"
+        }
+      ]
+    },
+    "c399b0e3": {
+      "source": "Bijou",
+      "field": "heading.h3.1",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "dogs"
+        }
+      ]
+    },
+    "79c7c10d": {
+      "source": "Miniature poodle · Charlotte's little brother",
+      "field": "heading.h4.1",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "dogs"
+        }
+      ]
+    },
+    "8211966e": {
+      "source": "Upon entering Sublime, you'll be greeted by a cheerful bark and a wagging tail from Bijou, our miniature poodle and beloved salon dog. Charlotte's younger brother, he is inquisitive, calm and charming, and his gentle personality wins over every guest who walks through our door.",
+      "field": "paragraph.4",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "dogs"
+        }
+      ]
+    },
+    "b254fd70": {
+      "source": "You'll often find him lounging by the window, keeping a watchful eye on the neighbourhood, or admiring your new style from a distance while he waits to welcome the next client.",
+      "field": "paragraph.5",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "dogs"
+        }
+      ]
+    },
+    "32910b94": {
+      "source": "Outside of the salon, Bijou enjoys strolls across the E.B. Eddy Bridge to Aylmer, exploring the Glebe, and sampling new treat combinations.",
+      "field": "paragraph.6",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "dogs"
+        }
+      ]
+    },
+    "fb694c33": {
+      "source": "We are hiring, occasionally",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "join"
+        }
+      ]
+    },
+    "6b2a06fc": {
+      "source": "Want a chair in here?",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "join"
+        }
+      ]
+    },
+    "f4c023c4": {
+      "source": "We take on one apprentice a year, and when a chair opens up it usually goes to someone who has already emailed us.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "join"
+        }
+      ]
+    },
+    "d9c66e70": {
+      "source": "Send us a note",
+      "markup": "[Send us a note](mailto:hello@sublimehair.ca)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/crew",
+          "section": "join"
+        }
+      ]
+    },
+    "909cb811": {
+      "source": "Book",
+      "field": "page.title",
+      "contexts": [
+        {
+          "page": "/book",
+          "section": "_meta"
+        }
+      ]
+    },
+    "7bb1ba08": {
+      "source": "Book an appointment at Sublime Hair Studio.",
+      "field": "page.description",
+      "contexts": [
+        {
+          "page": "/book",
+          "section": "_meta"
+        }
+      ]
+    },
+    "2906ac53": {
+      "source": "Hours & Directions, 190 MacLaren St",
+      "field": "page.title",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "_meta"
+        }
+      ]
+    },
+    "1c8ac867": {
+      "source": "Visit",
+      "field": "page.label",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "_meta"
+        }
+      ]
+    },
+    "e79405cb": {
+      "source": "Sublime Hair Studio — 190 MacLaren Street, Centretown Ottawa. Hours, parking, accessibility and how to reach us.",
+      "field": "page.description",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "_meta"
+        }
+      ]
+    },
+    "05cb24d7": {
+      "source": "Golden Triangle, Centretown",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "1dc51f15": {
+      "source": "One flight up, just off Elgin",
+      "markup": "One flight up, just off [Elgin]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "1420fd1e": {
+      "source": "We're on MacLaren, a two-minute walk from Elgin Street. Look for our door at street level and come up one flight of stairs to the second floor, where it's quieter. Close enough to the office for a lunch-hour cut, and just around the corner if you live in the neighbourhood.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "6a00dfc1": {
+      "source": "Monday",
+      "field": "heading.2",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "c21ead06": {
+      "source": "Closed",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "7d8af1de": {
+      "source": "Tuesday",
+      "field": "heading.3",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "b3b70ce7": {
+      "source": "12–6",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "c0a6cc82": {
+      "source": "Wednesday",
+      "field": "heading.4",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "f0dd60ec": {
+      "source": "10–6",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "fc266206": {
+      "source": "Thursday",
+      "field": "heading.5",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "d636be9f": {
+      "source": "10–7",
+      "field": "paragraph.4",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "e21f3f37": {
+      "source": "Friday",
+      "field": "heading.6",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "dbe35c73": {
+      "source": "Saturday",
+      "field": "heading.7",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "ab25b7b8": {
+      "source": "9–4",
+      "field": "paragraph.6",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "873fef76": {
+      "source": "Sunday",
+      "field": "heading.8",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        },
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "1480394b": {
+      "source": "Book an appointment Message us",
+      "markup": "[Book an appointment](/book) [Message us](mailto:hello@sublimehair.ca)",
+      "field": "paragraph.8",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "4a64d6c8": {
+      "source": "Parking",
+      "field": "heading.h3.0",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "7159eec6": {
+      "source": "Street parking on MacLaren and Gilmour, metered until 5:30pm. There is a Green P a two-minute walk away on Cooper.",
+      "markup": "![](lu-circle-parking) Street parking on MacLaren and Gilmour, metered until 5:30pm. There is a Green P a two-minute walk away on Cooper.",
+      "field": "paragraph.9",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "7c5148fe": {
+      "source": "From the office",
+      "field": "heading.h3.1",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "db6811d0": {
+      "source": "A short walk from most downtown offices — about two minutes from Elgin, and Parliament Station is roughly twelve minutes on foot. Buses along Bank and Elgin stop close by.",
+      "markup": "![](lu-briefcase) A short walk from most downtown offices — about two minutes from Elgin, and Parliament Station is roughly twelve minutes on foot. Buses along Bank and Elgin stop close by.",
+      "field": "paragraph.10",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "d3368cbf": {
+      "source": "Accessibility",
+      "field": "heading.h3.2",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        },
+        {
+          "page": "/accessibility",
+          "section": "_meta"
+        },
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ],
+      "markupVaries": true,
+      "markup": "[Accessibility]{accent}"
+    },
+    "6f00dd57": {
+      "source": "The studio is on the second floor, up one flight of stairs. If stairs are hard for you, call before booking and we will talk through what works.",
+      "markup": "![](lu-accessibility) The studio is on the second floor, up one flight of stairs. If stairs are hard for you, call before booking and we will talk through what works.",
+      "field": "paragraph.11",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "43a363bc": {
+      "source": "Bikes",
+      "field": "heading.h3.3",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "5245f96e": {
+      "source": "There are bike rings on MacLaren near the door. Lock up on the street and come on up.",
+      "markup": "![](lu-bike) There are bike rings on MacLaren near the door. Lock up on the street and come on up.",
+      "field": "paragraph.12",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "061161aa": {
+      "source": "Book a 45-minute slot over lunch. We keep to the clock so you get back on time.",
+      "markup": "![](lu-timer) Book a 45-minute slot over lunch. We keep to the clock so you get back on time.",
+      "field": "paragraph.13",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "767804da": {
+      "source": "On the shelf",
+      "field": "heading.h3.5",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "02de23f0": {
+      "source": "We carry René Furterer and Keune, which almost no one else in Ottawa does. Worth the climb even if you are not booked in — come up and ask.",
+      "markup": "![](lu-shopping-bag) We carry René Furterer and Keune, which almost no one else in Ottawa does. Worth the climb even if you are not booked in — come up and ask.",
+      "field": "paragraph.14",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "52ea24f1": {
+      "source": "Cancellations",
+      "field": "heading.h3.6",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "c1eb34c6": {
+      "source": "We ask that you please reschedule or cancel before the beginning of your appointment.",
+      "markup": "![](lu-calendar-x) We ask that you please reschedule or cancel before the beginning of your appointment.",
+      "field": "paragraph.15",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "9bc469bf": {
+      "source": "Please cancel up to 48 hours in advance, otherwise you will be charged a cancellation fee of $50.*",
+      "field": "paragraph.16",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "b041c012": {
+      "source": "*Upon booking we require 1 credit card on file that will only be charged if you do not cancel within 48 hours before your scheduled appointment.",
+      "field": "paragraph.17",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "visit"
+        }
+      ]
+    },
+    "44cc2e87": {
+      "source": "Follow the stairs and the sound of good music. The kettle's usually on.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "cta"
+        }
+      ]
+    },
+    "d6b84dbd": {
+      "source": "Book an appointment Follow along",
+      "markup": "[Book an appointment](/book) [Follow along](https://www.facebook.com/ottawasublimehair/)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/visit",
+          "section": "cta"
+        }
+      ]
+    },
+    "506ff394": {
+      "source": "Privacy Policy",
+      "field": "page.title",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "_meta"
+        }
+      ]
+    },
+    "54a57c31": {
+      "source": "Privacy",
+      "field": "page.label",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "_meta"
+        }
+      ]
+    },
+    "f1f0a7ba": {
+      "source": "How Sublime Hair Studio handles your personal information — bookings, client notes, messages and this website.",
+      "field": "page.description",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "_meta"
+        }
+      ]
+    },
+    "dd07d4bd": {
+      "source": "The fine print",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "d2a7115d": {
+      "source": "Your privacy",
+      "markup": "Your [privacy]{accent}",
+      "field": "heading.1",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "95551f8d": {
+      "source": "We're a small studio, and we keep only what we need to look after your hair and your appointments. We don't sell or rent your information, and this website doesn't track you.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "696ab4d5": {
+      "source": "Who we are",
+      "field": "subtitle",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "261261d6": {
+      "source": "Sublime Hair Studio, 190 MacLaren Street, second floor, Ottawa, ON K2P 0L6. We are responsible for the personal information described here. Questions go to hello@sublimehair.ca or (613) 567-7400.",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "b4910859": {
+      "source": "What we collect, and why",
+      "field": "heading.h2.1",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "34a804dc": {
+      "source": "Booking. When you book, we collect your name, phone number and email so we can confirm, remind you of and, if needed, reschedule your appointment.",
+      "markup": "**Booking.** When you book, we collect your name, phone number and email so we can confirm, remind you of and, if needed, reschedule your appointment.",
+      "field": "list.0",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "5110925e": {
+      "source": "A card on file. Bookings hold one credit card, charged only under our cancellation policy. The card is stored by our booking provider, Square — we never see or keep the full number.",
+      "markup": "**A card on file.** Bookings hold one credit card, charged only under our cancellation policy. The card is stored by our booking provider, Square — we never see or keep the full number.",
+      "field": "list.1",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "f02fa03d": {
+      "source": "Client notes. In the studio we note what we did and what to remember next time: colour formulas, hair history, and anything you tell us about sensitivities or allergies. These notes are how we get your hair right, and do it safely.",
+      "markup": "**Client notes.** In the studio we note what we did and what to remember next time: colour formulas, hair history, and anything you tell us about sensitivities or allergies. These notes are how we get your hair right, and do it safely.",
+      "field": "list.2",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "d179bdfc": {
+      "source": "Messages. If you email, call or message us, we use what you send to reply.",
+      "markup": "**Messages.** If you email, call or message us, we use what you send to reply.",
+      "field": "list.3",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "af4421c6": {
+      "source": "We don't collect more than that, and we don't use it for anything else without asking you first.",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "e007e47e": {
+      "source": "Booking through Square",
+      "field": "heading.h2.2",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "f7364c59": {
+      "source": "Our online booking runs on Square Appointments. When you book there, Square handles your details and payment card under its own privacy notice. Prefer not to book online? Call us and we'll book you in by phone.",
+      "markup": "Our online booking runs on Square Appointments. When you book there, Square handles your details and payment card under its own [privacy notice](https://squareup.com/ca/en/legal/general/privacy){target=_blank}. Prefer not to book online? Call us and we'll book you in by phone.",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "60b896e5": {
+      "source": "This website",
+      "field": "heading.h2.3",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        },
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "80f6d30b": {
+      "source": "No cookies, no analytics, no ads. The site doesn't set cookies, doesn't track your visits and doesn't show advertising.",
+      "markup": "**No cookies, no analytics, no ads.** The site doesn't set cookies, doesn't track your visits and doesn't show advertising.",
+      "field": "list.0",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "963cb5a9": {
+      "source": "Things loaded from elsewhere. To display the site, your browser fetches some things from other services: the Archivo typeface from Google Fonts, the map on our Visit page from OpenStreetMap, and some photos and videos from image and video hosts. Those services see your IP address and browser type when they deliver them, as any web server does.",
+      "markup": "**Things loaded from elsewhere.** To display the site, your browser fetches some things from other services: the Archivo typeface from Google Fonts, the map on our Visit page from OpenStreetMap, and some photos and videos from image and video hosts. Those services see your IP address and browser type when they deliver them, as any web server does.",
+      "field": "list.1",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "1e9842d8": {
+      "source": "Server logs. The servers that deliver the site may briefly log technical details, such as your IP address and browser, to keep it running and secure.",
+      "markup": "**Server logs.** The servers that deliver the site may briefly log technical details, such as your IP address and browser, to keep it running and secure.",
+      "field": "list.2",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "1e6323f1": {
+      "source": "Links out. Our Facebook and Instagram links take you to those platforms, where their own privacy policies apply.",
+      "markup": "**Links out.** Our Facebook and Instagram links take you to those platforms, where their own privacy policies apply.",
+      "field": "list.3",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "8d9e7e17": {
+      "source": "Who we share it with",
+      "field": "heading.h2.4",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "40f54f30": {
+      "source": "Only the services that help us run the studio — Square for bookings and payments — and only what they need to do that. We don't sell, rent or trade your information. We would disclose it only if the law required us to.",
+      "field": "paragraph.4",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "a37efe89": {
+      "source": "How long we keep it",
+      "field": "heading.h2.5",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "244571fa": {
+      "source": "We keep your contact details and client notes while you're a client, and for a reasonable time afterwards in case you come back. Ask us and we'll delete them sooner, unless we need to keep a record by law (sales records for tax, for example).",
+      "field": "paragraph.5",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "0ecda042": {
+      "source": "Your choices",
+      "field": "heading.h2.6",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "a5303698": {
+      "source": "Under Canada's privacy law (PIPEDA), you can ask what information we hold about you, ask us to correct it, or withdraw your consent to our keeping it. Write to hello@sublimehair.ca, call us, or ask at the desk, and we'll answer within 30 days.",
+      "field": "paragraph.6",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "887cfe02": {
+      "source": "If you're not satisfied with our answer, you can contact the Office of the Privacy Commissioner of Canada.",
+      "markup": "If you're not satisfied with our answer, you can contact the [Office of the Privacy Commissioner of Canada](https://www.priv.gc.ca/){target=_blank}.",
+      "field": "paragraph.7",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "bbd4b6a8": {
+      "source": "Changes",
+      "field": "heading.h2.7",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "e471c3c0": {
+      "source": "If we change how we handle personal information, we'll update this page and the date at the top.",
+      "field": "paragraph.8",
+      "contexts": [
+        {
+          "page": "/privacy",
+          "section": "policy"
+        }
+      ]
+    },
+    "f7629709": {
+      "source": "Getting to Sublime Hair Studio, accessibility in the studio and on this website, and how to tell us about a barrier.",
+      "field": "page.description",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "_meta"
+        }
+      ]
+    },
+    "104b3470": {
+      "source": "Everyone welcome",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "2f255030": {
+      "source": "We want everyone to be comfortable at Sublime, from finding us to leaving the chair. If something gets in your way — at the studio or on this website — tell us and we'll work it out with you.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "de98d2c5": {
+      "source": "Getting to the studio",
+      "field": "subtitle",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "8c567b52": {
+      "source": "The studio is on the second floor at 190 MacLaren Street, up one flight of stairs. If stairs are hard for you, call us at (613) 567-7400 before booking and we'll talk through what works — timing, help on the stairs, or anything else we can arrange.",
+      "markup": "The studio is on the second floor at 190 MacLaren Street, **up one flight of stairs**. If stairs are hard for you, call us at (613) 567-7400 before booking and we'll talk through what works — timing, help on the stairs, or anything else we can arrange.",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "4bc7be9a": {
+      "source": "Street parking is on MacLaren and Gilmour, and there's a Green P a two-minute walk away on Cooper. Buses along Bank and Elgin stop close by.",
+      "field": "paragraph.2",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "93f639cb": {
+      "source": "In the studio",
+      "field": "heading.h2.1",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "03cce12a": {
+      "source": "Service animals and support persons are always welcome.",
+      "markup": "**Service animals and support persons** are always welcome.",
+      "field": "list.0",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "e11283df": {
+      "source": "Tell us what you need — a quieter time of day, a break during a long colour, a chair adjustment, music turned down, or written aftercare instead of spoken. Mention it when you book or when you arrive.",
+      "markup": "**Tell us what you need** — a quieter time of day, a break during a long colour, a chair adjustment, music turned down, or written aftercare instead of spoken. Mention it when you book or when you arrive.",
+      "field": "list.1",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "a3687338": {
+      "source": "Sensitivities. If you have allergies or skin sensitivities, let us know and we'll patch-test and choose products accordingly.",
+      "markup": "**Sensitivities.** If you have allergies or skin sensitivities, let us know and we'll patch-test and choose products accordingly.",
+      "field": "list.2",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "6d4be27b": {
+      "source": "We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.1 at level AA. The site is built to:",
+      "field": "paragraph.3",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "7cbed865": {
+      "source": "work with a keyboard, a screen reader, and zoom up to 200%;",
+      "field": "list.0",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "f73d2ba5": {
+      "source": "describe photos with text alternatives;",
+      "field": "list.1",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "30bb1be5": {
+      "source": "keep text readable, with strong contrast;",
+      "field": "list.2",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "28683b73": {
+      "source": "tone down movement when your device asks for reduced motion — the video clips won't play by themselves.",
+      "field": "list.3",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "54b226b3": {
+      "source": "Some things we know about:",
+      "field": "paragraph.4",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "67aeef70": {
+      "source": "Booking happens on Square Appointments, which we don't control. If it gives you any trouble, call us and we'll book you in by phone.",
+      "markup": "**Booking** happens on Square Appointments, which we don't control. If it gives you any trouble, call us and we'll book you in by phone.",
+      "field": "list.0",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "4f290556": {
+      "source": "Video clips on the home page are short and have no speech; they show the work, and the same services are described in words on our Services and Colour pages.",
+      "markup": "**Video clips** on the home page are short and have no speech; they show the work, and the same services are described in words on our Services and Colour pages.",
+      "field": "list.1",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "924552d3": {
+      "source": "Other formats",
+      "field": "heading.h2.3",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "0304b97f": {
+      "source": "Any information on this site — prices, aftercare, our cancellation policy — is available in another format on request, such as large print or read over the phone.",
+      "field": "paragraph.5",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "dcf5e58e": {
+      "source": "Tell us about a barrier",
+      "field": "heading.h2.4",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "5767a0da": {
+      "source": "Call (613) 567-7400, email hello@sublimehair.ca, or tell us in person at the studio. Let us know what you were trying to do and what got in the way, and we'll get back to you within a few business days.",
+      "field": "paragraph.6",
+      "contexts": [
+        {
+          "page": "/accessibility",
+          "section": "statement"
+        }
+      ]
+    },
+    "953bb825": {
+      "source": "Sublime Hair Studio",
+      "field": "title",
+      "contexts": [
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "6a502a82": {
+      "source": "190 MacLaren Street, second floor — just off Elgin in Ottawa's Golden Triangle. Runway-trained hair in a warm little studio upstairs.",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "d760f026": {
+      "source": "Facebook Instagram",
+      "markup": "[Facebook](https://www.facebook.com/ottawasublimehair/) [Instagram](https://www.instagram.com/sublimehairstudio__/)",
+      "field": "paragraph.1",
+      "contexts": [
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "0aa91af2": {
+      "source": "Studio",
+      "field": "heading.8",
+      "contexts": [
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "28987e28": {
+      "source": "Services & prices",
+      "markup": "[Services & prices](/services)",
+      "field": "list.0",
+      "contexts": [
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "7fc62afc": {
+      "source": "The crew",
+      "markup": "[The crew](/crew)",
+      "field": "list.2",
+      "contexts": [
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "f605f927": {
+      "source": "Visit us",
+      "markup": "[Visit us](/visit)",
+      "field": "list.4",
+      "contexts": [
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "d00aae6b": {
+      "source": "Shop",
+      "field": "heading.9",
+      "contexts": [
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "b81fabc4": {
+      "source": "Bijou Boutique",
+      "markup": "[Bijou Boutique](/shop/){reload}",
+      "field": "list.0",
+      "contexts": [
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "aae746fa": {
+      "source": "Latest finds",
+      "markup": "[Latest finds](/shop/finds){reload}",
+      "field": "list.1",
+      "contexts": [
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "8d203134": {
+      "source": "Privacy Accessibility",
+      "markup": "[Privacy](/privacy) [Accessibility](/accessibility)",
+      "field": "paragraph.9",
+      "contexts": [
+        {
+          "page": "/layout/footer",
+          "section": "footer"
+        }
+      ]
+    },
+    "ef451717": {
+      "source": "Services Colour The Crew Visit Shop Book now",
+      "markup": "[Services](/services) [Colour](/colour) [The Crew](/crew) [Visit](/visit) [Shop](/shop/){reload} [Book now](/book)",
+      "field": "paragraph",
+      "contexts": [
+        {
+          "page": "/layout/header",
+          "section": "header"
+        }
+      ]
+    }
+  }
+}

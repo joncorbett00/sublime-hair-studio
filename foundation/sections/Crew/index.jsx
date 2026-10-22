@@ -4,6 +4,7 @@ import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
 import { frameClass } from '#components/frame.js'
+import { useSay } from '#utils/locale.js'
 
 /**
  * The team, cast like a show. Matted arched portraits in black and white that
@@ -11,6 +12,7 @@ import { frameClass } from '#components/frame.js'
  * than navigating away, so someone comparing stylists never loses their place.
  */
 export default function Crew({ content, params, block }) {
+  const say = useSay()
   const people = content.data?.crew || []
   const { pretitle, title, paragraphs } = content
   const {
@@ -49,7 +51,7 @@ export default function Crew({ content, params, block }) {
                 type="button"
                 onClick={() => setOpen(person)}
                 className="group block w-full text-left"
-                aria-label={`Read more about ${person.title}`}
+                aria-label={`${say('Read more about')} ${person.title}`}
               >
                 <div className={cn('mat transition-transform duration-500 group-hover:-translate-y-1.5', frameClass(frame))}>
                   <img
@@ -60,7 +62,7 @@ export default function Crew({ content, params, block }) {
                   />
                 </div>
                 <div className="mt-9">
-                  {numbered && <p className="font-display mb-1 text-sm italic text-accent-ink" aria-hidden="true">No.&thinsp;{String(i + 1).padStart(2, '0')}</p>}
+                  {numbered && <p className="font-display mb-1 text-sm italic text-accent-ink" aria-hidden="true">{say('No.')}&thinsp;{String(i + 1).padStart(2, '0')}</p>}
                   <h3 className="font-display text-[2rem] font-medium leading-tight tracking-tight text-heading">
                     {person.title}
                   </h3>
@@ -104,7 +106,7 @@ export default function Crew({ content, params, block }) {
                     <button
                       type="button"
                       onClick={() => setOpen(null)}
-                      aria-label="Close"
+                      aria-label={say('Close')}
                       className="grid size-10 shrink-0 place-items-center border border-heading/30 text-heading hover:bg-muted"
                     >
                       <Icon name="lu-x" size="18" />

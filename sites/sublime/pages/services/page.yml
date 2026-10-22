@@ -7,5 +7,5 @@ description: >-
   the full price list for Sublime Hair Studio in Centretown Ottawa.
 query: services
 
-seo:
-  canonical: https://sublimehair.ca/services
+# No `seo.canonical`: it is one fixed URL, so on this bilingual site the French
+# page would name the English one as its canonical and drop out of search.

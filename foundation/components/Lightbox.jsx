@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Overlay, Icon } from '@uniweb/kit'
+import { useSay } from '#utils/locale.js'
 
 /**
  * Full-screen photo viewer with arrow-key paging. Overlay owns Escape, focus
@@ -9,7 +10,9 @@ import { Overlay, Icon } from '@uniweb/kit'
  * paging a service's results and paging the wall feel like the same thing.
  * `subtitle` is whatever the caller wants in front of the "03 / 08" counter.
  */
-export default function Lightbox({ shots, index, onClose, onStep, subtitle, closeLabel = 'Close' }) {
+export default function Lightbox({ shots, index, onClose, onStep, subtitle, closeLabel }) {
+  const say = useSay()
+  closeLabel = closeLabel || say('Close')
   useEffect(() => {
     if (index === null) return
     const onKey = (e) => {
@@ -35,10 +38,10 @@ export default function Lightbox({ shots, index, onClose, onStep, subtitle, clos
             alt={shot.title || ''}
             className="mx-auto max-h-[72vh] w-auto object-contain"
           />
-          <button type="button" onClick={() => onStep(-1)} aria-label="Previous photo" className={`${arrow} left-2`}>
+          <button type="button" onClick={() => onStep(-1)} aria-label={say('Previous photo')} className={`${arrow} left-2`}>
             <Icon name="lu-arrow-left" size="20" />
           </button>
-          <button type="button" onClick={() => onStep(1)} aria-label="Next photo" className={`${arrow} right-2`}>
+          <button type="button" onClick={() => onStep(1)} aria-label={say('Next photo')} className={`${arrow} right-2`}>
             <Icon name="lu-arrow-right" size="20" />
           </button>
         </div>

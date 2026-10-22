@@ -1,5 +1,6 @@
 name: Sublime Hair Studio
 defaultLanguage: en
+languages: [en, fr]
 
 foundation: foundation
 index: home

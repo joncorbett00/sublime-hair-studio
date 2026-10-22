@@ -5,6 +5,7 @@ import Button from '#components/Button.jsx'
 import useRow from '#components/useRow.js'
 import { toneClass } from '#components/tone.js'
 import { buttonLinks, linkProps } from '#utils/links.js'
+import { useSay } from '#utils/locale.js'
 
 const pad = (n) => String(n).padStart(2, '0')
 
@@ -71,6 +72,7 @@ function clipsOf(items, basePath) {
  * it opens the player, with sound.
  */
 function Reel({ clip, index, onOpen, badge, shape }) {
+  const say = useSay()
   const videoRef = useRef(null)
   const play = () => {
     const v = videoRef.current
@@ -87,7 +89,7 @@ function Reel({ clip, index, onOpen, badge, shape }) {
       onMouseLeave={stop}
       onFocus={play}
       onBlur={stop}
-      aria-label={`Play video: ${clip.title}`}
+      aria-label={`${say('Play video:')} ${clip.title}`}
       aria-haspopup="dialog"
       className={cn('group relative block w-full overflow-hidden bg-muted text-left', shape.tile)}
     >
@@ -125,6 +127,7 @@ function Reel({ clip, index, onOpen, badge, shape }) {
 
 /** The player: one clip at a time, with sound, paging with the arrows and arrow keys. */
 function Player({ clips, index, onClose, onStep, shape, closeLabel }) {
+  const say = useSay()
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'ArrowRight') onStep(1)
@@ -141,7 +144,7 @@ function Player({ clips, index, onClose, onStep, shape, closeLabel }) {
     <Overlay onClose={onClose} className="items-center justify-center bg-ink/95 p-4 sm:p-8">
       <div role="dialog" aria-modal="true" aria-label={clip.title} className={cn('flex w-full flex-col items-center', shape.dialog)}>
         <div className="flex w-full items-center justify-center gap-3 sm:gap-6">
-          <button type="button" onClick={() => onStep(-1)} aria-label="Previous video" className={cn(arrow, clips.length < 2 && 'invisible')}>
+          <button type="button" onClick={() => onStep(-1)} aria-label={say('Previous video')} className={cn(arrow, clips.length < 2 && 'invisible')}>
             <Icon name="lu-arrow-left" size="20" />
           </button>
           <div className={cn('bg-black', shape.frame)}>
@@ -158,7 +161,7 @@ function Player({ clips, index, onClose, onStep, shape, closeLabel }) {
               <video key={clip.src} src={clip.src} poster={clip.poster || undefined} controls autoPlay playsInline className="size-full object-contain" />
             )}
           </div>
-          <button type="button" onClick={() => onStep(1)} aria-label="Next video" className={cn(arrow, clips.length < 2 && 'invisible')}>
+          <button type="button" onClick={() => onStep(1)} aria-label={say('Next video')} className={cn(arrow, clips.length < 2 && 'invisible')}>
             <Icon name="lu-arrow-right" size="20" />
           </button>
         </div>
@@ -189,6 +192,7 @@ function Player({ clips, index, onClose, onStep, shape, closeLabel }) {
  * `###` title, a `####` tag, and a video — a file, or a YouTube or Vimeo link.
  */
 export default function VideoShelf({ content, params, block }) {
+  const say = useSay()
   const { website } = useWebsite()
   const { pretitle, title, paragraphs, items } = content
   const links = buttonLinks(content)
@@ -226,10 +230,10 @@ export default function VideoShelf({ content, params, block }) {
             ))}
             {clips.length > 1 && (
               <>
-                <button type="button" onClick={() => row.move(-1)} disabled={row.start} aria-label="Previous videos" className={cn(arrow, links.length > 0 && 'ml-3')}>
+                <button type="button" onClick={() => row.move(-1)} disabled={row.start} aria-label={say('Previous videos')} className={cn(arrow, links.length > 0 && 'ml-3')}>
                   <Icon name="lu-arrow-left" size="18" />
                 </button>
-                <button type="button" onClick={() => row.move(1)} disabled={row.end} aria-label="Next videos" className={arrow}>
+                <button type="button" onClick={() => row.move(1)} disabled={row.end} aria-label={say('Next videos')} className={arrow}>
                   <Icon name="lu-arrow-right" size="18" />
                 </button>
               </>
@@ -239,7 +243,7 @@ export default function VideoShelf({ content, params, block }) {
 
         <ul
           ref={trackRef}
-          aria-label={title ? undefined : 'Videos'}
+          aria-label={title ? undefined : say('Videos')}
           className="no-scrollbar mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain"
         >
           {clips.map((clip, i) => (

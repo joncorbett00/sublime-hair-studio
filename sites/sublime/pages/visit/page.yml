@@ -2,9 +2,10 @@
 # ("… | Sublime Hair Studio"), so leave it out here. `label` is the nav link.
 title: "Hours & Directions, 190 MacLaren St"
 label: Visit
+slug: { fr: visite }  # the French URL: /fr/visite
 description: >-
   Sublime Hair Studio — 190 MacLaren Street, Centretown Ottawa. Hours, parking,
   accessibility and how to reach us.
 
-seo:
-  canonical: https://sublimehair.ca/visit
+# No `seo.canonical`: it is one fixed URL, so on this bilingual site the French
+# page would name the English one as its canonical and drop out of search.

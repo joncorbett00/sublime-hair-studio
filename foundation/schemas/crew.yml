@@ -6,7 +6,7 @@ label: Crew member
 description: A stylist at the studio.
 
 fields:
-  title:          { type: string, required: true, description: 'Their name' }
+  title:          { type: string, translatable: false, required: true, description: 'Their name' }
   role:           { type: string, description: '"Senior Stylist & Colourist"' }
   pronouns:       { type: string, description: '"she/her"' }
   image:          { type: image, description: 'A portrait, 4:5' }

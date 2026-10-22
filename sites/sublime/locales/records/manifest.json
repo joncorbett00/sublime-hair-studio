@@ -1,0 +1,2295 @@
+{
+  "version": "1.0",
+  "extracted": "2026-10-22T01:12:51.291Z",
+  "units": {
+    "38726528": {
+      "source": "Balayage grown out four months and still doing its job.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-05"
+        }
+      ]
+    },
+    "52478561": {
+      "source": "Individually catered to fit the needs of the bride.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "services/bridal"
+        }
+      ]
+    },
+    "64004407": {
+      "source": "Full Balayage",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/full-balayage"
+        }
+      ]
+    },
+    "904f1c57": {
+      "source": "Owner & Senior Stylist",
+      "field": "role",
+      "contexts": [
+        {
+          "record": "crew/sonia"
+        }
+      ]
+    },
+    "dbedce7d": {
+      "source": "she/her",
+      "field": "pronouns",
+      "contexts": [
+        {
+          "record": "crew/sonia"
+        },
+        {
+          "record": "crew/priya"
+        },
+        {
+          "record": "crew/rosalie"
+        }
+      ]
+    },
+    "14dd59d5": {
+      "source": "Apprenticed at 13, trained with the best. Still happiest behind her own chair.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "crew/sonia"
+        }
+      ]
+    },
+    "e5f7659d": {
+      "source": "Sonia started her apprenticeship at thirteen among European hairstylists and went on to learn from Vidal Sassoon, Toni & Guy London, Schwarzkopf, Alain Larivée and Anthony Edge. She came home from New York in the early 2000s set on a salon with a SoHo loft's obsession for style and service, minus the attitude. She excels at men's hair and barbering, and is a true alchemist with colour.",
+      "field": "bio",
+      "contexts": [
+        {
+          "record": "crew/sonia"
+        }
+      ]
+    },
+    "06bbd4f6": {
+      "source": "Colour correction",
+      "field": "specialties[0]",
+      "contexts": [
+        {
+          "record": "crew/sonia"
+        }
+      ]
+    },
+    "09f6be79": {
+      "source": "Creative colour",
+      "field": "specialties[1]",
+      "contexts": [
+        {
+          "record": "crew/sonia"
+        }
+      ]
+    },
+    "b9ecd961": {
+      "source": "Curly cutting",
+      "field": "specialties[2]",
+      "contexts": [
+        {
+          "record": "crew/sonia"
+        },
+        {
+          "record": "crew/priya"
+        }
+      ]
+    },
+    "fe3b54fc": {
+      "source": "The exact moment someone sees the back of their head in the mirror.",
+      "field": "favouriteThing",
+      "contexts": [
+        {
+          "record": "crew/sonia"
+        }
+      ]
+    },
+    "4e4c1942": {
+      "source": "Self-administered, 2009, kitchen scissors, still discussed at family dinners.",
+      "field": "worstHaircut",
+      "contexts": [
+        {
+          "record": "crew/sonia"
+        }
+      ]
+    },
+    "92613a8f": {
+      "source": "Senior",
+      "field": "level",
+      "contexts": [
+        {
+          "record": "crew/sonia"
+        },
+        {
+          "record": "crew/jules"
+        }
+      ]
+    },
+    "fae06535": {
+      "source": "Senior Stylist & Colourist",
+      "field": "role",
+      "contexts": [
+        {
+          "record": "crew/jules"
+        }
+      ]
+    },
+    "9286b954": {
+      "source": "they/them",
+      "field": "pronouns",
+      "contexts": [
+        {
+          "record": "crew/jules"
+        }
+      ]
+    },
+    "b576c882": {
+      "source": "Will talk you out of a bad idea, then execute a better one.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "crew/jules"
+        }
+      ]
+    },
+    "cf135152": {
+      "source": "Jules is the person you book when you want something vivid and want it to still look good in six weeks. Obsessive about placement, allergic to a flat root, and the reason half the studio's Instagram exists.",
+      "field": "bio",
+      "contexts": [
+        {
+          "record": "crew/jules"
+        }
+      ]
+    },
+    "b6e20b96": {
+      "source": "Vivids",
+      "field": "specialties[0]",
+      "contexts": [
+        {
+          "record": "crew/jules"
+        }
+      ]
+    },
+    "ede5a06c": {
+      "source": "Balayage",
+      "field": "specialties[1]",
+      "contexts": [
+        {
+          "record": "crew/jules"
+        }
+      ]
+    },
+    "2b36da18": {
+      "source": "Shadow roots",
+      "field": "specialties[2]",
+      "contexts": [
+        {
+          "record": "crew/jules"
+        }
+      ]
+    },
+    "76d1a44f": {
+      "source": "Watching a pastel fade into something better than it started as.",
+      "field": "favouriteThing",
+      "contexts": [
+        {
+          "record": "crew/jules"
+        }
+      ]
+    },
+    "579f58df": {
+      "source": "A 2016 undercut with a lightning bolt. No regrets, no photos surviving.",
+      "field": "worstHaircut",
+      "contexts": [
+        {
+          "record": "crew/jules"
+        }
+      ]
+    },
+    "0a94e10b": {
+      "source": "Stylist",
+      "field": "role",
+      "contexts": [
+        {
+          "record": "crew/marco"
+        },
+        {
+          "record": "crew/devon"
+        }
+      ]
+    },
+    "90b56606": {
+      "source": "he/him",
+      "field": "pronouns",
+      "contexts": [
+        {
+          "record": "crew/marco"
+        },
+        {
+          "record": "crew/devon"
+        }
+      ]
+    },
+    "5ea13523": {
+      "source": "Precision cutting and an unreasonable number of opinions about fringe.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "crew/marco"
+        }
+      ]
+    },
+    "47c78c0f": {
+      "source": "Marco does the sharpest bob in Centretown and a clipper blend you could set a watch by. He came up through barbering, crossed over, and kept the discipline. Ask him about scissor steel only if you have twenty minutes.",
+      "field": "bio",
+      "contexts": [
+        {
+          "record": "crew/marco"
+        }
+      ]
+    },
+    "da7a8c95": {
+      "source": "Precision cutting",
+      "field": "specialties[0]",
+      "contexts": [
+        {
+          "record": "crew/marco"
+        }
+      ]
+    },
+    "81a17578": {
+      "source": "Bobs",
+      "field": "specialties[1]",
+      "contexts": [
+        {
+          "record": "crew/marco"
+        }
+      ]
+    },
+    "3eaf3d34": {
+      "source": "Clipper work",
+      "field": "specialties[2]",
+      "contexts": [
+        {
+          "record": "crew/marco"
+        }
+      ]
+    },
+    "4bbb5858": {
+      "source": "A blunt line that sits perfectly without being touched.",
+      "field": "favouriteThing",
+      "contexts": [
+        {
+          "record": "crew/marco"
+        }
+      ]
+    },
+    "eeb9fea5": {
+      "source": "Let his brother \"just tidy the back\" in 2011.",
+      "field": "worstHaircut",
+      "contexts": [
+        {
+          "record": "crew/marco"
+        }
+      ]
+    },
+    "ef669154": {
+      "source": "Standard",
+      "field": "level",
+      "contexts": [
+        {
+          "record": "crew/marco"
+        },
+        {
+          "record": "crew/priya"
+        },
+        {
+          "record": "crew/devon"
+        }
+      ]
+    },
+    "7ca627cc": {
+      "source": "Stylist & Texture Specialist",
+      "field": "role",
+      "contexts": [
+        {
+          "record": "crew/priya"
+        }
+      ]
+    },
+    "a7fca370": {
+      "source": "Curls, coils, waves, and the long game of growing them out.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "crew/priya"
+        }
+      ]
+    },
+    "2dd9404e": {
+      "source": "Priya cuts curly hair dry, one curl at a time, and will happily spend the first twenty minutes teaching you what your own hair is actually doing. Many of her clients arrive convinced their hair \"doesn't do anything\". It does.",
+      "field": "bio",
+      "contexts": [
+        {
+          "record": "crew/priya"
+        }
+      ]
+    },
+    "d811b6d6": {
+      "source": "Coily textures",
+      "field": "specialties[1]",
+      "contexts": [
+        {
+          "record": "crew/priya"
+        }
+      ]
+    },
+    "6a54662c": {
+      "source": "Scalp health",
+      "field": "specialties[2]",
+      "contexts": [
+        {
+          "record": "crew/priya"
+        }
+      ]
+    },
+    "710d857e": {
+      "source": "The client who says \"I've never liked my curls\" and then does.",
+      "field": "favouriteThing",
+      "contexts": [
+        {
+          "record": "crew/priya"
+        }
+      ]
+    },
+    "6641400c": {
+      "source": "A salon that brushed her hair out dry. We do not name names.",
+      "field": "worstHaircut",
+      "contexts": [
+        {
+          "record": "crew/priya"
+        }
+      ]
+    },
+    "736abf61": {
+      "source": "Blowouts, up-dos, and a hand steady enough for wedding mornings.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "crew/devon"
+        }
+      ]
+    },
+    "3c4ba07d": {
+      "source": "Devon runs most of our bridal work, which means he is very good at staying calm while somebody's aunt has opinions. Outside of event season he does the best blowout in the building and he knows it.",
+      "field": "bio",
+      "contexts": [
+        {
+          "record": "crew/devon"
+        }
+      ]
+    },
+    "e3f89918": {
+      "source": "Up-dos",
+      "field": "specialties[0]",
+      "contexts": [
+        {
+          "record": "crew/devon"
+        },
+        {
+          "record": "gallery/shot-29"
+        },
+        {
+          "record": "gallery/shot-30"
+        },
+        {
+          "record": "gallery/shot-31"
+        },
+        {
+          "record": "gallery/shot-32"
+        },
+        {
+          "record": "gallery/shot-33"
+        },
+        {
+          "record": "gallery/shot-28"
+        }
+      ]
+    },
+    "4e88e835": {
+      "source": "Bridal",
+      "field": "specialties[1]",
+      "contexts": [
+        {
+          "record": "crew/devon"
+        },
+        {
+          "record": "services/bridal"
+        }
+      ]
+    },
+    "5138e4f9": {
+      "source": "Blowouts",
+      "field": "specialties[2]",
+      "contexts": [
+        {
+          "record": "crew/devon"
+        },
+        {
+          "record": "crew/rosalie"
+        }
+      ]
+    },
+    "d2cd9ec6": {
+      "source": "A wedding party that arrives nervous and leaves loud.",
+      "field": "favouriteThing",
+      "contexts": [
+        {
+          "record": "crew/devon"
+        }
+      ]
+    },
+    "8354b275": {
+      "source": "Frosted tips. Early 2000s. He brings it up himself.",
+      "field": "worstHaircut",
+      "contexts": [
+        {
+          "record": "crew/devon"
+        }
+      ]
+    },
+    "bbd2c7ee": {
+      "source": "Junior Stylist",
+      "field": "role",
+      "contexts": [
+        {
+          "record": "crew/rosalie"
+        }
+      ]
+    },
+    "061d860d": {
+      "source": "Two years in, already booked further out than she expects.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "crew/rosalie"
+        }
+      ]
+    },
+    "d875a5d1": {
+      "source": "Rosalie finished her apprenticeship with Sonia and took to colour immediately. Her chair is the best value in the studio and that will not be true for very much longer.",
+      "field": "bio",
+      "contexts": [
+        {
+          "record": "crew/rosalie"
+        }
+      ]
+    },
+    "9d2ab419": {
+      "source": "Single process colour",
+      "field": "specialties[0]",
+      "contexts": [
+        {
+          "record": "crew/rosalie"
+        }
+      ]
+    },
+    "ff41a9e8": {
+      "source": "Cuts",
+      "field": "specialties[2]",
+      "contexts": [
+        {
+          "record": "crew/rosalie"
+        },
+        {
+          "record": "gallery/shot-18"
+        },
+        {
+          "record": "gallery/shot-21"
+        },
+        {
+          "record": "gallery/shot-17"
+        },
+        {
+          "record": "gallery/shot-15"
+        },
+        {
+          "record": "gallery/shot-16"
+        },
+        {
+          "record": "gallery/shot-22"
+        },
+        {
+          "record": "gallery/shot-20"
+        }
+      ]
+    },
+    "dcda0662": {
+      "source": "Gloss days. Fast, satisfying, instantly shinier.",
+      "field": "favouriteThing",
+      "contexts": [
+        {
+          "record": "crew/rosalie"
+        }
+      ]
+    },
+    "018f6cb2": {
+      "source": "Cut her own fringe on a webcam during a lockdown.",
+      "field": "worstHaircut",
+      "contexts": [
+        {
+          "record": "crew/rosalie"
+        }
+      ]
+    },
+    "ecc6252a": {
+      "source": "Junior",
+      "field": "level",
+      "contexts": [
+        {
+          "record": "crew/rosalie"
+        }
+      ]
+    },
+    "2d33967b": {
+      "source": "Warm honey lived-in colour for someone who wanted low maintenance",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-12"
+        }
+      ]
+    },
+    "9601c1ba": {
+      "source": "Warm honey lived-in colour for someone who wanted low maintenance.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-12"
+        }
+      ]
+    },
+    "3a9dfa58": {
+      "source": "Colour",
+      "field": "category",
+      "contexts": [
+        {
+          "record": "gallery/shot-12"
+        },
+        {
+          "record": "gallery/shot-01"
+        },
+        {
+          "record": "gallery/shot-02"
+        },
+        {
+          "record": "gallery/shot-03"
+        },
+        {
+          "record": "gallery/shot-14"
+        },
+        {
+          "record": "gallery/shot-04"
+        },
+        {
+          "record": "gallery/shot-05"
+        },
+        {
+          "record": "gallery/shot-06"
+        },
+        {
+          "record": "gallery/shot-07"
+        },
+        {
+          "record": "gallery/shot-09"
+        },
+        {
+          "record": "gallery/shot-08"
+        },
+        {
+          "record": "gallery/shot-11"
+        },
+        {
+          "record": "gallery/shot-13"
+        },
+        {
+          "record": "services/colour-touch-up"
+        },
+        {
+          "record": "services/full-solid-colour"
+        },
+        {
+          "record": "services/hair-colour-shine-gloss"
+        },
+        {
+          "record": "services/hair-colour-filler"
+        },
+        {
+          "record": "services/full-highlights"
+        },
+        {
+          "record": "services/full-highlights-colour"
+        },
+        {
+          "record": "services/partial-highlights"
+        },
+        {
+          "record": "services/partial-highlights-colour"
+        },
+        {
+          "record": "services/babylights-full"
+        },
+        {
+          "record": "services/babylights-partial"
+        },
+        {
+          "record": "services/accent-balayage"
+        },
+        {
+          "record": "services/full-balayage"
+        },
+        {
+          "record": "services/reverse-balayage"
+        },
+        {
+          "record": "services/ombre"
+        },
+        {
+          "record": "services/shadow-root"
+        },
+        {
+          "record": "services/halo"
+        },
+        {
+          "record": "services/lightening-root-retouch"
+        },
+        {
+          "record": "services/full-length-lightening"
+        },
+        {
+          "record": "services/creative-colour"
+        },
+        {
+          "record": "services/colour-correction"
+        },
+        {
+          "record": "services/premium-toner-gloss"
+        }
+      ]
+    },
+    "8f803f28": {
+      "source": "Clipper blend into scissor detail",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-18"
+        }
+      ]
+    },
+    "4df8a150": {
+      "source": "Clipper blend into scissor detail. Still sharp in week five.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-18"
+        }
+      ]
+    },
+    "6ce86851": {
+      "source": "Full vivid rainbow, done in one very long Saturday",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-01"
+        }
+      ]
+    },
+    "d957867e": {
+      "source": "Full vivid rainbow, done in one very long and very loud Saturday.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-01"
+        }
+      ]
+    },
+    "e8989991": {
+      "source": "Cut curl by curl, dry, over ninety minutes",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-23"
+        }
+      ]
+    },
+    "516459db": {
+      "source": "Cut curl by curl, dry, over ninety minutes. Nothing was brushed.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-23"
+        }
+      ]
+    },
+    "fa421f47": {
+      "source": "Curls",
+      "field": "category",
+      "contexts": [
+        {
+          "record": "gallery/shot-23"
+        },
+        {
+          "record": "gallery/shot-24"
+        },
+        {
+          "record": "gallery/shot-25"
+        },
+        {
+          "record": "gallery/shot-26"
+        },
+        {
+          "record": "gallery/shot-27"
+        }
+      ]
+    },
+    "5606644a": {
+      "source": "A pixie grown out and reshaped rather than started over",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-21"
+        }
+      ]
+    },
+    "be657686": {
+      "source": "A pixie grown out and reshaped rather than started over.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-21"
+        }
+      ]
+    },
+    "9ff53291": {
+      "source": "Electric blue on a short textured top",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-02"
+        }
+      ]
+    },
+    "e3854df5": {
+      "source": "Electric blue on a short textured top, lifted first so the colour reads bright, not murky.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-02"
+        }
+      ]
+    },
+    "f0abf4e6": {
+      "source": "Soft blonde balayage with a shadow root",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-03"
+        }
+      ]
+    },
+    "01d15cf6": {
+      "source": "Soft blonde balayage, a shadow root, and a gloss to knock the edge off.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-03"
+        }
+      ]
+    },
+    "25413dfd": {
+      "source": "Grey blending rather than grey covering",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-14"
+        }
+      ]
+    },
+    "0eafd6fa": {
+      "source": "Grey blending rather than grey covering. Growing it out on purpose.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-14"
+        }
+      ]
+    },
+    "ad42eb6a": {
+      "source": "Coils shaped to grow out evenly instead of into a triangle",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-24"
+        }
+      ]
+    },
+    "eaa6d6dd": {
+      "source": "Coils shaped to grow out evenly instead of into a triangle.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-24"
+        }
+      ]
+    },
+    "eac8bd55": {
+      "source": "Curtains grown out to the jaw, cut to fall on their own",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-17"
+        }
+      ]
+    },
+    "521bd2a5": {
+      "source": "Curtains grown out to the jaw, cut to fall on their own without a blow-dry.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-17"
+        }
+      ]
+    },
+    "461c8343": {
+      "source": "Lavender, blended with no visible line anywhere",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-04"
+        }
+      ]
+    },
+    "f77cb198": {
+      "source": "Lavender over pre-lightened ends, blended so there is no visible line anywhere.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-04"
+        }
+      ]
+    },
+    "fc22a4a9": {
+      "source": "Balayage grown out four months and still doing its job",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-05"
+        }
+      ]
+    },
+    "ee6b64a2": {
+      "source": "Bridal trial",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-29"
+        }
+      ]
+    },
+    "c7acea30": {
+      "source": "Bridal trial. The real morning was, as intended, deeply boring.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-29"
+        }
+      ]
+    },
+    "ab565d01": {
+      "source": "Copper on a natural level 5 without a trace of brass",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-06"
+        }
+      ]
+    },
+    "74b05224": {
+      "source": "Copper on a natural level 5 without a single trace of brass.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-06"
+        }
+      ]
+    },
+    "da632d5c": {
+      "source": "Hot pink, bright on purpose",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-07"
+        }
+      ]
+    },
+    "c81323ae": {
+      "source": "Hot pink, lifted evenly first so it stays bright on purpose.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-07"
+        }
+      ]
+    },
+    "63c778f9": {
+      "source": "Silver that took three sittings and held its tone for eleven weeks",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-09"
+        }
+      ]
+    },
+    "cad13143": {
+      "source": "Silver that took three sittings and held its tone for eleven weeks.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-09"
+        }
+      ]
+    },
+    "b3775a81": {
+      "source": "Box dye on Tuesday, this on Saturday",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-08"
+        }
+      ]
+    },
+    "7644f22f": {
+      "source": "Box dye on Tuesday, this on Saturday. No judgement, ever.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-08"
+        }
+      ]
+    },
+    "aa051f21": {
+      "source": "A gloss appointment",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-11"
+        }
+      ]
+    },
+    "497b6185": {
+      "source": "A gloss appointment. Forty-five minutes. Look at the shine.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-11"
+        }
+      ]
+    },
+    "6380da5a": {
+      "source": "Bright blonde, lifted in stages and toned warm",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-13"
+        }
+      ]
+    },
+    "b48f8b54": {
+      "source": "Bright blonde, lifted in stages and toned warm instead of brassy.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-13"
+        }
+      ]
+    },
+    "79839e2a": {
+      "source": "A blunt bob that sits without being touched",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-15"
+        }
+      ]
+    },
+    "392da058": {
+      "source": "A blunt bob that sits without being touched. Marco is quietly proud.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-15"
+        }
+      ]
+    },
+    "711151dd": {
+      "source": "A heavy fringe, cut to sit right at the brow",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-16"
+        }
+      ]
+    },
+    "b6166a12": {
+      "source": "A heavy fringe, cut to sit right at the brow. She booked the next trim before leaving.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-16"
+        }
+      ]
+    },
+    "01443db3": {
+      "source": "Textured crop, scissor-cut on top",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-22"
+        }
+      ]
+    },
+    "4ac3517a": {
+      "source": "Textured crop, scissor-cut on top so it moves instead of sitting flat.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-22"
+        }
+      ]
+    },
+    "24eac26b": {
+      "source": "Long layers that actually move",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-20"
+        }
+      ]
+    },
+    "3103c139": {
+      "source": "Long layers that actually move instead of sitting there in a sheet.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-20"
+        }
+      ]
+    },
+    "07d0aed0": {
+      "source": "First dry cut after years of being cut wet",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-25"
+        }
+      ]
+    },
+    "b8aad965": {
+      "source": "First dry cut after years of being cut wet. The difference is the point.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-25"
+        }
+      ]
+    },
+    "9abd77e5": {
+      "source": "Curls with the weight taken out of the middle, not the ends",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-26"
+        }
+      ]
+    },
+    "e24703f5": {
+      "source": "Curls with the weight taken out of the middle, not the ends.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-26"
+        }
+      ]
+    },
+    "27d549ee": {
+      "source": "Wash-and-go, diffused, zero product other than the jelly",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-27"
+        }
+      ]
+    },
+    "50edd81c": {
+      "source": "Wash-and-go, diffused, zero product other than the jelly.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-27"
+        }
+      ]
+    },
+    "42fbc675": {
+      "source": "A low knot that survived a receiving line and a dance floor",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-30"
+        }
+      ]
+    },
+    "f33cfd27": {
+      "source": "A low knot that survived a receiving line and a dance floor.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-30"
+        }
+      ]
+    },
+    "61517d88": {
+      "source": "Pinned and set to last the night",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-31"
+        }
+      ]
+    },
+    "e3605327": {
+      "source": "Mid-build: every pin placed where it will still be holding at midnight.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-31"
+        }
+      ]
+    },
+    "f14df6fe": {
+      "source": "Wedding morning, and not a nerve showing",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-32"
+        }
+      ]
+    },
+    "4d50e858": {
+      "source": "Wedding morning, coffee on, music theirs, and not a nerve showing.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-32"
+        }
+      ]
+    },
+    "e6c66877": {
+      "source": "A high knot for a gala, pinned to last",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-33"
+        }
+      ]
+    },
+    "9de38eba": {
+      "source": "A high knot for a gala, with enough pins to set off a metal detector.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-33"
+        }
+      ]
+    },
+    "0149344f": {
+      "source": "Braids pinned up, with pieces left out on purpose",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-28"
+        }
+      ]
+    },
+    "90d7c8bb": {
+      "source": "Braids pinned up, with pieces left out, because perfect is a bit much.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-28"
+        }
+      ]
+    },
+    "f0f43f86": {
+      "source": "The chairs on a quiet Thursday",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-34"
+        }
+      ]
+    },
+    "9178ff22": {
+      "source": "The chairs on a quiet Thursday, before the lunch rush.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-34"
+        }
+      ]
+    },
+    "0aa91af2": {
+      "source": "Studio",
+      "field": "category",
+      "contexts": [
+        {
+          "record": "gallery/shot-34"
+        },
+        {
+          "record": "gallery/shot-35"
+        },
+        {
+          "record": "gallery/shot-36"
+        }
+      ]
+    },
+    "725d380e": {
+      "source": "Mid-Saturday, every chair going",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-35"
+        }
+      ]
+    },
+    "3883fbf8": {
+      "source": "Mid-Saturday, every chair going.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-35"
+        }
+      ]
+    },
+    "43894b0b": {
+      "source": "Closing time",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "gallery/shot-36"
+        }
+      ]
+    },
+    "88dc82f4": {
+      "source": "Closing time. Somebody always has the scissors out for a photo.",
+      "field": "caption",
+      "contexts": [
+        {
+          "record": "gallery/shot-36"
+        }
+      ]
+    },
+    "0742e60a": {
+      "source": "Care Vital Nutrition Shampoo",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "products/keune-care-vital-nutrition-shampoo"
+        }
+      ]
+    },
+    "4262074d": {
+      "source": "Care",
+      "field": "category",
+      "contexts": [
+        {
+          "record": "products/keune-care-vital-nutrition-shampoo"
+        }
+      ]
+    },
+    "7c07d8a4": {
+      "source": "The everyday one. Softens without going limp.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "products/keune-care-vital-nutrition-shampoo"
+        }
+      ]
+    },
+    "f4acfae0": {
+      "source": "300 ml",
+      "field": "size",
+      "contexts": [
+        {
+          "record": "products/keune-care-vital-nutrition-shampoo"
+        },
+        {
+          "record": "products/keune-style-dry-texture-spray"
+        }
+      ]
+    },
+    "924be7f3": {
+      "source": "Colour Brillianz Mask",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "products/keune-color-brillianz-mask"
+        }
+      ]
+    },
+    "8d4d98ff": {
+      "source": "Colour care",
+      "field": "category",
+      "contexts": [
+        {
+          "record": "products/keune-color-brillianz-mask"
+        }
+      ]
+    },
+    "c4113409": {
+      "source": "What we hand colour clients on the way out. Keeps a fresh tone honest.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "products/keune-color-brillianz-mask"
+        }
+      ]
+    },
+    "b04ad1e6": {
+      "source": "200 ml",
+      "field": "size",
+      "contexts": [
+        {
+          "record": "products/keune-color-brillianz-mask"
+        },
+        {
+          "record": "products/furterer-karite-nutri-mask"
+        }
+      ]
+    },
+    "2712f627": {
+      "source": "Karité Nutri Nourishing Mask",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "products/furterer-karite-nutri-mask"
+        }
+      ]
+    },
+    "0d331d85": {
+      "source": "Treatment",
+      "field": "category",
+      "contexts": [
+        {
+          "record": "products/furterer-karite-nutri-mask"
+        },
+        {
+          "record": "services/add-on-treatment"
+        }
+      ]
+    },
+    "2a68899b": {
+      "source": "Shea butter, for hair that drinks everything and asks for more.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "products/furterer-karite-nutri-mask"
+        }
+      ]
+    },
+    "7baef454": {
+      "source": "Triphasic Thinning Hair Serum",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "products/furterer-triphasic-serum"
+        }
+      ]
+    },
+    "025555a4": {
+      "source": "Scalp",
+      "field": "category",
+      "contexts": [
+        {
+          "record": "products/furterer-triphasic-serum"
+        },
+        {
+          "record": "products/furterer-astera-fresh-serum"
+        }
+      ]
+    },
+    "c7a5bc08": {
+      "source": "The scalp treatment people come back for, and the reason we stock the line.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "products/furterer-triphasic-serum"
+        }
+      ]
+    },
+    "30bd6b48": {
+      "source": "8 x 5.5 ml",
+      "field": "size",
+      "contexts": [
+        {
+          "record": "products/furterer-triphasic-serum"
+        }
+      ]
+    },
+    "7fd342cf": {
+      "source": "Astera Fresh Soothing Serum",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "products/furterer-astera-fresh-serum"
+        }
+      ]
+    },
+    "a893ef59": {
+      "source": "Cooling, for a scalp that objects to everything.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "products/furterer-astera-fresh-serum"
+        }
+      ]
+    },
+    "54963cc3": {
+      "source": "75 ml",
+      "field": "size",
+      "contexts": [
+        {
+          "record": "products/furterer-astera-fresh-serum"
+        }
+      ]
+    },
+    "741701d0": {
+      "source": "Style Dry Texture Spray",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "products/keune-style-dry-texture-spray"
+        }
+      ]
+    },
+    "92409c65": {
+      "source": "Styling",
+      "field": "category",
+      "contexts": [
+        {
+          "record": "products/keune-style-dry-texture-spray"
+        },
+        {
+          "record": "services/blowout"
+        },
+        {
+          "record": "services/perm"
+        },
+        {
+          "record": "services/curl-partial-updo"
+        },
+        {
+          "record": "services/formal-updo"
+        },
+        {
+          "record": "services/partial-updo"
+        }
+      ]
+    },
+    "318dd5c6": {
+      "source": "The can behind every chair. Grit without the crunch.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "products/keune-style-dry-texture-spray"
+        }
+      ]
+    },
+    "28c8e251": {
+      "source": "Classic Haircut",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/classic-haircut"
+        }
+      ]
+    },
+    "487d715f": {
+      "source": "Cut & Style",
+      "field": "category",
+      "contexts": [
+        {
+          "record": "services/classic-haircut"
+        },
+        {
+          "record": "services/technical-haircut"
+        },
+        {
+          "record": "services/barber-scissor-cut"
+        },
+        {
+          "record": "services/youth-cut"
+        },
+        {
+          "record": "services/children-cut"
+        }
+      ]
+    },
+    "75857a45": {
+      "source": "from",
+      "field": "priceNote",
+      "contexts": [
+        {
+          "record": "services/classic-haircut"
+        },
+        {
+          "record": "services/technical-haircut"
+        },
+        {
+          "record": "services/barber-scissor-cut"
+        },
+        {
+          "record": "services/youth-cut"
+        },
+        {
+          "record": "services/blowout"
+        },
+        {
+          "record": "services/perm"
+        },
+        {
+          "record": "services/curl-partial-updo"
+        },
+        {
+          "record": "services/formal-updo"
+        },
+        {
+          "record": "services/partial-updo"
+        },
+        {
+          "record": "services/add-on-hair-mask"
+        },
+        {
+          "record": "services/add-on-treatment"
+        },
+        {
+          "record": "services/colour-touch-up"
+        },
+        {
+          "record": "services/full-solid-colour"
+        },
+        {
+          "record": "services/hair-colour-shine-gloss"
+        },
+        {
+          "record": "services/hair-colour-filler"
+        },
+        {
+          "record": "services/full-highlights"
+        },
+        {
+          "record": "services/full-highlights-colour"
+        },
+        {
+          "record": "services/partial-highlights"
+        },
+        {
+          "record": "services/partial-highlights-colour"
+        },
+        {
+          "record": "services/babylights-full"
+        },
+        {
+          "record": "services/babylights-partial"
+        },
+        {
+          "record": "services/accent-balayage"
+        },
+        {
+          "record": "services/full-balayage"
+        },
+        {
+          "record": "services/reverse-balayage"
+        },
+        {
+          "record": "services/ombre"
+        },
+        {
+          "record": "services/shadow-root"
+        },
+        {
+          "record": "services/halo"
+        },
+        {
+          "record": "services/lightening-root-retouch"
+        },
+        {
+          "record": "services/full-length-lightening"
+        },
+        {
+          "record": "services/creative-colour"
+        },
+        {
+          "record": "services/colour-correction"
+        },
+        {
+          "record": "services/premium-toner-gloss"
+        },
+        {
+          "record": "services/rene-furterer-hair-loss"
+        }
+      ]
+    },
+    "0689294b": {
+      "source": "Consult, wash, scalp massage, cut and style.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "services/classic-haircut"
+        }
+      ]
+    },
+    "82479c8a": {
+      "source": "Technical Haircut",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/technical-haircut"
+        }
+      ]
+    },
+    "923153ba": {
+      "source": "A big change, a precise shape, or curls cut to their pattern.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "services/technical-haircut"
+        }
+      ]
+    },
+    "0d37c797": {
+      "source": "Barber / Scissor Cut",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/barber-scissor-cut"
+        }
+      ]
+    },
+    "be7063fa": {
+      "source": "Youth Cut (10–18)",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/youth-cut"
+        }
+      ]
+    },
+    "5b3fe161": {
+      "source": "Children's Cut (under 10)",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/children-cut"
+        }
+      ]
+    },
+    "c8f1c0cc": {
+      "source": "Blowout",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/blowout"
+        },
+        {
+          "record": "services/add-on-blowout"
+        }
+      ]
+    },
+    "c1f490fe": {
+      "source": "Wash, dry, and an hour of feeling expensive.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "services/blowout"
+        }
+      ]
+    },
+    "e2f18934": {
+      "source": "Perm",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/perm"
+        }
+      ]
+    },
+    "89e124fb": {
+      "source": "Curl & Partial Updo",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/curl-partial-updo"
+        }
+      ]
+    },
+    "65b10285": {
+      "source": "Formal Updo",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/formal-updo"
+        }
+      ]
+    },
+    "6d583d1c": {
+      "source": "Pins, patience, and hairspray with real conviction.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "services/formal-updo"
+        }
+      ]
+    },
+    "c2b984ab": {
+      "source": "Braided, sculpted, twisted, or artfully undone. We build it to survive a receiving line, a dance floor, and the photos afterward.",
+      "field": "description",
+      "contexts": [
+        {
+          "record": "services/formal-updo"
+        }
+      ]
+    },
+    "a226597a": {
+      "source": "Partial Updo",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/partial-updo"
+        }
+      ]
+    },
+    "21cf90ae": {
+      "source": "Hair Mask",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/add-on-hair-mask"
+        },
+        {
+          "record": "services/hair-masks"
+        }
+      ]
+    },
+    "ccfc53fc": {
+      "source": "Add-ons",
+      "field": "category",
+      "contexts": [
+        {
+          "record": "services/add-on-hair-mask"
+        },
+        {
+          "record": "services/add-on-treatment"
+        },
+        {
+          "record": "services/add-on-blowout"
+        },
+        {
+          "record": "services/add-on-toner-gloss"
+        }
+      ]
+    },
+    "d8e69d17": {
+      "source": "Toner / Colour Shine Gloss",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/add-on-toner-gloss"
+        }
+      ]
+    },
+    "2c46e01a": {
+      "source": "Colour Touch Up",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/colour-touch-up"
+        }
+      ]
+    },
+    "7e665fd2": {
+      "source": "Full Solid Hair Colour",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/full-solid-colour"
+        }
+      ]
+    },
+    "3fb6bf3b": {
+      "source": "Root to tip, one shade, no drama.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "services/full-solid-colour"
+        }
+      ]
+    },
+    "e4ff897b": {
+      "source": "Hair Colour Shine Gloss",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/hair-colour-shine-gloss"
+        }
+      ]
+    },
+    "9124e613": {
+      "source": "Hair Colour Filler",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/hair-colour-filler"
+        }
+      ]
+    },
+    "917d2c7c": {
+      "source": "Full Highlights",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/full-highlights"
+        }
+      ]
+    },
+    "d1ee9da7": {
+      "source": "Full Highlights & Colour",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/full-highlights-colour"
+        }
+      ]
+    },
+    "81c69c6e": {
+      "source": "Partial Highlights",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/partial-highlights"
+        }
+      ]
+    },
+    "3c6ffd33": {
+      "source": "Partial Highlights & Colour",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/partial-highlights-colour"
+        }
+      ]
+    },
+    "5bcac752": {
+      "source": "Babylights, Full",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/babylights-full"
+        }
+      ]
+    },
+    "a6f44ba3": {
+      "source": "Babylights, Partial",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/babylights-partial"
+        }
+      ]
+    },
+    "0080fcc4": {
+      "source": "Accent Balayage",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/accent-balayage"
+        }
+      ]
+    },
+    "2f9a1d14": {
+      "source": "Grown-out on purpose. Maintenance measured in months.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "services/full-balayage"
+        }
+      ]
+    },
+    "ce1afd97": {
+      "source": "Hand-painted, soft at the root, bright where the light hits. Built so the regrowth line is a feature rather than a countdown.",
+      "field": "description",
+      "contexts": [
+        {
+          "record": "services/full-balayage"
+        }
+      ]
+    },
+    "0607de58": {
+      "source": "Reverse Balayage",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/reverse-balayage"
+        }
+      ]
+    },
+    "5f9e9317": {
+      "source": "Ombré",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/ombre"
+        }
+      ]
+    },
+    "43cb9846": {
+      "source": "Shadow Root",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/shadow-root"
+        }
+      ]
+    },
+    "4e86512d": {
+      "source": "Halo",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/halo"
+        }
+      ]
+    },
+    "3678207e": {
+      "source": "Lightening Root Re-Touch",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/lightening-root-retouch"
+        }
+      ]
+    },
+    "ba441e0e": {
+      "source": "Full Length Lightening",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/full-length-lightening"
+        }
+      ]
+    },
+    "9afa49f9": {
+      "source": "Creative Colour",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/creative-colour"
+        }
+      ]
+    },
+    "a383f677": {
+      "source": "Vivids, placement work, the stuff people ask about on the bus.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "services/creative-colour"
+        }
+      ]
+    },
+    "f4cf9f78": {
+      "source": "This is the one we are known for. Pastels, jewel tones, shadow roots, split dye, panels that only show when you move. Every creative colour starts with a consult, because the honest answer sometimes involves two appointments and a lightening plan.",
+      "field": "description",
+      "contexts": [
+        {
+          "record": "services/creative-colour"
+        }
+      ]
+    },
+    "e0e85029": {
+      "source": "1-Hour Colour Correction",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/colour-correction"
+        }
+      ]
+    },
+    "718086af": {
+      "source": "Box dye. Bad Tuesday. We have seen worse.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "services/colour-correction"
+        }
+      ]
+    },
+    "d1db61b0": {
+      "source": "Premium Stand-Alone Toner or Glossy Treatment",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/premium-toner-gloss"
+        }
+      ]
+    },
+    "a5837e0d": {
+      "source": "Olaplex",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/olaplex"
+        }
+      ]
+    },
+    "e2c27349": {
+      "source": "Treatments",
+      "field": "category",
+      "contexts": [
+        {
+          "record": "services/olaplex"
+        },
+        {
+          "record": "services/hair-masks"
+        },
+        {
+          "record": "services/rene-furterer-hair-loss"
+        }
+      ]
+    },
+    "adb1cca3": {
+      "source": "Shampoo, conditioner and the All-In-One #3.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "services/olaplex"
+        }
+      ]
+    },
+    "4a45b108": {
+      "source": "Repair, Hydrate or Refresh.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "services/hair-masks"
+        }
+      ]
+    },
+    "73ca67dc": {
+      "source": "René Furterer Hair Loss Prevention",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/rene-furterer-hair-loss"
+        }
+      ]
+    },
+    "888215b0": {
+      "source": "For thinning hair, seasonal shedding and weakened roots.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "services/rene-furterer-hair-loss"
+        }
+      ]
+    },
+    "9d4269f7": {
+      "source": "A targeted in-salon therapy that revitalizes the scalp and strengthens thinning hair. René Furterer's botanical formulas, rich in essential oils and plant extracts, stimulate micro-circulation, nourish the scalp and help reduce hair fall — leaving hair feeling fuller, balanced and visibly healthier.",
+      "field": "description",
+      "contexts": [
+        {
+          "record": "services/rene-furterer-hair-loss"
+        }
+      ]
+    },
+    "72a56af8": {
+      "source": "5-Minute Scalp Massage",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/scalp-massage-5"
+        }
+      ]
+    },
+    "2ea891e6": {
+      "source": "Scalp Massage",
+      "field": "category",
+      "contexts": [
+        {
+          "record": "services/scalp-massage-5"
+        },
+        {
+          "record": "services/scalp-massage-10"
+        },
+        {
+          "record": "services/scalp-massage-20"
+        },
+        {
+          "record": "services/scalp-massage-30"
+        }
+      ]
+    },
+    "2a6d2a98": {
+      "source": "10-Minute Scalp Massage",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/scalp-massage-10"
+        }
+      ]
+    },
+    "9b604f40": {
+      "source": "20-Minute Scalp Massage",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/scalp-massage-20"
+        }
+      ]
+    },
+    "13ff80eb": {
+      "source": "30-Minute Scalp Massage",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/scalp-massage-30"
+        }
+      ]
+    },
+    "d283cce7": {
+      "source": "3 Blowouts",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/blowout-package-3"
+        }
+      ]
+    },
+    "40a20853": {
+      "source": "Packages",
+      "field": "category",
+      "contexts": [
+        {
+          "record": "services/blowout-package-3"
+        },
+        {
+          "record": "services/blowout-package-6"
+        },
+        {
+          "record": "services/blowout-package-9"
+        },
+        {
+          "record": "services/treatment-packages"
+        },
+        {
+          "record": "services/bridal"
+        }
+      ]
+    },
+    "9566b13d": {
+      "source": "save $20",
+      "field": "priceNote",
+      "contexts": [
+        {
+          "record": "services/blowout-package-3"
+        }
+      ]
+    },
+    "9be84444": {
+      "source": "6 Blowouts",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/blowout-package-6"
+        }
+      ]
+    },
+    "49057a30": {
+      "source": "save $50",
+      "field": "priceNote",
+      "contexts": [
+        {
+          "record": "services/blowout-package-6"
+        }
+      ]
+    },
+    "9e02d7f6": {
+      "source": "9 Blowouts",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/blowout-package-9"
+        }
+      ]
+    },
+    "a7a144da": {
+      "source": "save $110",
+      "field": "priceNote",
+      "contexts": [
+        {
+          "record": "services/blowout-package-9"
+        }
+      ]
+    },
+    "14c4698e": {
+      "source": "Custom Treatment Packages",
+      "field": "title",
+      "contexts": [
+        {
+          "record": "services/treatment-packages"
+        }
+      ]
+    },
+    "09a27c74": {
+      "source": "priced for you",
+      "field": "priceNote",
+      "contexts": [
+        {
+          "record": "services/treatment-packages"
+        }
+      ]
+    },
+    "7ed94d67": {
+      "source": "Built around your hair. Contact us directly for pricing.",
+      "field": "tagline",
+      "contexts": [
+        {
+          "record": "services/treatment-packages"
+        }
+      ]
+    },
+    "4bd19e3a": {
+      "source": "contact us",
+      "field": "priceNote",
+      "contexts": [
+        {
+          "record": "services/bridal"
+        }
+      ]
+    }
+  }
+}

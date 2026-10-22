@@ -10,6 +10,6 @@ fields:
   image:       { type: image, required: true }
   orientation: { type: string, enum: [portrait, square, wide], description: 'The photo’s shape' }
   category:    { type: string, description: '"Colour", "Cuts", "Curls", "Up-dos", "Studio"' }
-  service:     { type: string, description: 'The name of the service it shows — a file name in records/services/' }
-  stylist:     { type: string, description: 'Who did it — a file name in records/crew/' }
+  service:     { type: string, translatable: false, description: 'The name of the service it shows — a file name in records/services/' }
+  stylist:     { type: string, translatable: false, description: 'Who did it — a file name in records/crew/' }
   order:       { type: number, required: true, description: 'Position in the gallery' }

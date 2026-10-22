@@ -3,7 +3,8 @@ type: ServiceMenu
 showFilter: false
 # No photo strips here — the colour gallery follows.
 photosSource: ''
-fetch: { query: services, where: { category: Colour } }
+# The category in every language: the records are translated (locales/records/).
+fetch: { query: services, where: { category: { in: [Colour, Coloration] } } }
 ---
 
 #> The colour menu

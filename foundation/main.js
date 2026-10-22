@@ -15,6 +15,8 @@
  * meta.js instead. The defaults are Sublime's.
  */
 
+import { localizeParams } from '#utils/locale.js'
+
 // Plain vars, not `type: 'color'`: a colour-typed var is resolved per
 // light/dark context at runtime, and these must be on :root in the
 // prerendered page — the tone blocks, shadows and ::selection read them
@@ -102,4 +104,7 @@ export default {
   description: 'Section types for Sublime Hair Studio and Bijou Boutique — fashion-magazine polish on a colourful little salon, and a curated vintage and designer boutique.',
   defaultSection: 'Section',
   viewTransitions: true,
+  // Params in the page's language: language maps in frontmatter, and French
+  // defaults for the words in each meta.js (utils/locale.js).
+  handlers: { props: localizeParams },
 }

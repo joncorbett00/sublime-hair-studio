@@ -4,6 +4,7 @@ import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
 import { linkProps } from '#utils/links.js'
+import { useSay } from '#utils/locale.js'
 
 const pad = (n) => String(n).padStart(2, '0')
 
@@ -27,6 +28,7 @@ const host = (href = '') => href.replace(/^https?:\/\/(www\.)?/, '').replace(/\/
  * dialog. A link is the brand's site; a photo is optional and tops the card.
  */
 export default function Brands({ content, params, block }) {
+  const say = useSay()
   const { pretitle, title, paragraphs, items } = content
   const { columns = 4, numbered = true, showImages = true, note = '', moreLabel = 'Read more', tone = '' } = params
   const [open, setOpen] = useState(null)
@@ -55,7 +57,7 @@ export default function Brands({ content, params, block }) {
                   type="button"
                   onClick={() => setOpen(i)}
                   className="framed lift group flex h-full w-full flex-col text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-heading"
-                  aria-label={`Read more about ${item.title}`}
+                  aria-label={`${say('Read more about')} ${item.title}`}
                 >
                   {image && (
                     <img src={image.url || image.src} alt="" className="aspect-[4/3] w-full bg-muted object-cover" loading="lazy" />
@@ -63,7 +65,7 @@ export default function Brands({ content, params, block }) {
                   <div className="flex flex-1 flex-col p-7 sm:p-8">
                     <div className="flex items-baseline justify-between gap-4">
                       <span className="caps text-[0.5625rem] text-accent-ink">{item.subtitle}</span>
-                      {numbered && <span className="font-display shrink-0 text-sm italic text-subtle" aria-hidden="true">No.&thinsp;{pad(i + 1)}</span>}
+                      {numbered && <span className="font-display shrink-0 text-sm italic text-subtle" aria-hidden="true">{say('No.')}&thinsp;{pad(i + 1)}</span>}
                     </div>
                     <h3 className="font-display mt-4 text-[2rem] font-medium leading-tight tracking-tight text-heading">
                       {item.title}
@@ -109,7 +111,7 @@ export default function Brands({ content, params, block }) {
                     <button
                       type="button"
                       onClick={() => setOpen(null)}
-                      aria-label="Close"
+                      aria-label={say('Close')}
                       className="grid size-10 shrink-0 place-items-center border border-heading/30 text-heading hover:bg-muted"
                     >
                       <Icon name="lu-x" size="18" />

@@ -2,9 +2,10 @@
 # ("… | Sublime Hair Studio"), so leave it out here. `label` is the nav link.
 title: "Hair Colour in Ottawa — Vivids, Balayage & Correction"
 label: Colour
+slug: { fr: couleur }  # the French URL: /fr/couleur
 description: >-
   Creative colour, vivids, balayage, glosses and colour correction at Sublime Hair Studio
   in Ottawa's Golden Triangle — how a colour day works, what it costs, and the work.
 
-seo:
-  canonical: https://sublimehair.ca/colour
+# No `seo.canonical`: it is one fixed URL, so on this bilingual site the French
+# page would name the English one as its canonical and drop out of search.

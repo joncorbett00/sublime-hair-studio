@@ -1,9 +1,10 @@
-import { Link, Icon, cn, useScrolled, useMobileMenu, useWebsite, useActiveRoute, applyBasePath } from '@uniweb/kit'
+import { Link, Icon, cn, useScrolled, useMobileMenu, useWebsite, useActiveRoute, applyBasePath, getLocaleLabel } from '@uniweb/kit'
 import Button from '#components/Button.jsx'
 import Wordmark from '#components/Wordmark.jsx'
 import { wordmarkParts } from '#utils/wordmark.js'
 import Squiggles from '#components/Squiggles.jsx'
 import { linkProps } from '#utils/links.js'
+import { say } from '#utils/locale.js'
 
 const isExternal = (href = '') => /^https?:\/\//.test(href)
 
@@ -43,6 +44,46 @@ function ReturnBar({ link, className }) {
         </Link>
       </div>
     </div>
+  )
+}
+
+/**
+ * The site's languages, each a link to this page in that language — `EN / FR`
+ * in the bar, the full names (`full`) in the phone menu. A full page load: each
+ * language is its own build. Nothing on a site in one language.
+ */
+function LanguageSwitch({ website, full = false, onPick, className }) {
+  if (!website.hasMultipleLocales()) return null
+  const active = website.getActiveLocale()
+  return (
+    <ul aria-label={say(website, 'Language')} className={cn('flex items-center', className)}>
+      {website.getLocales().map((locale, i) => {
+        const current = locale.code === active
+        const name = getLocaleLabel(locale)
+        return (
+          <li key={locale.code} className="flex items-center">
+            {i > 0 && <span aria-hidden="true" className={cn('text-subtle', full ? 'mx-3' : 'mx-1.5')}>/</span>}
+            <Link
+              reload
+              href={website.getLocaleUrl(locale.code)}
+              hrefLang={locale.code}
+              lang={locale.code}
+              onClick={onPick}
+              aria-current={current ? 'true' : undefined}
+              aria-label={full ? undefined : name}
+              title={full ? undefined : name}
+              className={cn(
+                'caps transition-colors hover:text-accent-ink',
+                full ? 'py-2 text-[0.75rem]' : 'py-1.5 text-[0.625rem]',
+                current ? 'text-heading underline decoration-brand decoration-2 underline-offset-[0.4em]' : 'text-subtle'
+              )}
+            >
+              {full ? name : locale.code.toUpperCase()}
+            </Link>
+          </li>
+        )
+      })}
+    </ul>
   )
 }
 
@@ -171,7 +212,7 @@ function Header({ content, params, block }) {
           )}
         >
           <nav
-            aria-label="Main"
+            aria-label={say(website, 'Main')}
             className="mx-auto grid h-[var(--header-height)] max-w-[var(--max-content-width)] grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 sm:px-6 lg:gap-8"
           >
             {/* Left: menu toggle on small screens, first half of the nav on large. */}
@@ -180,7 +221,7 @@ function Header({ content, params, block }) {
                 type="button"
                 onClick={toggleMobile}
                 aria-expanded={mobileOpen}
-                aria-label="Toggle menu"
+                aria-label={say(website, 'Toggle menu')}
                 className="-ml-2 grid size-11 place-items-center text-heading lg:hidden"
               >
                 <Icon name={mobileOpen ? 'lu-x' : 'lu-menu'} size="22" />
@@ -192,7 +233,7 @@ function Header({ content, params, block }) {
               </ul>
             </div>
 
-            <Link href="/" aria-label={`${siteName} — home`} className="flex justify-center">
+            <Link href="/" aria-label={`${siteName} — ${say(website, 'home')}`} className="flex justify-center">
               {logoSrc ? (
                 <img
                   src={applyBasePath(logoSrc, website.basePath)}
@@ -221,6 +262,7 @@ function Header({ content, params, block }) {
                   <li key={link.href}><NavLink link={link} active={isActive(link)} /></li>
                 ))}
               </ul>
+              <LanguageSwitch website={website} className="-mr-3 hidden lg:flex xl:-mr-4" />
               <Button {...linkProps(ctaLink)} size="sm" className="!px-3.5 sm:!px-5">
                 <span className="sm:hidden">{ctaShort}</span>
                 <span className="hidden sm:inline">{ctaLink.label}</span>
@@ -249,6 +291,7 @@ function Header({ content, params, block }) {
                 </li>
               ))}
             </ul>
+            <LanguageSwitch website={website} full onPick={closeMobile} className="px-6 pb-5" />
             <div className="px-6 pb-7">
               <Button {...linkProps(ctaLink)} size="lg" className="w-full" onClick={closeMobile}>
                 {ctaMobileLabel || ctaLink.label}

@@ -6,6 +6,7 @@ import { toneClass } from '#components/tone.js'
 import { buttonLinks, linkProps } from '#utils/links.js'
 import { initialOf, wordmarkParts } from '#utils/wordmark.js'
 import { entries } from '#utils/entries.js'
+import { intlLocale, isClosed } from '#utils/locale.js'
 
 const iconName = (item, fallback) =>
   item.icons?.[0] ? `${item.icons[0].library}-${item.icons[0].name}` : fallback
@@ -62,7 +63,7 @@ export default function Visit({ content, params, block }) {
   const directions = mapLink || (located ? `https://www.google.com/maps/search/?api=1&query=${lat},${lng}` : '')
   const letter = pinLetter || initialOf(wordmarkParts(website.name).name)
 
-  const today = new Date().toLocaleDateString('en-CA', { weekday: 'long' })
+  const today = new Date().toLocaleDateString(intlLocale(website), { weekday: 'long' }).toLowerCase()
 
   return (
     <div className={toneClass(tone)}>
@@ -89,8 +90,8 @@ export default function Visit({ content, params, block }) {
                 <Detail label={whenLabel}>
                   <dl className="max-w-xs">
                     {hours.map((row, i) => {
-                      const isToday = row.title === today
-                      const closed = /closed/i.test(row.text)
+                      const isToday = String(row.title).toLowerCase() === today
+                      const closed = isClosed(row.text)
                       return (
                         <div
                           key={i}

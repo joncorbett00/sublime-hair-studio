@@ -12,8 +12,8 @@ fields:
   priceNote:   { type: string, description: 'Words beside the price — "from", "save $20", "contact us"' }
   tagline:     { type: string, description: 'One line under the name' }
   description: { type: string, description: 'A longer description, for the cards' }
-  icon:        { type: string, description: 'An icon — "lu:scissors"' }
+  icon:        { type: string, translatable: false, description: 'An icon — "lu:scissors"' }
   featured:    { type: boolean, description: 'Shown on the homepage and marked on the menu' }
   bookable:    { type: boolean, description: 'Booked online. Off: the button reads "Enquire".' }
-  square:      { type: string, description: 'The service’s ID on the Square booking site — the last part of its link there' }
+  square:      { type: string, translatable: false, description: 'The service’s ID on the Square booking site — the last part of its link there' }
   order:       { type: number, required: true, description: 'Position on the menu' }

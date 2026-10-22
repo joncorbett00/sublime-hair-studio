@@ -5,10 +5,10 @@
  * computed amounts (tax, a subtotal) are not, and `$15.6` looks like a bug.
  * So the decimals follow the number rather than a fixed setting.
  */
-export function money(value) {
+export function money(value, locale = 'en-CA') {
   const n = Number(value) || 0
   const whole = Number.isInteger(n)
-  return new Intl.NumberFormat('en-CA', {
+  return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: 'CAD',
     minimumFractionDigits: whole ? 0 : 2,

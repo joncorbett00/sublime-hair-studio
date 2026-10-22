@@ -6,6 +6,7 @@ import Lightbox from '#components/Lightbox.jsx'
 import { money, duration } from '#components/money.js'
 import { toneClass } from '#components/tone.js'
 import { entries } from '#utils/entries.js'
+import { intlLocale, say, useSay } from '#utils/locale.js'
 
 /** Photos shown on a row before the rest collapse into a "+N" tile. */
 const STRIP = 4
@@ -20,7 +21,7 @@ const iconName = (icon) => (icon || 'lu-scissors').replace(':', '-')
  * ("$45, add-on"). Only the openers below move in front; the separator that
  * followed one goes with it, so "from — quoted at consult" splits cleanly.
  */
-const OPENER = /^(from|starting at|starts at)\b[\s,.—–-]*/i
+const OPENER = /^(from|starting at|starts at|à partir de)(?=[\s,.—–-]|$)[\s,.—–-]*/i
 
 const splitNote = (note = '') => {
   const lead = note.match(OPENER)
@@ -29,6 +30,7 @@ const splitNote = (note = '') => {
 
 /** The price as the menu shows it. A service priced 0 is quoted, not free. */
 function Price({ service, className }) {
+  const { website } = useWebsite()
   const [lead, rest] = splitNote(service.priceNote)
 
   /* No number to quote: the note *is* the price ("Quoted at consult"), so it
@@ -51,7 +53,7 @@ function Price({ service, className }) {
       <span className="block">
         {lead && <span className="caps mr-2.5 text-[0.625rem] text-subtle">{lead}</span>}
         <span className="font-display text-4xl font-medium leading-none tracking-tight text-heading">
-          {money(service.price)}
+          {money(service.price, intlLocale(website))}
         </span>
       </span>
       {rest && <span className="caps mt-2 block text-[0.5625rem] text-subtle">{rest}</span>}
@@ -80,6 +82,7 @@ const bookingLabel = (service, words) => `${service.bookable === false ? words.e
  * the brand colour — the colour block in a row of paper.
  */
 function Cards({ services, highlight, highlightLabel, numbered, links, words }) {
+  const say = useSay()
   const cols = services.length >= 3 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2'
   return (
     <ul className={cn('mt-16 grid grid-cols-1 gap-8 lg:gap-10', cols)}>
@@ -90,7 +93,7 @@ function Cards({ services, highlight, highlightLabel, numbered, links, words }) 
           <li key={s.$name} className={cn(featured && 'lg:-translate-y-6')}>
             <article className={cn('framed lift flex h-full flex-col p-8 sm:p-9', featured && 'tone tone-brand')}>
               <div className="flex items-center justify-between gap-4">
-                <span className="font-display text-lg italic text-accent-ink" aria-hidden="true">{numbered && <>No.&thinsp;{pad(i + 1)}</>}</span>
+                <span className="font-display text-lg italic text-accent-ink" aria-hidden="true">{numbered && <>{say('No.')}&thinsp;{pad(i + 1)}</>}</span>
                 {featured && highlightLabel ? (
                   <span className="caps bg-heading px-2.5 py-1.5 text-[0.5625rem] text-section">{highlightLabel}</span>
                 ) : (
@@ -208,7 +211,7 @@ export default function ServiceMenu({ content, params, block }) {
         ) : (
           <>
             {showFilter && categories.length > 1 && (
-              <div className="mt-14 flex flex-wrap gap-2" role="group" aria-label="Filter services by category">
+              <div className="mt-14 flex flex-wrap gap-2" role="group" aria-label={say(block.website, 'Filter services by category')}>
                 {[null, ...categories].map((cat) => (
                   <button
                     key={cat ?? 'all'}
@@ -275,7 +278,7 @@ export default function ServiceMenu({ content, params, block }) {
                           </article>
 
                           {photos.length > 0 && (
-                            <ul className={cn('mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 md:max-w-3xl', numbered && 'md:ml-[6.5rem]')} aria-label={`Photos of ${s.title}`}>
+                            <ul className={cn('mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 md:max-w-3xl', numbered && 'md:ml-[6.5rem]')} aria-label={`${say(block.website, 'Photos of')} ${s.title}`}>
                               {photos.slice(0, STRIP).map((photo, i) => {
                                 const more = i === STRIP - 1 ? photos.length - STRIP : 0
                                 return (
@@ -283,7 +286,7 @@ export default function ServiceMenu({ content, params, block }) {
                                     <button
                                       type="button"
                                       onClick={() => setViewing({ service: s, index: i })}
-                                      aria-label={more > 0 ? `Open photos of ${s.title} — ${more} more` : `Open photo: ${photo.title}`}
+                                      aria-label={more > 0 ? `${say(block.website, 'Photos of')} ${s.title} — +${more}` : `${say(block.website, 'Open photo:')} ${photo.title}`}
                                       className="group/photo relative block w-full overflow-hidden bg-muted"
                                     >
                                       <img

@@ -4,18 +4,18 @@ import Shout from '#components/Shout.jsx'
 import Button from '#components/Button.jsx'
 import { toneClass } from '#components/tone.js'
 import { buttonLinks, linkProps } from '#utils/links.js'
+import { intlLocale, useSay } from '#utils/locale.js'
 
 const MONTH_MS = 30.44 * 24 * 60 * 60 * 1000
 
-/** "3 weeks ago" — the way Google dates its reviews. */
-function timeAgo(date, now) {
+/** "3 weeks ago" — the way Google dates its reviews — in the page's language. */
+function timeAgo(date, now, locale) {
   const days = Math.max(0, Math.floor((now - date) / 86400000))
-  if (days < 1) return 'today'
-  if (days < 7) return days === 1 ? 'yesterday' : `${days} days ago`
-  if (days < 30) { const w = Math.floor(days / 7); return w === 1 ? 'a week ago' : `${w} weeks ago` }
-  if (days < 365) { const m = Math.floor(days / 30.44); return m <= 1 ? 'a month ago' : `${m} months ago` }
-  const y = Math.floor(days / 365)
-  return y === 1 ? 'a year ago' : `${y} years ago`
+  const rtf = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' })
+  if (days < 7) return rtf.format(-days, 'day')
+  if (days < 30) return rtf.format(-Math.floor(days / 7), 'week')
+  if (days < 365) return rtf.format(-Math.max(1, Math.floor(days / 30.44)), 'month')
+  return rtf.format(-Math.floor(days / 365), 'year')
 }
 
 /**
@@ -38,10 +38,11 @@ const plain = (html = '') => String(html).replace(/<[^>]+>/g, '').replace(/\s+/g
 
 /** Five stars, the earned ones filled. Nothing when the review has no rating. */
 function Stars({ rating, size = '13' }) {
+  const say = useSay()
   if (!(rating > 0)) return null
   const n = Math.min(5, rating)
   return (
-    <div className="flex gap-0.5 text-accent-ink" role="img" aria-label={`${n} out of 5 stars`}>
+    <div className="flex gap-0.5 text-accent-ink" role="img" aria-label={`${n} ${say('out of 5 stars')}`}>
       {Array.from({ length: 5 }, (_, s) => (
         <Icon
           key={s}
@@ -58,6 +59,7 @@ function Stars({ rating, size = '13' }) {
 
 /** The whole review, over the page — for the ones the card cuts short. */
 function FullReview({ card, onClose }) {
+  const say = useSay()
   return (
     <Overlay onClose={onClose} className="items-center justify-center bg-ink/80 p-4 sm:p-8">
       <figure
@@ -69,7 +71,7 @@ function FullReview({ card, onClose }) {
         <button
           type="button"
           onClick={onClose}
-          aria-label="Close review"
+          aria-label={say('Close review')}
           className="absolute right-4 top-4 z-10 grid size-10 place-items-center text-heading transition-colors hover:text-accent-ink"
         >
           <Icon name="lu-x" size="18" />
@@ -115,6 +117,8 @@ function shuffle(list) {
 export default function Testimonials({ content, params, block }) {
   const { pretitle, title, items } = content
   const links = buttonLinks(content)
+  const say = useSay()
+  const locale = intlLocale(block.website)
   const { columns = 3, pick = 3, minRating = 4, maxAgeMonths = 12, excerpt = 160, showStars = true, showSource = true, tone = '' } = params
   const reviews = Array.isArray(content.data?.reviews) ? content.data.reviews : []
   const cols = { 2: 'md:grid-cols-2', 3: 'md:grid-cols-2 lg:grid-cols-3', 4: 'md:grid-cols-2 lg:grid-cols-4' }
@@ -145,7 +149,7 @@ export default function Testimonials({ content, params, block }) {
         name: r.author,
         meta: [
           r.source,
-          r.date && (now ? timeAgo(new Date(r.date).getTime(), now) : new Date(r.date).toLocaleDateString('en-CA', { month: 'long', year: 'numeric', timeZone: 'UTC' })),
+          r.date && (now ? timeAgo(new Date(r.date).getTime(), now, locale) : new Date(r.date).toLocaleDateString(locale, { month: 'long', year: 'numeric', timeZone: 'UTC' })),
         ].filter(Boolean).join(' · '),
       }))
     : []
@@ -212,7 +216,7 @@ export default function Testimonials({ content, params, block }) {
                       type="button"
                       onClick={() => setOpen(card)}
                       aria-haspopup="dialog"
-                      aria-label={`Read the full review from ${card.name}`}
+                      aria-label={`${say('Read the full review from')} ${card.name}`}
                       className="absolute inset-0 z-10 cursor-pointer"
                     />
                   )}

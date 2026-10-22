@@ -4,8 +4,8 @@ label: Review
 description: A client's review of the studio, word for word.
 
 fields:
-  author: { type: string, required: true, description: 'Who wrote it' }
-  text:   { type: string, required: true, description: 'The review, word for word' }
+  author: { type: string, translatable: false, required: true, description: 'Who wrote it' }
+  text:   { type: string, translatable: false, required: true, description: 'The review, word for word' }
   rating: { type: number, description: '1–5. Shows stars.' }
   date:   { type: date, description: 'When it was written. Shows "3 months ago".' }
   source: { type: string, description: 'Where it was posted — "Google review"' }

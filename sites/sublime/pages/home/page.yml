@@ -6,5 +6,5 @@ description: >-
   Sublime Hair Studio — runway-trained cuts, colour and styling one flight up, just off
   Elgin Street in Ottawa's Golden Triangle. Lunch-hour cuts for downtown professionals.
 
-seo:
-  canonical: https://sublimehair.ca/
+# No `seo.canonical`: it is one fixed URL, so on this bilingual site the French
+# page would name the English one as its canonical and drop out of search.

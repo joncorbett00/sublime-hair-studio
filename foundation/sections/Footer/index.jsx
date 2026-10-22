@@ -5,6 +5,8 @@ import { wordmarkParts } from '#utils/wordmark.js'
 import { toneClass } from '#components/tone.js'
 import { linkProps } from '#utils/links.js'
 import { entries } from '#utils/entries.js'
+import { oneLine } from '#utils/text.js'
+import { isClosed } from '#utils/locale.js'
 
 /**
  * Footer, on ink. Blurb, socials, opening hours and the link columns across
@@ -25,14 +27,16 @@ function Footer({ content, params }) {
   const { credit = '', creditHref = '', signoff = '', edge = 'selvedge', wordmark = '', logo = '', tone = 'ink', signature = true, hoursLabel = 'Hours' } = params
   const mark = wordmarkParts(website.name, { wordmark })
 
-  /* Each link column is a labelled group: a markdown list item whose text is
-     the heading and whose nested list holds the links. */
-  const columns = (lists[0] || [])
-    .map((group) => ({
-      label: group.paragraphs?.[0] || '',
-      links: (group.lists?.[0] || []).map((item) => item.links?.[0]).filter(Boolean),
-    }))
-    .filter((c) => c.links.length > 0)
+  /* Each link column is a labelled group of links: in a ```md:columns block, a
+     `#` heading over a list of links; otherwise a markdown list item whose text
+     is the heading and whose nested list holds the links. The block is what a
+     translated site needs — the i18n tools read one level of list, so a nested
+     list's links stay in the source language. */
+  const linksOf = (list = []) => list.map((item) => item.links?.[0]).filter(Boolean)
+  const columns = (data?.columns?.items?.length
+    ? data.columns.items.map((item) => ({ label: oneLine(item.title), links: linksOf(item.lists?.[0]) }))
+    : (lists[0] || []).map((group) => ({ label: group.paragraphs?.[0] || '', links: linksOf(group.lists?.[0]) }))
+  ).filter((c) => c.links.length > 0)
 
   return (
     <div className={cn('overflow-hidden', toneClass(tone), !signature && 'pb-14')}>
@@ -67,7 +71,7 @@ function Footer({ content, params }) {
                 {hours.map((row, i) => (
                   <div key={i} className="flex justify-between gap-4 border-b border-border py-2 text-sm">
                     <Text as="dt" text={row.title} className="text-body" />
-                    <Text as="dd" text={row.text} className={/closed/i.test(row.text) ? 'text-subtle' : 'text-heading'} />
+                    <Text as="dd" text={row.text} className={isClosed(row.text) ? 'text-subtle' : 'text-heading'} />
                   </div>
                 ))}
               </dl>

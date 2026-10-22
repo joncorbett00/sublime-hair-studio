@@ -3,8 +3,8 @@ type: Footer
 theme: dark
 edge: selvedge
 signature: false
-signoff: one flight up, just off Elgin
-credit: Created by Proximify Studios
+signoff: { en: 'one flight up, just off Elgin', fr: 'un étage plus haut, tout près de la rue Elgin' }
+credit: { en: Created by Proximify Studios, fr: Conçu par Proximify Studios }
 creditHref: https://proximify.ca
 logo: /images/sublime-logo-paper.png
 ---
@@ -40,17 +40,21 @@ Closed
 Closed
 ```
 
-- Studio
-  - [Services & prices](/services)
-  - [Colour](/colour)
-  - [The crew](/crew)
-  - [Book an appointment](/book)
-  - [Visit us](/visit)
+<!-- The link columns: a heading per column, then its links. A block rather
+     than a nested list, which the translation tools (locales/) can't reach. -->
+```md:columns
+# Studio
+- [Services & prices](/services)
+- [Colour](/colour)
+- [The crew](/crew)
+- [Book an appointment](/book)
+- [Visit us](/visit)
 
-- Shop
-  - [Bijou Boutique](/shop/){reload}
-  - [Latest finds](/shop/finds){reload}
-  - [Retail lines](/#section-products)
+# Shop
+- [Bijou Boutique](/shop/){reload}
+- [Latest finds](/shop/finds){reload}
+- [Retail lines](/#section-products)
+```
 
 [Privacy](/privacy)
 [Accessibility](/accessibility)

@@ -6,6 +6,7 @@ import Lightbox from '#components/Lightbox.jsx'
 import useRow from '#components/useRow.js'
 import { toneClass } from '#components/tone.js'
 import { buttonLinks, linkProps } from '#utils/links.js'
+import { useSay } from '#utils/locale.js'
 
 /** Hover bands alternate the brand colour and ink. */
 const BANDS = ['tone-brand', 'tone-ink']
@@ -18,12 +19,13 @@ const ASPECTS = { portrait: 'aspect-[4/5]', square: 'aspect-square', landscape: 
 
 /** One photo: numbered as a look, its caption on a band of colour that rises on hover. */
 function Look({ shot, index, onOpen, badge, aspect }) {
+  const say = useSay()
   return (
     <button
       type="button"
       onClick={onOpen}
       className="group relative block w-full overflow-hidden bg-muted text-left"
-      aria-label={`Open photo: ${shot.title}`}
+      aria-label={`${say('Open photo:')} ${shot.title}`}
     >
       <img
         src={shot.image}
@@ -52,9 +54,10 @@ function Look({ shot, index, onOpen, badge, aspect }) {
 
 /** The category filter: "All" (`allLabel`) plus each category in the photos. The "All" choice is kept as null, so its words can change. */
 function Filter({ categories, active, onPick, allLabel, className }) {
+  const say = useSay()
   if (categories.length < 2) return null
   return (
-    <div className={cn('flex flex-wrap gap-2', className)} role="group" aria-label="Filter photos by category">
+    <div className={cn('flex flex-wrap gap-2', className)} role="group" aria-label={say('Filter photos by category')}>
       {[null, ...categories].map((cat) => (
         <button
           key={cat ?? 'all'}
@@ -81,6 +84,7 @@ function Filter({ categories, active, onPick, allLabel, className }) {
  * in the lightbox on top of it; closing that comes back here.
  */
 function Wall({ shots, categories, active, onPick, onOpen, onClose, title, label, lookProps }) {
+  const say = useSay()
   return (
     <Overlay onClose={onClose} className="items-stretch justify-center bg-ink/85 p-0 sm:p-5">
       <div
@@ -99,7 +103,7 @@ function Wall({ shots, categories, active, onPick, onOpen, onClose, title, label
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close the gallery"
+            aria-label={say('Close the gallery')}
             className="grid size-11 shrink-0 place-items-center border border-heading text-heading transition-colors hover:bg-heading hover:text-section"
           >
             <Icon name="lu-x" size="18" />
@@ -129,6 +133,7 @@ function Wall({ shots, categories, active, onPick, onOpen, onClose, title, label
  * button that opens every photo in a full-screen sheet (Wall).
  */
 export default function Gallery({ content, params, block }) {
+  const say = useSay()
   const all = content.data?.gallery || []
   const { pretitle, title, paragraphs } = content
   const links = buttonLinks(content)
@@ -209,10 +214,10 @@ export default function Gallery({ content, params, block }) {
               {shots.length > 0 && (
                 <div className="flex flex-wrap items-center gap-3">
                   {buttons}
-                  <button type="button" onClick={() => row.move(-1)} disabled={row.start} aria-label="Previous photos" className={cn(arrow, 'ml-3')}>
+                  <button type="button" onClick={() => row.move(-1)} disabled={row.start} aria-label={say('Previous photos')} className={cn(arrow, 'ml-3')}>
                     <Icon name="lu-arrow-left" size="18" />
                   </button>
-                  <button type="button" onClick={() => row.move(1)} disabled={row.end} aria-label="Next photos" className={arrow}>
+                  <button type="button" onClick={() => row.move(1)} disabled={row.end} aria-label={say('Next photos')} className={arrow}>
                     <Icon name="lu-arrow-right" size="18" />
                   </button>
                 </div>
@@ -221,7 +226,7 @@ export default function Gallery({ content, params, block }) {
 
             <ul
               ref={trackRef}
-              aria-label={title ? undefined : 'Recent work'}
+              aria-label={title ? undefined : say('Recent work')}
               className="no-scrollbar mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain"
             >
               {shots.map((s, i) => (

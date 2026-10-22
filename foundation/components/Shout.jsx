@@ -1,5 +1,6 @@
 import { H1, H2, cn } from '@uniweb/kit'
 import { oneLine } from '#utils/text.js'
+import { useSay } from '#utils/locale.js'
 
 /**
  * Section headline: the numbered eyebrow and the poster-sized heading. Used by most
@@ -18,10 +19,11 @@ export function sectionNumber(block) {
 }
 
 export function Eyebrow({ block, children, className }) {
+  const say = useSay()
   const no = sectionNumber(block)
   return (
     <span className={cn('eyebrow', className)}>
-      {no && <span className="eyebrow-no" aria-hidden="true">No.&thinsp;{no}</span>}
+      {no && <span className="eyebrow-no" aria-hidden="true">{say('No.')}&thinsp;{no}</span>}
       <span className="eyebrow-label">{children}</span>
     </span>
   )

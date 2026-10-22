@@ -2,7 +2,7 @@
 type: Header
 nav: authored
 ctaHref: /book
-ctaMobileLabel: Book an appointment
+ctaMobileLabel: { en: Book an appointment, fr: Prendre rendez-vous }
 edge: selvedge
 # The Sublime logo, in place of the wordmark set in type: ink on the paper
 # bar, paper on the dark one. The bar goes dark on pages that open on a dark

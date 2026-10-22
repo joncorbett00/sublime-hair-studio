@@ -1,9 +1,10 @@
 title: Accessibility
 label: Accessibility
+slug: { fr: accessibilite }  # the French URL: /fr/accessibilite
 description: >-
   Getting to Sublime Hair Studio, accessibility in the studio and on this website, and
   how to tell us about a barrier.
 hideIn: [header]
 
-seo:
-  canonical: https://sublimehair.ca/accessibility
+# No `seo.canonical`: it is one fixed URL, so on this bilingual site the French
+# page would name the English one as its canonical and drop out of search.

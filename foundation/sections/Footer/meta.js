@@ -9,12 +9,15 @@ export default {
     title: 'Business name for the copyright line [0-1]',
     paragraphs: 'Short blurb [0-2]',
     links: 'Social profiles plus legal links — socials are detected by URL',
-    lists: 'One markdown list of link columns — each top-level item is the column heading, with the links as a nested list beneath it. Add `{reload}` after a link to another site on the same domain.',
+    lists: 'Link columns, when there is no "Link columns" block: one markdown list, each top-level item the column heading with the links as a nested list beneath it. Add `{reload}` after a link to another site on the same domain.',
   },
 
   // Data blocks reach the component only when declared.
   data: {
     'md:hours': { label: 'Opening hours', content: { title: 'Day', paragraphs: 'Hours' } },
+    // The way to write the columns on a site in more than one language: the
+    // translation tools don't reach the links in a nested list.
+    'md:columns': { label: 'Link columns', hint: 'A `#` heading for each column, then a list of its links.', content: { title: 'Column heading', lists: 'Its links' } },
   },
 
   params: {
