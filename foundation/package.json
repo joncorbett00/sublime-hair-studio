@@ -1,6 +1,6 @@
 {
   "name": "foundation",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Sublime foundation — section types for Sublime Hair Studio (\"Front Row\") and Bijou Boutique (\"Wardrobe Department\"); each site picks its look through settings",
   "type": "module",
   "main": "./_entry.generated.js",
