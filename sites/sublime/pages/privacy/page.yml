@@ -5,5 +5,5 @@ description: >-
   messages and this website.
 hideIn: [header]
 
-seo:
-  canonical: https://sublimehair.ca/privacy
+slug:
+  fr: confidentialite

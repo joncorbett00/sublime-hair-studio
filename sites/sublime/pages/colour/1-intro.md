@@ -1,6 +1,8 @@
 ---
 type: Hero
-stamp: Vivid · lived-in · corrected
+stamp:
+  en: Vivid · lived-in · corrected
+  fr: Vif · naturel · corrigé
 ---
 
 #> Colour

@@ -3,54 +3,66 @@ type: Footer
 theme: dark
 edge: selvedge
 signature: false
-signoff: one flight up, just off Elgin
-credit: Created by Proximify Studios
+signoff:
+  en: one flight up, just off Elgin
+  fr: un étage plus haut, tout près de la rue Elgin
+credit:
+  en: Created by Proximify Studios
+  fr: Conçu par Proximify Studios
 creditHref: https://proximify.ca
 logo: /images/sublime-logo-paper.png
 ---
 
 # Sublime Hair Studio
 
-190 MacLaren Street, second floor — just off Elgin in Ottawa's Golden Triangle.
-Runway-trained hair in a warm little studio upstairs.
+190 MacLaren Street, second floor — just off Elgin in Ottawa's Golden Triangle. Runway-trained hair in a warm little studio upstairs.
 
-[Facebook](https://www.facebook.com/ottawasublimehair/)
-[Instagram](https://www.instagram.com/sublimehairstudio__/)
+[Facebook](https://www.facebook.com/ottawasublimehair/) [Instagram](https://www.instagram.com/sublimehairstudio__/)
 
 ```md:hours
 # Monday
+
 Closed
 
 # Tuesday
+
 12–6
 
 # Wednesday
+
 10–6
 
 # Thursday
+
 10–7
 
 # Friday
+
 10–7
 
 # Saturday
+
 9–4
 
 # Sunday
+
 Closed
 ```
 
-- Studio
-  - [Services & prices](/services)
-  - [Colour](/colour)
-  - [The crew](/crew)
-  - [Book an appointment](/book)
-  - [Visit us](/visit)
+```md:columns
+# Studio
 
-- Shop
-  - [Bijou Boutique](/shop/){reload}
-  - [Latest finds](/shop/finds){reload}
-  - [Retail lines](/#section-products)
+- [Services & prices](/services)
+- [Colour](/colour)
+- [The crew](/crew)
+- [Book an appointment](/book)
+- [Visit us](/visit)
 
-[Privacy](/privacy)
-[Accessibility](/accessibility)
+# Shop
+
+- [Bijou Boutique](/shop/){reload}
+- [Latest finds](/shop/finds){reload}
+- [Retail lines](/#section-products)
+```
+
+[Privacy](/privacy) [Accessibility](/accessibility)

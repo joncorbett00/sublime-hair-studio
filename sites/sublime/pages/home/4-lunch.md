@@ -1,6 +1,8 @@
 ---
 type: Itinerary
-cardTitle: A Tuesday, downtown
+cardTitle:
+  en: A Tuesday, downtown
+  fr: Un mardi, au centre-ville
 theme: medium
 ---
 

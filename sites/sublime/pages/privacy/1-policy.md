@@ -1,6 +1,8 @@
 ---
 type: Article
-updated: September 2026
+updated:
+  en: September 2026
+  fr: septembre 2026
 ---
 
 <!-- DRAFT for the studio to review — written from how the site and studio work

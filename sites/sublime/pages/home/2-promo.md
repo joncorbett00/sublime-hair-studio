@@ -2,7 +2,9 @@
 type: Promo
 tone: brand
 figure: 10%
-figureLabel: 'off'
+figureLabel:
+  en: 'off'
+  fr: de rabais
 coupon: true
 ---
 

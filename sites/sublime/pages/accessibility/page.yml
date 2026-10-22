@@ -5,5 +5,5 @@ description: >-
   how to tell us about a barrier.
 hideIn: [header]
 
-seo:
-  canonical: https://sublimehair.ca/accessibility
+slug:
+  fr: accessibilite

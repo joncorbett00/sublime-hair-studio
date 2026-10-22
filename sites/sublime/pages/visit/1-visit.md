@@ -1,16 +1,22 @@
 ---
 type: Visit
-address: |
-  190 MacLaren Street
-  Ottawa, ON  K2P 0L6
-phone: (613) 567-7400
+address:
+  en: |
+    190 MacLaren Street
+    Ottawa, ON  K2P 0L6
+  fr: |
+    190, rue MacLaren
+    Ottawa (Ontario)  K2P 0L6
+phone:
+  en: (613) 567-7400
+  fr: 613 567-7400
 phoneHref: tel:+16135677400
 email: hello@sublimehair.ca
-hoursNote: By appointment. Call ahead for same-day — we'll always try to fit you in.
-# 190 MacLaren is the corner building at Elgin, beside the Bridgehead —
-# OpenStreetMap's nodes for the address sit at 45.41695, -75.68990.
+hoursNote:
+  en: By appointment. Call ahead for same-day — we'll always try to fit you in.
+  fr: Sur rendez-vous. Appelez pour le jour même — nous tenterons toujours de vous trouver une place.
 lat: 45.41695
-lng: -75.68990
+lng: -75.6899
 zoom: 16
 mapLink: https://www.google.com/maps/search/?api=1&query=190+MacLaren+Street%2C+Ottawa%2C+ON+K2P+0L6
 ---

@@ -1,9 +1,14 @@
 ---
 type: ServiceMenu
 showFilter: false
-# No photo strips here — the colour gallery follows.
 photosSource: ''
-fetch: { query: services, where: { category: Colour } }
+fetch:
+  query: services
+  where:
+    category:
+      in:
+        - Colour
+        - Coloration
 ---
 
 #> The colour menu
