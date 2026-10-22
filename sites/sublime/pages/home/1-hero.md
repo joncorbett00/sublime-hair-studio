@@ -1,7 +1,10 @@
 ---
 type: Hero
 frame: gate
-theme: dark
+theme:
+  mode: dark
+  colors:
+    primary: '#bebebe'
 stamp: The focus is on you
 seal: ring
 inset: print

@@ -1,5 +1,6 @@
 ---
 type: Timeline
+hidden: true
 ---
 
 <!-- The story and portrait are Sonia's own, from the old site. PLACEHOLDER PHOTOS: the
