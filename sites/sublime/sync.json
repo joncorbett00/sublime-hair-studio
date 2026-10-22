@@ -417,7 +417,8 @@
         "01a1598b-520f-73a3-8084-7661042ebaeb": "01a15a12-03fb-7a32-8e06-ef2073a2c8ad"
       },
       "services": {
-        "records": "01a15b39-dc91-7d81-aaaf-c6bb0630ff05"
+        "records": "01a15b39-dc91-7d81-aaaf-c6bb0630ff05",
+        "tracking": "01a15ea6-4ccb-75f3-bfe1-f252e8fa4769"
       },
       "site": {
         "uuid": "01a15a11-efc7-7073-8f8e-2592dae9320e",
