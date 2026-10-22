@@ -1,7 +1,10 @@
 ---
 type: Hero
 frame: gate
-theme: dark
+theme:
+  mode: dark
+  colors:
+    primary: '#bebebe'
 stamp: { en: The focus is on you, fr: L’attention est sur vous }
 seal: ring
 inset: print

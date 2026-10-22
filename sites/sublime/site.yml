@@ -65,7 +65,8 @@ booking:
 # reach them show nothing there.
 services:
   records: true
+  tracking: true
 
 build:
   prerender: true
-preview: '2026-10-21T13:25:15.432161Z'
+preview: '2026-10-22T11:57:16.341318Z'
