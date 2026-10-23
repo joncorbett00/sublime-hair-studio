@@ -1,32 +1,27 @@
 ---
 type: SplitContent
-flipped: true
-frame: arch
+flipped: false
+tone: sand
+theme: light
+monochrome: false
+listColumns: 1
+captionLabel: Fig.
 ---
 
-#> Behind the chair
+#> Owner
 
-# All the precision, [none of the fuss]{accent}
+# Meet Sonia
 
-Sonia started her apprenticeship at thirteen and went on to train with Vidal Sassoon and
-Toni & Guy London. She came home from New York's SoHo loft salons wanting their obsession
-with style and service — without the "so-cool-it's-cold" attitude. That's what you get
-here: master cutting and colour, from someone who listens to how you actually wear your
-hair on a Tuesday.
+![](/assets/562d0c0ea3eb35d75c7678088047e57f48f79de61a9066f87ee340a90e7f7871.jpeg){width=664 height=884}
 
-<!-- Links and media go BEFORE the `###` items: once items start, everything that
-     follows belongs to the current item rather than to the section. -->
+### In the early 2000’s, Sonia returned to Ottawa from New York City feeling freshly inspired by the cutting-edge SOHO loft salons where the client experience took precedence. She envisioned a salon with the same obsession for style and service in Ottawa and rejected the  notion that high fashion styles required a ‘so-cool-it’s-cold’ environment. Sublime Hair Studio is an outlet for Sonia's creative imagination and unique stylistic approaches. She places an incredible amount of dedication into creating personalized and memorable experiences for every person that sits in her chair. Sonia has cultivated a reputation for innovative cut and color techniques. Sonia's career began with a passion for punk hairstyles in the 1980's. She began her apprenticeship at the very young age of 13 among European hairstylists where she built her foundation. Sonia has since become a master hair cutter, and genius at hair color formulation. Learning from the world's best academies and mentors - Vidal Sassoon, Tony and Guy London, Schwarzkopf, Alain Larivee and Anthony Edge.
+
+###  Sonia's skill and precision and experience manifested into a vison for a hair salon that is against the grain; one that personalized prioritizing each client's unique look through in-depth consultations that put the individual first. Her attention to her clients is matched only by her attention to detail in her work. She excels at men's hair and barbering and on the other spectrum she is a true alchemist with color science and formulation. Sublime Hair Studio is a full service salon - a destination for everyone - and offers an array of exceptional services, products and hair care essentials. Whether its natural or dramatic color, a sophisticated classic cut or a curly and funky avant - garde style, Sonia will pour her passion and technique into the look you envision!
 
 [Meet Sonia](/crew)
 
-![Sonia, owner and master stylist](/images/crew/sonia.webp)
+### 
 
-<!-- Two items, from her story on /crew. -->
+### 
 
-### A consultation first
-![](lu-message-circle)
-Every look starts with a real conversation. If a photo won't work on your hair, she'll say so.
-
-### Barbering to colour
-![](lu-scissors)
-Sharp men's cuts and barbering at one end, a true alchemist with colour at the other.
+### 

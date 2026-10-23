@@ -6,10 +6,10 @@
 # kept for the seal's letter.
 
 colors:
-  primary: '#bb8e25'      # vermilion — the brand red, booking buttons, colour-block sections
-  secondary: '#8C7B6B'    # taupe — a neutral, for anything the kit calls secondary
-  accent: '#bb8e25'       # the same vermilion: there is one colour, not two
-  neutral: '#8C7B6B'      # taupe — the warm grey every surface and text colour is cut from
+  primary: '#a1a4a6'      # vermilion — the brand red, booking buttons, colour-block sections
+  secondary: '#b8c0c3'    # taupe — a neutral, for anything the kit calls secondary
+  accent: '#b6bcbd'       # the same vermilion: there is one colour, not two
+  neutral: '#9fa7ab'      # taupe — the warm grey every surface and text colour is cut from
 
 # Every surface and every text colour below is cut from the neutral palette
 # (`colors.neutral`), through the house vars in foundation/main.js — paper,

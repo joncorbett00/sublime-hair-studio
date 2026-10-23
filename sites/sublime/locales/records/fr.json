@@ -153,7 +153,12 @@
   "0d37c797": "Coupe barbier / aux ciseaux",
   "be7063fa": "Coupe jeunesse (10 à 18 ans)",
   "5b3fe161": "Coupe enfant (moins de 10 ans)",
-  "c8f1c0cc": "Mise en plis",
+  "c8f1c0cc": {
+    "default": "Mise en plis",
+    "overrides": {
+      "gallery/shot-34": "Éteindre"
+    }
+  },
   "c1f490fe": "Lavage, séchage, et une heure à se sentir chic.",
   "e2f18934": "Permanente",
   "89e124fb": "Boucles et chignon partiel",
@@ -184,7 +189,12 @@
   "4e86512d": "Halo",
   "3678207e": "Retouche d'éclaircissement aux racines",
   "ba441e0e": "Éclaircissement sur toute la longueur",
-  "9afa49f9": "Coloration créative",
+  "9afa49f9": {
+    "default": "Couleur créative",
+    "overrides": {
+      "services/creative-colour": "Coloration créative"
+    }
+  },
   "a383f677": "Couleurs vives, travail de placement, ce qu'on vous demande dans l'autobus.",
   "f4cf9f78": "C'est ce pour quoi nous sommes connus. Pastels, tons de pierres précieuses, racines ombrées, couleur séparée, panneaux qui n'apparaissent que lorsque vous bougez. Chaque coloration créative commence par une consultation, parce que la réponse honnête comprend parfois deux rendez-vous et un plan d'éclaircissement.",
   "e0e85029": "Correction de couleur d'une heure",
@@ -212,5 +222,10 @@
   "14c4698e": "Forfaits de traitements sur mesure",
   "09a27c74": "prix sur mesure",
   "7ed94d67": "Conçus selon vos cheveux. Communiquez directement avec nous pour les prix.",
-  "4bd19e3a": "nous joindre"
+  "4bd19e3a": "nous joindre",
+  "4495c74f": "Blond",
+  "6e517828": "Points forts",
+  "cd9fb1e1": "Bob",
+  "e4f40166": "Blond",
+  "fe822bf5": "Coupe de cheveux"
 }

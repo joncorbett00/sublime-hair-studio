@@ -3,9 +3,13 @@ type: Footer
 theme: dark
 edge: selvedge
 signature: false
-signoff: { en: 'one flight up, just off Elgin', fr: 'un étage plus haut, tout près de la rue Elgin' }
-credit: { en: Created by Proximify Studios, fr: Conçu par Proximify Studios }
-creditHref: https://proximify.ca
+signoff:
+  en: one flight up, just off Elgin
+  fr: un étage plus haut, tout près de la rue Elgin
+credit:
+  en: Created by Proximify Studios
+  fr: Conçu par Proximify Studios
+creditHref: https://uniweb.studio
 logo: /images/sublime-logo-paper.png
 # The anniversary medallion in the bottom-left corner of every page. Remove
 # these three lines when the celebration is over.
@@ -16,39 +20,43 @@ badgeBottom: { en: Anniversary, fr: Anniversaire }
 
 # Sublime Hair Studio
 
-190 MacLaren Street, second floor — just off Elgin in Ottawa's Golden Triangle.
-Runway-trained hair in a warm little studio upstairs.
+190 MacLaren Street, second floor. Just off Elgin in Ottawa's Golden Triangle. Beautiful hair in a private studio upstairs.
 
-[Facebook](https://www.facebook.com/ottawasublimehair/)
-[Instagram](https://www.instagram.com/sublimehairstudio__/)
+[Facebook](https://www.facebook.com/ottawasublimehair/) [Instagram](https://www.instagram.com/sublimehairstudio__/)
 
 ```md:hours
 # Monday
+
 Closed
 
 # Tuesday
+
 12–6
 
 # Wednesday
+
 10–6
 
 # Thursday
+
 10–7
 
 # Friday
+
 10–7
 
 # Saturday
+
 9–4
 
 # Sunday
+
 Closed
 ```
 
-<!-- The link columns: a heading per column, then its links. A block rather
-     than a nested list, which the translation tools (locales/) can't reach. -->
 ```md:columns
 # Studio
+
 - [Services & prices](/services)
 - [Colour](/colour)
 - [The crew](/crew)
@@ -56,10 +64,10 @@ Closed
 - [Visit us](/visit)
 
 # Shop
+
 - [Bijou Boutique](/shop/){reload}
 - [Latest finds](/shop/finds){reload}
 - [Retail lines](/#section-products)
 ```
 
-[Privacy](/privacy)
-[Accessibility](/accessibility)
+[Privacy](/privacy) [Accessibility](/accessibility)
