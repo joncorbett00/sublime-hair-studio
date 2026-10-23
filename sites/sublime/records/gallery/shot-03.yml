@@ -1,10 +1,10 @@
 $uuid: 01a1598b-520e-7020-a7b8-fb3b8b0cbe4f
-service: full-balayage
-title: Soft blonde balayage with a shadow root
-category: Colour
-caption: Soft blonde balayage, a shadow root, and a gloss to knock the edge off.
+title: Creative Colour
+caption: {}
 image: >-
-  https://images.unsplash.com/photo-1504703395950-b89145a5425b?auto=format&fit=crop&w=900&h=1125&q=80
+  https://assets.uniweb.pro/assets/0c914f08cf938ee31f4e46c279d7ada9bc298f0787286fa685ab7a620285f430/base.jpeg
 orientation: portrait
-stylist: sonia
+category: Creative Colour
+service: ''
+stylist: ''
 order: 7

@@ -1,6 +1,7 @@
 ---
 type: FAQ
 theme: medium
+hidden: true
 ---
 
 #> Before you book

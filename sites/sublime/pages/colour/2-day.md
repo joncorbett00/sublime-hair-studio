@@ -1,7 +1,10 @@
 ---
 type: Itinerary
 tone: brand
-cardTitle: { en: A creative colour Saturday, fr: Un samedi de coloration créative }
+cardTitle:
+  en: A creative colour Saturday
+  fr: Un samedi de coloration créative
+hidden: true
 ---
 
 <!-- PLACEHOLDER TIMES: a typical creative colour appointment, drawn from the

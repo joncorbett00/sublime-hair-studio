@@ -2,11 +2,8 @@
 type: Note
 ---
 
-#> We are hiring, occasionally
+#> Chair rentals
 
-# Want a chair in here?
-
-We take on one apprentice a year, and when a chair opens up it usually goes to someone who
-has already emailed us.
+Interested in a chair rental in at Sublime? Please send us a message with your name, experience, and a little about yourself.
 
 [Send us a note](mailto:hello@sublimehair.ca)

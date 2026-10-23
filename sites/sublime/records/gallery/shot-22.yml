@@ -1,10 +1,10 @@
 $uuid: 01a1598b-520e-7020-a7b8-fc4a9647728d
-service: barber-scissor-cut
-title: Textured crop, scissor-cut on top
-category: Cuts
-caption: Textured crop, scissor-cut on top so it moves instead of sitting flat.
+title: Creative Colour
+caption: {}
 image: >-
-  https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&h=1125&q=80
+  https://assets.uniweb.pro/assets/b212aaea0d8d528d5ca41a6f823cc28b5be2a209a13d4ca0523e0f56beda3d2b/base.jpeg
 orientation: portrait
-stylist: marco
+category: Creative Colour
+service: ''
+stylist: ''
 order: 22

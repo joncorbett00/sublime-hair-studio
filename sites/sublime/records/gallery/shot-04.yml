@@ -1,12 +1,10 @@
 $uuid: 01a1598b-520e-7020-a7b8-fb487195e874
-service: creative-colour
-title: Lavender, blended with no visible line anywhere
-category: Colour
-caption: >-
-  Lavender over pre-lightened ends, blended so there is no visible line
-  anywhere.
+title: Highlights
+caption: {}
 image: >-
-  https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?auto=format&fit=crop&w=900&h=1125&q=80
+  https://assets.uniweb.pro/assets/dedd2403e44abf5ed77e12f60f8cddb45ec371c0cfc838fd9136aec299ef3f11/base.jpeg
 orientation: portrait
-stylist: jules
+category: Blonding
+service: ''
+stylist: ''
 order: 11

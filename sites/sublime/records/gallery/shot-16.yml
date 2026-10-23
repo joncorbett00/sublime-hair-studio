@@ -1,12 +1,10 @@
 $uuid: 01a1598b-520e-7020-a7b8-fbfeb4624583
-service: classic-haircut
-title: A heavy fringe, cut to sit right at the brow
-category: Cuts
-caption: >-
-  A heavy fringe, cut to sit right at the brow. She booked the next trim before
-  leaving.
+title: Creative Colour
+caption: {}
 image: >-
-  https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=900&h=1125&q=80
+  https://assets.uniweb.pro/assets/3887f3ed1255140700b13f012981bd73073aca20f351bd29b01c2998b9580f3a/base.jpeg
 orientation: portrait
-stylist: marco
+category: Creative Colour
+service: ''
+stylist: ''
 order: 21
