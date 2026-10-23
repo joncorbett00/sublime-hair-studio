@@ -18,7 +18,14 @@ function dismissed() {
   try { return sessionStorage.getItem(KEY) === '1' } catch { return false }
 }
 
-export default function AnniversaryBadge({ title, top = '', bottom = '', closeLabel = 'Hide' }) {
+// Whole class names, so Tailwind finds them.
+const WIDTHS = {
+  small: 'w-[4.75rem] sm:w-[6rem]',
+  medium: 'w-[5.75rem] sm:w-[7.5rem]',
+  large: 'w-[7rem] sm:w-[9.5rem]',
+}
+
+export default function AnniversaryBadge({ title, top = '', bottom = '', size = 'medium', closeLabel = 'Hide' }) {
   const [shown, setShown] = useState(false)
 
   useEffect(() => {
@@ -42,7 +49,7 @@ export default function AnniversaryBadge({ title, top = '', bottom = '', closeLa
   return (
     <Overlay modal={false} className="items-end justify-start p-4 sm:p-6">
       <div className="badge-in group pointer-events-auto relative" role="note" aria-label={label}>
-        <svg viewBox="-10 0 140 120" className="h-auto w-[5.75rem] drop-shadow-[0_6px_14px_rgb(0_0_0/0.22)] sm:w-[7.5rem]" aria-hidden="true">
+        <svg viewBox="-10 0 140 120" className={cn('h-auto drop-shadow-[0_6px_14px_rgb(0_0_0/0.22)]', WIDTHS[size] || WIDTHS.medium)} aria-hidden="true">
           <defs>
             {/* Clockwise over the top for the upper words; anticlockwise under
                 the foot so the lower words read left to right, not upside down. */}

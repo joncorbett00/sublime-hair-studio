@@ -52,6 +52,15 @@ export default {
       ],
       default: 'ring',
     },
+    sealSize: {
+      type: 'select', label: 'Seal size',
+      options: [
+        { value: 'small', label: 'Small' },
+        { value: 'medium', label: 'Medium' },
+        { value: 'large', label: 'Large' },
+      ],
+      default: 'medium',
+    },
     sealLetter: { type: 'string', label: 'Seal initial', description: 'The letter at the middle of the seal. Empty: the wordmark’s first letter.', default: '' },
   },
 

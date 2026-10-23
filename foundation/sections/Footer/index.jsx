@@ -26,7 +26,7 @@ function Footer({ content, params }) {
   const social = filterSocialLinks(links)
   const plain = links.filter((l) => !social.includes(l))
   const hours = entries(data?.hours)
-  const { credit = '', creditHref = '', signoff = '', edge = 'selvedge', wordmark = '', logo = '', tone = 'ink', signature = true, hoursLabel = 'Hours', badge = '', badgeTop = '', badgeBottom = '', badgeCloseLabel = 'Hide' } = params
+  const { credit = '', creditHref = '', signoff = '', edge = 'selvedge', wordmark = '', logo = '', tone = 'ink', signature = true, hoursLabel = 'Hours', badge = '', badgeTop = '', badgeBottom = '', badgeSize = 'medium', badgeCloseLabel = 'Hide' } = params
   const mark = wordmarkParts(website.name, { wordmark })
 
   /* Each link column is a labelled group of links: in a ```md:columns block, a
@@ -43,7 +43,7 @@ function Footer({ content, params }) {
   return (
     <div className={cn('overflow-hidden', toneClass(tone), !signature && 'pb-14')}>
       <div className={edge === 'filmstrip' ? 'filmstrip' : 'selvedge'} aria-hidden="true" />
-      {badge && <AnniversaryBadge title={badge} top={badgeTop} bottom={badgeBottom} closeLabel={badgeCloseLabel} />}
+      {badge && <AnniversaryBadge title={badge} top={badgeTop} bottom={badgeBottom} size={badgeSize} closeLabel={badgeCloseLabel} />}
       <div className="mx-auto max-w-[var(--max-content-width)] px-6 pt-20">
         <BusinessSchema />
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_0.8fr_0.8fr] lg:gap-16">

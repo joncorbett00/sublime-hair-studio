@@ -40,6 +40,15 @@ export default {
     badge: { type: 'string', label: 'Corner badge', description: 'Words on the ribbon of a small medallion pinned to the bottom corner of every page, e.g. "20 Years". Empty: no badge.', default: '' },
     badgeTop: { type: 'string', label: 'Badge — words over the top', default: '' },
     badgeBottom: { type: 'string', label: 'Badge — words round the foot', default: '' },
+    badgeSize: {
+      type: 'select', label: 'Badge — size',
+      options: [
+        { value: 'small', label: 'Small' },
+        { value: 'medium', label: 'Medium' },
+        { value: 'large', label: 'Large' },
+      ],
+      default: 'medium',
+    },
     badgeCloseLabel: { type: 'string', label: 'Badge — hide button, for screen readers', default: 'Hide' },
   },
 }

@@ -9,7 +9,7 @@ import { cn } from '@uniweb/kit'
  *   ring  a hairline ring round the initial (Sublime)
  *   reel  a film reel's hub: a hairline and six holes round the centre (Bijou)
  *
- * The initial is drawn in the `seal-letter` var.
+ * The initial is drawn in the `seal-letter` var. `size` is small, medium or large.
  */
 // Advance widths of the ring's capitals, in em, measured in the label face.
 // Anything unlisted counts as an average capital. It only has to be close:
@@ -140,7 +140,15 @@ export function useInkCentre(ref, letter) {
   return offset
 }
 
-export default function Seal({ text, letter = '', style = 'ring', className }) {
+// Whole class names, so Tailwind finds them.
+const SIZES = {
+  small: { disc: 'size-24 sm:size-32', letter: 'text-3xl sm:text-4xl' },
+  medium: { disc: 'size-28 sm:size-40', letter: 'text-4xl sm:text-5xl' },
+  large: { disc: 'size-32 sm:size-52', letter: 'text-5xl sm:text-6xl' },
+}
+
+export default function Seal({ text, letter = '', style = 'ring', size: scale = 'medium', className }) {
+  const dims = SIZES[scale] || SIZES.medium
   const { size, laps, length, squeeze } = fitRing(text)
   const letterRef = useRef(null)
   const inkCentre = useInkCentre(letterRef, letter)
@@ -155,7 +163,7 @@ export default function Seal({ text, letter = '', style = 'ring', className }) {
   return (
     <div
       aria-hidden="true"
-      className={cn('relative grid size-28 place-items-center overflow-hidden rounded-full bg-brand text-paper sm:size-40', className)}
+      className={cn('relative grid place-items-center overflow-hidden rounded-full bg-brand text-paper', dims.disc, className)}
     >
       <svg viewBox="0 0 120 120" className="spin-slow absolute inset-0 size-full">
         <defs>
@@ -181,7 +189,7 @@ export default function Seal({ text, letter = '', style = 'ring', className }) {
       <span
         ref={letterRef}
         style={inkCentre ? { transform: inkCentre } : undefined}
-        className="font-logo absolute text-4xl font-medium italic leading-none text-[var(--seal-letter)] sm:text-5xl"
+        className={cn('font-logo absolute font-medium italic leading-none text-[var(--seal-letter)]', dims.letter)}
       >
         {letter}
       </span>

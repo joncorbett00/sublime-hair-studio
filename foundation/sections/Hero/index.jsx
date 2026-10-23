@@ -30,6 +30,7 @@ export default function Hero({ content, params, block }) {
     captionLabel = 'Look 01',
     stamp = '',
     seal = 'ring',
+    sealSize = 'medium',
     sealLetter = '',
   } = params
   const shape = frameClass(frame)
@@ -116,7 +117,7 @@ export default function Hero({ content, params, block }) {
 
             {stamp && (
               <div className="absolute -top-8 right-0">
-                <Seal text={stamp} letter={letter} style={seal} />
+                <Seal text={stamp} letter={letter} style={seal} size={sealSize} />
               </div>
             )}
           </div>
