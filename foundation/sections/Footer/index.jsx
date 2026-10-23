@@ -1,6 +1,7 @@
 import { Link, H3, P, Text, cn, SocialIcon, filterSocialLinks, useWebsite, applyBasePath } from '@uniweb/kit'
 import BusinessSchema from '#components/BusinessSchema.jsx'
 import Wordmark from '#components/Wordmark.jsx'
+import AnniversaryBadge from '#components/AnniversaryBadge.jsx'
 import { wordmarkParts } from '#utils/wordmark.js'
 import { toneClass } from '#components/tone.js'
 import { linkProps } from '#utils/links.js'
@@ -16,7 +17,8 @@ import { isClosed } from '#utils/locale.js'
  * this file. The edge along its top matches the masthead's.
  *
  * `tone` sets its colour (ink by default); `signature: false` drops the big
- * wordmark or logo at the foot.
+ * wordmark or logo at the foot. `badge` pins a small anniversary medallion
+ * to the corner of every page.
  */
 function Footer({ content, params }) {
   const { website } = useWebsite()
@@ -24,7 +26,7 @@ function Footer({ content, params }) {
   const social = filterSocialLinks(links)
   const plain = links.filter((l) => !social.includes(l))
   const hours = entries(data?.hours)
-  const { credit = '', creditHref = '', signoff = '', edge = 'selvedge', wordmark = '', logo = '', tone = 'ink', signature = true, hoursLabel = 'Hours' } = params
+  const { credit = '', creditHref = '', signoff = '', edge = 'selvedge', wordmark = '', logo = '', tone = 'ink', signature = true, hoursLabel = 'Hours', badge = '', badgeTop = '', badgeBottom = '', badgeCloseLabel = 'Hide' } = params
   const mark = wordmarkParts(website.name, { wordmark })
 
   /* Each link column is a labelled group of links: in a ```md:columns block, a
@@ -41,6 +43,7 @@ function Footer({ content, params }) {
   return (
     <div className={cn('overflow-hidden', toneClass(tone), !signature && 'pb-14')}>
       <div className={edge === 'filmstrip' ? 'filmstrip' : 'selvedge'} aria-hidden="true" />
+      {badge && <AnniversaryBadge title={badge} top={badgeTop} bottom={badgeBottom} closeLabel={badgeCloseLabel} />}
       <div className="mx-auto max-w-[var(--max-content-width)] px-6 pt-20">
         <BusinessSchema />
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_0.8fr_0.8fr] lg:gap-16">

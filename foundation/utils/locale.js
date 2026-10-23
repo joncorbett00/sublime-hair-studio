@@ -20,7 +20,7 @@ import { useWebsite } from '@uniweb/kit'
 const DEFAULTS = {
   fr: {
     Header: { ctaLabel: 'Réserver', skipLabel: 'Aller au contenu' },
-    Footer: { hoursLabel: 'Heures' },
+    Footer: { hoursLabel: 'Heures', badgeCloseLabel: 'Masquer' },
     Article: { updatedLabel: 'Dernière mise à jour' },
     Brands: { moreLabel: 'En savoir plus' },
     Crew: {

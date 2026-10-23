@@ -492,6 +492,13 @@ section[id] { scroll-margin-top: calc(var(--header-height) + var(--edge-height) 
 }
 .swing { transform-origin: 0.9rem 50%; animation: sublime-swing 1400ms cubic-bezier(.3,.7,.3,1) 300ms both; }
 
+/* The anniversary badge settles into its corner like a sticker pressed on. */
+@keyframes sublime-badge-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.86) rotate(-10deg); }
+  to   { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+}
+.badge-in { animation: sublime-badge-in 700ms cubic-bezier(.2,.8,.25,1.15) both; }
+
 /* ---------------------------------------------------------------
    Keyboard focus, stated once for every control in the foundation.
    `:where()` keeps specificity at 0 so a component can override it.
@@ -502,7 +509,7 @@ section[id] { scroll-margin-top: calc(var(--header-height) + var(--edge-height) 
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ticker-track, .spin-slow, .rise, .swing { animation: none !important; }
+  .ticker-track, .spin-slow, .rise, .swing, .badge-in { animation: none !important; }
   .lift:hover, .review-grow:hover, .review-grow:has(:focus-visible) { transform: none; }
   .btn::before, .btn > svg { transition: none; }
 }

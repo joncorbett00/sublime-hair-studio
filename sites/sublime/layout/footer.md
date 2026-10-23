@@ -7,6 +7,11 @@ signoff: { en: 'one flight up, just off Elgin', fr: 'un étage plus haut, tout p
 credit: { en: Created by Proximify Studios, fr: Conçu par Proximify Studios }
 creditHref: https://proximify.ca
 logo: /images/sublime-logo-paper.png
+# The anniversary medallion in the bottom-left corner of every page. Remove
+# these three lines when the celebration is over.
+badge: { en: 20 Years, fr: 20 ans }
+badgeTop: { en: Celebrating, fr: On célèbre }
+badgeBottom: { en: Anniversary, fr: Anniversaire }
 ---
 
 # Sublime Hair Studio

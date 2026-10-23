@@ -37,5 +37,9 @@ export default {
     signoff: { type: 'string', label: 'Sign-off', description: 'Words after the copyright line, e.g. where the business is', default: '' },
     credit: { type: 'string', label: 'Credit line', description: 'Small print at the very end of the footer, e.g. who built the site', default: '' },
     creditHref: { type: 'string', label: 'Credit link', default: '' },
+    badge: { type: 'string', label: 'Corner badge', description: 'Words on the ribbon of a small medallion pinned to the bottom corner of every page, e.g. "20 Years". Empty: no badge.', default: '' },
+    badgeTop: { type: 'string', label: 'Badge — words over the top', default: '' },
+    badgeBottom: { type: 'string', label: 'Badge — words round the foot', default: '' },
+    badgeCloseLabel: { type: 'string', label: 'Badge — hide button, for screen readers', default: 'Hide' },
   },
 }
