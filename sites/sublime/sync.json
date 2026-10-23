@@ -3,6 +3,71 @@
   "backends": {
     "https://uniweb.app": {
       "assets": {
+        "/assets/03e2a2ed6a062d5281b35edaae9f4867a3bfa35e2e9bf182bcc8a730308fb94c.jpeg": {
+          "id": "03e2a2ed6a062d5281b35edaae9f4867a3bfa35e2e9bf182bcc8a730308fb94c",
+          "ext": "jpeg",
+          "served": "sha256:762ed75a36483fa7"
+        },
+        "/assets/2674087f75a3e42624a12acd366b534a0ca4fd241528696e0db70c9257bfc900.jpeg": {
+          "id": "2674087f75a3e42624a12acd366b534a0ca4fd241528696e0db70c9257bfc900",
+          "ext": "jpeg",
+          "served": "sha256:6cb0dbff89cb640d"
+        },
+        "/assets/2d42a034c29c35187fb247e15435a10a7c6a760b992939ba2495aca95f88bfd5.jpg": {
+          "id": "2d42a034c29c35187fb247e15435a10a7c6a760b992939ba2495aca95f88bfd5",
+          "ext": "jpg",
+          "served": "sha256:2bc0f24f20977f37"
+        },
+        "/assets/325cbc5c4975ecbe7bd7402cb976bca62e37123ea0cc9696534c5ce6c89fa586.png": {
+          "id": "325cbc5c4975ecbe7bd7402cb976bca62e37123ea0cc9696534c5ce6c89fa586",
+          "ext": "png",
+          "served": "sha256:773f5774ae3d6818"
+        },
+        "/assets/43f43ddb48822da1c1b6b1a1e0c86fc5d212b8a4aa4c64cd16fde2cb4fb53bf6.jpeg": {
+          "id": "43f43ddb48822da1c1b6b1a1e0c86fc5d212b8a4aa4c64cd16fde2cb4fb53bf6",
+          "ext": "jpeg",
+          "served": "sha256:b2a008fa124faf83"
+        },
+        "/assets/45504fe5c25f8001782431ad0d6ec06306c1069cfd9dd76469d94330c1ef0734.jpeg": {
+          "id": "45504fe5c25f8001782431ad0d6ec06306c1069cfd9dd76469d94330c1ef0734",
+          "ext": "jpeg",
+          "served": "sha256:78bc6b0b33030312"
+        },
+        "/assets/562d0c0ea3eb35d75c7678088047e57f48f79de61a9066f87ee340a90e7f7871.jpeg": {
+          "id": "562d0c0ea3eb35d75c7678088047e57f48f79de61a9066f87ee340a90e7f7871",
+          "ext": "jpeg",
+          "served": "sha256:fef4b9bc372b6e00"
+        },
+        "/assets/6e9c45aad99c43609e2cc49176cdd5146004466515b4c309566d6c3438a46aad.jpeg": {
+          "id": "6e9c45aad99c43609e2cc49176cdd5146004466515b4c309566d6c3438a46aad",
+          "ext": "jpeg",
+          "served": "sha256:d557a6b0301e0a63"
+        },
+        "/assets/7d3d864b7c80c7aa51e114fc721dad08f6e11df9c71f9094a47ef08b46ee7134.mp4": {
+          "id": "7d3d864b7c80c7aa51e114fc721dad08f6e11df9c71f9094a47ef08b46ee7134",
+          "ext": "mp4",
+          "served": "sha256:933e0fa435e44b83"
+        },
+        "/assets/8cdd3b06555c3d52b3f9de79a1589ab1229b4c85941a48ac634eddf4f6a0c42a.mp4": {
+          "id": "8cdd3b06555c3d52b3f9de79a1589ab1229b4c85941a48ac634eddf4f6a0c42a",
+          "ext": "mp4",
+          "served": "sha256:b9a1fc8b2a576a96"
+        },
+        "/assets/99f53ebc94bf89b915999f9c09ac97fd5a7632290e9e5521341d7a6da3715249.jpeg": {
+          "id": "99f53ebc94bf89b915999f9c09ac97fd5a7632290e9e5521341d7a6da3715249",
+          "ext": "jpeg",
+          "served": "sha256:3a57c27bc2aee98b"
+        },
+        "/assets/b0cbe05314cae67d265f3b9bbd974c9fc3f6197a8f7fa5d84dd9c4aadbdab04f.jpg": {
+          "id": "b0cbe05314cae67d265f3b9bbd974c9fc3f6197a8f7fa5d84dd9c4aadbdab04f",
+          "ext": "jpg",
+          "served": "sha256:ffa8f003964563fb"
+        },
+        "/assets/cce683ad19e7085e5bc9f3c96a78110755cfc9d1debaeefd2ccf64c93a437a51.mp4": {
+          "id": "cce683ad19e7085e5bc9f3c96a78110755cfc9d1debaeefd2ccf64c93a437a51",
+          "ext": "mp4",
+          "served": "sha256:f866541eeebcaab8"
+        },
         "/downloads/sublime-service-menu.pdf": {
           "id": "32b6f11e15bb93a1f4ff0f43c42810e123423f80ad289968e0a1f393731ccb67",
           "ext": "pdf",
