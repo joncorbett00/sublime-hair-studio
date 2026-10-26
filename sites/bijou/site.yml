@@ -56,6 +56,7 @@ services:
   records: true
   # The coming-soon page's "Notify me" sign-ups (pages/home/0-coming-soon.md).
   submit: true
+  tracking: true
 
 build:
   prerender: true
