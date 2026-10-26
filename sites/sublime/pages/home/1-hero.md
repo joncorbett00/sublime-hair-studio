@@ -8,7 +8,7 @@ theme:
     neutral: '#64748b'
     primary: '#7f848f'
     secondary: '#6b7280'
-stamp: '[object Object]'
+stamp: The focus is on you
 seal: ring
 inset: print
 layout: split
