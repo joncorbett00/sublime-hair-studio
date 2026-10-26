@@ -14,10 +14,8 @@
 #   lastDeploy:  what the last deploy did. A record, not a setting — nothing
 #                reads it back, so a stale one is safe to delete
 
-default: github-pages
+default: uniweb.app
 targets:
-  github-pages:
-    host: github-pages
   uniweb.app:
     host: uniweb
     backend: https://uniweb.app
