@@ -8,13 +8,12 @@ theme:
     neutral: '#64748b'
     primary: '#7f848f'
     secondary: '#6b7280'
-stamp:
-  en: The focus is on you
-  fr: L’attention est sur vous
+stamp: '[object Object]'
 seal: ring
 inset: print
 layout: split
 flipped: false
+sealSize: medium
 ---
 
 #> Golden Triangle · Ottawa
