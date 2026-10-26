@@ -54,6 +54,8 @@ business:
 # reach them show nothing there.
 services:
   records: true
+  # The coming-soon page's "Notify me" sign-ups (pages/home/0-coming-soon.md).
+  submit: true
 
 build:
   prerender: true

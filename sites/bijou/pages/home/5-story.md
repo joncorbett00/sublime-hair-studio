@@ -1,4 +1,7 @@
 ---
+# Coming soon: hidden from the published site until the boutique opens.
+# Delete these three lines to bring it back.
+hidden: true
 type: SplitContent
 frame: gate
 captionLabel: Fig.

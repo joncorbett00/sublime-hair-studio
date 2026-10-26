@@ -7,3 +7,7 @@ description: >-
 # The finds shown online — this page's sections, and the [slug] page under it,
 # which gives each find its own page at /finds/<slug>.
 query: finds
+
+# Coming soon: kept out of the published site until the boutique opens.
+# Delete these lines to bring the page back.
+hidden: true

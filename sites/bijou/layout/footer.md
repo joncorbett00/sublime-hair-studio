@@ -39,11 +39,13 @@ Closed
 Closed
 ```
 
+<!-- Coming soon: restore this link column when the boutique opens.
 - The boutique
   - [Finds](/finds)
   - [Just in](/#section-just-in)
   - [Our story](/story)
   - [Visit us](/visit)
+-->
 
 [Privacy](/privacy)
 [Accessibility](/accessibility)

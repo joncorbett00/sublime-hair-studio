@@ -39,6 +39,19 @@
         "--strictPort"
       ],
       "port": 5201
+    },
+    {
+      "name": "bijou-preview",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--filter",
+        "bijou",
+        "preview",
+        "--port",
+        "5211",
+        "--strictPort"
+      ],
+      "port": 5211
     }
   ]
 }
