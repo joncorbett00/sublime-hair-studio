@@ -13,8 +13,7 @@ pages: [home, services, colour, crew, book, visit, privacy, accessibility]
 keywords: [hair studio ottawa, hair salon ottawa, elgin street hair salon, golden triangle salon, lunch hour haircut ottawa, balayage ottawa, creative colour, centretown hair, curly cuts ottawa, vivid hair colour ottawa, colour correction ottawa, pastel hair colour]
 
 seo:
-  # Also set in vite.config.js — the build reads it from there, not here.
-  baseUrl: https://sublimehair.ca
+  origin: https://sublimehair.ca
   description: >-
     Sublime Hair Studio — a warm, second-floor hair studio just off Elgin Street in Ottawa's
     Golden Triangle. Runway-trained cuts, colour, blowouts and up-dos, plus 45-minute

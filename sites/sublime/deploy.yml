@@ -10,7 +10,7 @@
 #   default:     which target is used when none is named
 #   targets:     where this site ships. Edit to change the destination, or add
 #                a target and pick it with `--target <name>`
-#   autoSave:    `lastDeploy` to keep the record below, `off` to stop writing it
+#   saveDeploys: `lastDeploy` to keep the record below, `off` to stop writing it
 #   lastDeploy:  what the last deploy did. A record, not a setting — nothing
 #                reads it back, so a stale one is safe to delete
 
@@ -19,7 +19,7 @@ targets:
   uniweb.app:
     host: uniweb
     backend: https://uniweb.app
-autoSave: lastDeploy
+saveDeploys: lastDeploy
 deploys:
   uniweb.app:
     at: 2026-10-26T13:56:51.679Z

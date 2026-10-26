@@ -1,8 +1,9 @@
 /**
  * Runs after `uniweb build`, over one prerendered site:
  *
- *   node scripts/postbuild.mjs sites/bijou
+ *   node scripts/postbuild.mjs sites/bijou /shop/
  *
+ * The second argument is the base the site was built with (default `/`).
  * (scripts/build.mjs runs it for every site.) Fixes four things the build
  * (@uniweb/build 0.58) gets wrong:
  *
@@ -29,14 +30,16 @@ const root = new URL('..', import.meta.url).pathname
 const siteDir = join(root, process.argv[2] || 'sites/bijou')
 const dist = join(siteDir, 'dist')
 const siteYml = readFileSync(join(siteDir, 'site.yml'), 'utf8')
-const base = (siteYml.match(/^\s*baseUrl:\s*(\S+)/m)?.[1] || '').replace(/\/+$/, '')
+// The site's address: its origin (seo.origin) joined to the base it was built with.
+const origin = (siteYml.match(/^\s*origin:\s*(\S+)/m)?.[1] || '').replace(/\/+$/, '')
+const base = origin && `${origin}${(process.argv[3] || '/').replace(/\/+$/, '')}`
 
 if (!existsSync(dist)) {
   console.error(`postbuild: ${dist} not found — run \`uniweb build\` first.`)
   process.exit(1)
 }
 if (!base) {
-  console.error(`postbuild: no seo.baseUrl in ${siteDir}/site.yml.`)
+  console.error(`postbuild: no seo.origin in ${siteDir}/site.yml.`)
   process.exit(1)
 }
 

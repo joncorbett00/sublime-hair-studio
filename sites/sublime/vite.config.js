@@ -7,14 +7,7 @@ import { defineSiteConfig } from '@uniweb/build/site'
 //
 // The salon site has no server half: booking is Square Appointments (see
 // pages/book/page.yml) and selling is the separate shop site.
-//
-// `seo` must be passed here: the build does not read `seo.baseUrl` from site.yml,
-// and without it there is no sitemap.xml or robots.txt. Keep in step with site.yml.
 export default defineSiteConfig({
-  seo: {
-    baseUrl: 'https://sublimehair.ca',
-    defaultImage: '/images/og-default.png',
-  },
   plugins: [homepageMetaStripper()],
 })
 

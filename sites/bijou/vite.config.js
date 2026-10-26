@@ -7,12 +7,5 @@ import { defineSiteConfig } from '@uniweb/build/site'
 //
 // The boutique has no server half: it sells in person, and every "Ask about
 // this piece" is a mailto link.
-//
-// `seo` must be passed here: the build does not read `seo.baseUrl` from site.yml,
-// and without it there is no sitemap.xml or robots.txt. Keep in step with site.yml.
 export default defineSiteConfig({
-  seo: {
-    baseUrl: 'https://sublimehair.ca/shop',
-    defaultImage: '/images/og-default.png',
-  },
 })

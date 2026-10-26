@@ -33,8 +33,8 @@ function run(cwd, args, env = {}) {
   execFileSync(uniweb, args, { cwd, stdio: 'inherit', env: { ...process.env, ...env } })
 }
 
-function postbuild(site) {
-  execFileSync('node', [join(root, 'scripts/postbuild.mjs'), site], { cwd: root, stdio: 'inherit' })
+function postbuild(site, siteBase) {
+  execFileSync('node', [join(root, 'scripts/postbuild.mjs'), site, siteBase], { cwd: root, stdio: 'inherit' })
 }
 
 run(join(root, 'foundation'), ['build'])
@@ -42,18 +42,22 @@ run(join(root, 'sites/sublime'), ['build', ...hostArgs], { UNIWEB_BASE: base })
 run(join(root, 'sites/bijou'), ['build'], { UNIWEB_BASE: `${base}${SHOP}/` })
 
 // Tidy each site's own pages before one is nested in the other.
-postbuild('sites/sublime')
-postbuild('sites/bijou')
+postbuild('sites/sublime', base)
+postbuild('sites/bijou', `${base}${SHOP}/`)
 
 const target = join(root, 'sites/sublime/dist', SHOP)
 if (existsSync(target)) rmSync(target, { recursive: true })
 cpSync(join(root, 'sites/bijou/dist'), target, { recursive: true })
 
 // Crawlers read only the robots.txt at the root, so it lists the shop's
-// sitemap too.
+// sitemap too. (The shop's build writes no robots.txt of its own: it is not at
+// a host's root.)
 const robots = join(root, 'sites/sublime/dist/robots.txt')
-const shopSitemap = readFileSync(join(target, 'robots.txt'), 'utf8').match(/^Sitemap:.*$/m)?.[0]
-if (shopSitemap && existsSync(robots) && !readFileSync(robots, 'utf8').includes(shopSitemap)) {
+const rootSitemap = existsSync(robots) && readFileSync(robots, 'utf8').match(/^Sitemap:\s*(\S+)$/m)?.[1]
+const shopSitemap = rootSitemap && existsSync(join(target, 'sitemap.xml'))
+  ? `Sitemap: ${rootSitemap.replace(/sitemap\.xml$/, `${SHOP}/sitemap.xml`)}`
+  : null
+if (shopSitemap && !readFileSync(robots, 'utf8').includes(shopSitemap)) {
   appendFileSync(robots, `${shopSitemap}\n`)
 }
 console.log(`\n✓ Bijou Boutique copied into sites/sublime/dist/${SHOP}/ — deploy sites/sublime/dist.`)

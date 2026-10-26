@@ -1,4 +1,4 @@
-<!-- uniweb-agents v1.15.2 -->
+<!-- uniweb-agents v1.21.5 -->
 # AGENTS.md
 
 ## Part 0 — Read this first
@@ -34,15 +34,18 @@ You're building a *system* of section types, not individual pages. That's what m
 | Existing project, component task (new section type, restyle) | **Part 2**, then Part 4 |
 | Porting a design from React / Next / a generated site | **Part 1**, then Part 5 → *Migrating* |
 
-### Three commands that replace guessing
+### Four commands that replace guessing
 
 ```bash
+uniweb status                # what changed in the app, in git and in Uniweb — and what to run
 uniweb inspect <path>        # print the parsed content shape of a section or page
 uniweb <command> --help      # exact flags, always current — no side effects
 uniweb doctor                # diagnose project configuration (--fix to repair)
 ```
 
-`uniweb inspect` is the important one. Every parse rule in Part 3 is faster to *confirm* than to re-derive, and re-deriving from memory is where agents go wrong. Don't predict the shape — print it.
+`uniweb inspect` is the important one for content. Every parse rule in Part 3 is faster to *confirm* than to re-derive, and re-deriving from memory is where agents go wrong. Don't predict the shape — print it.
+
+`uniweb status` is the one for a project other people edit. A site in the Uniweb app can change there at any time, teammates push to git, and Uniweb releases often. Run it when you begin, when you come back to the project, before you push, publish or deploy, and after a command refuses: it changes nothing, opens with what the site is — synced where, live where — and ends with the commands to run, in order (`--json` for a script).
 
 ### The four silent failures
 
@@ -60,12 +63,12 @@ This guide covers what you can't derive by reading code. Everything else is in t
 **Start at the index.** One address, and it's the only documentation URL worth memorizing:
 
 ```
-https://www.uniweb.io/llms.txt
+https://uniweb.io/llms.txt
 ```
 
 It lists every documentation page with a one-line description and a fetchable link. Go there whenever your question isn't answered in this file — and *especially* when you don't know whether a feature exists at all. That's where guessing does the most damage: **a 404 on a path you invented tells you your guess was wrong, not that the feature is missing.** Concluding "the framework doesn't support X" from a failed fetch is a mistake worth actively guarding against; the index answers the existence question directly.
 
-Then **follow the link the index gives you** rather than constructing one yourself. The index is the source of truth for where pages live, so it stays correct when the site's URL conventions change. (Pages also serve markdown to any client that sends `Accept: text/markdown`.)
+Then **follow the link the index gives you** rather than constructing one yourself. The index is the source of truth for where pages live, so it stays correct when the site's URL conventions change. Each link it gives is the page as Markdown.
 
 **Clone the repo instead** when you expect several lookups, or may lose network access later:
 
@@ -77,7 +80,7 @@ Same content, greppable, and one network operation instead of many. `grep -ri "q
 
 Documentation paths in this guide are given bare — `development/creating-components.md` — so they resolve three ways: as a key in the index, as a file in a clone, or at `https://raw.githubusercontent.com/uniweb/docs/main/{path}`.
 
-> **Don't confuse the two doc sites.** `www.uniweb.io/docs` is the **developer** documentation — this is the one you want. `docs.uniweb.app` is the *author-facing* app documentation, written for non-technical people using the visual editor; it won't answer framework questions.
+> **Don't confuse the two doc sites.** `uniweb.io/docs` is the **developer** documentation — this is the one you want. `docs.uniweb.app` is the *author-facing* app documentation, written for non-technical people using the visual editor; it won't answer framework questions.
 
 **The table below saves you the round trip** for the tasks that come up most:
 
@@ -132,7 +135,7 @@ my-project/
 └── pnpm-workspace.yaml
 ```
 
-A site is pure content. A foundation is the site's source code — that's why it lives in `src/`. The foundation's `package.json::name` is `src`, symmetric with `site` — a **workspace** name, how the site depends on it. What the foundation **registers as** (`@org/<name>`, the name sites pin) is `name` in its `main.js`, which `uniweb create` sets to the project's name. **`src` and `foundation` are never a foundation's name** — `uniweb register` refuses them, because every project in an org would register the same one.
+A site is pure content. A foundation is the site's source code — that's why it lives in `src/`. The foundation's `package.json::name` is `src`, symmetric with `site` — a **workspace** name, how the site depends on it. What the foundation **registers as** (`@org/<name>`, the name sites pin) is `name` in its `main.js`, which `uniweb create` sets to the project's name. **`src` and `foundation` are never a foundation's name** — `uniweb register` refuses them, because every project in an org would register the same one. **Nor is any name under `@uniweb`**: that scope is the Uniweb framework's own, and `uniweb create`, `uniweb add` and `uniweb register` refuse it.
 
 - **Foundation** (`src/`): React components. Those in `sections/` and `layouts/` are *section types* — selectable by authors via `type:`, or used for layout areas. Everything in `components/` and `utils/` is ordinary React and JS: the developer's workbench, not visible to authors.
 - **Site** (`site/`): markdown content and configuration, plus optional records of structured content and the queries that reach them or an external data source.
@@ -180,6 +183,8 @@ pnpm preview          # preview the production build
 
 Markdown, `theme.yml`, and component edits hot-reload. New section types are picked up without a restart.
 
+**The dev server says where it is — read it, never assume a port.** `uniweb dev` takes a free port and, once the server listens, prints `Serving <site> at <url>`. The usual port may be another project's server, and reviewing that page reports success on the wrong site. Run `uniweb dev` in the background when you need your shell back: `uniweb dev --status` prints the address later, a second `uniweb dev` points at the running server instead of starting another, and `uniweb dev --stop` stops it when you are done. They know the server `uniweb dev` started, not one you start with `vite` or `npm run dev` inside the site. Pass `--port <n>` only when a port is required: you get that one or an error, never another.
+
 ---
 
 ## Part 2 — Working in an existing project
@@ -187,6 +192,8 @@ Markdown, `theme.yml`, and component edits hot-reload. New section types are pic
 The rest of this guide explains how Uniweb works. This part is what to do *first* when you've been handed a project that already uses it, plus a task.
 
 ### 1. Orient — what kind of workspace is this?
+
+**Run `uniweb status` first.** It says where the site sits and what it is made of — the workspace's sites and foundations, the foundation this site is built with and which other sites a change to it reaches, pages it takes from outside its folder (another repository, sometimes), the languages it is written in — then whether it changed in the app since this copy last synced, whether git or Uniweb has something newer, and what to run about each, before you edit something someone else just changed. Run at the root of a workspace with several sites, it says what each one is. The rest of this step is how to read the same wiring by hand.
 
 **There is no single layout. Read `pnpm-workspace.yaml` first** — its `packages:` globs name the shape in one glance:
 
@@ -247,8 +254,9 @@ Each `meta.js` is a catalog entry: `description` (what the type is for), `conten
 #### `family:` — so an editor can draw your section
 
 An editor showing an author a section picker has to know what each section type
-**is**, to pick its illustration and a label it can translate. Two ways to tell
-it, in this order:
+**is**, to pick its illustration, its icon and a label it can translate. The icon
+is the family's — there is no `icon:` to declare. Two ways to tell it, in this
+order:
 
 1. **Name the component for its family.** Run `uniweb families`, and use one of
    those names when it fits — `Hero`, `Footer`, `Pricing`, `FAQ`, `CardGrid`.
@@ -286,6 +294,8 @@ The architecture exists to keep content and code separate. Your task sits in one
 
 ```bash
 uniweb dev                         # from the workspace root; it picks the site
+uniweb dev --status                # the address it is serving at — read it, never assume a port
+uniweb dev --stop                  # stop it when you are done
 ```
 
 **When you're unsure what shape your markdown produces, don't reason about it — run it.** From the *site* directory (paths resolve against your shell's working directory):
@@ -520,7 +530,7 @@ Image syntax with a library prefix — **two interchangeable spellings, the same
 ![](lu-house)         dash — short codes only, to stay unambiguous with ordinary paths
 ```
 
-Short codes: `lu` (Lucide), `hi` / `hi2` (Heroicons v1 / v2), `fi` (Feather), `pi` (Phosphor), `tb` (Tabler), `bs` (Bootstrap), `md` (Material), `ai` (Ant Design), `ri` (Remix), `si` (Simple Icons), `io5` (Ionicons), `bi` (Boxicons), `vsc` (VS Code), `wi` (Weather), `gi` (Game), `fa` / `fa6` (Font Awesome 5 / 6). Browse at [react-icons.github.io/react-icons](https://react-icons.github.io/react-icons/).
+Short codes: `lu` (Lucide), `hi` / `hi2` (Heroicons v1 / v2), `fi` (Feather), `pi` (Phosphor), `tb` (Tabler), `bs` (Bootstrap), `md` (Material), `ai` (Ant Design), `ri` (Remix), `si` (Simple Icons), `io5` (Ionicons), `bi` (Boxicons), `vsc` (VS Code), `wi` (Weather), `gi` (Game), `fa` / `fa6` (Font Awesome 5 / 6). Browse at [react-icons.github.io/react-icons](https://react-icons.github.io/react-icons/): an icon's name is its component name without the prefix, in kebab case (`LuBuilding2` → `lu-building2`, `LuGrid2X2` → `lu-grid2-x2`). For Lucide, Heroicons and Feather the family's own spelling works too (`lu-building-2` and `lu-grid-2x2`, as lucide.dev writes them). An icon the build cannot fetch is named in its prerender warning.
 
 Optional attributes: `{size=20}`, `{color=red}`. Custom SVGs: `![Logo](./logo.svg){role=icon}` (or `![Logo](icon:./logo.svg)`) — always available, no library needed.
 
@@ -590,7 +600,7 @@ submitLabel: Send
 ```
 ````
 
-→ `content.data?.form` = `{ fields: [...], submitLabel: "Send" }`, when the component declares `data: { form: … }`. A block under a key the component does not declare stays out of `content.data` (the dev console says so) and is still in `content.sequence`.
+→ `content.data?.form` = `{ fields: [...], submitLabel: "Send" }`, when the component declares `data: { form: … }`. A block under a key the component does not declare stays out of `content.data` (the dev console says so) and is still in `content.sequence`. A block inside an item is that item's (`content.items[n].data`) and needs no declaration.
 
 **Code snippets** — display content with a language for syntax highlighting, collected in `content.snippets` as `[{ language, code }]`. Filter with `content.snippets.filter(s => s.language === 'css')`.
 
@@ -656,6 +666,9 @@ background: primary-900                                  # Palette token (bare n
 background:                                              # Object form for more control
   image: { src: /img.jpg, position: center top }
   overlay: { enabled: true, type: dark, opacity: 0.5 }
+
+background:
+  video: { src: /videos/hero.mp4, poster: /images/hero.jpg }   # the poster shows until the video plays
 ```
 
 Components that render their own background declare `background: 'self'` in `meta.js`, and the runtime then draws none; to draw the author's background themselves they render kit's `<SectionBackground block={block} />`.
@@ -717,20 +730,23 @@ end the list with `...`.**
 
 **A local folder for a mounted route should use `folder.yml`, not `page.yml`.** The filename is how you say what the folder holds — `page.yml` for a page built from sections, `folder.yml` for a folder of pages — and for a mount that answer also decides how the mounted tree is read. A `page.yml` stub over a mounted folder of pages says "sections", and top-level markdown in the mounted repo collapses into one page instead of becoming pages of its own. Keep `layout:`, `title:` and SEO in that stub; the mounted repo's own `folder.yml` supplies its ordering and title where the stub is silent.
 
-**SEO & social cards:** set site-wide defaults in `site.yml`; any page overrides per-field in `page.yml` (page wins, site fills gaps). These render into every page's static `<head>` — Open Graph, Twitter Card, canonical, robots — so shares and crawlers see them without running JS. The social `image` is the field most worth setting once at site level.
+**SEO & social cards:** set site-wide defaults in `site.yml`; any page overrides per-field in `page.yml` (page wins, site fills gaps). Each page's static `<head>` carries its own tags — Open Graph, Twitter Card, canonical, robots, and hreflang on a multilingual site — so shares and crawlers see them without running JS. The social `image` is the field most worth setting once at site level; the site's `description` is the home page's alone. These tags are the framework's: a `head.html` tag of the same name is replaced.
 
 ```yaml
 # site.yml
 keywords: [components, react, cms]
 seo:
+  origin: https://acme.com          # where the site is served from — only where no host states it
   image: /og-default.png
   noindex: false                    # true keeps the WHOLE site out of search
 
 # page.yml
 seo:
   image: /og-about.png
-  canonical: https://acme.com/about
+  canonical: https://acme.com/team  # only to name ANOTHER URL — a page is its own canonical by default
 ```
+
+**Where the site lives — every absolute URL is made on it:** a page's canonical and `og:url`, its social image, its sitemap entry, the links in `llms.txt`. It is the site's origin plus its base path, and whoever serves the site states it: the GitHub Pages workflow `uniweb add ci --host=github-pages` writes asks GitHub; Netlify and Vercel state their production URL during the build; on any other static host, set `seo.origin` — a scheme and a host, `https://acme.com`, never with a path (a path is the site's `base:`; `seo.origin: https://user.github.io/repo` is refused). `seo.baseUrl` is retired, and refused. With no address, pages state no canonical, no `sitemap.xml` is written, and `llms.txt` links are root-relative — `uniweb doctor` says when that is so, and how to fix it for your host.
 
 **Localized URLs:** on a multilingual site (`languages:` in site.yml), `slug: { <lang>: <segment> }` gives a page a native URL segment per language; the folder name stays the canonical route. Nested folders compose automatically, and localized URLs flow through navigation, the language switcher, and the sitemap. See Part 5 for the translation workflow.
 
@@ -791,6 +807,8 @@ The point is the pair. An agent fetches the index, *reads* what each page is abo
 
 **Large sites also get per-branch indexes.** A branch with at least 5 pages gets its own — `/docs/llms.txt` lists just the docs, titled by that folder. The site index still lists everything; a branch index is an extra entry point, not a replacement, so an agent that starts at `/llms.txt` still reaches any page in two hops.
 
+**Each language gets its own.** A site in several languages has `/fr/llms.txt` beside `/llms.txt`, listing the French pages, record pages included, and linking each at its French address (`/fr/a-propos.md`). Its search index is per language the same way (`/fr/search-index.json`).
+
 ```yaml
 # site.yml — all optional; these are the defaults
 agents:
@@ -822,7 +840,7 @@ agents:
 | not declared | no check at all — nothing happens unless you ask for it |
 | your own site's origin | always fine, without listing it — declaring a partner must not take down your own chat box |
 | a request with **no** `Origin` | **allowed** — see below, this is deliberate |
-| matching | exact, per entry; no wildcards |
+| matching | by origin: `https://app.example.com/` is `https://app.example.com`, and a path is ignored; no wildcards. An entry that is not an `http(s)` URL matches nothing |
 
 ⛔ **It is not a spend limit, and it cannot be.** `Origin` is set by the browser and enforced by the browser: anything that is not a browser sends whatever it likes, or nothing at all. So this stops **casual misuse and third-party embedding** — someone dropping your endpoint into their own page — and it does **not** stop anyone determined to run up your bill. Do not size your budget on it.
 
@@ -835,7 +853,7 @@ Server-to-server callers are authenticated by other means, arranged with your ho
 
 ⚠️ Spelling matters and nothing downstream will catch it — the block is forwarded to your host as opaque data, so a typo is carried and simply never acted on. `uniweb doctor` flags unknown keys in `agents:` for exactly this reason; run it before you rely on one.
 
-**Set `seo.baseUrl` if you want absolute links** in the index — without it the links are root-relative, which still works for an agent that arrived via the index. `uniweb doctor` warns when it's unset.
+**The index links absolutely on the site's address** (see *Where the site lives*) — without one the links are root-relative, which still works for an agent that arrived via the index. Each record of a parametric page is listed as a page, with a `.md` of its own.
 
 **What's excluded, and it's deliberate:** `seo.noindex` pages, `hidden` pages, `_`-prefixed drafts, and a parametric page's URL pattern (`/blog/:slug`). An index *describes* pages rather than merely listing them, so an unlinked page would become both discoverable and summarized — which is why these exclusions are load-bearing rather than tidy-up. `noindex` or `hidden` on a **folder** takes the whole branch with it.
 
@@ -1174,7 +1192,7 @@ Header.className = 'p-0'
 Header.as = 'header'
 ```
 
-**A header that stays in view is a setting, not a class.** `sticky top-0` on your component's markup does nothing: a sticky element moves only within its parent, and the section's wrapper and the area's are as tall as your header. Declare `sticky: true` in the type's `meta.js` — an author turns it off with `sticky: false` — and the runtime makes sticky the box that can stay in view. A section in the body sticks the same way and stays below the stuck header by itself: the runtime measures how far the header reaches and publishes it as `--uw-sticky-top` (a type's `top` overrides it). A link to a section lands below the stuck header too. A child section in kit's `<ChildGrid>` stays in view beside the column it sits next to, and on a phone, at one column, scrolls with the page. A sticky section inside a box with `overflow: hidden` cannot stick — clip with `overflow: clip`. A layout of your own that wraps an area in an element makes that element sticky when `page.isSticky('header')`. `uniweb dev` names a sticky element that cannot move in the console.
+**A header that stays in view is a setting, not a class.** `sticky top-0` on your component's outermost element does nothing: a sticky element moves only within its parent, and the section's wrapper and the area's are as tall as your header. (An element inside your component is different: a form beside a long list sticks within the row the two share, a box you draw.) Declare `sticky: true` in the type's `meta.js` — an author turns it off with `sticky: false` — and the runtime makes sticky the box that can stay in view. A section in the body sticks the same way and stays below the stuck header by itself: the runtime measures how far the header reaches and publishes it as `--uw-sticky-top` (a type's `top` overrides it). A link to a section lands below the stuck header too. A child section in kit's `<ChildGrid>` stays in view beside the column it sits next to, and on a phone, at one column, scrolls with the page. A sticky section inside a box with `overflow: hidden` cannot stick — clip with `overflow: clip`. A layout of your own that wraps an area in an element makes that element sticky when `page.isSticky('header')`. `uniweb dev` names a sticky element that cannot move in the console, once the page's data is in, and says which box holds it.
 
 ### meta.js
 
@@ -1183,7 +1201,7 @@ export default {
   title: 'Feature Grid',
   description: 'Grid of feature cards with icons',
   family: 'features',       // the standard section type it is — the editor's
-                            // illustration and label (`uniweb families`). Optional;
+                            // illustration, icon and label (`uniweb families`). Optional;
                             // a name like `Features` resolves on its own
   // hidden: true,          // Exclude from export entirely (internal helpers)
   // background: 'self',    // Component renders its own background
@@ -1497,6 +1515,8 @@ vars:
 ```
 
 Each color generates 11 OKLCH shades (50–950); shade 500 is your exact input. `neutral` takes a named preset rather than hex. Context override keys match token names: `section:` not `bg:`, `primary:` not `btn-primary-bg:`.
+
+**Quote a color, and any value with one inside it — here, in `site.yml`, in a section's frontmatter.** In YAML a `#` after a space starts a comment: `primary: #3b82f6` leaves `primary` empty, and `gradient: linear-gradient(165deg, #0c1226 0%, #05060f 100%)` keeps only `linear-gradient(165deg,`, which the browser drops. The YAML is valid, so nothing fails — the color is just not there. The build warns when it can tell (*is cut short*, *is empty*) and gives the quoted value to write.
 
 **How colors reach components:** your hex → 11 shades → semantic tokens → components. In light/medium, `--primary` uses shade 600, `--link` 600, `--ring` 500; in dark, `--primary` uses 500 and `--link` 400.
 
@@ -1867,7 +1887,7 @@ const page = website.activePage
 | `block.themeName` | `"light"`, `"medium"`, `"dark"` |
 | `block.stableId` / `block.key` | Stable ID from filename or `id:` / unique key across pages — use as React key |
 | `block.path` | Page route this block belongs to |
-| `block.dataLoading` | True while declared data is still resolving |
+| `block.dataLoading` | True while declared data is still resolving — also on a pre-rendered page, for data the browser fetches, so the loading state is what that page first shows |
 | `block.dataError` | `{ <key>: message }` when the fetch filling a declared key FAILED, else `null`. A failed key is `null` in `content.data` — never `[]`, which means "no records" |
 
 ```jsx
@@ -1880,6 +1900,7 @@ website.getPageHierarchy({ nested: false })      // = website.getAllPages()
 
 website.name, website.basePath
 website.hasMultipleLocales(), website.getLocales(), website.getActiveLocale(), website.getLocaleUrl('es')
+website.switchLocale('es')   // a language switch from code (a <select>, a button)
 
 page.title, page.label, page.route, page.description
 page.isHidden(), page.showInHeader(), page.showInFooter()
@@ -1951,7 +1972,7 @@ fetch:
 
 **Lean lists.** A list carries each record's brief, so heavy parts belong in a section of their own — `@std/article`'s body is `body` — and never ride a list. A section that shows them declares its key `whole: true`; elsewhere components fetch the whole record on demand with `useWholeRecord(record, { query })`, which returns it as stored — `full.body.content`. Every file-based record gets its own file, `/data/<name>/<name of the record>.json`. An external query's whole record comes from its `record:` request, below. (`deferred:` is removed — the build stops on it.) The hook is safe to call on any query: when the query has no separate source for one record it returns the record you passed in.
 
-**Component-side fetching.** When a component genuinely needs to fetch on its own (a search box, "load more", a lazy popover), use the kit hooks — `useFetched`, `useCacheEntry`, `useWholeRecord`. They share the framework's cache and dispatcher with declarative fetches; same-key requests dedupe automatically.
+**Component-side fetching.** When a component genuinely needs to fetch on its own (a search box, "load more", a lazy popover), use the kit hooks — `useFetched`, `useCacheEntry`, `useWholeRecord`. They share the framework's cache and dispatcher with declarative fetches; same-key requests dedupe automatically. On a pre-rendered page a hook's first render finds only what that page's own data holds — a declared key's answer, or its page's or the site's `fetch:`. Anything else is pre-rendered as the hook's loading state and fetched by the browser after it loads, so declare a key (`data:` in `meta.js`) for whatever a page must show without JavaScript.
 
 **Validate before shipping.** `uniweb validate` checks file-based data against your declared schemas — missing required fields, type/enum/format mismatches, nested fields. A violation fails it (`--lax` only reports); it checks every record file in `records/`, and `push` / `publish` refuse the same findings before sending anything. Distinct from `uniweb doctor` (project structure): `validate` checks your *data* against the schemas you *declared*. External queries (`url:`) are reported as deferred — their data isn't in the project; the value of a `ref`/`options` field is not checked against the entity it names.
 
@@ -2631,6 +2652,18 @@ read that way comes back with `via: 'rbac'`. It is one step, and a backend refus
 to a field entries already fill. `grantable: false` keeps entries from being shared with a
 person or a team; omitted, they can be.
 
+A reference can also carry a purchase. `sold_with: true` — a boolean, and only on a reference
+or a list of them — means a buyer of the entry reads what the field names, through it, and onward
+along those entries' own `sold_with` fields, up to three steps:
+
+```yaml
+# foundation/schemas/course.yml
+fields:
+  lessons: { ref: '@/lesson', many: true, sold_with: true }   # a buyer of the course reads its lessons
+```
+
+An unmarked reference carries nothing, and `false` is the same as leaving it out.
+
 ### Acting as an administrator
 
 On a site, an administrator's session reads what their role reaches — the operator reads
@@ -2780,7 +2813,8 @@ them, and any other in full; it matches a name exactly. State is in memory; rest
 ## Part 5 — Commands, shipping, and migration
 
 ```bash
-uniweb dev                        # Start dev server (picks the site for you)
+uniweb dev                        # Start dev server (picks the site for you; prints its address)
+uniweb dev --status / --stop      # The running dev server's address / stop it
 pnpm build / pnpm preview         # Build for production / preview the build (SSG + SPA)
 
 uniweb deploy                     # Wizard: pick a destination, then deploy (or set up CI)
@@ -2792,7 +2826,8 @@ uniweb publish                    # Ship to Uniweb hosting, foundation included 
 uniweb add ci --target foundation # Publish a foundation for free at permanent versioned URLs
                                   # (GitHub Pages → foundations/<name>/<version>/entry.js)
 
-uniweb push / pull / clone / status   # Git-style content sync with the Uniweb backend
+uniweb status                         # What changed in the app, in git and in Uniweb — and what to run
+uniweb push / pull / clone            # Git-style content sync with the Uniweb backend
 uniweb refresh / sync                 # Catch up (git + backend, never pushes) / catch up, then push
 uniweb login --org @acme              # The workspace you work in — new sites are created there (see below)
 uniweb register [--scope @scope]      # Register a foundation + its data schemas to the registry
@@ -2804,7 +2839,7 @@ uniweb rename <foundation|site|extension> <old> <new>   # Rename across the whol
 uniweb i18n extract / init / sync / status / audit      # Translation workflow (build first)
 uniweb i18n init-freeform / update-hash / move / rename / prune --freeform
 
-uniweb -v                         # Installed CLI version — and whether a newer one exists
+uniweb -v                         # CLI version — only a global install also says whether a newer one exists
 uniweb doctor                     # Diagnose project configuration (--fix to auto-repair)
 uniweb validate                   # Check file-based data against declared schemas (fails on a violation; --lax)
 npx uniweb@latest update          # Align @uniweb/* deps + AGENTS.md (--dry-run, --yes)
@@ -2832,6 +2867,14 @@ uniweb <command> --help           # Per-command flags — no side effects. Prefe
 
 Foundations have their own free path too: `uniweb add ci --target foundation` publishes to permanent versioned URLs on GitHub Pages.
 
+**Three facts about a site, and they are independent — `uniweb status` opens with all three:**
+
+- **Synced** — the project has a site on a backend, so authors can edit it in the Uniweb app. `sync.json` names it on each backend: `https://uniweb.app` by default, or a server of your own (`uniweb login --server <url>`).
+- **Published** — that backend serves it live: Uniweb Cloud, on `https://uniweb.app`. A published site is a synced site; a synced site need not be published — it can sit in the app as a draft.
+- **Deployed** — a build of it is on another host, such as GitHub Pages or S3: by CI on every push (`uniweb add ci`), or by hand (`uniweb deploy`). `deploy.yml` lists those hosts, and a bare `uniweb deploy` goes to its default target.
+
+A site can be in more than one place — usually while it moves from one host to another. Before you ship, read where it is: `publish` makes a change live on Uniweb Cloud, `git push` on a CI-deployed host, and `uniweb deploy --target <name>` on one deployed by hand — and each of these is the person's to decide. `uniweb status` also lists the services the live site has (`services:` in `site.yml` is the request, never proof of what the site has).
+
 ### Uniweb Cloud and the two-sided workflow
 
 `uniweb publish` ships to Uniweb Cloud, and it's worth understanding what that buys, because it isn't only hosting — it's how a team of technical and non-technical people works on one site.
@@ -2839,11 +2882,12 @@ Foundations have their own free path too: `uniweb add ci --target foundation` pu
 **Content authors work visually in the Uniweb App.** They compose the same extended markdown and set the same component params you defined, through a visual editor — never touching code, git, or the CLI. They see exactly the section types your foundation offers and exactly the knobs each one exposes, because **every `meta.js` is registered as the foundation's schema** when you publish. Your `meta.js` is the app's UI (see *meta.js* in Part 4).
 
 > ⚠️ **Every push, pull and publish works in ONE workspace — the one chosen at `uniweb login`.**
-> A workspace is your personal one or an organization's. A site a push or publish **creates** is
+> A workspace is your personal one, an organization's, or a sub-organization's or project's in one
+> (`@studio:acme`). A site a push or publish **creates** is
 > created — owned, and its storage billed — there, and there is no CLI command to move it
 > afterwards. A site the backend keeps in **another** workspace stops the command, which says how
-> to switch. With no organization, the login works in your personal workspace; with
-> organizations, the login asks, or you name it:
+> to switch. With no organization or project, the login works in your personal workspace;
+> otherwise the login asks, or you name it:
 >
 > ```bash
 > uniweb login --org @acme      # work in an organization
@@ -2853,7 +2897,7 @@ Foundations have their own free path too: `uniweb add ci --target foundation` pu
 >
 > Already logged in, `uniweb login --org @other` (or `--personal`) switches the workspace on the
 > backend you are logged in to, without logging in again. **Without a
-> terminal — you, an agent — a login with organizations and no workspace named signs you in but
+> terminal — you, an agent — a login with organizations or projects and no workspace named signs you in but
 > exits 2**: `uniweb login --org @acme` (or `--personal`) finishes it without signing in again.
 > Until then every command that works on a site refuses, and so does registering a foundation whose
 > name has no scope. A process logged in with `UNIWEB_TOKEN` names its workspace with
@@ -2868,6 +2912,8 @@ Foundations have their own free path too: `uniweb add ci --target foundation` pu
 - **The app is the live source of truth for content** — where authors work and where your push lands live.
 - **Git is the reviewed, durable record** — you `pull` content back, read it with `git diff`, and commit.
 - **Authors never push or pull.** For them, content simply updates, whether the change came from another author or from a developer's CLI.
+
+**Working on a site others edit — run `uniweb status` when you begin, when you come back to it, before you push, publish or deploy, and after any refusal.** It reads the backend without taking anything: what changed there since this copy last synced, file by file — as `uniweb pull` would write it, translations and records included; what you hold that it lacks; where the site is live, and what services it has; who has it open in the app right now, and on which file; and what else in the project is not committed — an update, the foundation's source — which a push neither sends nor waits for, though your team builds what git holds and a push or publish releases a changed foundation from the files. Then it lists the commands to run, in an order that works from the top — `uniweb pull` before the push it would otherwise refuse. Three habits go with it: take what changed (`pull`, or `refresh`) before you edit; never `--force` past a refusal; and when someone has a page open in the app, tell the person before you change that page. A step marked *ask the person first* — a commit, sharing commits, going live, which may cost money — is theirs to decide.
 
 **Nobody's work is overwritten without asking.** `uniweb push` is refused if the site changed on the backend since your last pull — usually an author editing in the app — and reports what changed; nothing is written. Edits to different sections never collide. **In a git repository `uniweb pull` merges, like `git pull`:** it commits the backend's content (*"The site's content on …"*) and merges that commit into your branch, against the last state of the site your history shares with the backend. Your work, committed or not, and a teammate's arriving through git are kept; a file the backend never had is never deleted; changes to different parts of a file combine silently; and only a genuine overlap leaves conflict markers and a non-zero exit — so `uniweb pull && uniweb push` never ships markers. Settle a conflict as in any merge, then `git commit`; where your uncommitted changes overlap what the pull brought, the markers are theirs — settle them and `git add` each file, then `git stash drop` (git keeps them in the stash too). A push or publish is refused while a file under the site is in conflict. **In a git repository a push sends what you have committed:** with the site's content not committed it is refused before anything is sent, naming the files — commit them, or run `uniweb push --commit -m "…"` (it commits the site's content only, and leaves anything else staged as it is); `publish` and `sync` take `--commit` too. That commit is where the next pull merges from, which is how the pull tells your changes from the backend's. What the push writes back into the files — the ids the backend assigned — it commits itself, as `uniweb`. When the backend has nothing new, a pull says so and lists the files where yours hold changes it lacks. `uniweb refresh` runs `git pull` first, then the same pull. A push is also refused when your branch does not hold what this copy last took from the backend — after `git merge --abort`, or in a fresh clone that has not pulled — so pull, then push. Outside git — which includes a folder the repository around it ignores, such as a scratch directory — `uniweb pull` takes the backend's version over your files, asking first. `--force` is the deliberate overwrite (on `push` it replaces the backend's changes, on `pull` it discards yours); don't use it to get past a refusal. `uniweb sync` is `refresh` then `push`; neither publishes.
 
@@ -2915,11 +2961,14 @@ Either side can publish. Nothing about this changes how you build: the same foun
 ### Staying current
 
 ```bash
-uniweb -v                  # installed CLI version, and whether a newer one is available
+uniweb status              # among its checks: whether a newer Uniweb is out than this project runs
+uniweb -v                  # CLI version — only a global install also says whether a newer one exists
 uniweb doctor              # report drift in this project, changing nothing
 npx uniweb@latest update --dry-run   # preview exactly what update would change
 npx uniweb@latest update             # apply: align @uniweb/* deps AND refresh AGENTS.md
 ```
+
+When `status` names a newer release, take it: `npx uniweb@latest update`, then build, look at the pages, and commit what the update changed — `status` lists those files until you do. Releases rarely ask anything of a project.
 
 **`npx uniweb@latest update` is the command for bringing a project up to date.** It aligns the project's `@uniweb/*` dependencies *and* this AGENTS.md to the version matrix of the CLI that runs it. Deps and documentation move together — that's the whole point of the verb.
 
@@ -3036,6 +3085,8 @@ function LanguageSwitcher() {
 ```
 
 > **Use `<Link reload>` — not a plain `<a>`, and not `window.location.href`.** `getLocaleUrl()` returns a root-relative path that does **not** include the deployment base path, so under a subdirectory deploy (`base: /docs/` in `site.yml`) a raw href sends the visitor outside the site. `<Link reload>` prepends `website.basePath` and forces the full page load a locale switch requires — an SPA `<Link>` won't do, because the other language is a different build.
+>
+> **A `<select>` or a button calls `website.switchLocale(code)`**, never `window.location.href = …`. It makes the same page load, base path included, and inside a host that switches languages itself, such as an editor's preview, where a page load would leave the preview, it hands the switch to the host. A click on a `<Link reload>` to another language is handed over the same way.
 
 Full model: `development/internationalization.md`. Author's view: `authoring/translating.md`.
 
@@ -3083,7 +3134,7 @@ Most Uniweb failures are **silent** — the build succeeds and the page is wrong
 
 **A var in frontmatter does nothing** — component vars only apply when declared in that section type's `meta.js` `vars:`. Unknown names are ignored silently.
 
-**A sticky header scrolls away** — it is `sticky top-0` on the component's own markup, which has no room to move. Make the section sticky instead: `sticky: true` in its type's `meta.js`. A sticky section that still scrolls away sits in a box with `overflow: hidden` — clip with `overflow: clip`. `uniweb dev` names the element in the console.
+**A sticky header scrolls away** — it is `sticky top-0` on the component's outermost element, which has no room to move. Make the section sticky instead: `sticky: true` in its type's `meta.js`. A sticky section that still scrolls away sits in a box with `overflow: hidden` — clip with `overflow: clip`. `uniweb dev` names the element in the console.
 
 Loud failures:
 
@@ -3105,7 +3156,7 @@ Loud failures:
 
 ## Documentation index
 
-**Index of every page: https://www.uniweb.io/llms.txt** — start there when you don't know which page you need.
+**Index of every page: https://uniweb.io/llms.txt** — start there when you don't know which page you need.
 
 Source repo (public, cloneable): **https://github.com/uniweb/docs** · any page as raw markdown at `https://raw.githubusercontent.com/uniweb/docs/main/{section}/{page}.md`. See *Documentation* in Part 0 for when to fetch versus clone.
 

@@ -9,12 +9,11 @@ pages: [home, finds, story, visit, ...]
 keywords: [vintage clothing ottawa, designer consignment ottawa, curated clothing boutique ottawa, vintage boutique centretown, pre-loved designer clothing ottawa, boutique golden triangle ottawa, centretown clothing boutique]
 
 seo:
-  # Also set in vite.config.js — the build reads it from there, not here.
   # For now the boutique is served under /shop/ on Sublime Hair Studio's
-  # domain (see scripts/build.mjs at the workspace root). When it moves to
-  # its own domain, change every sublimehair.ca/shop address in this file
-  # and vite.config.js to it.
-  baseUrl: https://sublimehair.ca/shop
+  # domain: the origin is Sublime's, and scripts/build.mjs supplies the /shop/
+  # base. When it moves to its own domain, set the origin to it and change
+  # every sublimehair.ca/shop address in this file.
+  origin: https://sublimehair.ca
   description: >-
     Bijou Boutique — curated apparel in Ottawa's Golden Triangle: vintage, designer and
     everyday clothing, hand-picked one piece at a time. Coats, suits, dresses, knitwear and
