@@ -6,10 +6,10 @@
 # The logo is the round badge (public/images/bijou-logo.png).
 
 colors:
-  primary: '#1C6B4F'      # jewel green — buttons, the film-strip edge, colour-block sections
-  secondary: '#6F7A72'    # a green-grey neutral, for anything the kit calls secondary
-  accent: '#1C6B4F'       # the same green: there is one colour, not two
-  neutral: '#7A7F72'      # green-grey — every surface and text colour is cut from it
+  primary: '#ff0000'      # jewel green — buttons, the film-strip edge, colour-block sections
+  secondary: '#8C7B6B'    # a green-grey neutral, for anything the kit calls secondary
+  accent: '#00ff43'       # the same green: there is one colour, not two
+  neutral: '#8C7B6B'      # green-grey — every surface and text colour is cut from it
 
 # Every surface and every text colour below is cut from the neutral palette
 # (`colors.neutral`), through the house vars in foundation/main.js — paper,
@@ -17,29 +17,25 @@ colors:
 contexts:
   light:
     section: var(--paper)     # ivory paper
-    card: 'color-mix(in oklch, white, var(--neutral-50) 50%)'
+    card: 'color-mix(in oklch, white, var(--neutral-50) 25%)'
     border: var(--sand-muted)
     heading: var(--ink)
-    body: 'color-mix(in oklch, var(--neutral-700), var(--neutral-800) 75%)'
+    body: 'neutral-800'
     subtle: 'color-mix(in oklch, var(--neutral-600), var(--neutral-700) 25%)'
-    primary: primary-500  # the exact green on buttons (7:1 on paper)
-    primary-hover: primary-600
   medium:
     section: 'color-mix(in oklch, var(--neutral-100), var(--neutral-200) 25%)'   # sand
     card: var(--paper)
     border: 'color-mix(in oklch, var(--neutral-200), var(--neutral-300) 50%)'
     heading: var(--ink)
-    body: 'color-mix(in oklch, var(--neutral-700), var(--neutral-800) 75%)'
-    subtle: 'color-mix(in oklch, var(--neutral-600), var(--neutral-700) 25%)'
-    primary: primary-500
-    primary-hover: primary-600
+    body: 'neutral-800'
+    subtle: 'var(--sand-subtle)'
   dark:
     section: var(--ink)       # ink
-    card: neutral-900
-    border: 'color-mix(in oklch, var(--neutral-700), var(--neutral-800) 75%)'
+    card: var(--ink-card)
+    border: 'var(--ink-border)'
     heading: var(--paper)
-    body: neutral-200
-    subtle: neutral-400
+    body: var(--ink-body)
+    subtle: var(--ink-subtle)
     primary: primary-500
     primary-hover: primary-400
 
@@ -56,7 +52,13 @@ fonts:
   heading: "'Archivo', ui-sans-serif, system-ui, sans-serif"
   body: "'Archivo', ui-sans-serif, system-ui, sans-serif"
   import:
-    - url: "https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@1,6..96,500&display=swap"
+    - url: https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap
+  logo: '''Black Mango'', ui-serif, Georgia, serif'
+  faces:
+    - src: /fonts/BlackMango-Regular.woff2
+      family: Black Mango
+      weight: '400'
+  display: '''Archivo'', ui-sans-serif, system-ui, sans-serif'
 
 # `[words]{accent}` in a heading: italic in the green with a squiggle under it
 # (styles.css). Brighter green on ink, champagne on the green.
@@ -88,3 +90,4 @@ vars:
   on-brand-accent: '#E6CD93'
   on-brand-ring: '#E6CD93'
   seal-letter: '#E6CD93'
+  display-stretch: 87.5%
