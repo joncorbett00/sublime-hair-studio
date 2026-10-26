@@ -12,6 +12,11 @@
           "id": "8289fcabb554bd6bacfa6f7d94460dd965d07fd170294fdeae9e170d7bb1d3a1",
           "ext": "png",
           "served": "sha256:676e6451ef7f1da4"
+        },
+        "/images/bijou-poodle.png": {
+          "id": "40a50d33e9eb3b2d22072989a883d33231cb3abbdeecb8e7c590d387add6897e",
+          "ext": "png",
+          "served": "sha256:de11eb13b85393b4"
         }
       },
       "folders": {
