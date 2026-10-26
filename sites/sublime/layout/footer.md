@@ -1,6 +1,9 @@
 ---
 type: Footer
-theme: dark
+theme:
+  mode: dark
+  colors:
+    primary: '#c5c5c5'
 edge: selvedge
 signature: false
 signoff:
@@ -11,11 +14,17 @@ credit:
   fr: Conçu par Proximify Studios
 creditHref: https://uniweb.studio
 logo: /images/sublime-logo-paper.png
-# The anniversary medallion in the bottom-left corner of every page. Remove
-# these three lines when the celebration is over.
-badge: { en: 20 Years, fr: 20 ans }
-badgeTop: { en: Celebrating, fr: On célèbre }
-badgeBottom: { en: Anniversary, fr: Anniversaire }
+badge:
+  en: 20 Years
+  fr: 20 ans
+badgeTop:
+  en: Celebrating
+  fr: On célèbre
+badgeBottom:
+  en: Anniversary
+  fr: Anniversaire
+badgeSize: large
+badgeCloseLabel: Hide
 ---
 
 # Sublime Hair Studio
