@@ -64,6 +64,7 @@
         "pages/finds/faq.md": "01a15a12-32be-7b91-a2e7-822fecc645d0",
         "pages/finds/finds.md": "01a15a12-32be-7b91-a2e7-8212f1e929b2",
         "pages/finds/page.yml": "01a15a12-32be-7b91-a2e7-8208f3cb772e",
+        "pages/home/coming-soon.md": "01a1787a-02ca-76b3-a638-c5d0abe61617",
         "pages/home/cta.md": "01a15a12-32be-7b91-a2e7-81faaf5bcd9d",
         "pages/home/finds.md": "01a15a12-32be-7b91-a2e7-81c267ec4b48",
         "pages/home/hero.md": "01a15a12-32be-7b91-a2e7-81a6f3ec91e2",
@@ -104,7 +105,8 @@
         "01a1598d-93c8-7ca1-a782-7f9c50d8f1dd": "01a15a12-3363-71d0-9bbd-06f735d53a69"
       },
       "services": {
-        "records": "01a15b3a-3e1c-77f0-a58a-64027c334dce"
+        "records": "01a15b3a-3e1c-77f0-a58a-64027c334dce",
+        "submit": "01a1787a-02ca-76b3-a638-c5fe66535817"
       },
       "site": {
         "uuid": "01a15a12-2e65-7032-8465-d9f3039ce957",
