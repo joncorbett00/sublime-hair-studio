@@ -5,8 +5,7 @@ edge: selvedge
 signature: false
 signoff: vintage, designer & everyday
 logo: /images/bijou-poodle-light.png
-credit: Created by Proximify Studios
-creditHref: https://proximify.ca
+credit: Created by Uniweb Studio
 ---
 
 # Bijou Boutique

@@ -53,11 +53,6 @@ fonts:
   body: "'Archivo', ui-sans-serif, system-ui, sans-serif"
   import:
     - url: https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap
-  logo: '''Black Mango'', ui-serif, Georgia, serif'
-  faces:
-    - src: /fonts/BlackMango-Regular.woff2
-      family: Black Mango
-      weight: '400'
   display: '''Archivo'', ui-sans-serif, system-ui, sans-serif'
 
 # `[words]{accent}` in a heading: italic in the green with a squiggle under it

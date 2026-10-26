@@ -9,6 +9,8 @@ import { entries } from '#utils/entries.js'
 import { oneLine } from '#utils/text.js'
 import { isClosed } from '#utils/locale.js'
 
+const CREDIT_HREF = 'https://uniweb.studio'
+
 /**
  * Footer, on ink. Blurb, socials, opening hours and the link columns across
  * the top; along the bottom the wordmark set as wide as the page, the way a
@@ -26,7 +28,7 @@ function Footer({ content, params }) {
   const social = filterSocialLinks(links)
   const plain = links.filter((l) => !social.includes(l))
   const hours = entries(data?.hours)
-  const { credit = '', creditHref = '', signoff = '', edge = 'selvedge', wordmark = '', logo = '', tone = 'ink', signature = true, hoursLabel = 'Hours', badge = '', badgeTop = '', badgeBottom = '', badgeSize = 'medium', badgeCloseLabel = 'Hide' } = params
+  const { credit = '', signoff = '', edge = 'selvedge', wordmark = '', logo = '', tone = 'ink', signature = true, hoursLabel = 'Hours', badge = '', badgeTop = '', badgeBottom = '', badgeSize = 'medium', badgeCloseLabel = 'Hide' } = params
   const mark = wordmarkParts(website.name, { wordmark })
 
   /* Each link column is a labelled group of links: in a ```md:columns block, a
@@ -107,11 +109,10 @@ function Footer({ content, params }) {
                 {l.label}
               </Link>
             ))}
-            {credit && (creditHref ? (
-              <Link href={creditHref} className="caps text-[0.5625rem] text-subtle transition-colors hover:text-heading">{credit}</Link>
-            ) : (
-              <span className="caps text-[0.5625rem] text-subtle">{credit}</span>
-            ))}
+            {/* The credit always links to the studio that built the site. */}
+            {credit && (
+              <Link href={CREDIT_HREF} className="caps text-[0.5625rem] text-subtle transition-colors hover:text-heading">{credit}</Link>
+            )}
           </div>
         </div>
       </div>

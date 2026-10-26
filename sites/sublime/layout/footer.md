@@ -10,9 +10,8 @@ signoff:
   en: one flight up, just off Elgin
   fr: un étage plus haut, tout près de la rue Elgin
 credit:
-  en: Created by Proximify Studios
-  fr: Conçu par Proximify Studios
-creditHref: https://uniweb.studio
+  en: Created by Uniweb Studio
+  fr: Conçu par Uniweb Studio
 logo: /images/sublime-logo-paper.png
 badge:
   en: 20 Years
