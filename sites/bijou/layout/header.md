@@ -14,8 +14,10 @@ logoOnDark: /images/bijou-poodle-light.png
 # For now the boutique is served under /shop/ on Sublime Hair Studio's
 # domain, and this bar leads back up to the salon. `/../` is the site one
 # level up; drop both lines when the boutique moves to its own domain.
-returnLabel: Back to Sublime Hair Studio
-returnHref: /../
+# Coming soon: the "Back to Sublime Hair Studio" bar is off for now. To bring
+# it back, restore these two lines:
+#   returnLabel: Back to Sublime Hair Studio
+#   returnHref: /../
 ---
 
 <!-- The whole nav, in order: the first half sits left of the logo, the
