@@ -25,15 +25,15 @@ targets:
     backend: https://uniweb.app
 deploys:
   production:
-    at: 2026-10-26T13:50:28.700Z
+    at: 2026-10-26T13:56:26.553Z
     host: uniweb
     git:
-      sha: 842fc49b739af2195d9d38641c02d5ba4fc87558
+      sha: 580b6ecf79252d3c335f28ed54d5f2f79c132b0b
       dirty: true
     backend: https://uniweb.app
     siteUuid: 01a15a12-2e65-7032-8465-d9f3039ce957
     url: https://bijou-boutique.uniweb.pro/
     foundation:
-      ref: "@studio/sublime@0.1.12"
+      ref: "@studio/sublime@0.1.13"
       released: true
 saveDeploys: true
