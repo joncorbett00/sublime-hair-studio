@@ -8,7 +8,7 @@ buttonLabel: Notify me
 thanks: Lovely — we'll write the moment the doors open.
 ---
 
-#> Bijou Boutique · Ottawa
+#> Bijou Boutique
 
 # Good things are [coming soon]{accent}
 
